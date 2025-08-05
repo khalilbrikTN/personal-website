@@ -366,3 +366,98 @@ activeNavStyles.textContent = `
     }
 `;
 document.head.appendChild(activeNavStyles); 
+
+// News Section Navigation - Updated for smaller cards
+document.addEventListener('DOMContentLoaded', () => {
+    const newsScrollWrapper = document.querySelector('.news-scroll-wrapper');
+    const prevBtn = document.getElementById('newsPrev');
+    const nextBtn = document.getElementById('newsNext');
+    
+    if (newsScrollWrapper && prevBtn && nextBtn) {
+        const cardWidth = 220 + 24; // card width + gap for smaller cards
+        
+        prevBtn.addEventListener('click', () => {
+            newsScrollWrapper.scrollBy({
+                left: -cardWidth * 3, // scroll 3 cards at a time
+                behavior: 'smooth'
+            });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            newsScrollWrapper.scrollBy({
+                left: cardWidth * 3, // scroll 3 cards at a time
+                behavior: 'smooth'
+            });
+        });
+        
+        // Update navigation button states
+        const updateNavButtons = () => {
+            const scrollLeft = newsScrollWrapper.scrollLeft;
+            const maxScroll = newsScrollWrapper.scrollWidth - newsScrollWrapper.clientWidth;
+            
+            prevBtn.disabled = scrollLeft <= 0;
+            nextBtn.disabled = scrollLeft >= maxScroll - 5; // 5px tolerance
+        };
+        
+        newsScrollWrapper.addEventListener('scroll', updateNavButtons);
+        updateNavButtons(); // Initial state
+        
+        // Touch/swipe support for mobile
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        newsScrollWrapper.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - newsScrollWrapper.offsetLeft;
+            scrollLeft = newsScrollWrapper.scrollLeft;
+            newsScrollWrapper.style.cursor = 'grabbing';
+        });
+        
+        newsScrollWrapper.addEventListener('mouseleave', () => {
+            isDown = false;
+            newsScrollWrapper.style.cursor = 'grab';
+        });
+        
+        newsScrollWrapper.addEventListener('mouseup', () => {
+            isDown = false;
+            newsScrollWrapper.style.cursor = 'grab';
+        });
+        
+        newsScrollWrapper.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - newsScrollWrapper.offsetLeft;
+            const walk = (x - startX) * 2;
+            newsScrollWrapper.scrollLeft = scrollLeft - walk;
+        });
+    }
+});
+
+
+// News Card Click Handler
+function openNewsPage(newsId) {
+    // Create news pages folder if it doesn't exist
+    const newsUrl = `news/${newsId}.html`;
+    window.open(newsUrl, '_blank');
+}
+
+// Keyboard accessibility for news cards
+document.addEventListener('DOMContentLoaded', () => {
+    const newsCards = document.querySelectorAll('.news-card');
+    
+    newsCards.forEach((card, index) => {
+        // Make cards keyboard accessible
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Read more about ${card.querySelector('h3').textContent}`);
+        
+        // Handle keyboard events
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
+        });
+    });
+});
