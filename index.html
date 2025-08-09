@@ -166,26 +166,48 @@
 
             <!-- Social Links -->
             <div class="profile-social">
+              <!-- LinkedIn -->
               <a
                 href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/"
-                target="_blank"
                 class="profile-social-link linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="LinkedIn Profile"
               >
                 <i class="fab fa-linkedin-in"></i>
               </a>
+
+              <!-- GitHub -->
               <a
                 href="https://github.com/khalilbrikTN"
-                target="_blank"
                 class="profile-social-link github"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="GitHub Profile"
               >
                 <i class="fab fa-github"></i>
               </a>
+
+              <!-- ResearchGate -->
               <a
                 href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik"
-                target="_blank"
                 class="profile-social-link researchgate"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="ResearchGate Profile"
               >
                 <i class="fab fa-researchgate"></i>
+              </a>
+
+              <!-- Resume/CV Link -->
+              <a
+                href="https://drive.google.com/file/d/1wlc62FtVJjz-AlGfvc62NT7KRPWtEaDR/view?usp=sharing"
+                class="profile-social-link resume"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View Resume"
+              >
+                <i class="fas fa-file-pdf"></i>
               </a>
             </div>
           </div>
@@ -273,21 +295,17 @@
         <div class="news-container">
           <div class="news-scroll-wrapper">
             <div class="news-grid">
-              <div class="news-card" onclick="openNewsPage('Bac')">
+              <div class="news-card" onclick="openNewsPage('NASA_course')">
                 <div class="news-image">
-                  <img
-                    src="Resources/bac.png"
-                    alt="Baccalaureate Achievement"
-                  />
+                  <img src="Resources/Nasa1.jpg" alt="ADIB Internship" />
                 </div>
                 <div class="news-content">
-                  <h3>Received the Baccalaureate Examination</h3>
+                  <h3>NASA Course</h3>
                   <p>
-                    I successfully received my
-                    <strong>Baccalaureate Examination</strong> with an average
-                    of <strong>16.89/20</strong> and "Very Good" distinction!
+                    Accepted into NASA's Student Research Program collaborating
+                    on ATLAS mission to Saturn's moon Titan.
                   </p>
-                  <div class="news-date">June, 2022</div>
+                  <div class="news-date">March, 2025</div>
                 </div>
                 <div class="news-overlay">
                   <i class="fas fa-external-link-alt"></i>
@@ -311,40 +329,6 @@
                     in Pittsburgh, USA !
                   </p>
                   <div class="news-date">April, 2025</div>
-                </div>
-                <div class="news-overlay">
-                  <i class="fas fa-external-link-alt"></i>
-                </div>
-              </div>
-
-              <div class="news-card" onclick="openNewsPage('AUC')">
-                <div class="news-image">
-                  <img src="Resources/Adib1.jpg" alt="AUC" />
-                </div>
-                <div class="news-content">
-                  <h3>Joined AUC</h3>
-                  <p>
-                    🏆 ProcTHOR won the
-                    <strong>Outstanding Paper Award</strong> at NeurIPS 2022!
-                  </p>
-                  <div class="news-date">September, 2022</div>
-                </div>
-                <div class="news-overlay">
-                  <i class="fas fa-external-link-alt"></i>
-                </div>
-              </div>
-
-              <div class="news-card" onclick="openNewsPage('NASA_course')">
-                <div class="news-image">
-                  <img src="Resources/Nasa1.jpg" alt="ADIB Internship" />
-                </div>
-                <div class="news-content">
-                  <h3>NASA Course</h3>
-                  <p>
-                    Accepted into NASA's Student Research Program collaborating
-                    on ATLAS mission to Saturn's moon Titan.
-                  </p>
-                  <div class="news-date">March, 2025</div>
                 </div>
                 <div class="news-overlay">
                   <i class="fas fa-external-link-alt"></i>
@@ -387,6 +371,44 @@
                   <h3>DiasPÜra internship</h3>
                   <p>HOLDER HOLDER</p>
                   <div class="news-date">July, 2024</div>
+                </div>
+                <div class="news-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+
+              <div class="news-card" onclick="openNewsPage('AUC')">
+                <div class="news-image">
+                  <img src="Resources/Adib1.jpg" alt="AUC" />
+                </div>
+                <div class="news-content">
+                  <h3>Joined AUC</h3>
+                  <p>
+                    🏆 ProcTHOR won the
+                    <strong>Outstanding Paper Award</strong> at NeurIPS 2022!
+                  </p>
+                  <div class="news-date">September, 2022</div>
+                </div>
+                <div class="news-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+
+              <div class="news-card" onclick="openNewsPage('Bac')">
+                <div class="news-image">
+                  <img
+                    src="Resources/bac.png"
+                    alt="Baccalaureate Achievement"
+                  />
+                </div>
+                <div class="news-content">
+                  <h3>Received the Baccalaureate Examination</h3>
+                  <p>
+                    I successfully received my
+                    <strong>Baccalaureate Examination</strong> with an average
+                    of <strong>16.89/20</strong> and "Very Good" distinction!
+                  </p>
+                  <div class="news-date">June, 2022</div>
                 </div>
                 <div class="news-overlay">
                   <i class="fas fa-external-link-alt"></i>
@@ -1325,67 +1347,79 @@
           <div class="contact-info">
             <h3>Let's Connect</h3>
             <p>
-              I'm always interested in new opportunities, collaborations, or
-              just a friendly chat about technology. Feel free to reach out!
+              I'm always interested in discussing new opportunities, research
+              collaborations, or innovative projects. Feel free to reach out if
+              you'd like to connect!
             </p>
             <div class="contact-details">
               <div class="contact-item">
-                <i class="fas fa-university"></i>
-                <span>The American University in Cairo</span>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Computer Science (Mathematics Minor)</span>
+                <i class="fas fa-envelope"></i>
+                <span>mohamed.khalil.brik@student.auc.edu.eg</span>
               </div>
               <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>Cairo, Egypt</span>
               </div>
+              <div class="contact-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Computer Science Student at AUC</span>
+              </div>
             </div>
           </div>
-          <div class="contact-form">
-            <form id="contactForm">
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Your Message"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">
-                Send Message
-              </button>
-            </form>
-          </div>
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/xpwlkaoy"
+            method="POST"
+          >
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Formspree honeypot field to prevent spam -->
+            <input type="text" name="_gotcha" style="display: none" />
+
+            <!-- Optional: Customize the thank you page -->
+            <input
+              type="hidden"
+              name="_next"
+              value="https://your-website.github.io/thank-you.html"
+            />
+
+            <!-- Optional: Set a custom subject line -->
+            <input
+              type="hidden"
+              name="_subject"
+              value="New contact form submission"
+            />
+
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
         </div>
       </div>
     </section>
@@ -1395,20 +1429,40 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-social">
-            <a href="https://github.com/khalilbrikTN" class="social-link"
-              ><i class="fab fa-github"></i
-            ></a>
             <a
               href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/"
               class="social-link"
-              ><i class="fab fa-linkedin"></i
-            ></a>
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/khalilbrikTN"
+              class="social-link"
+              target="_blank"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
             <a
               href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik"
               class="social-link"
-              ><i class="fas fa-flask"></i
-            ></a>
+              target="_blank"
+              title="ResearchGate"
+            >
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1wlc62FtVJjz-AlGfvc62NT7KRPWtEaDR/view?usp=sharing"
+              class="social-link"
+              target="_blank"
+              title="Resume"
+            >
+              <i class="fas fa-file-pdf"></i>
+            </a>
           </div>
+
           <p class="footer-text">
             © 2025 Mohamed Khalil Brik. All rights reserved.
           </p>

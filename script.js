@@ -461,3 +461,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Add this to a new file called 'contact.js' or include in your existing JS
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form');
+    const submitBtn = form.querySelector('.btn');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    form.addEventListener('submit', function(e) {
+        // Add submitting state
+        form.classList.add('form-submitting');
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        
+        // Optional: Add analytics tracking
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', {
+                'event_category': 'Contact',
+                'event_label': 'Contact Form'
+            });
+        }
+    });
+    
+    // Reset form state if user navigates back
+    window.addEventListener('pageshow', function() {
+        form.classList.remove('form-submitting');
+        submitBtn.innerHTML = originalBtnText;
+    });
+});
