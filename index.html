@@ -1367,11 +1367,9 @@
             </div>
           </div>
 
-          <form
-            class="contact-form"
-            action="https://formspree.io/f/xpwlkaoy"
-            method="POST"
-          >
+          <form class="contact-form" id="contact-form">
+            <div id="form-messages"></div>
+
             <div class="form-group">
               <input type="text" name="name" placeholder="Your Name" required />
             </div>
@@ -1399,24 +1397,7 @@
               ></textarea>
             </div>
 
-            <!-- Formspree honeypot field to prevent spam -->
-            <input type="text" name="_gotcha" style="display: none" />
-
-            <!-- Optional: Customize the thank you page -->
-            <input
-              type="hidden"
-              name="_next"
-              value="https://your-website.github.io/thank-you.html"
-            />
-
-            <!-- Optional: Set a custom subject line -->
-            <input
-              type="hidden"
-              name="_subject"
-              value="New contact form submission"
-            />
-
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" id="submit-btn">
               <i class="fas fa-paper-plane"></i> Send Message
             </button>
           </form>

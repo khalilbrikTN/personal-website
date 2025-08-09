@@ -489,3 +489,46 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = originalBtnText;
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const messagesDiv = document.getElementById('form-messages');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Prepare form data
+        const formData = new FormData(form);
+        formData.append('_subject', 'New contact form submission');
+        
+        // Submit to Formspree
+        fetch('https://formspree.io/f/xpwlkaoy', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                messagesDiv.innerHTML = '<div style="color: green; padding: 1rem; background: #f0fff4; border: 1px solid #68d391; border-radius: 8px; margin-bottom: 1rem;">Thank you! Your message has been sent successfully.</div>';
+                form.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(error => {
+            messagesDiv.innerHTML = '<div style="color: red; padding: 1rem; background: #fed7d7; border: 1px solid #fc8181; border-radius: 8px; margin-bottom: 1rem;">Sorry, there was an error sending your message. Please try again.</div>';
+        })
+        .finally(() => {
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            submitBtn.disabled = false;
+        });
+    });
+});
+
