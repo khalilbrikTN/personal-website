@@ -5,14 +5,285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cybersecurity Internship at ADIB Egypt</title>
     <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="article-styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <style>
+      /* Grid-based layout styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #667eea;
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-weight: 500;
+      }
+
+      .back-button:hover {
+        color: #5a67d8;
+      }
+
+      .article-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        color: #2d3748;
+        margin-bottom: 1rem;
+      }
+
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        color: #718096;
+        margin-bottom: 2rem;
+      }
+
+      .article-image {
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 0 auto 3rem auto;
+        display: block;
+      }
+
+      /* Achievement cards */
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 3rem 0;
+      }
+
+      .achievement-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .achievement-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .achievement-text {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      /* Content grid */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .info-card {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid #667eea;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .info-card ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .info-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+      }
+
+      /* Skills grid */
+      .skills-section {
+        margin: 3rem 0;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .skill-category {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+        border: 2px solid #e2e8f0;
+      }
+
+      .skill-category h4 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .tag {
+        background: #667eea;
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Projects grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .project-card {
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .project-card h4 {
+        color: #667eea;
+        margin-bottom: 1rem;
+      }
+
+      /* Mentors section */
+      .mentors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .mentor-card {
+        background: linear-gradient(145deg, #f8f9fa 0%, #e2e8f0 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+        border: 2px solid #667eea;
+      }
+
+      .mentor-name {
+        color: #667eea;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .mentor-role {
+        color: #718096;
+        font-size: 0.9rem;
+      }
+
+      /* Section headers */
+      .section-header {
+        text-align: center;
+        margin: 3rem 0 2rem 0;
+      }
+
+      .section-header h2 {
+        color: #2d3748;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        margin: 1rem auto;
+        border-radius: 2px;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .achievements-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .container {
+          padding: 1rem;
+        }
+      }
+
+      /* Intro section */
+      .intro-section {
+        background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .intro-section p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #4a5568;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    </style>
   </head>
   <body>
-    <div class="container" style="padding: 2rem 0">
+    <div class="container">
       <a href="../index.html#news" class="back-button">
         <i class="fas fa-arrow-left"></i>
         Back to Website
@@ -22,13 +293,14 @@
         <header class="article-header">
           <h1 class="article-title">Cybersecurity Internship at ADIB Egypt</h1>
           <div class="article-meta">
-            <span><i class="fas fa-calendar-alt"></i> Summer 2025</span>
+            <span><i class="fas fa-calendar-alt"></i> Summer 2024</span>
             <span
               ><i class="fas fa-building"></i> Abu Dhabi Islamic Bank -
               Egypt</span
             >
             <span><i class="fas fa-user"></i> Mohamed Khalil Brik</span>
           </div>
+          <div class="divider"></div>
         </header>
 
         <img
@@ -37,580 +309,334 @@
           class="article-image"
         />
 
-        <div class="article-content">
-          <p>
-            I just finished an incredible internship at
-            <strong>Abu Dhabi Islamic Bank - Egypt (ADIB)</strong>, where I had
-            the opportunity to dive deep into cybersecurity and gain hands-on
-            experience in one of the most critical fields in modern banking and
-            finance. This transformative experience has significantly enhanced
-            my technical skills while providing invaluable insights into
-            enterprise-level cybersecurity operations.
-          </p>
+        <!-- Key Achievements -->
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <span class="achievement-number">60%</span>
+            <p class="achievement-text">
+              Efficiency Increase in Identity Access Management
+            </p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">5+</span>
+            <p class="achievement-text">Major Security Projects Completed</p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">C-Level</span>
+            <p class="achievement-text">Presentations to Senior Leadership</p>
+          </div>
+        </div>
 
-          <h2>About Abu Dhabi Islamic Bank - Egypt</h2>
+        <!-- Introduction -->
+        <div class="intro-section">
           <p>
-            Abu Dhabi Islamic Bank (ADIB) Egypt is an award-winning financial
-            institution that began operations in Egypt after acquiring the
-            National Bank for Development (NBD) in 2007. As part of a consortium
-            between Abu Dhabi Islamic Bank and Emirates International Investment
-            Company (EIIC), ADIB Egypt has established itself as the largest
-            Islamic bank in Egypt.
+            I completed an incredible cybersecurity internship at
+            <strong>Abu Dhabi Islamic Bank - Egypt (ADIB)</strong>, gaining
+            hands-on experience in enterprise-level cybersecurity operations
+            while contributing to measurable business outcomes and learning from
+            industry experts.
           </p>
+        </div>
 
-          <p>
-            With over 2,000 employees serving customers through a nationwide
-            network of 70 branches and 40 microfinance units, ADIB Egypt
-            represents a leading example of modern Islamic banking. The bank's
-            commitment to providing Shari'a compliant banking solutions while
-            maintaining cutting-edge technological infrastructure makes it an
-            ideal environment for learning about cybersecurity in the financial
-            sector.
-          </p>
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+          <!-- Left Column -->
+          <div class="content-left">
+            <div class="info-card">
+              <h3><i class="fas fa-building"></i> About ADIB Egypt</h3>
+              <p>
+                Abu Dhabi Islamic Bank (ADIB) Egypt is the
+                <strong>largest Islamic bank in Egypt</strong>, serving
+                customers through a nationwide network of
+                <strong>70 branches</strong> and
+                <strong>40 microfinance units</strong> with over
+                <strong>2,000 employees</strong>.
+              </p>
+              <p>
+                Established after acquiring NBD in 2007, ADIB Egypt represents
+                cutting-edge Shari'a-compliant banking with modern technological
+                infrastructure.
+              </p>
+            </div>
 
-          <h2>Internship Overview and Scope</h2>
-          <p>
-            My internship focused on cybersecurity operations within one of
-            Egypt's most prominent financial institutions. The experience
-            provided comprehensive exposure to enterprise-level security
-            challenges, from automated process development to advanced threat
-            detection and mitigation strategies.
-          </p>
+            <div class="info-card">
+              <h3><i class="fas fa-shield-alt"></i> Core Focus Areas</h3>
+              <ul>
+                <li>
+                  <strong>Process Automation:</strong> Streamlining
+                  cybersecurity operations
+                </li>
+                <li>
+                  <strong>Identity Access Management:</strong> Enhanced security
+                  solutions
+                </li>
+                <li>
+                  <strong>Vulnerability Assessment:</strong> Security weakness
+                  identification
+                </li>
+                <li>
+                  <strong>Threat Intelligence:</strong> Advanced detection
+                  techniques
+                </li>
+                <li>
+                  <strong>AI in Cybersecurity:</strong> ML applications for data
+                  protection
+                </li>
+              </ul>
+            </div>
 
-          <div
-            style="
-              background: #f8f9fa;
-              padding: 2rem;
-              border-radius: 10px;
-              margin: 2rem 0;
-            "
-          >
-            <h4 style="color: #667eea; margin-bottom: 1rem">
-              <i class="fas fa-shield-alt"></i> Internship Focus Areas
+            <div class="info-card">
+              <h3><i class="fas fa-chart-line"></i> Measurable Impact</h3>
+              <ul>
+                <li>
+                  <strong>60% efficiency increase</strong> in Identity Access
+                  Management
+                </li>
+                <li>
+                  <strong>Multiple automation scripts</strong> deployed
+                  successfully
+                </li>
+                <li>
+                  <strong>Comprehensive vulnerability reports</strong> delivered
+                  to CIO
+                </li>
+                <li>
+                  <strong>AI-powered data protection</strong> solutions
+                  implemented
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="content-right">
+            <div class="info-card">
+              <h3><i class="fas fa-tasks"></i> Key Projects</h3>
+              <ul>
+                <li>
+                  <strong>Python & Django IAM System:</strong> Boosted team
+                  efficiency by 60%
+                </li>
+                <li>
+                  <strong>Automated Security Scripts:</strong> Email systems &
+                  IP blocking
+                </li>
+                <li>
+                  <strong>Vulnerability Assessments:</strong> Infrastructure
+                  security evaluation
+                </li>
+                <li>
+                  <strong>Threat Intelligence Platform:</strong> Proactive
+                  threat detection
+                </li>
+                <li>
+                  <strong>AI Data Leakage Detection:</strong> ML-powered
+                  communication analysis
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="fas fa-presentation"></i> Knowledge Sharing</h3>
+              <ul>
+                <li>
+                  <strong>Phishing Attacks:</strong> Detection & prevention
+                  strategies
+                </li>
+                <li>
+                  <strong>Malware Analysis:</strong> Identification &
+                  containment
+                </li>
+                <li>
+                  <strong>Social Engineering:</strong> Awareness & defense
+                  techniques
+                </li>
+                <li>
+                  <strong>Network Security:</strong> Infrastructure protection
+                </li>
+                <li>
+                  <strong>Incident Response:</strong> Data breach procedures
+                </li>
+                <li><strong>Compliance:</strong> Banking security standards</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="fas fa-graduation-cap"></i> Professional Growth</h3>
+              <ul>
+                <li>
+                  <strong>Industry Knowledge:</strong> Banking cybersecurity
+                  expertise
+                </li>
+                <li>
+                  <strong>Technical Skills:</strong> Enterprise security tools
+                </li>
+                <li>
+                  <strong>Problem Solving:</strong> Complex security challenges
+                </li>
+                <li>
+                  <strong>Leadership Communication:</strong> C-level
+                  presentations
+                </li>
+                <li>
+                  <strong>AI Integration:</strong> Advanced security
+                  applications
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section-header">
+          <h2>Technical Skills & Technologies</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4><i class="fas fa-code"></i> Development & Automation</h4>
+            <div class="skill-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django Framework</span>
+              <span class="tag">Process Automation</span>
+              <span class="tag">Script Development</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fas fa-search"></i> Security Assessment</h4>
+            <div class="skill-tags">
+              <span class="tag">Vulnerability Scanning</span>
+              <span class="tag">Penetration Testing</span>
+              <span class="tag">Risk Analysis</span>
+              <span class="tag">Security Auditing</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fas fa-brain"></i> AI & Intelligence</h4>
+            <div class="skill-tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Threat Detection</span>
+              <span class="tag">Data Analysis</span>
+              <span class="tag">Pattern Recognition</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fas fa-shield-alt"></i> Cybersecurity Operations</h4>
+            <div class="skill-tags">
+              <span class="tag">Threat Intelligence</span>
+              <span class="tag">Incident Response</span>
+              <span class="tag">Identity Management</span>
+              <span class="tag">Network Security</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Major Projects -->
+        <div class="section-header">
+          <h2>Major Project Achievements</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <h4>
+              <i class="fas fa-user-shield"></i> Identity Access Management
+              System
             </h4>
-            <ul style="margin: 0">
-              <li>
-                <strong>Process Automation:</strong> Developing scripts to
-                streamline cybersecurity operations
-              </li>
-              <li>
-                <strong>Identity Access Management:</strong> Creating software
-                solutions for enhanced security
-              </li>
-              <li>
-                <strong>Vulnerability Assessment:</strong> Identifying and
-                addressing security weaknesses
-              </li>
-              <li>
-                <strong>Threat Intelligence:</strong> Learning advanced
-                techniques for threat detection and analysis
-              </li>
-              <li>
-                <strong>AI in Cybersecurity:</strong> Exploring machine learning
-                applications for data protection
-              </li>
-            </ul>
+            <p><strong>Impact:</strong> 60% efficiency increase</p>
+            <p><strong>Technology:</strong> Python, Django Framework</p>
+            <p>
+              Comprehensive software solution that revolutionized the IAM team's
+              workflow and security operations.
+            </p>
           </div>
 
-          <h2>Key Projects and Achievements</h2>
-          <p>
-            During my internship, I had the opportunity to work on several
-            high-impact projects that directly contributed to ADIB's
-            cybersecurity infrastructure:
-          </p>
-
-          <h3>Process Automation and Efficiency</h3>
-          <ul>
-            <li>
-              <strong>Automated Script Development:</strong> Developed and
-              implemented automated scripts to streamline internal cybersecurity
-              processes, including email communication systems and IP blocking
-              procedures, reducing manual workload and improving response times.
-            </li>
-            <li>
-              <strong>Identity Access Management Solution:</strong> Created a
-              comprehensive Python and Django-based software solution that
-              increased the Identity Access Management team's efficiency by an
-              impressive <strong>60%</strong>, directly impacting the bank's
-              security operations.
-            </li>
-          </ul>
-
-          <h3>Security Assessment and Strategy</h3>
-          <ul>
-            <li>
-              <strong>Vulnerability Assessments:</strong> Conducted thorough
-              vulnerability assessments across the bank's digital
-              infrastructure, identifying potential security gaps and developing
-              comprehensive mitigation strategies.
-            </li>
-            <li>
-              <strong>Executive Presentations:</strong> Prepared and presented
-              detailed findings and mitigation strategies directly to the
-              <strong>Chief Information Officer</strong>, demonstrating the
-              ability to communicate complex technical concepts to senior
-              leadership.
-            </li>
-          </ul>
-
-          <h3>Advanced Security Techniques</h3>
-          <ul>
-            <li>
-              <strong>Threat Intelligence:</strong> Learned and applied
-              cutting-edge techniques in threat intelligence gathering and
-              analysis, enhancing the bank's ability to proactively identify and
-              respond to potential threats.
-            </li>
-            <li>
-              <strong>Penetration Testing:</strong> Gained hands-on experience
-              in penetration testing methodologies and ethical hacking
-              techniques, contributing to the bank's security testing protocols.
-            </li>
-            <li>
-              <strong>AI-Powered Data Protection:</strong> Explored innovative
-              applications of artificial intelligence in detecting potential
-              data leakage within internal communication channels, bridging my
-              AI/ML background with cybersecurity applications.
-            </li>
-          </ul>
-
-          <h2>Technical Skills and Technologies</h2>
-          <div style="overflow-x: auto; margin: 2rem 0">
-            <table
-              style="
-                width: 100%;
-                border-collapse: collapse;
-                background: #f8f9fa;
-                border-radius: 10px;
-                overflow: hidden;
-              "
-            >
-              <thead>
-                <tr style="background: #667eea; color: white">
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Technology Category
-                  </th>
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Tools & Technologies
-                  </th>
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Applications
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>Programming & Development</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Python, Django Framework
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Identity Access Management system, automation scripts
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>Security Assessment</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Vulnerability scanners, penetration testing tools
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Infrastructure security evaluation and testing
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>Threat Intelligence</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Threat detection platforms, analysis tools
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Proactive threat identification and response
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>AI & Machine Learning</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    ML algorithms, data analysis tools
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Data leakage detection in communications
-                  </td>
-                </tr>
-                <tr style="background: #667eea; color: white">
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Process Automation
-                  </td>
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Scripting, workflow automation
-                  </td>
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Email systems, IP blocking, security operations
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="project-card">
+            <h4><i class="fas fa-robot"></i> Process Automation Suite</h4>
+            <p><strong>Impact:</strong> Multiple scripts deployed</p>
+            <p><strong>Technology:</strong> Python automation, Email systems</p>
+            <p>
+              Streamlined cybersecurity operations including email communication
+              and IP blocking procedures.
+            </p>
           </div>
 
-          <h2>Cross-Functional Collaboration and Business Impact</h2>
-          <p>
-            A significant aspect of my internship involved collaborating with
-            cross-functional teams to ensure that technical cybersecurity
-            solutions aligned with broader business objectives. This experience
-            taught me the importance of translating technical security
-            requirements into business value propositions.
-          </p>
-
-          <h3>Collaborative Achievements</h3>
-          <ul>
-            <li>
-              <strong>Business-Technical Alignment:</strong> Worked closely with
-              various departments to ensure cybersecurity implementations
-              supported operational efficiency while maintaining security
-              standards.
-            </li>
-            <li>
-              <strong>Stakeholder Communication:</strong> Developed skills in
-              communicating complex cybersecurity concepts to non-technical
-              stakeholders across different business units.
-            </li>
-            <li>
-              <strong>Solution Integration:</strong> Ensured that new security
-              solutions seamlessly integrated with existing banking systems and
-              workflows.
-            </li>
-          </ul>
-
-          <h2>Knowledge Sharing and Presentation Skills</h2>
-          <p>
-            Throughout the internship, I prepared and delivered comprehensive
-            presentations on various types of cyber attacks, including detailed
-            simulations and mitigation strategies. This experience enhanced my
-            ability to educate others about cybersecurity threats and defensive
-            measures.
-          </p>
-
-          <h3>Presentation Topics Covered</h3>
-          <div
-            style="
-              background: #f8f9fa;
-              padding: 2rem;
-              border-radius: 10px;
-              margin: 2rem 0;
-            "
-          >
-            <ul
-              style="
-                margin: 0;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1rem;
-              "
-            >
-              <li>
-                <strong>Phishing Attacks</strong> - Detection and prevention
-                strategies
-              </li>
-              <li>
-                <strong>Malware Analysis</strong> - Identification and
-                containment methods
-              </li>
-              <li>
-                <strong>Social Engineering</strong> - Awareness and defense
-                techniques
-              </li>
-              <li>
-                <strong>Network Security</strong> - Infrastructure protection
-                approaches
-              </li>
-              <li>
-                <strong>Data Breach Response</strong> - Incident response
-                procedures
-              </li>
-              <li>
-                <strong>Regulatory Compliance</strong> - Banking security
-                standards
-              </li>
-            </ul>
+          <div class="project-card">
+            <h4><i class="fas fa-bug"></i> Vulnerability Assessment Program</h4>
+            <p><strong>Impact:</strong> Comprehensive security reports</p>
+            <p><strong>Technology:</strong> Security scanning tools</p>
+            <p>
+              Thorough infrastructure evaluation with mitigation strategies
+              presented to senior leadership.
+            </p>
           </div>
 
-          <h2>Professional Development and Learning Outcomes</h2>
-          <p>
-            This internship has been instrumental in bridging the gap between my
-            academic background in computer science and artificial intelligence
-            with practical cybersecurity applications in the financial sector.
-            The experience has provided me with:
-          </p>
+          <div class="project-card">
+            <h4><i class="fas fa-brain"></i> AI-Powered Data Protection</h4>
+            <p><strong>Impact:</strong> Advanced threat detection</p>
+            <p><strong>Technology:</strong> Machine Learning, Data Analysis</p>
+            <p>
+              Innovative ML applications for detecting potential data leakage in
+              internal communications.
+            </p>
+          </div>
+        </div>
 
-          <ul>
-            <li>
-              <strong>Industry-Specific Knowledge:</strong> Deep understanding
-              of cybersecurity challenges unique to the banking and financial
-              services sector
-            </li>
-            <li>
-              <strong>Technical Expertise:</strong> Hands-on experience with
-              enterprise-level security tools, frameworks, and methodologies
-            </li>
-            <li>
-              <strong>Problem-Solving Skills:</strong> Enhanced ability to
-              identify, analyze, and solve complex cybersecurity challenges
-            </li>
-            <li>
-              <strong>Leadership Communication:</strong> Experience presenting
-              technical findings to C-level executives and senior management
-            </li>
-            <li>
-              <strong>AI-Security Integration:</strong> Understanding of how
-              artificial intelligence can enhance traditional cybersecurity
-              approaches
-            </li>
-          </ul>
+        <!-- Mentorship Section -->
+        <div class="section-header">
+          <h2>Exceptional Mentorship & Guidance</h2>
+          <div class="divider"></div>
+        </div>
 
-          <h2>Mentorship and Guidance</h2>
-          <p>
-            I am deeply grateful for the exceptional support and guidance
-            provided by my mentors throughout this internship. Their expertise,
-            patience, and commitment to my professional development made this
-            learning experience both challenging and rewarding.
-          </p>
-
-          <h3>Special Recognition</h3>
-          <p>
-            Special thanks to my incredible mentors who shaped this
-            transformative experience:
-          </p>
-
-          <ul>
-            <li>
-              <strong>Ahmed Barakat:</strong> Provided strategic guidance on
-              cybersecurity frameworks and helped me understand the broader
-              security landscape in banking operations.
-            </li>
-            <li>
-              <strong>Mai Tolba:</strong> Offered invaluable mentorship in
-              technical implementation and process optimization, directly
-              contributing to the success of my automation projects.
-            </li>
-            <li>
-              <strong>Mohamed Salah:</strong> Shared expertise in threat
-              intelligence and advanced security techniques, enhancing my
-              understanding of proactive cybersecurity measures.
-            </li>
-          </ul>
-
-          <p>
-            Their collective mentorship not only enhanced my technical skills
-            but also provided insights into professional growth, career
-            development, and the importance of continuous learning in the
-            rapidly evolving cybersecurity field.
-          </p>
-
-          <h2>Impact and Measurable Results</h2>
-          <p>
-            The internship produced several quantifiable outcomes that
-            demonstrate the value of the projects and initiatives I contributed
-            to:
-          </p>
-
-          <div style="overflow-x: auto; margin: 2rem 0">
-            <table
-              style="
-                width: 100%;
-                border-collapse: collapse;
-                background: #f8f9fa;
-                border-radius: 10px;
-                overflow: hidden;
-              "
-            >
-              <thead>
-                <tr style="background: #667eea; color: white">
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Project Area
-                  </th>
-                  <th style="padding: 1rem; text-align: center; border: none">
-                    Impact Achieved
-                  </th>
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Business Value
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    Identity Access Management
-                  </td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                      color: #667eea;
-                    "
-                  >
-                    60% Efficiency Increase
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Reduced manual workload, faster security responses
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    Process Automation
-                  </td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                      color: #667eea;
-                    "
-                  >
-                    Multiple Scripts Deployed
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Streamlined operations, reduced human error
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    Vulnerability Assessment
-                  </td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                      color: #667eea;
-                    "
-                  >
-                    Comprehensive Reports
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Enhanced security posture, risk mitigation
-                  </td>
-                </tr>
-                <tr style="background: #667eea; color: white">
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Overall Impact
-                  </td>
-                  <td
-                    style="
-                      padding: 1rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    Significant
-                  </td>
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Improved security operations across multiple domains
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="mentors-grid">
+          <div class="mentor-card">
+            <div class="mentor-name">Ahmed Barakat</div>
+            <div class="mentor-role">
+              Strategic Guidance & Cybersecurity Frameworks
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Provided strategic insights into banking security operations and
+              broader cybersecurity landscape.
+            </p>
           </div>
 
-          <h2>Integration with Academic Background</h2>
+          <div class="mentor-card">
+            <div class="mentor-name">Mai Tolba</div>
+            <div class="mentor-role">
+              Technical Implementation & Process Optimization
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Invaluable mentorship in technical development and automation
+              project success.
+            </p>
+          </div>
+
+          <div class="mentor-card">
+            <div class="mentor-name">Mohamed Salah</div>
+            <div class="mentor-role">
+              Threat Intelligence & Advanced Security
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Shared expertise in proactive cybersecurity measures and threat
+              intelligence techniques.
+            </p>
+          </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="intro-section" style="margin-top: 3rem">
           <p>
-            This cybersecurity internship created valuable synergies with my
-            academic pursuits and previous research experiences. The combination
-            of my computer science foundation, machine learning expertise, and
-            emergency response research provided a unique perspective on
-            cybersecurity challenges:
-          </p>
-
-          <ul>
-            <li>
-              <strong>AI-Enhanced Security:</strong> Applied machine learning
-              knowledge to develop innovative approaches for data leakage
-              detection
-            </li>
-            <li>
-              <strong>Research Methodology:</strong> Utilized research skills
-              gained from NCUR presentations to conduct thorough vulnerability
-              assessments
-            </li>
-            <li>
-              <strong>System Design:</strong> Leveraged software development
-              experience to create efficient, scalable security solutions
-            </li>
-            <li>
-              <strong>Data Analysis:</strong> Applied statistical and analytical
-              skills to threat intelligence and security metrics evaluation
-            </li>
-          </ul>
-
-          <h2>Future Applications and Career Impact</h2>
-          <p>
-            This internship has significantly shaped my understanding of
-            cybersecurity as a critical component of modern technology
-            infrastructure. The experience has opened new career pathways and
-            research opportunities at the intersection of artificial
-            intelligence, cybersecurity, and financial technology.
-          </p>
-
-          <h3>Future Directions</h3>
-          <ul>
-            <li>
-              <strong>AI-Powered Security Research:</strong> Exploring advanced
-              applications of machine learning in threat detection and incident
-              response
-            </li>
-            <li>
-              <strong>Financial Technology Security:</strong> Investigating
-              cybersecurity challenges specific to digital banking and fintech
-              innovations
-            </li>
-            <li>
-              <strong>Automated Security Operations:</strong> Developing
-              intelligent systems for autonomous threat response and mitigation
-            </li>
-            <li>
-              <strong>Cross-Disciplinary Applications:</strong> Applying
-              cybersecurity principles to other domains such as emergency
-              response systems
-            </li>
-          </ul>
-
-          <h2>Reflection and Moving Forward</h2>
-          <p>
-            This internship at Abu Dhabi Islamic Bank - Egypt has been a
-            transformative experience that has significantly broadened my
-            technical expertise while providing valuable insights into
-            enterprise cybersecurity operations. The opportunity to work with
-            cutting-edge security technologies, contribute to measurable
-            business outcomes, and learn from experienced professionals has
-            prepared me for the next phase of my academic and professional
-            journey.
-          </p>
-
-          <p>
-            The combination of technical skills gained, professional
-            relationships built, and industry insights acquired will undoubtedly
-            influence my future research directions and career choices. I'm
-            excited to continue applying these skills and knowledge to tackle
-            complex cybersecurity challenges and contribute to the development
-            of more secure, intelligent systems.
-          </p>
-
-          <p>
-            I'm grateful for this incredible opportunity and looking forward to
-            applying these newfound skills in future endeavors, whether in
-            academic research, industry applications, or entrepreneurial
-            ventures. The journey in cybersecurity has just begun, and I'm
-            excited about the possibilities ahead! 🔐🚀
+            This transformative internship at ADIB Egypt has significantly
+            broadened my technical expertise, provided valuable enterprise
+            cybersecurity insights, and prepared me for the next phase of my
+            academic and professional journey. The combination of technical
+            skills gained, professional relationships built, and industry
+            knowledge acquired will undoubtedly influence my future research
+            directions and career choices. 🔐🚀
           </p>
         </div>
       </article>

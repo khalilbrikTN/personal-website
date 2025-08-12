@@ -5,14 +5,521 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Received the Baccalaureate Examination</title>
     <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="article-styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <style>
+      /* Customizable CSS Variables for Academic Achievement Theme */
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --tunisia-red: #e11d48;
+        --academic-gold: #f59e0b;
+        --excellence-green: #059669;
+        --mathematics-blue: #3b82f6;
+        --background-light: #f8f9fa;
+        --background-white: #ffffff;
+        --text-dark: #2d3748;
+        --text-medium: #4a5568;
+        --text-light: #718096;
+        --border-color: #e2e8f0;
+        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+        --shadow-medium: 0 4px 15px rgba(102, 126, 234, 0.3);
+        --shadow-tunisia: 0 4px 15px rgba(225, 29, 72, 0.3);
+        --border-radius: 12px;
+        --border-radius-large: 15px;
+        --spacing-small: 1rem;
+        --spacing-medium: 1.5rem;
+        --spacing-large: 2rem;
+        --spacing-xl: 3rem;
+      }
+
+      /* Grid-based layout styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-large);
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--tunisia-red);
+        text-decoration: none;
+        margin-bottom: var(--spacing-large);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .back-button:hover {
+        color: var(--academic-gold);
+      }
+
+      .article-header {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: var(--spacing-small);
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-large);
+        flex-wrap: wrap;
+        color: var(--text-light);
+        margin-bottom: var(--spacing-large);
+      }
+
+      .article-image {
+        width: 100%;
+        max-width: 600px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+        margin: 0 auto var(--spacing-xl) auto;
+        display: block;
+        box-shadow: var(--shadow-light);
+      }
+
+      /* Achievement cards with Tunisia/academic theme */
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-xl) 0;
+      }
+
+      .achievement-card {
+        background: linear-gradient(
+          135deg,
+          var(--tunisia-red) 0%,
+          #be123c 100%
+        );
+        color: white;
+        padding: var(--spacing-large) var(--spacing-medium);
+        border-radius: var(--border-radius-large);
+        text-align: center;
+        box-shadow: var(--shadow-tunisia);
+        transition: transform 0.3s ease;
+      }
+
+      .achievement-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .achievement-card.gold-card {
+        background: linear-gradient(
+          135deg,
+          var(--academic-gold) 0%,
+          #d97706 100%
+        );
+      }
+
+      .achievement-card.excellence-card {
+        background: linear-gradient(
+          135deg,
+          var(--excellence-green) 0%,
+          #047857 100%
+        );
+      }
+
+      .achievement-card.math-card {
+        background: linear-gradient(
+          135deg,
+          var(--mathematics-blue) 0%,
+          #1d4ed8 100%
+        );
+      }
+
+      .achievement-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .achievement-text {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      /* Content grid */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-large);
+        margin: var(--spacing-large) 0;
+      }
+
+      .info-card {
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-medium);
+        margin-bottom: var(--spacing-medium);
+        border-left: 4px solid var(--tunisia-red);
+        box-shadow: var(--shadow-light);
+        transition: transform 0.2s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .info-card.gold-themed {
+        border-left-color: var(--academic-gold);
+      }
+
+      .info-card.math-themed {
+        border-left-color: var(--mathematics-blue);
+      }
+
+      .info-card.excellence-themed {
+        border-left-color: var(--excellence-green);
+      }
+
+      .info-card h3 {
+        color: var(--tunisia-red);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .info-card.gold-themed h3 {
+        color: var(--academic-gold);
+      }
+
+      .info-card.math-themed h3 {
+        color: var(--mathematics-blue);
+      }
+
+      .info-card.excellence-themed h3 {
+        color: var(--excellence-green);
+      }
+
+      .info-card ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .info-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        color: var(--text-medium);
+      }
+
+      .info-card p {
+        color: var(--text-medium);
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+      }
+
+      /* Curriculum section */
+      .curriculum-section {
+        margin: var(--spacing-xl) 0;
+      }
+
+      .curriculum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .curriculum-card {
+        background: var(--background-white);
+        padding: var(--spacing-medium);
+        border-radius: var(--border-radius);
+        text-align: center;
+        border: 2px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .curriculum-card:hover {
+        border-color: var(--tunisia-red);
+        box-shadow: var(--shadow-light);
+        transform: translateY(-2px);
+      }
+
+      .curriculum-card.math-highlight {
+        border-color: var(--mathematics-blue);
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1) 0%,
+          rgba(29, 78, 216, 0.1) 100%
+        );
+      }
+
+      .curriculum-card h4 {
+        color: var(--tunisia-red);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .curriculum-card.math-highlight h4 {
+        color: var(--mathematics-blue);
+      }
+
+      .curriculum-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: var(--spacing-small);
+      }
+
+      .tag {
+        background: var(--tunisia-red);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .tag.gold-tag {
+        background: var(--academic-gold);
+      }
+
+      .tag.math-tag {
+        background: var(--mathematics-blue);
+      }
+
+      .tag.excellence-tag {
+        background: var(--excellence-green);
+      }
+
+      /* Results table */
+      .results-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        margin: var(--spacing-large) 0;
+      }
+
+      .results-table thead tr {
+        background: linear-gradient(
+          135deg,
+          var(--tunisia-red) 0%,
+          #be123c 100%
+        );
+        color: white;
+      }
+
+      .results-table th,
+      .results-table td {
+        padding: var(--spacing-small);
+        text-align: left;
+        border: none;
+      }
+
+      .results-table th:last-child,
+      .results-table td:last-child {
+        text-align: center;
+      }
+
+      .results-table tbody tr {
+        border-bottom: 1px solid var(--border-color);
+        transition: background-color 0.2s ease;
+      }
+
+      .results-table tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+
+      .results-table .final-row {
+        background: linear-gradient(
+          135deg,
+          var(--tunisia-red) 0%,
+          #be123c 100%
+        );
+        color: white;
+        font-weight: bold;
+      }
+
+      .results-table .final-row td {
+        padding: var(--spacing-small);
+        font-size: 1.1rem;
+      }
+
+      /* Baccalaureate highlight section */
+      .bac-highlight {
+        background: linear-gradient(
+          135deg,
+          rgba(225, 29, 72, 0.1) 0%,
+          rgba(190, 18, 60, 0.1) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-large) 0;
+        text-align: center;
+        border: 2px solid var(--tunisia-red);
+      }
+
+      .bac-highlight h3 {
+        color: var(--tunisia-red);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.3rem;
+      }
+
+      .bac-highlight p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Section headers */
+      .section-header {
+        text-align: center;
+        margin: var(--spacing-xl) 0 var(--spacing-large) 0;
+      }
+
+      .section-header h2 {
+        color: var(--text-dark);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--tunisia-red),
+          var(--academic-gold)
+        );
+        margin: var(--spacing-small) auto;
+        border-radius: 2px;
+      }
+
+      /* Excellence showcase */
+      .excellence-showcase {
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.1) 0%,
+          rgba(217, 119, 6, 0.1) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-large) 0;
+        border: 2px solid var(--academic-gold);
+      }
+
+      .excellence-showcase h4 {
+        color: var(--academic-gold);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      /* Conclusion section */
+      .conclusion-section {
+        background: linear-gradient(
+          135deg,
+          rgba(225, 29, 72, 0.15) 0%,
+          rgba(245, 158, 11, 0.15) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-xl) 0;
+        text-align: center;
+        border: 2px solid var(--tunisia-red);
+      }
+
+      .conclusion-section p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto var(--spacing-small) auto;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        :root {
+          --spacing-large: 1.5rem;
+          --spacing-xl: 2rem;
+        }
+
+        .container {
+          padding: var(--spacing-small);
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-small);
+        }
+
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .achievements-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .curriculum-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .results-table {
+          font-size: 0.9rem;
+        }
+
+        .results-table th,
+        .results-table td {
+          padding: 0.75rem;
+        }
+      }
+
+      /* Table container for mobile scrolling */
+      .table-container {
+        overflow-x: auto;
+        margin: var(--spacing-large) 0;
+      }
+
+      .table-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .table-container::-webkit-scrollbar-track {
+        background: var(--background-light);
+        border-radius: 4px;
+      }
+
+      .table-container::-webkit-scrollbar-thumb {
+        background: var(--tunisia-red);
+        border-radius: 4px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container" style="padding: 2rem 0">
+    <div class="container">
       <a href="../index.html#news" class="back-button">
         <i class="fas fa-arrow-left"></i>
         Back to Website
@@ -25,321 +532,364 @@
             <span><i class="fas fa-calendar-alt"></i> July 2022</span>
             <span><i class="fas fa-user"></i> Mohamed Khalil Brik</span>
           </div>
+          <div class="divider"></div>
         </header>
 
-        <img src="../Resources/bac.png" alt="Baccalaureate Achievement" />
+        <img
+          src="../Resources/bac.png"
+          alt="Baccalaureate Achievement"
+          class="article-image"
+        />
 
-        <div class="article-content">
+        <!-- Key Achievements -->
+        <div class="achievements-grid">
+          <div class="achievement-card gold-card">
+            <span class="achievement-number">16.89</span>
+            <p class="achievement-text">Final Average Score (/20)</p>
+          </div>
+          <div class="achievement-card excellence-card">
+            <span class="achievement-number">Very Good</span>
+            <p class="achievement-text">Academic Distinction (حسن جدا)</p>
+          </div>
+          <div class="achievement-card math-card">
+            <span class="achievement-number">MATH</span>
+            <p class="achievement-text">Mathematics Track (شعبة الرياضيات)</p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">2022</span>
+            <p class="achievement-text">Tunisian Baccalaureate Diploma</p>
+          </div>
+        </div>
+
+        <!-- Baccalaureate Introduction -->
+        <div class="bac-highlight">
+          <h3>
+            <i class="fas fa-graduation-cap"></i> Academic Milestone Achievement
+          </h3>
           <p>
-            I'm proud to share a significant milestone in my academic journey -
-            successfully receiving my <strong>Baccalaureate Examination</strong>
-            in July 2022, marking the completion of my high school education
-            with exceptional results.
+            🎓
+            <strong>Successfully received my Baccalaureate Examination</strong>
+            in July 2022, marking the completion of high school education with
+            exceptional results in the
+            <strong>Mathematics track (شعبة الرياضيات)</strong> - one of
+            Tunisia's most challenging and prestigious academic paths with an
+            overall average of <strong>16.89/20</strong>.
           </p>
+        </div>
 
-          <h2>About the Tunisian Baccalaureate</h2>
-          <p>
-            The Tunisian Baccalaureate (البكالوريا التونسية) is the national
-            secondary education diploma and university entrance examination in
-            Tunisia. It represents the culmination of 13 years of education and
-            serves as the gateway to higher education. The examination is highly
-            competitive and comprehensive, testing students across multiple
-            subjects relevant to their chosen academic track.
-          </p>
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+          <!-- Left Column -->
+          <div class="content-left">
+            <div class="info-card gold-themed">
+              <h3><i class="fas fa-certificate"></i> Tunisian Baccalaureate</h3>
+              <p>
+                <strong>National secondary education diploma</strong> and
+                university entrance examination representing the culmination of
+                13 years of education.
+              </p>
+              <ul>
+                <li>
+                  <strong>Gateway to Higher Education:</strong> University
+                  entrance qualification
+                </li>
+                <li>
+                  <strong>Highly Competitive:</strong> Comprehensive
+                  multi-subject examination
+                </li>
+                <li>
+                  <strong>National Standard:</strong> Tunisia's premier academic
+                  certification
+                </li>
+                <li>
+                  <strong>Mathematics Track:</strong> Most challenging and
+                  prestigious path
+                </li>
+              </ul>
+            </div>
 
-          <p>
-            I pursued the <strong>Mathematics track</strong> (شعبة الرياضيات),
-            which is considered one of the most challenging and prestigious
-            academic paths, focusing heavily on advanced mathematical concepts,
-            sciences, and analytical thinking.
-          </p>
+            <div class="info-card math-themed">
+              <h3><i class="fas fa-calculator"></i> Mathematics Curriculum</h3>
+              <p>
+                <strong>Advanced mathematical concepts</strong> building strong
+                analytical and problem-solving foundations.
+              </p>
+              <ul>
+                <li>
+                  <strong>Advanced Calculus:</strong> Differential and integral
+                  applications
+                </li>
+                <li>
+                  <strong>Complex Theory:</strong> Complex numbers and analysis
+                </li>
+                <li>
+                  <strong>Probability & Statistics:</strong> Statistical
+                  foundations
+                </li>
+                <li>
+                  <strong>Geometry:</strong> Analytical and descriptive systems
+                </li>
+                <li>
+                  <strong>Discrete Mathematics:</strong> Logic, sets,
+                  combinatorics
+                </li>
+                <li>
+                  <strong>Formal Proofs:</strong> Rigorous mathematical
+                  reasoning
+                </li>
+              </ul>
+            </div>
 
-          <h2>My Academic Curriculum</h2>
-          <p>
-            Throughout my high school years, I engaged with a comprehensive
-            curriculum that built a strong foundation in mathematics, physics,
-            and sciences. The coursework was organized across several key areas:
-          </p>
-
-          <h3>Mathematics</h3>
-          <ul>
-            <li>
-              <strong>Advanced Calculus:</strong> Differential and integral
-              calculus with applications
-            </li>
-            <li>
-              <strong>Complex Theory:</strong> Complex numbers, functions, and
-              analysis
-            </li>
-            <li>
-              <strong>Probability:</strong> Statistical foundations and
-              probability theory
-            </li>
-            <li>
-              <strong>Geometry:</strong> Analytical and descriptive geometry
-            </li>
-            <li>
-              <strong>Number Theory:</strong> Properties of integers and number
-              systems
-            </li>
-            <li>
-              <strong>Discrete Mathematics:</strong> Logic, sets, combinatorics,
-              and graph theory
-            </li>
-            <li>
-              <strong>Formal Mathematical Proofs:</strong> Rigorous proof
-              techniques and mathematical reasoning
-            </li>
-          </ul>
-
-          <h3>Physics</h3>
-          <ul>
-            <li>
-              <strong>Newtonian Physics:</strong> Classical mechanics, motion,
-              and force principles
-            </li>
-            <li>
-              <strong>Electricity and Magnetism:</strong> Electromagnetic theory
-              and applications
-            </li>
-            <li>
-              <strong>Introduction to Quantum Physics:</strong> Basic quantum
-              mechanical concepts
-            </li>
-            <li>
-              <strong>Introduction to Nuclear Physics:</strong> Atomic structure
-              and nuclear processes
-            </li>
-          </ul>
-
-          <h3>Chemistry</h3>
-          <ul>
-            <li>
-              <strong>Organic Chemistry:</strong> Carbon compounds, reactions,
-              and molecular structures
-            </li>
-          </ul>
-
-          <h2>My Results</h2>
-          <p>
-            I achieved an overall average of <strong>16.89/20</strong> with the
-            distinction "Very Good" (حسن جدا), demonstrating consistent
-            excellence across all subjects:
-          </p>
-
-          <div style="overflow-x: auto; margin: 2rem 0">
-            <table
-              style="
-                width: 100%;
-                border-collapse: collapse;
-                background: #f8f9fa;
-                border-radius: 10px;
-                overflow: hidden;
-              "
-            >
-              <thead>
-                <tr style="background: #667eea; color: white">
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Subject
-                  </th>
-                  <th style="padding: 1rem; text-align: center; border: none">
-                    Score (/20)
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">Mathematics</td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    15.75
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    Physical Sciences
-                  </td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    16.00
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    Life and Earth Sciences
-                  </td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    14.75
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">English</td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    17.00
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">French</td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    16.00
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">Arabic</td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    17.37
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">Philosophy</td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    16.50
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    Computer Science
-                  </td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    17.50
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    Physical Education
-                  </td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    19.12
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">German</td>
-                  <td
-                    style="
-                      padding: 0.75rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                    "
-                  >
-                    18.25
-                  </td>
-                </tr>
-                <tr style="background: #667eea; color: white">
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Final Average
-                  </td>
-                  <td
-                    style="
-                      padding: 1rem;
-                      text-align: center;
-                      border: none;
-                      font-weight: bold;
-                      font-size: 1.2rem;
-                    "
-                  >
-                    16.89
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="info-card excellence-themed">
+              <h3><i class="fas fa-trophy"></i> Academic Excellence</h3>
+              <p>
+                <strong>Consistent high performance</strong> across all subjects
+                demonstrating well-rounded academic capabilities.
+              </p>
+              <ul>
+                <li>
+                  <strong>Overall Average:</strong> 16.89/20 with "Very Good"
+                  distinction
+                </li>
+                <li>
+                  <strong>Language Mastery:</strong> Strong performance in
+                  Arabic, French, English, German
+                </li>
+                <li>
+                  <strong>STEM Excellence:</strong> High scores in mathematics
+                  and sciences
+                </li>
+                <li>
+                  <strong>Computer Science:</strong> 17.50/20 showing early tech
+                  aptitude
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <h2>A Foundation for the Future</h2>
-          <p>
-            Receiving my Baccalaureate was more than just completing high school
-            - it was the final step in building a comprehensive mathematical and
-            scientific foundation that would serve me throughout my university
-            studies and professional career. The rigorous curriculum in advanced
-            mathematics, physics, and formal reasoning prepared me exceptionally
-            well for the challenges ahead in computer science and artificial
-            intelligence.
-          </p>
+          <!-- Right Column -->
+          <div class="content-right">
+            <div class="info-card">
+              <h3><i class="fas fa-atom"></i> Sciences Curriculum</h3>
+              <p>
+                <strong>Comprehensive scientific education</strong> spanning
+                physics, chemistry, and life sciences foundations.
+              </p>
+              <ul>
+                <li>
+                  <strong>Newtonian Physics:</strong> Classical mechanics and
+                  force principles
+                </li>
+                <li>
+                  <strong>Electromagnetism:</strong> Electric and magnetic
+                  theory applications
+                </li>
+                <li>
+                  <strong>Quantum Physics:</strong> Introduction to quantum
+                  mechanical concepts
+                </li>
+                <li>
+                  <strong>Nuclear Physics:</strong> Atomic structure and nuclear
+                  processes
+                </li>
+                <li>
+                  <strong>Organic Chemistry:</strong> Carbon compounds and
+                  molecular structures
+                </li>
+              </ul>
+            </div>
 
-          <p>
-            The deep understanding of mathematical proofs, complex analysis, and
-            physics principles has proven invaluable in my subsequent work with
-            machine learning algorithms, data analysis, and computational
-            problem-solving. The introduction to quantum and nuclear physics has
-            also provided me with a unique perspective on emerging technologies
-            in quantum computing.
-          </p>
+            <div class="info-card">
+              <h3><i class="fas fa-rocket"></i> Foundation for Future</h3>
+              <p>
+                <strong>Comprehensive preparation</strong> for university
+                studies and professional career in computer science and AI.
+              </p>
+              <ul>
+                <li>
+                  <strong>Mathematical Foundation:</strong> Advanced calculus
+                  and formal reasoning
+                </li>
+                <li>
+                  <strong>Physics Principles:</strong> Quantum computing
+                  perspective preparation
+                </li>
+                <li>
+                  <strong>Analytical Thinking:</strong> Problem-solving skill
+                  development
+                </li>
+                <li>
+                  <strong>University Readiness:</strong> AUC computer science
+                  program preparation
+                </li>
+              </ul>
+            </div>
 
-          <p>
-            This achievement opened the doors to pursuing my passion for
-            computer science and artificial intelligence at The American
-            University in Cairo, where I would continue to build upon the
-            analytical thinking and problem-solving skills developed during
-            these formative years.
-          </p>
+            <div class="info-card gold-themed">
+              <h3><i class="fas fa-globe"></i> Multilingual Proficiency</h3>
+              <p>
+                <strong>Exceptional language abilities</strong> demonstrating
+                international communication readiness.
+              </p>
+              <ul>
+                <li>
+                  <strong>Arabic:</strong> 17.37/20 - Native language mastery
+                </li>
+                <li>
+                  <strong>English:</strong> 17.00/20 - International
+                  communication
+                </li>
+                <li>
+                  <strong>French:</strong> 16.00/20 - Academic and professional
+                  proficiency
+                </li>
+                <li>
+                  <strong>German:</strong> 18.25/20 - Additional European
+                  language skill
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
+        <!-- Curriculum Highlights -->
+        <div class="section-header">
+          <h2>Academic Curriculum Highlights</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="curriculum-grid">
+          <div class="curriculum-card math-highlight">
+            <h4><i class="fas fa-infinity"></i> Advanced Mathematics</h4>
+            <div class="curriculum-tags">
+              <span class="tag math-tag">Calculus</span>
+              <span class="tag math-tag">Complex Theory</span>
+              <span class="tag math-tag">Probability</span>
+              <span class="tag math-tag">Discrete Math</span>
+            </div>
+          </div>
+
+          <div class="curriculum-card">
+            <h4><i class="fas fa-atom"></i> Physical Sciences</h4>
+            <div class="curriculum-tags">
+              <span class="tag">Newtonian Physics</span>
+              <span class="tag">Electromagnetism</span>
+              <span class="tag">Quantum Physics</span>
+              <span class="tag">Nuclear Physics</span>
+            </div>
+          </div>
+
+          <div class="curriculum-card">
+            <h4><i class="fas fa-flask"></i> Chemistry</h4>
+            <div class="curriculum-tags">
+              <span class="tag excellence-tag">Organic Chemistry</span>
+              <span class="tag excellence-tag">Molecular Structures</span>
+              <span class="tag excellence-tag">Chemical Reactions</span>
+            </div>
+          </div>
+
+          <div class="curriculum-card">
+            <h4><i class="fas fa-laptop-code"></i> Computer Science</h4>
+            <div class="curriculum-tags">
+              <span class="tag gold-tag">17.50/20 Score</span>
+              <span class="tag gold-tag">Programming Foundations</span>
+              <span class="tag gold-tag">Tech Aptitude</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Results Section -->
+        <div class="section-header">
+          <h2>Academic Results & Performance</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="table-container">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th><i class="fas fa-book"></i> Subject</th>
+                <th><i class="fas fa-star"></i> Score (/20)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Mathematics</strong></td>
+                <td>15.75</td>
+              </tr>
+              <tr>
+                <td><strong>Physical Sciences</strong></td>
+                <td>16.00</td>
+              </tr>
+              <tr>
+                <td><strong>Life and Earth Sciences</strong></td>
+                <td>14.75</td>
+              </tr>
+              <tr>
+                <td><strong>English</strong></td>
+                <td>17.00</td>
+              </tr>
+              <tr>
+                <td><strong>French</strong></td>
+                <td>16.00</td>
+              </tr>
+              <tr>
+                <td><strong>Arabic</strong></td>
+                <td>17.37</td>
+              </tr>
+              <tr>
+                <td><strong>Philosophy</strong></td>
+                <td>16.50</td>
+              </tr>
+              <tr>
+                <td><strong>Computer Science</strong></td>
+                <td>17.50</td>
+              </tr>
+              <tr>
+                <td><strong>Physical Education</strong></td>
+                <td>19.12</td>
+              </tr>
+              <tr>
+                <td><strong>German</strong></td>
+                <td>18.25</td>
+              </tr>
+              <tr class="final-row">
+                <td><strong>Final Average</strong></td>
+                <td><strong>16.89</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Excellence Recognition -->
+        <div class="excellence-showcase">
+          <h4><i class="fas fa-medal"></i> Academic Excellence Recognition</h4>
+          <p style="text-align: center; color: var(--text-medium); margin: 0">
+            <strong>Overall Average: 16.89/20</strong> with the distinction
+            <strong>"Very Good" (حسن جدا)</strong>
+            demonstrating consistent excellence across all subjects and
+            exceptional preparation for university-level computer science and
+            artificial intelligence studies.
+          </p>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion-section">
           <p>
-            Looking back, I'm grateful for the excellent education system in
-            Tunisia and the dedicated teachers who helped shape my academic
-            journey. This milestone represents not just personal achievement,
-            but the beginning of a lifelong commitment to learning and
-            intellectual growth.
+            Receiving my Baccalaureate was more than completing high school - it
+            built a comprehensive mathematical and scientific foundation that
+            serves me throughout my university studies and professional career.
+            The rigorous curriculum in advanced mathematics, physics, and formal
+            reasoning prepared me exceptionally well for challenges in computer
+            science and artificial intelligence.
+          </p>
+          <p style="margin-top: 1rem">
+            <strong
+              >This achievement opened doors to pursuing my passion for computer
+              science and AI at The American University in Cairo, representing
+              not just personal achievement, but the beginning of a lifelong
+              commitment to learning and intellectual growth! 🎓</strong
+            >
           </p>
         </div>
       </article>

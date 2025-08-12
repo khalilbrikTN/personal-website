@@ -5,14 +5,483 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NASA Space Mission Design - ATLAS Mission to Titan</title>
     <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="article-styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <style>
+      /* Customizable CSS Variables for Easy Theming */
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --space-primary: #1a365d;
+        --space-secondary: #2d3748;
+        --nasa-blue: #0b3d91;
+        --background-light: #f8f9fa;
+        --background-white: #ffffff;
+        --text-dark: #2d3748;
+        --text-medium: #4a5568;
+        --text-light: #718096;
+        --border-color: #e2e8f0;
+        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+        --shadow-medium: 0 4px 15px rgba(102, 126, 234, 0.3);
+        --shadow-space: 0 4px 15px rgba(11, 61, 145, 0.3);
+        --border-radius: 12px;
+        --border-radius-large: 15px;
+        --spacing-small: 1rem;
+        --spacing-medium: 1.5rem;
+        --spacing-large: 2rem;
+        --spacing-xl: 3rem;
+      }
+
+      /* Grid-based layout styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-large);
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: var(--spacing-large);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .back-button:hover {
+        color: var(--nasa-blue);
+      }
+
+      .article-header {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: var(--spacing-small);
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-large);
+        flex-wrap: wrap;
+        color: var(--text-light);
+        margin-bottom: var(--spacing-large);
+      }
+
+      .article-image {
+        width: 100%;
+        max-width: 600px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+        margin: 0 auto var(--spacing-xl) auto;
+        display: block;
+        box-shadow: var(--shadow-light);
+      }
+
+      /* Achievement cards with space theme */
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-xl) 0;
+      }
+
+      .achievement-card {
+        background: linear-gradient(
+          135deg,
+          var(--nasa-blue) 0%,
+          var(--space-primary) 100%
+        );
+        color: white;
+        padding: var(--spacing-large) var(--spacing-medium);
+        border-radius: var(--border-radius-large);
+        text-align: center;
+        box-shadow: var(--shadow-space);
+        transition: transform 0.3s ease;
+      }
+
+      .achievement-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .achievement-card.nasa-card {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      }
+
+      .achievement-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .achievement-text {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      /* Content grid */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-large);
+        margin: var(--spacing-large) 0;
+      }
+
+      .info-card {
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-medium);
+        margin-bottom: var(--spacing-medium);
+        border-left: 4px solid var(--nasa-blue);
+        box-shadow: var(--shadow-light);
+        transition: transform 0.2s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .info-card.space-themed {
+        border-left-color: var(--space-primary);
+      }
+
+      .info-card h3 {
+        color: var(--nasa-blue);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .info-card.space-themed h3 {
+        color: var(--space-primary);
+      }
+
+      .info-card ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .info-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        color: var(--text-medium);
+      }
+
+      .info-card p {
+        color: var(--text-medium);
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+      }
+
+      /* Mission objectives section */
+      .mission-section {
+        margin: var(--spacing-xl) 0;
+      }
+
+      .objectives-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .objective-card {
+        background: var(--background-white);
+        padding: var(--spacing-medium);
+        border-radius: var(--border-radius);
+        text-align: center;
+        border: 2px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .objective-card:hover {
+        border-color: var(--nasa-blue);
+        box-shadow: var(--shadow-light);
+        transform: translateY(-2px);
+      }
+
+      .objective-card h4 {
+        color: var(--nasa-blue);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .objective-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: var(--spacing-small);
+      }
+
+      .tag {
+        background: var(--nasa-blue);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .tag.space-tag {
+        background: var(--space-primary);
+      }
+
+      /* Technical table */
+      .tech-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        margin: var(--spacing-large) 0;
+      }
+
+      .tech-table thead tr {
+        background: linear-gradient(
+          135deg,
+          var(--nasa-blue) 0%,
+          var(--space-primary) 100%
+        );
+        color: white;
+      }
+
+      .tech-table th,
+      .tech-table td {
+        padding: var(--spacing-small);
+        text-align: left;
+        border: none;
+      }
+
+      .tech-table tbody tr {
+        border-bottom: 1px solid var(--border-color);
+        transition: background-color 0.2s ease;
+      }
+
+      .tech-table tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+
+      .tech-table .highlight-row {
+        background: linear-gradient(
+          135deg,
+          var(--nasa-blue) 0%,
+          var(--space-primary) 100%
+        );
+        color: white;
+        font-weight: bold;
+      }
+
+      /* Mission highlight section */
+      .mission-highlight {
+        background: linear-gradient(
+          135deg,
+          rgba(11, 61, 145, 0.1) 0%,
+          rgba(26, 54, 93, 0.1) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-large) 0;
+        text-align: center;
+        border: 2px solid var(--nasa-blue);
+      }
+
+      .mission-highlight h3 {
+        color: var(--nasa-blue);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.3rem;
+      }
+
+      .mission-highlight p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Collaboration section */
+      .collaboration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .collaboration-card {
+        background: linear-gradient(
+          145deg,
+          var(--background-light) 0%,
+          #e2e8f0 100%
+        );
+        padding: var(--spacing-medium);
+        border-radius: var(--border-radius);
+        text-align: center;
+        border: 2px solid var(--nasa-blue);
+      }
+
+      .institution-name {
+        color: var(--nasa-blue);
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .institution-role {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      /* Section headers */
+      .section-header {
+        text-align: center;
+        margin: var(--spacing-xl) 0 var(--spacing-large) 0;
+      }
+
+      .section-header h2 {
+        color: var(--text-dark);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--nasa-blue),
+          var(--space-primary)
+        );
+        margin: var(--spacing-small) auto;
+        border-radius: 2px;
+      }
+
+      /* Conclusion section */
+      .conclusion-section {
+        background: linear-gradient(
+          135deg,
+          rgba(11, 61, 145, 0.15) 0%,
+          rgba(26, 54, 93, 0.15) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-xl) 0;
+        text-align: center;
+        border: 2px solid var(--nasa-blue);
+      }
+
+      .conclusion-section p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto var(--spacing-small) auto;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        :root {
+          --spacing-large: 1.5rem;
+          --spacing-xl: 2rem;
+        }
+
+        .container {
+          padding: var(--spacing-small);
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-small);
+        }
+
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .achievements-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .objectives-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .collaboration-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .tech-table {
+          font-size: 0.9rem;
+        }
+
+        .tech-table th,
+        .tech-table td {
+          padding: 0.75rem;
+        }
+      }
+
+      /* Table container for mobile scrolling */
+      .table-container {
+        overflow-x: auto;
+        margin: var(--spacing-large) 0;
+      }
+
+      .table-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .table-container::-webkit-scrollbar-track {
+        background: var(--background-light);
+        border-radius: 4px;
+      }
+
+      .table-container::-webkit-scrollbar-thumb {
+        background: var(--nasa-blue);
+        border-radius: 4px;
+      }
+
+      /* Special styling for NASA collaboration emphasis */
+      .nasa-emphasis {
+        background: linear-gradient(
+          135deg,
+          rgba(220, 38, 38, 0.1) 0%,
+          rgba(185, 28, 28, 0.1) 100%
+        );
+        border-left-color: #dc2626;
+      }
+
+      .nasa-emphasis h3 {
+        color: #dc2626;
+      }
+    </style>
   </head>
   <body>
-    <div class="container" style="padding: 2rem 0">
+    <div class="container">
       <a href="../index.html#news" class="back-button">
         <i class="fas fa-arrow-left"></i>
         Back to Website
@@ -28,6 +497,7 @@
             <span><i class="fas fa-rocket"></i> NASA Collaboration</span>
             <span><i class="fas fa-user"></i> Mohamed Khalil Brik</span>
           </div>
+          <div class="divider"></div>
         </header>
 
         <img
@@ -36,406 +506,412 @@
           class="article-image"
         />
 
-        <div class="article-content">
-          <p>
-            🚀 From Code to Cosmos: Designing a NASA Mission to Titan 🌌 As a
-            computer science student passionate about space exploration and
-            data-driven discovery, I'm incredibly proud to have been part of the
-            <strong>NASA Space Mission Design course</strong>, where we
-            developed a comprehensive mission concept to Titan, Saturn's largest
-            and most fascinating moon.
-          </p>
+        <!-- Key Achievements -->
+        <div class="achievements-grid">
+          <div class="achievement-card nasa-card">
+            <span class="achievement-number"
+              ><i class="fas fa-rocket"></i
+            ></span>
+            <p class="achievement-text">
+              NASA Space Mission Design Collaboration
+            </p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">3</span>
+            <p class="achievement-text">
+              Universities Multi-Institutional Project
+            </p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">TITAN</span>
+            <p class="achievement-text">
+              Saturn's Most Fascinating Moon Target
+            </p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">ATLAS</span>
+            <p class="achievement-text">
+              Mission Analysing Titan's Lakes & Atmosphere
+            </p>
+          </div>
+        </div>
 
-          <h2>The ATLAS Mission</h2>
+        <!-- Mission Introduction -->
+        <div class="mission-highlight">
+          <h3><i class="fas fa-satellite"></i> ATLAS Mission Achievement</h3>
           <p>
-            Our mission,
+            🚀 <strong>From Code to Cosmos</strong> - Participated in NASA Space
+            Mission Design course developing
             <strong
               >ATLAS (Analysing Titan's Lakes, Atmosphere, and Surface)</strong
-            >, represents a groundbreaking collaboration between the College of
-            Charleston, The University of Alabama in Huntsville, and NASA. This
-            interdisciplinary project brought together students from diverse
-            academic backgrounds to tackle one of the most challenging frontiers
-            in planetary science.
+            >, a comprehensive mission concept to Titan, Saturn's largest moon,
+            through collaborative work with College of Charleston, University of
+            Alabama in Huntsville, and NASA.
           </p>
+        </div>
 
-          <h3>Mission Objectives</h3>
-          <p>
-            ATLAS was designed with ambitious scientific goals that would
-            advance our understanding of Titan's unique characteristics and
-            potential for harboring life. Our primary objectives included:
-          </p>
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+          <!-- Left Column -->
+          <div class="content-left">
+            <div class="info-card nasa-emphasis">
+              <h3><i class="fas fa-rocket"></i> ATLAS Mission Overview</h3>
+              <p>
+                <strong
+                  >Analysing Titan's Lakes, Atmosphere, and Surface</strong
+                >
+                - Groundbreaking collaborative mission design between multiple
+                institutions and NASA.
+              </p>
+              <ul>
+                <li>
+                  <strong>Multi-Institutional:</strong> College of Charleston,
+                  UAH, NASA
+                </li>
+                <li>
+                  <strong>Interdisciplinary Team:</strong> Diverse academic
+                  backgrounds
+                </li>
+                <li>
+                  <strong>Advanced Objectives:</strong> Comprehensive Titan
+                  exploration
+                </li>
+                <li>
+                  <strong>NASA Validation:</strong> Presented to NASA scientists
+                </li>
+              </ul>
+            </div>
 
-          <ul>
-            <li>
-              <strong>Atmospheric Analysis:</strong> Comprehensive study of
-              Titan's dense nitrogen-methane atmosphere and its complex chemical
-              processes
-            </li>
-            <li>
-              <strong>Surface Mapping:</strong> High-resolution imaging and
-              composition analysis of Titan's diverse geological features
-            </li>
-            <li>
-              <strong>Hydrocarbon Lakes Investigation:</strong> Detailed
-              examination of Titan's methane and ethane lakes and their seasonal
-              variations
-            </li>
-            <li>
-              <strong>Subsurface Ocean Detection:</strong> Searching for
-              evidence of the suspected subsurface water ocean beneath Titan's
-              icy crust
-            </li>
-            <li>
-              <strong>Prebiotic Chemistry Assessment:</strong> Evaluating the
-              potential for organic chemistry that could lead to life
-            </li>
-          </ul>
+            <div class="info-card space-themed">
+              <h3>
+                <i class="fas fa-user-astronaut"></i> My Role: Orbiter Science
+                Team
+              </h3>
+              <p>
+                Contributed as
+                <strong>Orbiter Science Team member</strong> focusing on
+                advanced instrumentation and remote sensing technologies.
+              </p>
+              <ul>
+                <li>
+                  <strong>Scientific Objectives:</strong> Data-driven discovery
+                  strategies
+                </li>
+                <li>
+                  <strong>Instrument Selection:</strong> Mass spectrometers,
+                  infrared imagers
+                </li>
+                <li>
+                  <strong>Data Processing:</strong> Remote sensing analysis
+                  techniques
+                </li>
+                <li>
+                  <strong>Computational Modeling:</strong> Atmospheric and
+                  surface evolution
+                </li>
+              </ul>
+            </div>
 
-          <h2>My Role: Orbiter Science Team</h2>
-          <p>
-            I contributed as part of the <strong>Orbiter Science Team</strong>,
-            focusing on how we can leverage advanced instrumentation and remote
-            sensing technologies to collect, process, and interpret scientific
-            data about Titan's atmosphere and surface. This role perfectly
-            aligned with my background in computer science and passion for
-            data-driven discovery.
-          </p>
-
-          <h3>Technical Contributions</h3>
-          <p>
-            Working on ATLAS allowed me to dive deep into several cutting-edge
-            areas that bridge computational science and space exploration:
-          </p>
-
-          <div style="overflow-x: auto; margin: 2rem 0">
-            <table
-              style="
-                width: 100%;
-                border-collapse: collapse;
-                background: #f8f9fa;
-                border-radius: 10px;
-                overflow: hidden;
-              "
-            >
-              <thead>
-                <tr style="background: #667eea; color: white">
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Area of Focus
-                  </th>
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Key Technologies
-                  </th>
-                  <th style="padding: 1rem; text-align: left; border: none">
-                    Applications
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>Scientific Objectives Design</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Advanced data analysis algorithms
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Mission planning and data collection strategies
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>Instrument Selection</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Mass spectrometers, infrared imagers
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    High-resolution atmospheric and surface data
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>Surface Modeling</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Remote sensing data processing
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Titan's geological evolution analysis
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0">
-                  <td style="padding: 0.75rem; border: none">
-                    <strong>Atmospheric Evolution</strong>
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Computational modeling
-                  </td>
-                  <td style="padding: 0.75rem; border: none">
-                    Climate and chemical process simulation
-                  </td>
-                </tr>
-                <tr style="background: #667eea; color: white">
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Data Science Integration
-                  </td>
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Machine learning & analytics
-                  </td>
-                  <td style="padding: 1rem; border: none; font-weight: bold">
-                    Planetary science discoveries
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="info-card">
+              <h3><i class="fas fa-globe"></i> Why Titan?</h3>
+              <p>
+                <strong>Most intriguing destination</strong> in our solar system
+                with unique characteristics for potential life discovery.
+              </p>
+              <ul>
+                <li>
+                  <strong>Dense Atmosphere:</strong> Only moon with substantial
+                  atmosphere
+                </li>
+                <li>
+                  <strong>Hydrocarbon Cycle:</strong> Methane rain, rivers, and
+                  lakes
+                </li>
+                <li>
+                  <strong>Organic Chemistry:</strong> Complex prebiotic
+                  molecules
+                </li>
+                <li>
+                  <strong>Subsurface Ocean:</strong> Liquid water beneath
+                  surface
+                </li>
+                <li>
+                  <strong>Dynamic Weather:</strong> Seasonal changes and
+                  patterns
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <h2>Scientific Instrumentation and Data Collection</h2>
-          <p>
-            🔹 <strong>Designing scientific objectives</strong> that rely on
-            advanced data analysis techniques to maximize the scientific return
-            of our mission while working within the constraints of deep space
-            exploration.
-          </p>
+          <!-- Right Column -->
+          <div class="content-right">
+            <div class="info-card">
+              <h3><i class="fas fa-search"></i> Primary Mission Objectives</h3>
+              <p>
+                <strong>Five key scientific goals</strong> designed to advance
+                understanding of Titan's potential for harboring life.
+              </p>
+              <ul>
+                <li>
+                  <strong>Atmospheric Analysis:</strong> Nitrogen-methane
+                  atmosphere study
+                </li>
+                <li>
+                  <strong>Surface Mapping:</strong> High-resolution geological
+                  imaging
+                </li>
+                <li>
+                  <strong>Hydrocarbon Lakes:</strong> Methane/ethane lake
+                  investigation
+                </li>
+                <li>
+                  <strong>Subsurface Ocean:</strong> Evidence detection for
+                  water ocean
+                </li>
+                <li>
+                  <strong>Prebiotic Chemistry:</strong> Organic chemistry
+                  assessment
+                </li>
+              </ul>
+            </div>
 
-          <p>
-            🔹 <strong>Selecting sophisticated instruments</strong> like mass
-            spectrometers for atmospheric composition analysis and infrared
-            imagers for surface characterization, ensuring we could collect
-            high-resolution data across multiple spectral bands.
-          </p>
+            <div class="info-card">
+              <h3><i class="fas fa-users"></i> Collaborative Learning</h3>
+              <p>
+                <strong>Interdisciplinary team environment</strong> bringing
+                together diverse expertise from multiple institutions and NASA.
+              </p>
+              <ul>
+                <li>
+                  <strong>Geological Sciences:</strong> Planetary geology from
+                  Charleston
+                </li>
+                <li>
+                  <strong>Aerospace Engineering:</strong> Propulsion systems
+                  from UAH
+                </li>
+                <li>
+                  <strong>Mission Design:</strong> NASA professional guidance
+                </li>
+                <li>
+                  <strong>Computer Science:</strong> Data analysis and
+                  computational thinking
+                </li>
+                <li>
+                  <strong>Cross-Disciplinary:</strong> Unique perspectives
+                  integration
+                </li>
+              </ul>
+            </div>
 
-          <p>
-            🔹
-            <strong>Modeling Titan's surface and atmospheric evolution</strong>
-            through advanced remote data capture techniques, utilizing
-            computational models to predict and interpret observational data.
-          </p>
+            <div class="info-card nasa-emphasis">
+              <h3><i class="fas fa-presentation"></i> NASA Presentation</h3>
+              <p>
+                <strong>Culminating presentation</strong> to distinguished panel
+                of NASA scientists and mission leaders.
+              </p>
+              <ul>
+                <li>
+                  <strong>Mission Architecture:</strong> ATLAS orbiter design
+                  overview
+                </li>
+                <li>
+                  <strong>Scientific Objectives:</strong> Research goals and
+                  outcomes
+                </li>
+                <li>
+                  <strong>Technical Implementation:</strong> Instrument and
+                  analysis methods
+                </li>
+                <li>
+                  <strong>Budget & Timeline:</strong> Realistic cost and
+                  schedule assessment
+                </li>
+                <li>
+                  <strong>Risk Assessment:</strong> Challenge identification and
+                  mitigation
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-          <p>
-            🔹
-            <strong
-              >Understanding how data science fuels planetary science</strong
-            >
-            and mission design, from initial hypothesis formation through data
-            collection, analysis, and scientific interpretation.
-          </p>
+        <!-- Technical Contributions Section -->
+        <div class="section-header">
+          <h2>Technical Contributions & Technologies</h2>
+          <div class="divider"></div>
+        </div>
 
-          <h2>Collaborative Learning Experience</h2>
-          <p>
-            This multi-institutional collaboration provided an exceptional
-            opportunity to work alongside students from different academic
-            backgrounds and institutions. The project brought together expertise
-            from:
-          </p>
+        <div class="table-container">
+          <table class="tech-table">
+            <thead>
+              <tr>
+                <th><i class="fas fa-cogs"></i> Area of Focus</th>
+                <th><i class="fas fa-microchip"></i> Key Technologies</th>
+                <th><i class="fas fa-satellite"></i> Applications</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Scientific Objectives Design</strong></td>
+                <td>Advanced data analysis algorithms</td>
+                <td>Mission planning and data collection strategies</td>
+              </tr>
+              <tr>
+                <td><strong>Instrument Selection</strong></td>
+                <td>Mass spectrometers, infrared imagers</td>
+                <td>High-resolution atmospheric and surface data</td>
+              </tr>
+              <tr>
+                <td><strong>Surface Modeling</strong></td>
+                <td>Remote sensing data processing</td>
+                <td>Titan's geological evolution analysis</td>
+              </tr>
+              <tr>
+                <td><strong>Atmospheric Evolution</strong></td>
+                <td>Computational modeling</td>
+                <td>Climate and chemical process simulation</td>
+              </tr>
+              <tr class="highlight-row">
+                <td>Data Science Integration</td>
+                <td>Machine learning & analytics</td>
+                <td>Planetary science discoveries</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          <ul>
-            <li>
-              <strong>College of Charleston:</strong> Geological sciences and
-              planetary geology expertise
-            </li>
-            <li>
-              <strong>University of Alabama in Huntsville:</strong> Aerospace
-              engineering and propulsion systems knowledge
-            </li>
-            <li>
-              <strong>NASA:</strong> Mission design experience and technical
-              guidance from active space mission professionals
-            </li>
-          </ul>
+        <!-- Mission Objectives Grid -->
+        <div class="section-header">
+          <h2>Key Technologies Applied</h2>
+          <div class="divider"></div>
+        </div>
 
-          <h3>Interdisciplinary Approach</h3>
-          <p>
-            Working in this diverse team environment taught me the importance of
-            interdisciplinary collaboration in tackling complex scientific
-            challenges. Each team member brought unique perspectives and
-            specialized knowledge that contributed to the overall mission
-            design. As a computer science student, I was able to contribute
-            computational thinking and data analysis expertise while learning
-            about aerospace engineering, planetary geology, and mission
-            operations.
-          </p>
-
-          <h2>NASA Presentation and Validation</h2>
-          <p>
-            The culmination of our work was presenting our final mission
-            proposal to a distinguished panel of
-            <strong>NASA scientists and mission leaders</strong>—a true
-            highlight of this interdisciplinary journey. This presentation
-            represented months of collaborative research, design iterations, and
-            technical refinement.
-          </p>
-
-          <h3>Presentation Highlights</h3>
-          <ul>
-            <li>
-              <strong>Mission Architecture:</strong> Comprehensive overview of
-              the ATLAS orbiter design and mission timeline
-            </li>
-            <li>
-              <strong>Scientific Objectives:</strong> Detailed explanation of
-              our research goals and expected outcomes
-            </li>
-            <li>
-              <strong>Technical Implementation:</strong> Discussion of
-              instrument selection, data collection strategies, and analysis
-              methods
-            </li>
-            <li>
-              <strong>Budget and Timeline:</strong> Realistic assessment of
-              mission costs and development schedule
-            </li>
-            <li>
-              <strong>Risk Assessment:</strong> Identification and mitigation
-              strategies for potential mission challenges
-            </li>
-          </ul>
-
-          <h2>Why Titan?</h2>
-          <p>
-            Titan represents one of the most intriguing destinations in our
-            solar system for several compelling reasons:
-          </p>
-
-          <div
-            style="
-              background: #f8f9fa;
-              padding: 2rem;
-              border-radius: 10px;
-              margin: 2rem 0;
-            "
-          >
-            <h4 style="color: #667eea; margin-bottom: 1rem">
-              <i class="fas fa-globe"></i> Unique Characteristics
-            </h4>
-            <ul style="margin: 0">
-              <li>
-                <strong>Dense Atmosphere:</strong> The only moon in our solar
-                system with a substantial atmosphere
-              </li>
-              <li>
-                <strong>Liquid Hydrocarbon Cycle:</strong> Methane rain, rivers,
-                and lakes create an analog to Earth's water cycle
-              </li>
-              <li>
-                <strong>Organic Chemistry:</strong> Complex organic molecules
-                suggest potential prebiotic chemistry
-              </li>
-              <li>
-                <strong>Subsurface Ocean:</strong> Evidence points to a liquid
-                water ocean beneath the surface
-              </li>
-              <li>
-                <strong>Dynamic Weather:</strong> Seasonal changes and weather
-                patterns offer insights into atmospheric dynamics
-              </li>
-            </ul>
+        <div class="objectives-grid">
+          <div class="objective-card">
+            <h4><i class="fas fa-brain"></i> Machine Learning</h4>
+            <div class="objective-tags">
+              <span class="tag">Feature Detection</span>
+              <span class="tag">Surface Imagery</span>
+              <span class="tag">Data Analysis</span>
+            </div>
           </div>
 
-          <h2>Computational Thinking in Space Science</h2>
-          <p>
-            This experience reinforced my understanding of how computational
-            thinking and data science are fundamental to modern space
-            exploration. From mission planning algorithms to data processing
-            pipelines, computer science plays a crucial role in every aspect of
-            planetary science missions.
-          </p>
+          <div class="objective-card">
+            <h4><i class="fas fa-wave-square"></i> Signal Processing</h4>
+            <div class="objective-tags">
+              <span class="tag">Data Filtering</span>
+              <span class="tag">Enhancement</span>
+              <span class="tag">Multi-Instrument</span>
+            </div>
+          </div>
 
-          <h3>Key Technologies Applied</h3>
-          <ul>
-            <li>
-              <strong>Machine Learning:</strong> For automated feature detection
-              in surface imagery and atmospheric data analysis
-            </li>
-            <li>
-              <strong>Signal Processing:</strong> For filtering and enhancing
-              scientific data from multiple instruments
-            </li>
-            <li>
-              <strong>Computational Modeling:</strong> For simulating
-              atmospheric dynamics and surface processes
-            </li>
-            <li>
-              <strong>Database Management:</strong> For organizing and querying
-              large datasets from multiple observation campaigns
-            </li>
-            <li>
-              <strong>Statistical Analysis:</strong> For interpreting scientific
-              measurements and quantifying uncertainties
-            </li>
-          </ul>
+          <div class="objective-card">
+            <h4><i class="fas fa-calculator"></i> Computational Modeling</h4>
+            <div class="objective-tags">
+              <span class="tag space-tag">Atmospheric Dynamics</span>
+              <span class="tag space-tag">Surface Processes</span>
+              <span class="tag space-tag">Simulation</span>
+            </div>
+          </div>
 
-          <h2>Mentorship and Guidance</h2>
+          <div class="objective-card">
+            <h4><i class="fas fa-database"></i> Database Management</h4>
+            <div class="objective-tags">
+              <span class="tag">Large Datasets</span>
+              <span class="tag">Query Systems</span>
+              <span class="tag">Data Organization</span>
+            </div>
+          </div>
+
+          <div class="objective-card">
+            <h4><i class="fas fa-chart-line"></i> Statistical Analysis</h4>
+            <div class="objective-tags">
+              <span class="tag space-tag">Scientific Measurements</span>
+              <span class="tag space-tag">Uncertainty Quantification</span>
+              <span class="tag space-tag">Interpretation</span>
+            </div>
+          </div>
+
+          <div class="objective-card">
+            <h4><i class="fas fa-eye"></i> Data Visualization</h4>
+            <div class="objective-tags">
+              <span class="tag">Scientific Discoveries</span>
+              <span class="tag">Visual Representation</span>
+              <span class="tag">Communication</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collaboration Institutions -->
+        <div class="section-header">
+          <h2>Multi-Institutional Collaboration</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="collaboration-grid">
+          <div class="collaboration-card">
+            <div class="institution-name">College of Charleston</div>
+            <div class="institution-role">
+              Geological Sciences & Planetary Geology
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Expertise in planetary surface analysis and geological feature
+              interpretation.
+            </p>
+          </div>
+
+          <div class="collaboration-card">
+            <div class="institution-name">University of Alabama Huntsville</div>
+            <div class="institution-role">
+              Aerospace Engineering & Propulsion Systems
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Advanced spacecraft design and mission architecture development.
+            </p>
+          </div>
+
+          <div class="collaboration-card">
+            <div class="institution-name">NASA</div>
+            <div class="institution-role">
+              Mission Design Experience & Technical Guidance
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Professional mission leadership and real-world space exploration
+              expertise.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mentorship Recognition -->
+        <div class="mission-highlight" style="margin-top: 3rem">
+          <h3><i class="fas fa-award"></i> Special Recognition</h3>
           <p>
-            Big thanks to <strong>Dr. Cassandra Runyon</strong> for her
-            exceptional mentorship and support throughout this journey. Her
+            <strong>Big thanks to Dr. Cassandra Runyon</strong> for exceptional
+            mentorship and guidance throughout this transformative journey. Her
             expertise in planetary science and dedication to student development
-            created an environment where we could push the boundaries of our
-            understanding and contribute meaningfully to space mission design.
-          </p>
-
-          <p>
-            Dr. Runyon's guidance helped me bridge the gap between theoretical
-            computer science concepts and practical applications in space
-            exploration, showing me how computational skills can directly
+            created an environment where computational skills could directly
             contribute to humanity's quest to understand the universe.
           </p>
+        </div>
 
-          <h2>Impact and Future Applications</h2>
+        <!-- Conclusion -->
+        <div class="conclusion-section">
           <p>
             This experience has solidified my belief in the power of
-            computational thinking in space science and demonstrated how coding
+            computational thinking in space science, demonstrating how coding
             and data modeling are essential tools in humanity's quest to
-            understand the universe. The skills and knowledge gained from this
-            project have direct applications to my other research interests,
-            including:
+            understand the universe. From enhancing emergency response systems
+            on Earth to designing missions to explore distant worlds, the
+            fundamental principles of data-driven discovery remain constant.
           </p>
-
-          <ul>
-            <li>
-              <strong>AI and Machine Learning:</strong> Applying advanced
-              algorithms to scientific data analysis and pattern recognition
-            </li>
-            <li>
-              <strong>Remote Sensing:</strong> Processing and interpreting data
-              from various sensors and imaging systems
-            </li>
-            <li>
-              <strong>Scientific Computing:</strong> Developing computational
-              models for complex physical processes
-            </li>
-            <li>
-              <strong>Data Visualization:</strong> Creating compelling visual
-              representations of scientific discoveries
-            </li>
-          </ul>
-
-          <h2>Looking to the Stars</h2>
-          <p>
-            Participating in the NASA Space Mission Design course has been a
-            transformative experience that has opened my eyes to the incredible
-            possibilities at the intersection of computer science and space
-            exploration. The ATLAS mission to Titan may have been a student
-            project, but the knowledge, skills, and passion it has ignited are
-            very real and will continue to influence my academic and
-            professional journey.
-          </p>
-
-          <p>
-            This experience has strengthened my commitment to using
-            computational tools and data science methodologies to tackle some of
-            humanity's most ambitious scientific challenges. Whether it's
-            enhancing emergency response systems here on Earth or designing
-            missions to explore distant worlds, the fundamental principles of
-            data-driven discovery remain the same.
-          </p>
-
-          <p>
-            The universe is vast and full of mysteries waiting to be uncovered.
-            With the power of computation, artificial intelligence, and
-            collaborative scientific inquiry, we are better equipped than ever
-            to push the boundaries of human knowledge and explore the cosmos.
-            From code to cosmos, the journey continues! 🚀🌌
+          <p style="margin-top: 1rem">
+            <strong
+              >The universe is vast and full of mysteries. With computation, AI,
+              and collaborative scientific inquiry, we're better equipped than
+              ever to explore the cosmos. From code to cosmos, the journey
+              continues! 🚀🌌</strong
+            >
           </p>
         </div>
       </article>
