@@ -317,7 +317,7 @@ const statsObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const statNumbers = entry.target.querySelectorAll('.stat-item h3');
             statNumbers.forEach(stat => {
-                const target = parseInt(stat.textContent);
+                const target = stat.textContent;
                 animateCounter(stat, target);
             });
             statsObserver.unobserve(entry.target);
