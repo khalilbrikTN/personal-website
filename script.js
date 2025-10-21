@@ -532,3 +532,60 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Expand/Collapse Functionality for Coursework and Certifications
+document.addEventListener('DOMContentLoaded', function() {
+    // Coursework Expand/Collapse
+    const expandCourseworkBtn = document.getElementById('expandCoursework');
+    const courseworkContent = document.getElementById('courseworkContent');
+
+    if (expandCourseworkBtn && courseworkContent) {
+        expandCourseworkBtn.addEventListener('click', function() {
+            const isExpanded = courseworkContent.style.display !== 'none';
+
+            if (isExpanded) {
+                // Collapse
+                courseworkContent.style.display = 'none';
+                expandCourseworkBtn.innerHTML = '<i class="fas fa-chevron-down"></i> View Complete Transcript';
+                expandCourseworkBtn.classList.remove('expanded');
+            } else {
+                // Expand
+                courseworkContent.style.display = 'grid';
+                expandCourseworkBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Complete Transcript';
+                expandCourseworkBtn.classList.add('expanded');
+
+                // Smooth scroll to content
+                setTimeout(() => {
+                    courseworkContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        });
+    }
+
+    // Certifications Expand/Collapse
+    const expandCertificationsBtn = document.getElementById('expandCertifications');
+    const certificationsContent = document.getElementById('certificationsContent');
+
+    if (expandCertificationsBtn && certificationsContent) {
+        expandCertificationsBtn.addEventListener('click', function() {
+            const isExpanded = certificationsContent.style.display !== 'none';
+
+            if (isExpanded) {
+                // Collapse
+                certificationsContent.style.display = 'none';
+                expandCertificationsBtn.innerHTML = '<i class="fas fa-chevron-down"></i> View All 18 Certifications';
+                expandCertificationsBtn.classList.remove('expanded');
+            } else {
+                // Expand
+                certificationsContent.style.display = 'grid';
+                expandCertificationsBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Certifications';
+                expandCertificationsBtn.classList.add('expanded');
+
+                // Smooth scroll to content
+                setTimeout(() => {
+                    certificationsContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        });
+    }
+});
+
