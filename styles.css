@@ -96,7 +96,7 @@ p {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #2d3748;
+    color: var(--text-primary);
     position: relative;
     font-weight: 700;
 }
@@ -263,7 +263,7 @@ p {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 1rem;
     line-height: 1.1;
 }
@@ -277,7 +277,7 @@ p {
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     font-weight: 500;
     letter-spacing: 0.2px;
@@ -285,7 +285,7 @@ p {
 
 .hero-description {
     font-size: 1.1rem;
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 2rem;
     line-height: 1.8;
     letter-spacing: 0.2px;
@@ -306,7 +306,7 @@ p {
 }
 
 .skip-label {
-    color: #4a5568;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -440,13 +440,13 @@ p {
 }
 
 .profile-info h3 {
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
 
 .profile-info p {
-    color: #718096;
+    color: var(--text-tertiary);
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
@@ -460,7 +460,7 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #4a5568;
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -624,7 +624,7 @@ p {
 
 .about-text p {
     font-size: 1.15rem;
-    color: #2d3748;
+    color: var(--text-primary);
     margin: 0;
     line-height: 2;
     text-align: justify;
@@ -671,7 +671,7 @@ p {
 }
 
 .stat-item p {
-    color: #718096;
+    color: var(--text-tertiary);
     font-weight: 500;
 }
 
@@ -726,14 +726,14 @@ p {
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #2d3748;
+    color: var(--text-primary);
     line-height: 1;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     font-size: 0.9rem;
-    color: #718096;
+    color: var(--text-tertiary);
     font-weight: 500;
 }
 
@@ -824,7 +824,7 @@ p {
 }
 
 .semester-title {
-    color: #2d3748;
+    color: var(--text-primary);
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -875,7 +875,7 @@ p {
 }
 
 .course-name {
-    color: #2d3748;
+    color: var(--text-primary);
     font-size: 0.95rem;
     font-weight: 500;
     line-height: 1.6;
@@ -1022,7 +1022,7 @@ p {
 }
 
 .experience-title h3 {
-    color: #1a202c;
+    color: var(--text-primary);
     font-size: 1.35rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -1058,7 +1058,7 @@ p {
 
 .experience-date span {
     display: block;
-    color: #718096;
+    color: var(--text-tertiary);
     font-size: 0.85rem;
     font-weight: 600;
     padding: 0.35rem 0.75rem;
@@ -1069,7 +1069,7 @@ p {
 
 .experience-date .location {
     font-size: 0.75rem;
-    color: #a0aec0;
+    color: var(--text-quaternary);
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -1083,7 +1083,7 @@ p {
 }
 
 .experience-content {
-    color: #4a5568;
+    color: var(--text-secondary);
     line-height: 1.6;
     flex-grow: 1;
     position: relative;
@@ -1102,7 +1102,7 @@ p {
 .experience-content li {
     position: relative;
     padding-left: 1.5rem;
-    color: #2d3748;
+    color: var(--text-primary);
     line-height: 1.8;
     margin-bottom: 0.75rem;
     font-size: 0.95rem;
@@ -1239,7 +1239,7 @@ p {
 }
 
 .education-title h3 {
-    color: #1a202c;
+    color: var(--text-primary);
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -1260,7 +1260,7 @@ p {
 
 .education-date span {
     display: block;
-    color: #718096;
+    color: var(--text-tertiary);
     font-size: 0.95rem;
     font-weight: 500;
     line-height: 1.4;
@@ -1286,7 +1286,7 @@ p {
 }
 
 .education-details .location {
-    color: #a0aec0;
+    color: var(--text-quaternary);
     font-weight: 500;
     margin-bottom: 1rem;
     font-size: 0.95rem;
@@ -1319,7 +1319,7 @@ p {
     padding: 1rem 1.5rem;
     border-radius: 12px;
     border-left: 3px solid #667eea;
-    color: #4a5568;
+    color: var(--text-secondary);
     font-weight: 500;
     text-align: center;
     transition: all 0.3s ease;
@@ -1382,7 +1382,7 @@ p {
 }
 
 .activity-title h3 {
-    color: #2d3748;
+    color: var(--text-primary);
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 5px;
@@ -1402,13 +1402,13 @@ p {
 
 .activity-date span {
     display: block;
-    color: #718096;
+    color: var(--text-tertiary);
     font-size: 0.9rem;
     font-weight: 500;
 }
 
 .activity-content {
-    color: #4a5568;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -1421,7 +1421,7 @@ p {
 .activity-content li {
     position: relative;
     padding-left: 20px;
-    color: #2d3748;
+    color: var(--text-primary);
     line-height: 1.8;
     margin-bottom: 8px;
     letter-spacing: 0.2px;
@@ -1457,7 +1457,7 @@ p {
 
 .summary-text {
     font-size: 1.1rem;
-    color: #2d3748;
+    color: var(--text-primary);
     line-height: 1.8;
     margin-bottom: 1.5rem;
     display: flex;
@@ -1485,7 +1485,7 @@ p {
     gap: 0.5rem;
     padding: 0.6rem 1.2rem;
     background: white;
-    color: #2d3748;
+    color: var(--text-primary);
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -1533,7 +1533,7 @@ p {
 }
 
 .certification-title h3 {
-    color: #2d3748;
+    color: var(--text-primary);
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -1555,7 +1555,7 @@ p {
 
 .certification-date span {
     display: block;
-    color: #718096;
+    color: var(--text-tertiary);
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -1567,7 +1567,7 @@ p {
 }
 
 .certification-content {
-    color: #4a5568;
+    color: var(--text-secondary);
     line-height: 1.6;
     flex-grow: 1;
     display: flex;
@@ -1581,7 +1581,7 @@ p {
     flex-grow: 1;
     line-height: 1.8;
     letter-spacing: 0.2px;
-    color: #2d3748;
+    color: var(--text-primary);
 }
 
 .certification-details {
@@ -1665,13 +1665,13 @@ p {
 }
 
 .project-content h3 {
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
 
 .project-content p {
-    color: #718096;
+    color: var(--text-tertiary);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -1685,7 +1685,7 @@ p {
 
 .tech-tag {
     background: #edf2f7;
-    color: #4a5568;
+    color: var(--text-secondary);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.875rem;
@@ -1723,7 +1723,7 @@ p {
 }
 
 .skills-category h3 {
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     text-align: center;
@@ -1760,7 +1760,7 @@ p {
 }
 
 .skill-item span {
-    color: #4a5568;
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
@@ -1777,13 +1777,13 @@ p {
 }
 
 .contact-info h3 {
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
 .contact-info p {
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 2rem;
     line-height: 1.8;
     letter-spacing: 0.2px;
@@ -1798,7 +1798,7 @@ p {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: #4a5568;
+    color: var(--text-secondary);
 }
 
 .contact-item i {
@@ -1996,7 +1996,7 @@ p {
 }
 
 .news-content h3 {
-    color: #2d3748;
+    color: var(--text-primary);
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -2008,7 +2008,7 @@ p {
 }
 
 .news-content p {
-    color: #2d3748;
+    color: var(--text-primary);
     line-height: 1.6;
     font-size: 0.85rem;
     flex-grow: 1;
@@ -2020,7 +2020,7 @@ p {
 }
 
 .news-date {
-    color: #a0aec0;
+    color: var(--text-quaternary);
     font-size: 0.8rem;
     font-weight: 500;
     margin-top: 0.5rem;
@@ -2192,7 +2192,7 @@ p {
 }
 
 .footer-text {
-    color: #a0aec0;
+    color: var(--text-quaternary);
     font-size: 0.9rem;
 }
 
