@@ -532,35 +532,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Expand/Collapse Functionality for Coursework and Certifications
+// Expand/Collapse Functionality for Certifications
 document.addEventListener('DOMContentLoaded', function() {
-    // Coursework Expand/Collapse
-    const expandCourseworkBtn = document.getElementById('expandCoursework');
-    const courseworkContent = document.getElementById('courseworkContent');
-
-    if (expandCourseworkBtn && courseworkContent) {
-        expandCourseworkBtn.addEventListener('click', function() {
-            const isExpanded = courseworkContent.style.display !== 'none';
-
-            if (isExpanded) {
-                // Collapse
-                courseworkContent.style.display = 'none';
-                expandCourseworkBtn.innerHTML = '<i class="fas fa-chevron-down"></i> View Complete Transcript';
-                expandCourseworkBtn.classList.remove('expanded');
-            } else {
-                // Expand
-                courseworkContent.style.display = 'grid';
-                expandCourseworkBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Complete Transcript';
-                expandCourseworkBtn.classList.add('expanded');
-
-                // Smooth scroll to content
-                setTimeout(() => {
-                    courseworkContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
-            }
-        });
-    }
-
     // Certifications Expand/Collapse
     const expandCertificationsBtn = document.getElementById('expandCertifications');
     const certificationsContent = document.getElementById('certificationsContent');
