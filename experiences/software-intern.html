@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Engineering Intern - Mohamed Khalil Brik</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="experience-styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html#experience" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Experience
+        </a>
+
+        <article class="experience-article">
+            <header class="article-header">
+                <h1 class="article-title">Software Engineering Intern</h1>
+                <div class="article-meta">
+                    <span><i class="fas fa-building"></i> American University in Cairo, Library</span>
+                    <span><i class="fas fa-calendar-alt"></i> Summer 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</span>
+                </div>
+                <div class="divider"></div>
+            </header>
+
+            <!-- Key Achievements -->
+            <div class="achievements-grid">
+                <div class="achievement-card gold-card">
+                    <span class="achievement-number">60,000+</span>
+                    <p class="achievement-text">
+                        Library Records Processed
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <span class="achievement-number">2 APIs</span>
+                    <p class="achievement-text">
+                        HathiTrust & Open Library Integration
+                    </p>
+                </div>
+                <div class="achievement-card success-card">
+                    <span class="achievement-number">MARC XML</span>
+                    <p class="achievement-text">
+                        Bibliographic Metadata Extraction
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <span class="achievement-number">Python</span>
+                    <p class="achievement-text">Data Processing & API Integration</p>
+                </div>
+            </div>
+
+            <!-- Project Introduction -->
+            <div class="conference-highlight">
+                <h3><i class="fas fa-book"></i> Project Overview</h3>
+                <p>
+                    <strong>Cross-API Bibliographic Data Integration System</strong>
+                    <br>
+                    Developed an automated system to enhance the AUC Library's catalog by integrating bibliographic
+                    metadata from HathiTrust and Open Library. The project aimed to enrich existing library records with
+                    standardized MARC XML data, full-text access links, and missing identifiers (OCLC, LCCN, ISBN).
+                </p>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="content-left">
+                    <div class="info-card research-themed">
+                        <h3><i class="fas fa-lightbulb"></i> Problem Statement</h3>
+                        <p>
+                            The AUC Library catalog contained thousands of records with incomplete metadata and missing
+                            digital access information.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Incomplete Records:</strong> Many library records lacked standardized identifiers.
+                            </li>
+                            <li>
+                                <strong>Manual Processing:</strong> Enriching records manually was time-consuming and
+                                error-prone.
+                            </li>
+                            <li>
+                                <strong>Digital Access:</strong> No systematic way to link physical holdings to digital
+                                versions.
+                            </li>
+                            <li>
+                                <strong>Solution:</strong> Automated API-driven metadata enrichment pipeline.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card technical-themed">
+                        <h3><i class="fas fa-cogs"></i> Technical Implementation</h3>
+                        <p>
+                            Built a multi-stage data processing pipeline using Python and external APIs.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Data Cleaning:</strong> Regex-based extraction and normalization of identifiers.
+                            </li>
+                            <li>
+                                <strong>API Integration:</strong> HathiTrust and Open Library REST APIs for metadata
+                                retrieval.
+                            </li>
+                            <li>
+                                <strong>Batch Processing:</strong> Divided 60,000+ records into manageable sub-batches.
+                            </li>
+                            <li>
+                                <strong>MARC XML Extraction:</strong> Parsed and stored standardized bibliographic
+                                metadata.
+                            </li>
+                            <li>
+                                <strong>Data Persistence:</strong> Excel/CSV output with comprehensive matching statistics.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="content-right">
+                    <div class="info-card">
+                        <h3><i class="fas fa-chart-line"></i> Key Results</h3>
+                        <p>
+                            Successfully processed the entire library catalog and enriched thousands of records.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Scale:</strong> Processed 60,000+ library records across multiple batches.
+                            </li>
+                            <li>
+                                <strong>MARC XML Retrieval:</strong> Successfully extracted structured metadata for
+                                matching records.
+                            </li>
+                            <li>
+                                <strong>Digital Access:</strong> Identified full-view and preview links for digital
+                                versions.
+                            </li>
+                            <li>
+                                <strong>Identifier Enrichment:</strong> Cross-filled missing OCLC, LCCN, and ISBN values.
+                            </li>
+                            <li>
+                                <strong>Automation:</strong> Reduced manual metadata entry workload significantly.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card mentorship-emphasis">
+                        <h3><i class="fas fa-users"></i> Tools & Technologies</h3>
+                        <p>
+                            Leveraged modern Python libraries and APIs for bibliographic data processing.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Python Libraries:</strong> Pandas, Requests, PyMARC, XlsxWriter
+                            </li>
+                            <li>
+                                <strong>APIs:</strong> HathiTrust Bibliographic API, Open Library Books API
+                            </li>
+                            <li>
+                                <strong>Data Processing:</strong> Regex, JSON parsing, batch processing
+                            </li>
+                            <li>
+                                <strong>Environment:</strong> Google Colab for development and execution
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Implementation Section -->
+            <div class="section-header">
+                <h2>Data Processing Pipeline</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="table-container">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-list-ol"></i> Stage</th>
+                            <th><i class="fas fa-tasks"></i> Process</th>
+                            <th><i class="fas fa-check-circle"></i> Output</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Data Loading</strong></td>
+                            <td>Load AUC library catalog from Excel/CSV files</td>
+                            <td>Structured DataFrame with 60,000+ records</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Identifier Extraction</strong></td>
+                            <td>Clean and normalize OCLC, LCCN, ISBN using regex</td>
+                            <td>Sanitized identifiers ready for API queries</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. HathiTrust Lookup</strong></td>
+                            <td>Query HathiTrust API with available identifiers</td>
+                            <td>MARC XML, titles, view status, and access URLs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Open Library Lookup</strong></td>
+                            <td>Cross-reference with Open Library for additional data</td>
+                            <td>Supplementary metadata and preview links</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. Data Consolidation</strong></td>
+                            <td>Merge results and generate statistics</td>
+                            <td>Enhanced catalog with match analytics</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6. Export</strong></td>
+                            <td>Save enriched data to Excel/CSV format</td>
+                            <td>Ready-to-use library catalog enhancement files</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Conclusion section -->
+            <div class="conclusion-section">
+                <h3><i class="fas fa-rocket"></i> Impact & Learnings</h3>
+                <p>
+                    This internship provided hands-on experience with large-scale data integration, API consumption, and
+                    library science workflows. The automated pipeline significantly reduced manual metadata enrichment
+                    efforts and improved catalog quality. Key learnings included working with bibliographic standards
+                    (MARC), handling API rate limits, and designing fault-tolerant batch processing systems.
+                </p>
+            </div>
+
+        </article>
+    </div>
+</body>
+
+</html>

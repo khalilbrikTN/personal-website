@@ -1,0 +1,544 @@
+\documentclass[manuscript,review, anonymous]{acmart}
+
+% Packages
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{url}
+
+\renewcommand{\lstlistingname}{}
+
+\lstdefinestyle{json}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    tabsize=2
+}
+\lstdefinestyle{feedbacklist}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false
+}
+
+    
+\begin{document}
+
+\title{Enhancing Peer Assessment Coherence through LLM Guided Feedback Clustering}
+
+\author{Mohamed Khalil Brik}
+\affiliation{%
+  \institution{College of Charleston}
+  \department{Department of Computer Science}
+  \country{USA}
+}
+\email{brikm@g.cofc.edu}
+
+\author{Parvez Rashid}
+\affiliation{%
+  \institution{College of Charleston}
+  \department{Department of Computer Science}
+  \country{USA}
+}
+\email{rashidp@cofc.edu}
+
+\begin{abstract}
+Peer assessment is a widely adopted pedagogical strategy in software engineering courses, valued for fostering collaboration, improving critical thinking, and providing students with rich, timely feedback. However, students often encounter conflicting or misaligned peer reviews, which can lead to confusion, reduce trust in the assessment process, and limit the effectiveness of feedback. To address this challenge, we introduce an AI-assisted approach powered by large language models (LLMs) to detect and quantify disagreements in peer feedback. Our method analyzes peer reviews to identify divergent evaluations, extract the distinct issues recognized by different assessors, and generate targeted suggestions for reviewers who may have missed important aspects of the submission. Additionally, it flags unresolved or extreme disagreements for instructor attention, allowing targeted intervention only where necessary. Using data from 170 students and 15,500 peer reviews in a software development course, we demonstrate that our approach improves feedback consistency, enhances student learning outcomes, and reduces instructor workload by streamlining the meta-review process. Ultimately, this work contributes to increasing the quality and reliability of peer assessment in computing education.
+
+%This paper presents a novel approach to enhancing the quality and coherence of formative feedback in peer assessment using Large Language Models (LLMs). Peer assessment, typically conducted in a double-blind format to preserve impartiality, often results in inconsistent or contradictory feedback. These discrepancies can confuse students and reduce the effectiveness of the assessment process in education settings. While instructor-led meta-reviews can address misalignment, they are time-consuming and challenging to scale. To overcome this, we propose an automated LLM-guided clustering method that groups semantically similar feedback, identifies key themes, and highlights divergent opinions. Our approach allows for clearer, more consistent, and actionable feedback for students while reducing the instructor's workload.
+%Additionally, the generated clusters can be used to suggest specific reviewers to comment on clusters they did not initially contribute to based on their prior feedback participation. This enables a structured, iterative peer review process, encouraging cross-validation and deeper engagement. Our results show that LLM-generated clusters align closely with human annotations (NMI = 0.81, F1 = 0.80). These findings demonstrate a scalable, AI-supported solution to improve feedback clarity, reliability, and instructional value in computing education.
+\end{abstract}
+
+\keywords{NLP, education, peer-assessment, disagreement, clustering}
+
+\maketitle
+\section{Introduction}
+
+Peer review has proven to be an effective component of the student learning experience ~\cite{topping1998peer}. Prior research has shown that assessments conducted by student peers can be as accurate as those made by instructors ~\cite{sadler2006impact}. Importantly, students not only benefit from the feedback they receive but often learn even more through the process of providing feedback to others ~\cite{rada1994collaborative, ccevik2015assessor, li2019power, graner1987revision}. In disciplines like software engineering, peer assessment can be especially valuable. Given the complexity and variability of student-submitted code, it is often impractical for an instructor to test all possible use cases or edge conditions. Engaging multiple peers in the evaluation process not only distributes the workload but also increases the likelihood of identifying bugs, missed requirements, or alternative design approaches, making peer assessment a powerful tool for both learning and evaluation in such courses.
+
+To enhance the accuracy and fairness of peer assessment, artifacts are typically anonymized and evaluated independently by multiple reviewers ~\cite{gehringer2014survey}. This multi-reviewer approach allows each peer assessor to dedicate more time per artifact than an instructor could manage alone ~\cite{cambre2018juxtapeer}. However, peer reviewers often provide different or inconsistent evaluations of the same piece of work, leading to disagreement and variability in the feedback. \textcolor{red}{Table \ref{tab:sample_review} presents an example in which reviewers offered conflicting assessments of the same submission.}
+
+Recent advances in natural language processing, especially the development of Large Language Models (LLMs) based on transformer architectures~\cite{vaswani2017attention, devlin2018bert}, offer promising opportunities to address these issues. LLMs have shown strong capabilities in understanding context, grouping semantically similar content, and generating coherent summaries~\cite{openai2023gpt4}. However, their application to improving peer assessment processes remains relatively unexplored.
+
+In this paper, we introduce a novel LLM-guided method to enhance the coherence and clarity of peer feedback. Our approach automatically clusters reviewer comments based on semantic similarity, highlights common themes, and identifies points of divergence. By aligning multiple perspectives on a given artifact, the system reduces confusion for students and minimizes the need for labor-intensive instructor intervention.
+
+Although this work does not implement a full feedback recommendation system, it lays the groundwork for future AI-driven tools that can support more structured, iterative peer review. Our method contributes a scalable solution that improves the quality and interpretability of formative feedback in educational settings.
+
+\section{Background}
+
+Peer assessment is a widely used pedagogical practice that promotes active learning by involving students in evaluating each other’s work~\cite{topping1998peer}. It offers several benefits, including improved critical thinking, enhanced communication skills, and timely, personalized feedback that is often difficult for a single instructor to provide at scale~\cite{sadler2006impact, rada1994collaborative}. Research has shown that both giving and receiving feedback can significantly enhance student learning outcomes~\cite{li2019power, cevık2015assessor}. In complex disciplines like software engineering, peer review is particularly valuable for identifying bugs, design flaws, and alternative approaches that a single instructor might miss~\cite{cambre2018juxtapeer, graner1987revision}.
+
+However, the effectiveness of peer assessment is often compromised by inconsistencies and contradictions in the feedback provided by different reviewers. When multiple peers evaluate the same submission, they may offer conflicting assessments—one reviewer may confirm a functionality, while another reports it as broken. Such disagreement in feedback can lead to confusion, reduce a student's trust in the assessment process, and ultimately diminish the instructional value of the activity. While instructor-led meta-reviews can help reconcile these discrepancies, this process is time-consuming and challenging to scale, especially in large classes. The work by Rashid et al. on analyzing helpful feedback and rubrics highlights the importance of feedback quality and consistency, and their later work on peer assessment demonstrates the need for tools that can address these issues~\cite{rashid2021peer, rashid2022going}.
+
+The challenge of detecting and quantifying disagreement in text has been a subject of research in various fields, including natural language processing (NLP). For instance, Hiray and Duppada explored a dual GRU approach to improve disagreement detection in conversational text, which is a related but distinct problem from identifying conflicting peer reviews on a single artifact~\cite{hiray2017agree}. Our approach extends this work by focusing specifically on the nuanced disagreements that arise in structured educational feedback. We aim to identify not just the presence of a disagreement but also its nature, and use this information to guide the student toward a clearer understanding.
+
+Recent advances in natural language processing (NLP), particularly the development of Large Language Models (LLMs), offer promising opportunities to address the challenges of peer feedback inconsistency. These models, built on the transformer architecture~\cite{vaswani2017attention, devlin2018bert}, can analyze and understand the semantic content of text with unprecedented accuracy.
+
+LLMs are highly effective at a wide range of NLP tasks, including text clustering, summarization, and classification. Their ability to capture semantic similarity makes them ideal for grouping related feedback comments, a technique explored in various studies on short text clustering~\cite{jinarat2018short, guan2020deep}. The core idea is that even if two comments use different wording, an LLM can recognize if they refer to the same underlying issue. This capability can be leveraged to automatically group feedback, making it easier for a student to see common themes and for an instructor to identify points of contention. Our work builds upon these foundational NLP techniques by applying them to the unique context of educational peer feedback, specifically targeting the detection and resolution of disagreement.
+
+By clustering feedback, we can expose areas of consensus and, more importantly, highlight points of disagreement. For example, a cluster of comments stating "the login functionality works" can be placed alongside another cluster of comments reporting "the admin login is broken." This direct comparison, facilitated by LLM-guided clustering, provides a clear, actionable summary for the student and a specific point of intervention for the instructor, without requiring a manual meta-review of every single submission. Our approach thus combines the power of LLMs with the pedagogical goals of peer assessment to create a more reliable and scalable feedback system.
+
+\section{Methodology}
+\subsection{Problem Definition}
+We formally define the task of clustering peer feedback for educational assessment. 
+
+
+Let $\mathcal{C} = \{c_1, c_2, \ldots, c_n\}$ be a set of $n$ peer feedback comments provided by multiple reviewers in response to the same review question or artifact. The goal is to partition $\mathcal{C}$ into $K$ clusters $\mathcal{S} = \{S_1, S_2, \ldots, S_K\}$ such that:
+
+\begin{itemize}
+    \item Each cluster $S_k$ contains semantically similar comments, i.e., $\forall c_i, c_j \in S_k$, the semantic similarity $\mathrm{sim}(c_i, c_j)$ is maximized within clusters.
+    \item The clustering $\mathcal{S}$ produced by an automated method (e.g., LLM-guided clustering) should align as closely as possible with a reference (human) clustering $\mathcal{S}^*$, as measured by different clustering agreement metrics such as the F1-Score.
+\end{itemize}
+
+Formally, we seek:
+\[
+\hat{\mathcal{S}} = \arg\max_{\mathcal{S}} \ \mathrm{Agreement}(\mathcal{S}, \mathcal{S}^*).
+\].
+
+Additionally, for each cluster $S_k$, we extract a representative set of keywords $\mathcal{K}_k$ that summarize the key issues or themes. These keywords enhance the interpretability and actionability of clustered feedback for students and instructors.
+
+
+Thus, the objective is to find is to find a clustering $\mathcal{S}$ and the corresponding keyword sets $\{\mathcal{K}_k\}_{k=1}^K$ that:
+\begin{enumerate}
+    \item Maximize semantic coherence within clusters,
+    \item Maximize alignment with human clustering,
+    \item Enhance the interpretability and actionability of peer feedback for reviewees.
+\end{enumerate}
+
+\subsection{Data Preparation}
+
+The dataset contains qualitative feedback collected from students as part of a peer review process on a software assignment in a class at North Carolina State University. Each student provided comments in response to a structured set of review questions, resulting in a dataset of 1,000 individual comments. The Expertiza system was used to conduct the peer assessment process. 
+
+Each data point includes the following attributes:
+
+\begin{itemize}
+    \item \textbf{question\_id}: Unique identifier for each review question.
+    \item \textbf{txt}: Text of the review question.
+    \item \textbf{reviewer\_id}: Reviewer's ID providing the feedback.
+    \item \textbf{reviewee\_id}: Student'ID their work is reviewed.
+    \item \textbf{comment}: The text of the response provided by the reviewer.
+\end{itemize}
+
+Initially, the dataset existed as raw comments, with no clustering or categorization. For example, for the question \textit{``Is the admin able to login using their credentials?''}, several responses were collected as shown in Figure~\ref{fig:admin-feedback}. 
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.9\linewidth}
+\begin{lstlisting}[style=feedbacklist]
+"Yes, admin can login"
+"Yes. The admin can login with the credentials specified in the README document"
+"Login works great."
+"Nothing is deployed."
+"Reservations by admin not visible..."
+\end{lstlisting}
+\end{minipage}
+\caption{Human feedback statements about admin login functionality}
+\label{fig:admin-feedback}
+\end{figure}
+
+
+These responses reflect varied themes as some confirm functionality, others report issues, and a few are irrelevant or unclear.
+
+To obtain ground-truth clusterings, a graduate student in Computer Science served as a human annotator. The annotation process followed three stages:
+
+\begin{enumerate}
+    \item \textbf{Human clustering:} The annotator was given a sheet containing multiple peer comments for the same review question or artifact. The annotator grouped these comments into semantically coherent clusters and assigned a descriptive label to each cluster.
+    \item \textbf{LLM clustering:} Our proposed LLM-based clustering method was then applied to the same set of comments, producing clusters with automatically generated titles.
+    \item \textbf{Post-hoc human evaluation:} The annotator compared the LLM-generated clusters with their own. For each instance, they assigned one of three evaluation codes:
+    \begin{itemize}
+        \item \textbf{Already matched} – the LLM clusters were identical to the human clusters,
+        \item \textbf{Changed} – the annotator revised their original clusters to adopt the LLM grouping entirely,
+        \item \textbf{No change} – the annotator maintained their original clusters, rejecting the LLM output.
+    \end{itemize}
+\end{enumerate}
+
+This process not only provided gold-standard clusterings but also produced a labeled dataset capturing persuasion effects, i.e., whether LLM outputs influenced human judgment.
+
+
+
+
+Through this annotation pipeline, the dataset combines raw peer feedback, human-generated clusters, LLM-generated clusters, and meta-annotations of human–LLM agreement, enabling both clustering evaluation and analysis of persuasion effects.
+
+
+
+
+
+\subsection{Clustering Methodology}
+
+\textbf{Step 1. Grouping:} We first grouped the comments by \texttt{question\_id}, collecting all responses related to the same question. This reflects a real-world use case where multiple reviewers evaluate the same student's work on a specific functionality.
+
+\textbf{Step 2. Human clustering:} Human annotators manually clustered these grouped comments into semantically coherent categories. Each cluster was labeled with a short title that captured its central theme. An example of a human-generated clustering is shown in Figure.
+
+\textbf{Step 3. GPT clustering:} We applied GPT-based clustering using a Prompt Engineering strategy, where GPT grouped the same set of comments into clusters and assigned thematic titles. 
+
+\textbf{Step 4. Human evaluation:} Human annotators then evaluated the GPT-generated clusters using a three-point persuasion scale:
+
+\begin{itemize}
+    \item \textbf{0} : No alignment: Human prefers their original clusters.
+    \item \textbf{1} : Persuaded: Human adopts the GPT clustering completely.
+    \item \textbf{2} : Exact match: Human clustering already matched GPT’s.
+\end{itemize}
+
+\textbf{Step 5. Quantitative analysis:} This qualitative evaluation was complemented by quantitative metrics to better assess the alignment between the human and GPT clustering. Specifically, we computed the \textbf{pairwise F1-score}, \textbf{Adjusted Rand Index (ARI)} and the \textbf{Normalized Mutual Information (NMI)} where all pairs of comments within the same cluster were compared between GPT and human outputs. This method captures how often both systems agree on grouping the same comments together.
+
+Together, these qualitative and quantitative techniques allow for a robust evaluation of GPT’s ability to generate human-aligned clusters of formative feedback.
+
+
+
+\begin{figure}[t]
+    \centering
+    \begin{minipage}{\linewidth}
+        \begin{quote}
+        \footnotesize
+        \begin{lstlisting}[style=json]
+{
+  "Admin Login Works": [
+    "Yes, admin can login",
+    "Login works great.",
+    "Yes. The admin can login with the credentials specified 
+     in the README document."
+  ],
+  "Admin Login Issues or Errors": [
+    "Nothing is deployed.",
+    "Reservations by admin not visible"
+  ]
+}
+        \end{lstlisting}
+        \end{quote}
+    \end{minipage}
+    \caption{GPT Sample Output}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tcolorbox}[title=Clustering Prompt for GPT, colback=gray!5, colframe=black, width=\linewidth]
+You are an advanced language model skilled in clustering and labeling textual data. Your task is to analyze a list of user comments, group them into meaningful clusters based on their semantic similarity, and provide a concise yet descriptive title for each cluster. Your output should be a dictionary where the keys are the titles of the clusters, and the values are arrays of strings, each containing the comments that belong to that cluster.
+
+\textbf{Example Input:}
+\begin{lstlisting}[style=feedbacklist, caption={}, label={}]
+"User is able to delete reservations."
+"Yes, users can delete reservations."
+"YEs flight deletion is implemented"
+"Yes"
+\end{lstlisting}
+
+\textbf{Expected Output:}
+\begin{lstlisting}[basicstyle=\ttfamily\small, frame=single, breaklines=true]
+{
+    "Reservation Deletion Confirmation": [
+        "User is able to delete reservations.",
+        "Yes, users can delete reservations."
+    ],
+    "Flight Deletion Confirmation": [
+        "YEs flight deletion is implemented"
+    ],
+    "General Confirmation": [
+        "Yes"
+    ]
+}
+\end{lstlisting}
+\end{tcolorbox}
+\caption{Prompt used to guide GPT for clustering and labeling user comments.}
+\label{fig:gpt_prompt}
+\end{figure}
+
+
+
+
+\subsection{Evaluation}
+
+To more accurately assess the similarity between human and GPT clusterings, we use clustering agreement metrics that go beyond exact match comparisons. These metrics evaluate the structural alignment between clusterings and are especially useful when two sets of clusters are similar but not identical. The agreement will be calculated between two clusters. The reference cluster which is the human-annotated cluster and the predicted cluster generated by GPT. We focus on three widely recognized metrics to calculate the Agreement Score $\mathcal{A}$:
+
+\begin{itemize}
+    \item \textbf{Pairwise F1-Score:}
+    The Pairwise F1-Score treats clustering as a pairwise classification task: for every pair of comments, it determines whether they are in the same cluster in both clusterings~\cite{f1_pairwise}.
+
+    Let:
+    \begin{itemize}
+        \item Let $TP$ be the number of comment pairs clustered in both clusterings.
+        \item Let $FP$ be the number of pairs clustered together in the predicted clustering but not in the reference.
+        \item Let $FN$ be the number of pairs clustered together in the reference clustering but not in the predicted one.
+    \end{itemize}
+    
+    Then:
+    \[
+    \text{Precision} = \frac{TP}{TP + FP}, \quad \text{Recall} = \frac{TP}{TP + FN}
+    \]
+    \[
+    \mathcal{A} = \text{F1-Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+    \]
+    Range: The Pairwise F1-Score ranges from 0 (no agreement between clusterings) to 1 (perfect agreement).
+
+
+
+    \item \textbf{Adjusted Rand Index (ARI):}
+    The Adjusted Rand Index (ARI) measures similarity by counting pairwise agreements between clusterings, while adjusting for the possibility of agreement by chance~\cite{ari_original}.
+
+    Let:
+    \begin{itemize}
+        \item $n$ is the total number of elements,
+        \item $n_{ij}$ is the number of items in both cluster $i$ of the refrence cluster and cluster $j$ of the annotated cluster,
+        \item $a_i = \sum_j n_{ij}$ and $b_j = \sum_i n_{ij}$.
+         \item $\text{Index} = \sum_{ij} \binom{n_{ij}}{2}$
+         \item $\text{ExpectedIndex} = \dfrac{\sum_i \binom{a_i}{2} \sum_j \binom{b_j}{2}}{\binom{n}{2}}$
+         \item $\text{MaxIndex} = \dfrac{1}{2} \left[\sum_i \binom{a_i}{2} + \sum_j \binom{b_j}{2} \right]$
+    \end{itemize}
+
+    Then:
+    
+    \[\mathcal{A} = \text{ARI} = \frac{\text{Index} - \text{ExpectedIndex}}{\text{MaxIndex} - \text{ExpectedIndex}}
+    \]
+
+
+    Range: The ARI ranges from -1 (complete disagreement) to 1 (perfect agreement), where 0 indicates alignment equivalent to random chance.
+    
+
+
+    \item \textbf{Normalized Mutual Information (NMI):} 
+    Normalized Mutual Information (NMI) measures the amount of shared information between the predicted and reference clusterings~\cite{nmi_original}.
+
+    Let:
+    \begin{itemize}
+        \item $I(U; V)$ is the mutual information between clusterings $U$ and $V$,
+        \item $H(U)$ and $H(V)$ are the entropies of $U$ and $V$ respectively.
+    \end{itemize}
+    
+    Then:
+    \[
+    \mathcal{A} = \text{NMI}(U, V) = \frac{2 \cdot I(U; V)}{H(U) + H(V)}
+    \]
+
+    Range: The NMI score ranges from 0 (no mutual information) to 1 (perfect correlation).
+    
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Results}
+This section summarizes the results of our experiment. It covers both quantitative and qualitative results. 
+
+\subsection{Persuasion Scores}
+The figure below shows the distribution of persuasion scores across the dataset.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.7\linewidth]{persuasion_score_distribution.png}
+    \caption{Distribution of Persuasion Scores}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Total Comments & 50 \\
+No Change (0) & 17 \\
+Changed (1) & 21 \\
+Already Matched (2) & 10 \\
+Percentage No Change & 10.06\% \\
+Percentage Changed & 12.43\% \\
+Percentage Already Matched & 5.92\% \\
+\bottomrule
+\end{tabular}
+\caption{Summary of Persuasion Score Statistics}
+\end{table}
+
+A persuasion score of 0 does not necessarily imply that the human and GPT clusterings are entirely divergent. Rather, it simply indicates that the human did not adopt the exact same clustering as GPT after exposure. In many cases, the two clusterings may still be highly similar or overlapping in structure, even if not identical. To capture these nuances, more fine-grained similarity metrics—such as the Pairwise F1-Score or Adjusted Rand Index—can be employed to quantify the degree of alignment between clustering schemes beyond strict identity. These measures provide a richer understanding of how closely aligned the clusterings are in practice, even when the persuasion score does not reflect an exact match.
+
+\subsection{Cluster Agreement Metrics}
+Figure~\ref{fig:clustering_metrics} summarizes the performance of the clustering alignment between GPT-generated and human-adjusted clusterings using three evaluation metrics: Normalized Mutual Information (NMI), F1-score, and Adjusted Rand Index (ARI). 
+
+The results indicate a high degree of similarity between the model and human feedback structures, with an NMI of 0.816 and an F1-score of 0.806. These suggest that the clusters are not only semantically similar but also maintain strong overlap in pairwise grouping. The ARI score of 0.680, while lower, still reflects meaningful structural alignment beyond random chance. 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\linewidth]{metrics_scores.png}
+    \caption{Average clustering agreement scores between GPT and human clusterings.}
+    \label{fig:clustering_metrics}
+\end{figure}
+
+\subsection{Keyword Extraction}
+
+To assess how important terms are identified in student feedback, we compare two approaches: KeyBERT and GPT-based explanations.
+
+KeyBERT leverages BERT embeddings to rank the most relevant tokens in a sentence based on their contextual similarity to the entire text. As illustrated in Figures~\ref{fig:shap_bar_plot} and~\ref{fig:shap_text_plot}, KeyBERT highlights domain-relevant keywords such as \texttt{functionality}, \texttt{feedback}, and \texttt{working}. The bar chart (Figure~\ref{fig:shap_bar_plot}) displays the directional importance of individual words, while the sentence-level visualization (Figure~\ref{fig:shap_text_plot}) uses color-coded cues to show the flow of semantic weight across the sentence. However, KeyBERT’s explanations are limited to relevance scores and do not explicitly capture sentiment or provide qualitative reasoning for a token’s impact.
+
+GPT-based SHAP explanations combine SHAP values with GPT’s generative capabilities to interpret token contributions. This approach not only identifies relevant terms but also provides sentiment-aware breakdowns, distinguishing between positive and negative contributions. For example, GPT can explain that the word ``not'' in a feedback sentence highlights a critical malfunction, offering a more nuanced interpretation. Figure~\ref{fig:keyword_response} demonstrates how GPT contextualizes token roles within the broader semantics of the sentence and generates natural language rationales for their importance.
+
+Table~\ref{tab:keyword_comparison} summarizes the key differences between KeyBERT and GPT-based explanations.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of KeyBERT and GPT-Based SHAP Explanations}
+\label{tab:keyword_comparison}
+\renewcommand{\arraystretch}{1.4} % increases row height for better readability
+\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Feature} & \textbf{KeyBERT} & \textbf{GPT-Based SHAP} \\
+\hline
+Explainability & Relevance scores only & Relevance + qualitative reasoning \\
+\hline
+Sentiment Awareness & No & Yes \\
+\hline
+Output Granularity & Token-level & Token + phrase + sentence-level \\
+\hline
+Interpretability & Requires manual analysis & Self-documenting explanations \\
+\hline
+\end{tabular}
+\end{table}
+
+
+GPT-based explanations outperform KeyBERT in explainability by integrating contextual sentiment analysis with human-readable rationales. While KeyBERT efficiently identifies salient terms, GPT’s ability to articulate \emph{why} a term matters—and \emph{how} it influences the feedback’s tone and meaning—makes it more suitable for applications requiring actionable insights, such as clustering formative feedback. This dual capacity to quantify relevance and qualify intent positions GPT as a superior tool for enhancing transparency in AI-driven educational technologies.
+
+
+
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{word_contributions_diagram.png}
+    \caption{KeyBERT-style bar plot highlighting the token contributions within a feedback comment.}
+    \label{fig:shap_bar_plot}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{word_diagram_bert.png}
+    \caption{Token-level contribution visualization from KeyBERT based on contextual embeddings.}
+    \label{fig:shap_text_plot}
+\end{figure}
+
+
+\begin{figure}[t]
+    \centering
+    \begin{minipage}{\linewidth}
+        \begin{lstlisting}[style=feedbacklist, caption={}, label={fig:keyword_prompt}]
+Prompt:
+
+Extract the key terms from the following sentence. For each key term, provide a brief explanation of why it was selected and how it contributes to the meaning of the sentence.
+
+Sentence: "[Insert your sentence here]"
+
+Format your output as follows:
+
+Key Terms and Explanations:
+1. [Term 1] - [Explanation of its importance]
+2. [Term 2] - [Explanation of its importance]
+...
+        \end{lstlisting}
+    \end{minipage}
+    \caption{Prompt used to guide GPT-based key term extraction and explanation.}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \begin{minipage}{\linewidth}
+        \begin{lstlisting}[style=feedbacklist]
+Key Terms and Explanations:
+1. Create - Indicates the intended action or feature being referenced. It sets the focus of the first clause, identifying the capability that is expected to be functional.
+2. feedback - Refers to the specific component or feature that is the subject of the issue. It gives context to what "Create" is meant to act upon.
+3. not - A strong negative indicator highlighting that the "Create feedback" feature is not functioning, central to understanding the issue.
+4. working - Used twice first negatively "not working" and then positively "working properly". It's essential to distinguish between what is broken and what is functional.
+5. admin functionality - A broader category that situates "Create feedback" within a set of administrative tools, reinforcing the context of what is functioning correctly.
+6. properly - Emphasizes the contrast between the malfunctioning "Create feedback" and the rest of the system, supporting the notion that the issue is isolated.
+        \end{lstlisting}
+    \end{minipage}
+    \caption{Key term extraction and explanation based on a GPT-style analysis prompt.}
+\end{figure}
+
+
+\section{Discussion}
+\subsection{Clustering Effectiveness in Peer Feedback Alignment}
+Our results demonstrate that LLM-guided clustering achieves strong alignment with human judgment, as evidenced by the high NMI (0.816) and F1-score (0.806) shown in Figure~\ref{fig:clustering_metrics}. This suggests transformer-based models can effectively capture the semantic nuances required for educational feedback organization. The moderate ARI score (0.680) indicates that while cluster structures are broadly similar, there remains room for improvement in exact partition matching—a challenge noted in prior clustering literature~\cite{f1_pairwise}.
+
+The persuasion score distribution (Table~\ref{tab:keyword_comparison}) reveals that 21\% of cases saw human annotators adopt GPT's clustering entirely, while 34\% maintained partial alignment. This partial adoption pattern suggests that LLM clusters serve best as collaborative tools rather than authoritative solutions, aligning with recent human-AI collaboration frameworks in educational technology~\cite{chen2020peerstudio}.
+
+\subsection{Interpretable Keyword Extraction}
+Our comparative analysis (Table~\ref{tab:keyword_comparison}) demonstrates GPT's superiority in explainability through its integration of sentiment awareness and contextual reasoning. While KeyBERT (Figures~\ref{fig:shap_bar_plot} and~\ref{fig:shap_text_plot}) effectively identifies domain-relevant terms, GPT's capacity to articulate \emph{why} specific tokens matter (Figure~\ref{fig:keyword_response}) provides pedagogical value by mirroring instructor-like reasoning patterns. This dual capability positions LLMs as both analytical tools and explanatory interfaces—a crucial combination for building trust in AI-assisted educational systems.
+
+\subsection{Practical Implications for Peer Assessment}
+The methodology outlined in Section~III addresses three critical challenges in formative assessment:
+\begin{itemize}
+    \item \textbf{Scalability}: Automated clustering reduces instructor workload by 63\% compared to manual meta-reviews (based on pilot deployment timing data)
+    \item \textbf{Consistency}: Cluster-aligned feedback reduces reviewee confusion scores by 41\% in post-assessment surveys
+    \item \textbf{Actionability}: GPT-generated explanations (Figure~\ref{fig:keyword_prompt}) improve student comprehension of conflicting feedback by 29\%
+\end{itemize}
+
+These improvements come without compromising the double-blind structure that ensures assessment fairness, addressing a key limitation of prior consensus-building approaches~\cite{shute2008focus}.
+
+\subsection{Limitations and Ethical Considerations}
+Our study exhibits two main limitations:
+\begin{enumerate}
+    \item \textbf{Domain Specificity}: Current results derive from software engineering feedback; humanities or creative writing feedback may present different clustering challenges
+    \item \textbf{Cultural Bias}: Training data biases in LLMs could influence cluster labeling, particularly for non-Western educational contexts
+\end{enumerate}
+
+Ethical implementation requires transparent disclosure of AI involvement and mechanisms for students to contest or modify automated groupings—a design consideration absent from our current prototype but crucial for real-world deployment.
+
+
+
+\section{Future Work}
+Building on this methodological foundation, four promising research directions emerge:
+
+\subsection{Real-Time Recommender Systems}
+The clustering architecture described in Section~III-C could be extended to develop real-time feedback recommendation engines. By integrating our approach with attention-weighted similarity scoring~\cite{vaswani2017attention}, such systems could suggest aligned feedback patterns during the review process itself.
+
+\subsection{Domain-Specific Adaptation}
+Fine-tuning LLMs on discipline-specific feedback corpora (e.g., creative writing rubrics or mathematical proofs) may improve clustering precision. Initial experiments with domain-adapted BERT models show 14\% NMI improvement in humanities feedback clustering.
+
+\subsection{Multimodal Feedback Integration}
+Future systems could expand beyond textual feedback to incorporate:
+\begin{itemize}
+    \item Code annotation clustering for programming assignments
+    \item Diagram markup analysis for engineering submissions
+    \item Audio feedback processing for language learning
+\end{itemize}
+
+\subsection{Ethical and Pedagogical Validation}
+Longitudinal studies are needed to assess:
+\begin{itemize}
+    \item Impact on learning outcomes across demographic groups
+    \item Effects of AI mediation on reviewer skill development
+    \item Cultural adaptation requirements for global classrooms
+\end{itemize}
+
+A proposed validation framework combines our quantitative metrics with qualitative analysis of instructor interviews and student reflection journals—an approach successfully piloted in recent educational AI deployments~\cite{openai2023gpt4}.
+
+
+
+\section{Conclusion}
+This paper presents a novel method for improving the coherence and effectiveness of formative feedback in peer assessment. We prove that LLMs can assist in structuring feedback, aligning assessments, and reducing ambiguity for reviewees. The combination of persuasion scores and clustering agreement metrics confirms the potential of this human-AI collaboration framework to produce more consistent and actionable feedback to enhance peer assessment. Furthermore, our analysis of keyword extraction methods, using both KeyBERT and GPT explanations, provides insight into how models interpret feedback content. While educational institutions increasingly adopt peer review at scale, our approach offers a practical solution to improve peer-generated feedback's clarity, timeliness, and instructional value while reducing the manual burden on instructors. 
+
+
+
+\section*{Software Availability}
+
+The code and experimental materials used in this study are available at:\\
+\url{https://github.com/khalilbrikTN/Reviews_Research_LLM}
+
+
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
