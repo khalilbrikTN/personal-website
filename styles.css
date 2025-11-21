@@ -235,6 +235,7 @@ p {
     background: linear-gradient(135deg, var(--hero-bg-start) 0%, var(--hero-bg-end) 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
 }
 
 .hero::before {
