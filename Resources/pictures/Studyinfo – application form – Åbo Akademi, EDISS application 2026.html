@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+    <title>Opintopolku – hakulomake</title>
+    <meta charset='utf-8'>
+    <script src="/hakemus/vendor/js/stacktrace.min.js?fingerprint=1766397732078"></script>
+    <link rel="stylesheet" href="/hakemus/vendor/css/animate.min.css?fingerprint=1766397732078">
+    <link rel="stylesheet" href="/hakemus/vendor/css/material-design-iconic-font.min.css?fingerprint=1766397732078">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,600,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="/hakemus/css/compiled/hakija-site.css?fingerprint=1766397732078" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript">
+        var config = {"features":{"kevyt-valinta":true,"attachment-download-allowed":false,"schema-validation":false,"arvosanat":false,"hakeminen-tunnistautuneena":"true","disallow-temporary-ssn":true},"oppija-session-polling-interval":"300000","attachment-file-part-max-size-bytes":1048576,"attachment-preview-pages-to-display":20,"attachment-modify-grace-period-days":14,"send-job-failure-alert-emails":true,"attachment-file-max-size-bytes":1073741824,"virkailija":{"service_url":"https://virkailija.opintopolku.fi/lomake-editori/"},"konfo":{"service_url":"https://opintopolku.fi"},"secret-link-valid-days":14,"information-request-reminder-job-hour":9,"tutu-default-processing-fee":"100.0","applicant":{"service_url":"https://opintopolku.fi"},"tutu-payment-form-keys":"8625a53b-575b-43a5-a444-0f10bd5c7229,d7f993b9-53c8-49a2-b209-275d10efd672,74825f61-e561-447e-bef4-1bb5be4ea44a","environment-name":"sade","job-failure-alert-recipients":"marcus.caselius@oph.fi;august.kilponen@knowit.fi;opiskelijavalinnat-yl-aaaagqjnshj2bcqs5fs5zmaydq@opetushallitus.slack.com","hakija-caller-id":"1.2.246.562.10.00000000001.ataru-hakija.frontend","attachment-modify-grace-period-default-time":"15:00","virkailija-caller-id":"1.2.246.562.10.00000000001.ataru-editori.frontend"};
+    </script>
+    <script>
+        var siteDomain = document.domain;
+        var matomoSiteId;
+        switch (siteDomain) {
+            case "opintopolku.fi":
+                matomoSiteId = 4;
+                break;
+            case "studieinfo.fi":
+                matomoSiteId = 13;
+                break;
+            case "studyinfo.fi":
+                matomoSiteId = 14;
+                break;
+            case "virkailija.opintopolku.fi":
+                matomoSiteId = 3;
+                break;
+            case "testiopintopolku.fi":
+            case "testistudieinfo.fi":
+            case "testistudyinfo.fi":
+                matomoSiteId = 1;
+                break;
+            case "virkailija.testiopintopolku.fi":
+                matomoSiteId = 5;
+                break;
+            case "demo-opintopolku.fi":
+            case "demo-studieinfo.fi":
+            case "demo-studyinfo.fi":
+                matomoSiteId = 15;
+                break;
+            default:
+                matomoSiteId = 2; // Kehitys
+        }
+        var _paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytiikka.opintopolku.fi/matomo/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', matomoSiteId]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <script type="text/javascript">
+        var siteDomain = document.domain;
+        var matomoSiteUrl;
+        switch (siteDomain) {
+            case "opintopolku.fi":
+            case "studieinfo.fi":
+            case "studyinfo.fi":
+                matomoSiteUrl = "https://analytiikka.ahtp.fi/";
+                break;
+            default:
+                matomoSiteUrl = "https://keha-matomo-sdg-qa-qa.azurewebsites.net/"; // Testi
+        }
+        var cookieconsentSettings = {
+            // Urls where matomo files can be found on the (matomo) server.
+            matomoSiteUrl: matomoSiteUrl,
+            matomoSiteId: "8",
+            // Params that are included in the tracking requests. See https://developer.matomo.org/api-reference/tracking-api
+            includedParams: ["idsite", "rec", "action_name", "url", "_id", "rand", "apiv"],
+        };
+        var hasInit = false;
+        var initMatomoTracker = function () {
+            try {
+                if (hasInit) return;
+                hasInit = true;
+                var tracker;
+                if (typeof Matomo !== 'undefined') {
+                    tracker = Matomo;
+                } else {
+                    tracker = Piwik;
+                }
+                var url = cookieconsentSettings.matomoSiteUrl;
+                var fixedUrl = url.charAt(url.length - 1) === '/' ? url : url + '/';
+                matomoTracker = tracker.getTracker(fixedUrl + "matomo.php", cookieconsentSettings.matomoSiteId);
+                var customRequestProcess = function (request) {
+                    try {
+                        var pairs = request.split("&");
+                        var requestParametersArray = [];
+                        for (var index = 0; index < pairs.length; ++index) {
+                            var pair = pairs[index].split("=");
+                            if (cookieconsentSettings.includedParams.indexOf(pair[0]) === -1) {
+                                continue;
+                            }
+                            requestParametersArray.push(pair[0] + "=" + pair[1]);
+                        }
+                        var osIndex = navigator.userAgent.indexOf(")");
+                        var ua =
+                            osIndex !== -1
+                                ? navigator.userAgent.substring(0, osIndex + 1)
+                                : "Mozilla/5.0";
+                        requestParametersArray.push("ua=" + ua);
+                        return requestParametersArray.join("&");
+                    } catch (err) {
+                        return request;
+                    }
+                };
+                matomoTracker.setCustomRequestProcessing(customRequestProcess);
+                matomoTracker.trackPageView();
+                matomoTracker.enableLinkTracking();
+            } catch (err) { }
+        };
+        if (typeof Matomo === 'undefined') {
+            window.matomoAsyncInit = initMatomoTracker;
+            window.piwikAsyncInit = initMatomoTracker;
+        }
+        else {
+            initMatomoTracker();
+        }
+    </script>
+</head>
+<body class="ataru-app ataru-app__hakija">
+<div id="app"></div>
+<script src="/hakemus/js/compiled/hakija-app.js?fingerprint=1766397732078"></script>
+<script>ataru.hakija.core.init();</script>
+</body>
+</html>

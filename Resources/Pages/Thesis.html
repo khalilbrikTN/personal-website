@@ -1,0 +1,561 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thesis 1 Presentation: Quantum Optimization for Location Tracking Systems</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --quantum-blue: #0ea5e9;
+      --quantum-purple: #8b5cf6;
+      --quantum-pink: #ec4899;
+      --academic-gold: #f59e0b;
+      --background-light: #f8f9fa;
+      --background-white: #ffffff;
+      --text-dark: #2d3748;
+      --text-medium: #4a5568;
+      --text-light: #718096;
+      --border-color: #e2e8f0;
+      --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+      --shadow-medium: 0 4px 15px rgba(139, 92, 246, 0.3);
+      --border-radius: 12px;
+      --border-radius-large: 15px;
+      --spacing-small: 1rem;
+      --spacing-medium: 1.5rem;
+      --spacing-large: 2rem;
+      --spacing-xl: 3rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-large);
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--quantum-blue);
+      text-decoration: none;
+      margin-bottom: var(--spacing-large);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: var(--quantum-purple);
+    }
+
+    .article-header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .article-title {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: var(--spacing-small);
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-large);
+      flex-wrap: wrap;
+      color: var(--text-light);
+      margin-bottom: var(--spacing-large);
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--quantum-blue), var(--quantum-purple));
+      margin: var(--spacing-small) auto;
+      border-radius: 2px;
+    }
+
+    .article-image {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      margin: 0 auto var(--spacing-xl) auto;
+      display: block;
+      box-shadow: var(--shadow-light);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-medium);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .achievement-card {
+      background: linear-gradient(135deg, var(--quantum-blue) 0%, var(--quantum-purple) 100%);
+      color: white;
+      padding: var(--spacing-large) var(--spacing-medium);
+      border-radius: var(--border-radius-large);
+      text-align: center;
+      box-shadow: var(--shadow-medium);
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .achievement-card.quantum-card {
+      background: linear-gradient(135deg, var(--quantum-purple) 0%, var(--quantum-pink) 100%);
+    }
+
+    .achievement-card.gold-card {
+      background: linear-gradient(135deg, var(--academic-gold) 0%, #d97706 100%);
+    }
+
+    .achievement-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-text {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    .highlight-section {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      padding: var(--spacing-large);
+      border-radius: var(--border-radius-large);
+      margin: var(--spacing-large) 0;
+      text-align: center;
+      border: 2px solid var(--quantum-blue);
+    }
+
+    .highlight-section h3 {
+      color: var(--quantum-blue);
+      margin-bottom: var(--spacing-small);
+      font-size: 1.3rem;
+    }
+
+    .highlight-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-medium);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-large);
+      margin: var(--spacing-large) 0;
+    }
+
+    .info-card {
+      background: var(--background-light);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-medium);
+      margin-bottom: var(--spacing-medium);
+      border-left: 4px solid var(--quantum-blue);
+      box-shadow: var(--shadow-light);
+      transition: transform 0.2s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .info-card.quantum-themed {
+      border-left-color: var(--quantum-purple);
+    }
+
+    .info-card h3 {
+      color: var(--quantum-blue);
+      margin-bottom: var(--spacing-small);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card.quantum-themed h3 {
+      color: var(--quantum-purple);
+    }
+
+    .info-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .info-card li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+      color: var(--text-medium);
+    }
+
+    .info-card p {
+      color: var(--text-medium);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin: var(--spacing-xl) 0 var(--spacing-large) 0;
+    }
+
+    .section-header h2 {
+      color: var(--text-dark);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .download-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-medium);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .download-card {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      padding: var(--spacing-large);
+      border-radius: var(--border-radius-large);
+      text-align: center;
+      border: 2px solid var(--quantum-blue);
+      transition: all 0.3s ease;
+    }
+
+    .download-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .download-card h3 {
+      color: var(--quantum-blue);
+      margin-bottom: var(--spacing-small);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--quantum-blue), var(--quantum-purple));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: var(--spacing-small);
+      transition: all 0.3s ease;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(14, 165, 233, 0.4);
+    }
+
+    .conclusion-section {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+      padding: var(--spacing-large);
+      border-radius: var(--border-radius-large);
+      margin: var(--spacing-xl) 0;
+      text-align: center;
+      border: 2px solid var(--quantum-purple);
+    }
+
+    .conclusion-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-medium);
+      max-width: 800px;
+      margin: 0 auto var(--spacing-small) auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: var(--spacing-small);
+      }
+
+      .content-grid,
+      .download-section {
+        grid-template-columns: 1fr;
+      }
+
+      .article-title {
+        font-size: 2rem;
+      }
+
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="../../index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      Back to Website
+    </a>
+
+    <article class="news-article">
+      <header class="article-header">
+        <h1 class="article-title">
+          Thesis 1 Presentation: Quantum Optimization for Location Tracking Systems
+        </h1>
+        <div class="article-meta">
+          <span><i class="fas fa-calendar-alt"></i> December 2025</span>
+          <span><i class="fas fa-university"></i> American University in Cairo</span>
+          <span><i class="fas fa-user"></i> Mohamed Khalil Brik</span>
+        </div>
+        <div class="divider"></div>
+      </header>
+
+      <!-- Key Achievements -->
+      <div class="achievements-grid">
+        <div class="achievement-card quantum-card">
+          <span class="achievement-number"><i class="fas fa-atom"></i></span>
+          <p class="achievement-text">Quantum Computing Research</p>
+        </div>
+        <div class="achievement-card">
+          <span class="achievement-number">QAOA</span>
+          <p class="achievement-text">Quantum Approximate Optimization Algorithm</p>
+        </div>
+        <div class="achievement-card gold-card">
+          <span class="achievement-number">Thesis 1</span>
+          <p class="achievement-text">First Undergraduate Thesis Milestone</p>
+        </div>
+        <div class="achievement-card">
+          <span class="achievement-number">GPS</span>
+          <p class="achievement-text">Location Tracking Optimization</p>
+        </div>
+      </div>
+
+      <!-- Thesis Introduction -->
+      <div class="highlight-section">
+        <h3><i class="fas fa-graduation-cap"></i> Thesis 1 Presentation</h3>
+        <p>
+          Successfully presented my first undergraduate thesis on
+          <strong>"Quantum Optimization for Location Tracking Systems"</strong>
+          at The American University in Cairo. This research explores the application
+          of quantum computing algorithms to solve complex optimization problems in
+          GPS and location tracking systems.
+        </p>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="content-grid">
+        <!-- Left Column -->
+        <div class="content-left">
+          <div class="info-card quantum-themed">
+            <h3><i class="fas fa-atom"></i> Research Focus</h3>
+            <p>
+              <strong>Quantum Computing for Real-World Applications</strong> â€“
+              Investigating how quantum algorithms can revolutionize location
+              tracking and GPS optimization.
+            </p>
+            <ul>
+              <li>
+                <strong>QAOA Implementation:</strong> Quantum Approximate
+                Optimization Algorithm
+              </li>
+              <li>
+                <strong>Location Tracking:</strong> GPS system optimization
+              </li>
+              <li>
+                <strong>Performance Analysis:</strong> Quantum vs. classical
+                approaches
+              </li>
+              <li>
+                <strong>Practical Applications:</strong> Real-world deployment
+                considerations
+              </li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3><i class="fas fa-lightbulb"></i> Key Innovations</h3>
+            <p>
+              <strong>Novel approaches</strong> to applying quantum computing
+              principles to location-based optimization challenges.
+            </p>
+            <ul>
+              <li>
+                <strong>Algorithm Design:</strong> Custom QAOA implementation
+              </li>
+              <li>
+                <strong>System Integration:</strong> Quantum-classical hybrid
+                approach
+              </li>
+              <li>
+                <strong>Optimization Techniques:</strong> Advanced parameter tuning
+              </li>
+              <li>
+                <strong>Scalability Analysis:</strong> Performance at different
+                scales
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="content-right">
+          <div class="info-card">
+            <h3><i class="fas fa-cogs"></i> Technical Components</h3>
+            <p>
+              <strong>Core technologies</strong> and methodologies used in the
+              research implementation.
+            </p>
+            <ul>
+              <li>
+                <strong>Quantum Frameworks:</strong> Qiskit for quantum circuit
+                design
+              </li>
+              <li>
+                <strong>Simulation:</strong> Quantum simulator for algorithm
+                testing
+              </li>
+              <li>
+                <strong>Mathematical Modeling:</strong> Optimization problem
+                formulation
+              </li>
+              <li>
+                <strong>Data Analysis:</strong> Performance metrics and
+                benchmarking
+              </li>
+            </ul>
+          </div>
+
+          <div class="info-card quantum-themed">
+            <h3><i class="fas fa-chart-line"></i> Research Outcomes</h3>
+            <p>
+              <strong>Significant findings</strong> demonstrating the potential of
+              quantum computing in location optimization.
+            </p>
+            <ul>
+              <li>
+                <strong>Algorithm Efficiency:</strong> Comparative performance
+                analysis
+              </li>
+              <li>
+                <strong>Optimization Quality:</strong> Solution accuracy
+                assessment
+              </li>
+              <li>
+                <strong>Practical Viability:</strong> Real-world application
+                potential
+              </li>
+              <li>
+                <strong>Future Directions:</strong> Roadmap for continued research
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Section -->
+      <div class="section-header">
+        <h2>Thesis Resources</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="download-section">
+        <div class="download-card">
+          <h3><i class="fas fa-file-pdf"></i> Thesis Paper</h3>
+          <p style="color: var(--text-medium); margin-bottom: 1rem;">
+            Download the complete thesis paper with detailed research findings,
+            methodology, and analysis.
+          </p>
+          <a href="../Resources/Thesis/Thesis Paper.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Download Paper
+          </a>
+        </div>
+
+        <div class="download-card">
+          <h3><i class="fas fa-presentation"></i> Presentation Slides</h3>
+          <p style="color: var(--text-medium); margin-bottom: 1rem;">
+            Access the presentation slides used during the thesis defense and
+            research showcase.
+          </p>
+          <a href="../Resources/Thesis/Thesis Presentation.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Download Slides
+          </a>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="conclusion-section">
+        <p>
+          This thesis represents a significant milestone in my academic journey,
+          combining my passions for quantum computing, optimization algorithms,
+          and practical applications. The research demonstrates the exciting
+          potential of quantum computing to solve real-world problems in location
+          tracking and GPS systems.
+        </p>
+        <p style="margin-top: 1rem">
+          <strong>
+            I am grateful to my advisors and the Computer Science Department at
+            AUC for their support and guidance throughout this research journey.
+            This work lays the foundation for continued exploration in quantum
+            computing applications! ðŸš€
+          </strong>
+        </p>
+      </div>
+    </article>
+  </div>
+  <!-- News Ticker -->
+  <div class="news-ticker-bar">
+    <div class="ticker-label">LATEST UPDATES</div>
+    <div class="ticker-container">
+      <div class="ticker-wrapper">
+        <a href="Thesis.html" class="ticker-item"><span class="ticker-date">DEC 2025</span> Completed the first part of
+          my Bachelor Thesis</a>
+        <a href="TomorrowsLeaders.html" class="ticker-item"><span class="ticker-date">NOV 2025</span> Received Project
+          Management Training from Tomorrow's Leaders</a>
+        <a href="TheAICompany.html" class="ticker-item"><span class="ticker-date">OCT 2025</span> Started The AI
+          Company</a>
+        <a href="NCUR.html" class="ticker-item"><span class="ticker-date">APR 2025</span> Participated in the NCUR
+          Conference</a>
+        <a href="CFC.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span> Study Abroad at the College
+          of Charleston</a>
+        <a href="NASA_course.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span> Joined the NASA
+          Space Mission Design Course</a>
+        <a href="llm-researcher.html" class="ticker-item"><span class="ticker-date">DEC 2024</span> Researcher in Large
+          Language Models</a>
+        <a href="ADIB.html" class="ticker-item"><span class="ticker-date">SUMMER 2024</span> Software Engineering intern
+          at ADIB Egypt</a>
+        <a href="Diaspura.html" class="ticker-item"><span class="ticker-date">SPRING 2024</span> Chat bot development
+          intern at Diaspura</a>
+        <a href="ECPC.html" class="ticker-item"><span class="ticker-date">OCT 2023</span> Participated in ECPC
+          Contests</a>
+        <a href="HarvardAspire.html" class="ticker-item"><span class="ticker-date">MAR 2023</span> Finished the Harvard
+          Aspire Leaders Program</a>
+        <a href="AUC.html" class="ticker-item"><span class="ticker-date">SEPT 2022</span> Joined the American University
+          in Cairo</a>
+        <a href="Bac.html" class="ticker-item"><span class="ticker-date">JUNE 2022</span> Received my Baccalaureate
+          Certificate</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+

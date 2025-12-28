@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NLP Chatbot Development Internship at diasPÜra</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* Customizable CSS Variables for Tech Startup/Global Team Theme */
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --startup-blue: #3b82f6;
+        --france-blue: #1e40af;
+        --innovation-purple: #7c3aed;
+        --global-green: #059669;
+        --nlp-orange: #ea580c;
+        --background-light: #f8f9fa;
+        --background-white: #ffffff;
+        --text-dark: #2d3748;
+        --text-medium: #4a5568;
+        --text-light: #718096;
+        --border-color: #e2e8f0;
+        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+        --shadow-medium: 0 4px 15px rgba(102, 126, 234, 0.3);
+        --shadow-startup: 0 4px 15px rgba(59, 130, 246, 0.3);
+        --border-radius: 12px;
+        --border-radius-large: 15px;
+        --spacing-small: 1rem;
+        --spacing-medium: 1.5rem;
+        --spacing-large: 2rem;
+        --spacing-xl: 3rem;
+      }
+
+      /* Grid-based layout styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-large);
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--startup-blue);
+        text-decoration: none;
+        margin-bottom: var(--spacing-large);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .back-button:hover {
+        color: var(--innovation-purple);
+      }
+
+      .article-header {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: var(--spacing-small);
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-large);
+        flex-wrap: wrap;
+        color: var(--text-light);
+        margin-bottom: var(--spacing-large);
+      }
+
+      .article-image {
+        width: 100%;
+        max-width: 600px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+        margin: 0 auto var(--spacing-xl) auto;
+        display: block;
+        box-shadow: var(--shadow-light);
+      }
+
+      /* Achievement cards with startup/global theme */
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-xl) 0;
+      }
+
+      .achievement-card {
+        background: linear-gradient(
+          135deg,
+          var(--startup-blue) 0%,
+          var(--france-blue) 100%
+        );
+        color: white;
+        padding: var(--spacing-large) var(--spacing-medium);
+        border-radius: var(--border-radius-large);
+        text-align: center;
+        box-shadow: var(--shadow-startup);
+        transition: transform 0.3s ease;
+      }
+
+      .achievement-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .achievement-card.nlp-card {
+        background: linear-gradient(135deg, var(--nlp-orange) 0%, #c2410c 100%);
+      }
+
+      .achievement-card.global-card {
+        background: linear-gradient(
+          135deg,
+          var(--global-green) 0%,
+          #047857 100%
+        );
+      }
+
+      .achievement-card.innovation-card {
+        background: linear-gradient(
+          135deg,
+          var(--innovation-purple) 0%,
+          #5b21b6 100%
+        );
+      }
+
+      .achievement-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .achievement-text {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      /* Content grid */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-large);
+        margin: var(--spacing-large) 0;
+      }
+
+      .info-card {
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-medium);
+        margin-bottom: var(--spacing-medium);
+        border-left: 4px solid var(--startup-blue);
+        box-shadow: var(--shadow-light);
+        transition: transform 0.2s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .info-card.nlp-themed {
+        border-left-color: var(--nlp-orange);
+      }
+
+      .info-card.global-themed {
+        border-left-color: var(--global-green);
+      }
+
+      .info-card.innovation-themed {
+        border-left-color: var(--innovation-purple);
+      }
+
+      .info-card.france-themed {
+        border-left-color: var(--france-blue);
+      }
+
+      .info-card h3 {
+        color: var(--startup-blue);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .info-card.nlp-themed h3 {
+        color: var(--nlp-orange);
+      }
+
+      .info-card.global-themed h3 {
+        color: var(--global-green);
+      }
+
+      .info-card.innovation-themed h3 {
+        color: var(--innovation-purple);
+      }
+
+      .info-card.france-themed h3 {
+        color: var(--france-blue);
+      }
+
+      .info-card ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .info-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        color: var(--text-medium);
+      }
+
+      .info-card p {
+        color: var(--text-medium);
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+      }
+
+      /* Technical features section */
+      .features-section {
+        margin: var(--spacing-xl) 0;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .feature-card {
+        background: var(--background-white);
+        padding: var(--spacing-medium);
+        border-radius: var(--border-radius);
+        text-align: center;
+        border: 2px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        border-color: var(--startup-blue);
+        box-shadow: var(--shadow-light);
+        transform: translateY(-2px);
+      }
+
+      .feature-card.highlight-feature {
+        border-color: var(--nlp-orange);
+        background: linear-gradient(
+          135deg,
+          rgba(234, 88, 12, 0.1) 0%,
+          rgba(194, 65, 12, 0.1) 100%
+        );
+      }
+
+      .feature-card h4 {
+        color: var(--startup-blue);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .feature-card.highlight-feature h4 {
+        color: var(--nlp-orange);
+      }
+
+      .feature-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: var(--spacing-small);
+      }
+
+      .tag {
+        background: var(--startup-blue);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .tag.nlp-tag {
+        background: var(--nlp-orange);
+      }
+
+      .tag.global-tag {
+        background: var(--global-green);
+      }
+
+      .tag.innovation-tag {
+        background: var(--innovation-purple);
+      }
+
+      .tag.france-tag {
+        background: var(--france-blue);
+      }
+
+      /* Technical implementation table */
+      .tech-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        margin: var(--spacing-large) 0;
+      }
+
+      .tech-table thead tr {
+        background: linear-gradient(
+          135deg,
+          var(--startup-blue) 0%,
+          var(--france-blue) 100%
+        );
+        color: white;
+      }
+
+      .tech-table th,
+      .tech-table td {
+        padding: var(--spacing-small);
+        text-align: left;
+        border: none;
+      }
+
+      .tech-table tbody tr {
+        border-bottom: 1px solid var(--border-color);
+        transition: background-color 0.2s ease;
+      }
+
+      .tech-table tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+
+      .tech-table .highlight-row {
+        background: linear-gradient(
+          135deg,
+          var(--startup-blue) 0%,
+          var(--france-blue) 100%
+        );
+        color: white;
+        font-weight: bold;
+      }
+
+      /* diasPÜra highlight section */
+      .diaspora-highlight {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1) 0%,
+          rgba(30, 64, 175, 0.1) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-large) 0;
+        text-align: center;
+        border: 2px solid var(--startup-blue);
+      }
+
+      .diaspora-highlight h3 {
+        color: var(--startup-blue);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.3rem;
+      }
+
+      .diaspora-highlight p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Immigration complexity highlight */
+      .complexity-highlight {
+        background: linear-gradient(
+          135deg,
+          rgba(234, 88, 12, 0.1) 0%,
+          rgba(194, 65, 12, 0.1) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-large) 0;
+        border: 2px solid var(--nlp-orange);
+      }
+
+      .complexity-highlight h4 {
+        color: var(--nlp-orange);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.2rem;
+      }
+
+      /* Accomplishments grid */
+      .accomplishments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .accomplishment-item {
+        background: var(--background-light);
+        padding: var(--spacing-medium);
+        border-radius: var(--border-radius);
+        border-left: 4px solid var(--global-green);
+        transition: transform 0.2s ease;
+      }
+
+      .accomplishment-item:hover {
+        transform: translateY(-2px);
+      }
+
+      .accomplishment-item h5 {
+        color: var(--global-green);
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+      }
+
+      /* Leadership section */
+      .leadership-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .leadership-card {
+        background: linear-gradient(
+          145deg,
+          var(--background-light) 0%,
+          #e2e8f0 100%
+        );
+        padding: var(--spacing-medium);
+        border-radius: var(--border-radius);
+        text-align: center;
+        border: 2px solid var(--innovation-purple);
+      }
+
+      .leader-name {
+        color: var(--innovation-purple);
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .leader-role {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      /* Section headers */
+      .section-header {
+        text-align: center;
+        margin: var(--spacing-xl) 0 var(--spacing-large) 0;
+      }
+
+      .section-header h2 {
+        color: var(--text-dark);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--startup-blue),
+          var(--innovation-purple)
+        );
+        margin: var(--spacing-small) auto;
+        border-radius: 2px;
+      }
+
+      /* Conclusion section */
+      .conclusion-section {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.15) 0%,
+          rgba(124, 58, 237, 0.15) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-xl) 0;
+        text-align: center;
+        border: 2px solid var(--startup-blue);
+      }
+
+      .conclusion-section p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto var(--spacing-small) auto;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        :root {
+          --spacing-large: 1.5rem;
+          --spacing-xl: 2rem;
+        }
+
+        .container {
+          padding: var(--spacing-small);
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-small);
+        }
+
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .achievements-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .accomplishments-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .leadership-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .tech-table {
+          font-size: 0.9rem;
+        }
+
+        .tech-table th,
+        .tech-table td {
+          padding: 0.75rem;
+        }
+      }
+
+      /* Table container for mobile scrolling */
+      .table-container {
+        overflow-x: auto;
+        margin: var(--spacing-large) 0;
+      }
+
+      .table-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .table-container::-webkit-scrollbar-track {
+        background: var(--background-light);
+        border-radius: 4px;
+      }
+
+      .table-container::-webkit-scrollbar-thumb {
+        background: var(--startup-blue);
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html#news" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Website
+      </a>
+
+      <article class="news-article">
+        <header class="article-header">
+          <h1 class="article-title">
+            NLP Chatbot Development Internship at diasPÜra
+          </h1>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> Spring 2024</span>
+            <span><i class="fas fa-globe"></i> France-Based Global Team</span>
+            <span><i class="fas fa-user"></i> Mohamed Khalil Brik</span>
+          </div>
+          <div class="divider"></div>
+        </header>
+
+        <img
+          src="../Resources/Diaspura.png"
+          alt="diasPÜra NLP Chatbot Development"
+          class="article-image"
+        />
+
+        <!-- Key Achievements -->
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <span class="achievement-number">3</span>
+            <p class="achievement-text">Months of Innovation & Growth</p>
+          </div>
+          <div class="achievement-card nlp-card">
+            <span class="achievement-number">NLP</span>
+            <p class="achievement-text">Advanced Chatbot Development</p>
+          </div>
+          <div class="achievement-card global-card">
+            <span class="achievement-number">5</span>
+            <p class="achievement-text">Continents Team Collaboration</p>
+          </div>
+          <div class="achievement-card innovation-card">
+            <span class="achievement-number">AI</span>
+            <p class="achievement-text">Immigration Assistance Technology</p>
+          </div>
+        </div>
+
+        <!-- diasPÜra Introduction -->
+        <div class="diaspora-highlight">
+          <h3>
+            <i class="fas fa-rocket"></i> Transformative Tech Startup Experience
+          </h3>
+          <p>
+            🌟 <strong>Incredible three-month journey at diasPÜra</strong> -
+            Contributing to groundbreaking
+            <strong>NLP chatbot technology</strong> for immigration assistance
+            while collaborating with a globally distributed team spanning all
+            five continents, making a real difference in people's lives through
+            innovative technology solutions.
+          </p>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+          <!-- Left Column -->
+          <div class="content-left">
+            <div class="info-card france-themed">
+              <h3><i class="fas fa-building"></i> About diasPÜra</h3>
+              <p>
+                <strong>Innovative French-based company</strong> dedicated to
+                simplifying complex immigration processes through cutting-edge
+                AI and NLP technology.
+              </p>
+              <ul>
+                <li>
+                  <strong>Mission Focus:</strong> Accessible immigration
+                  assistance worldwide
+                </li>
+                <li>
+                  <strong>Global Perspective:</strong> Team members across all
+                  five continents
+                </li>
+                <li>
+                  <strong>Technology-Driven:</strong> Advanced AI and NLP
+                  solutions
+                </li>
+                <li>
+                  <strong>Cultural Diversity:</strong> Real-world immigration
+                  experiences inform development
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card nlp-themed">
+              <h3><i class="fas fa-robot"></i> NLP Chatbot Project</h3>
+              <p>
+                <strong>Revolutionary chatbot development</strong> designed to
+                democratize access to immigration information and guidance.
+              </p>
+              <ul>
+                <li>
+                  <strong>Comprehensive Assistance:</strong> All aspects of
+                  immigration journey
+                </li>
+                <li>
+                  <strong>User-Friendly Interface:</strong> Intuitive design for
+                  diverse users
+                </li>
+                <li>
+                  <strong>Real-Time Information:</strong> Up-to-date guidance
+                  from official sources
+                </li>
+                <li>
+                  <strong>Multilingual Support:</strong> Natural language
+                  understanding across languages
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card global-themed">
+              <h3><i class="fas fa-users"></i> Global Team Collaboration</h3>
+              <p>
+                <strong>Incredibly diverse team</strong> with members across all
+                continents bringing authentic immigration experiences to
+                technology development.
+              </p>
+              <ul>
+                <li>
+                  <strong>Cultural Sensitivity:</strong> Understanding diverse
+                  immigration experiences
+                </li>
+                <li>
+                  <strong>Multi-Jurisdictional Knowledge:</strong> Different
+                  countries' systems expertise
+                </li>
+                <li>
+                  <strong>Language Expertise:</strong> Native speakers for
+                  accurate translation
+                </li>
+                <li>
+                  <strong>User Perspective Validation:</strong> Multiple
+                  cultural viewpoints testing
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="content-right">
+            <div class="info-card innovation-themed">
+              <h3><i class="fas fa-cogs"></i> Technical Implementation</h3>
+              <p>
+                <strong>Advanced web scraping architecture</strong> extracting
+                real-time information from official government and embassy
+                sources.
+              </p>
+              <ul>
+                <li>
+                  <strong>NLP Engine:</strong> Advanced natural language
+                  processing capabilities
+                </li>
+                <li>
+                  <strong>Real-Time Integration:</strong> Automated systems for
+                  continuous updates
+                </li>
+                <li>
+                  <strong>Intelligent Processing:</strong> Complex query
+                  interpretation algorithms
+                </li>
+                <li>
+                  <strong>UX Optimization:</strong> Accessible interfaces for
+                  diverse backgrounds
+                </li>
+                <li>
+                  <strong>Scalable Infrastructure:</strong> Multiple languages
+                  and jurisdictions support
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="fas fa-chart-line"></i> Skills Development</h3>
+              <p>
+                <strong>Extensive hands-on experience</strong> with cutting-edge
+                technologies at the intersection of NLP, web development, and
+                data engineering.
+              </p>
+              <ul>
+                <li>
+                  <strong>Advanced NLP:</strong> Language models and text
+                  processing expertise
+                </li>
+                <li>
+                  <strong>Web Scraping:</strong> Automated extraction and data
+                  parsing
+                </li>
+                <li>
+                  <strong>UI Development:</strong> Front-end frameworks and
+                  responsive design
+                </li>
+                <li>
+                  <strong>Data Management:</strong> Database systems and
+                  information architecture
+                </li>
+                <li>
+                  <strong>System Integration:</strong> Testing and production
+                  deployment
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="fas fa-heart"></i> Real-World Impact</h3>
+              <p>
+                <strong>Meaningful social impact</strong> providing hope,
+                clarity, and actionable guidance during challenging life
+                transitions.
+              </p>
+              <ul>
+                <li>
+                  <strong>User Confidence:</strong> More prepared and informed
+                  immigrants
+                </li>
+                <li>
+                  <strong>Documentation Support:</strong> Better preparation for
+                  requirements
+                </li>
+                <li>
+                  <strong>Cultural Integration:</strong> Enhanced cultural
+                  expectation understanding
+                </li>
+                <li>
+                  <strong>Accessibility:</strong> Complex systems made more
+                  humane and accessible
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Immigration Complexity Section -->
+        <div class="complexity-highlight">
+          <h4>
+            <i class="fas fa-globe-americas"></i> Immigration Complexity Areas
+          </h4>
+          <ul
+            style="
+              text-align: left;
+              max-width: 800px;
+              margin: 0 auto;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 1rem;
+            "
+          >
+            <li>
+              <strong>Legal Requirements:</strong> Complex visa categories,
+              changing regulations, jurisdiction-specific laws
+            </li>
+            <li>
+              <strong>Documentation:</strong> Extensive paperwork,
+              authentication processes, translation requirements
+            </li>
+            <li>
+              <strong>Cultural Adaptation:</strong> Social norms, language
+              barriers, integration challenges
+            </li>
+            <li>
+              <strong>Logistics:</strong> Housing, transportation, healthcare
+              systems, daily arrangements
+            </li>
+            <li>
+              <strong>Financial Planning:</strong> Cost estimation, tax
+              implications, financial system navigation
+            </li>
+          </ul>
+        </div>
+
+        <!-- Chatbot Capabilities Section -->
+        <div class="section-header">
+          <h2>Chatbot Capabilities & Technical Architecture</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="table-container">
+          <table class="tech-table">
+            <thead>
+              <tr>
+                <th><i class="fas fa-cogs"></i> Assistance Category</th>
+                <th><i class="fas fa-tools"></i> Key Features</th>
+                <th><i class="fas fa-users"></i> User Benefits</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Legal Guidance</strong></td>
+                <td>Visa category recommendations, requirement explanations</td>
+                <td>Clear understanding of legal pathways and requirements</td>
+              </tr>
+              <tr>
+                <td><strong>Documentation Support</strong></td>
+                <td>
+                  Document checklists, preparation guidance, timeline planning
+                </td>
+                <td>
+                  Organized approach to paperwork and application processes
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Cultural Integration</strong></td>
+                <td>
+                  Cultural insights, language learning resources, social norms
+                </td>
+                <td>Smoother cultural adaptation and integration experience</td>
+              </tr>
+              <tr>
+                <td><strong>Logistics Planning</strong></td>
+                <td>
+                  Housing assistance, transportation, healthcare navigation
+                </td>
+                <td>Practical solutions for day-to-day challenges</td>
+              </tr>
+              <tr class="highlight-row">
+                <td><strong>Financial Planning</strong></td>
+                <td>
+                  Cost estimation, budgeting tools, financial system guidance
+                </td>
+                <td>Informed financial decisions and preparation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Technology Stack Section -->
+        <div class="section-header">
+          <h2>Technology Stack & Innovation</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="table-container">
+          <table class="tech-table">
+            <thead>
+              <tr>
+                <th><i class="fas fa-microchip"></i> Technology Domain</th>
+                <th><i class="fas fa-wrench"></i> Tools & Frameworks</th>
+                <th><i class="fas fa-rocket"></i> Applications</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Natural Language Processing</strong></td>
+                <td>
+                  Advanced NLP libraries, language models, text processing
+                </td>
+                <td>
+                  Query understanding, response generation, multilingual support
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Web Scraping</strong></td>
+                <td>
+                  Automated extraction tools, data parsing, content monitoring
+                </td>
+                <td>Real-time information gathering from official sources</td>
+              </tr>
+              <tr>
+                <td><strong>User Interface Development</strong></td>
+                <td>
+                  Front-end frameworks, responsive design, UX optimization
+                </td>
+                <td>Intuitive chatbot interfaces and user experience design</td>
+              </tr>
+              <tr>
+                <td><strong>Data Management</strong></td>
+                <td>
+                  Database systems, information architecture, data validation
+                </td>
+                <td>
+                  Organized storage and retrieval of immigration information
+                </td>
+              </tr>
+              <tr class="highlight-row">
+                <td><strong>Integration & Deployment</strong></td>
+                <td>System integration, testing, production deployment</td>
+                <td>Seamless chatbot functionality and user access</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Accomplishments Grid -->
+        <div class="section-header">
+          <h2>Impact & Achievements</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="accomplishments-grid">
+          <div class="accomplishment-item">
+            <h5>Accurate Information Delivery</h5>
+            <p>
+              Achieved high accuracy rates in providing up-to-date immigration
+              guidance from official sources.
+            </p>
+          </div>
+
+          <div class="accomplishment-item">
+            <h5>User Experience Excellence</h5>
+            <p>
+              Created intuitive interfaces that simplified complex immigration
+              processes for diverse users.
+            </p>
+          </div>
+
+          <div class="accomplishment-item">
+            <h5>Multilingual Support</h5>
+            <p>
+              Implemented natural language understanding capabilities across
+              multiple languages and contexts.
+            </p>
+          </div>
+
+          <div class="accomplishment-item">
+            <h5>Real-Time Updates</h5>
+            <p>
+              Established automated systems for continuous information
+              refreshing from government sources.
+            </p>
+          </div>
+
+          <div class="accomplishment-item">
+            <h5>Comprehensive Coverage</h5>
+            <p>
+              Addressed all major aspects of the immigration journey from
+              planning to integration.
+            </p>
+          </div>
+
+          <div class="accomplishment-item">
+            <h5>Scalable Solutions</h5>
+            <p>
+              Built systems capable of serving diverse global user bases across
+              multiple jurisdictions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Leadership & Mentorship Section -->
+        <div class="section-header">
+          <h2>Leadership & Mentorship</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="leadership-grid">
+          <div class="leadership-card">
+            <div class="leader-name">Nader Dadkhah</div>
+            <div class="leader-role">CEO & Visionary Leader</div>
+            <p style="margin-top: 1rem; font-size: 0.9rem">
+              Exceptional guidance balancing high expectations with supportive
+              mentorship, creating innovation-focused environment aligned with
+              humanitarian mission.
+            </p>
+          </div>
+        </div>
+
+        <!-- Personal Growth Features -->
+        <div class="section-header">
+          <h2>Personal & Professional Growth</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card highlight-feature">
+            <h4><i class="fas fa-heart"></i> Purpose-Driven Development</h4>
+            <div class="feature-tags">
+              <span class="tag nlp-tag">Humanitarian Tech</span>
+              <span class="tag nlp-tag">Social Impact Goals</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4><i class="fas fa-globe"></i> Global Collaboration</h4>
+            <div class="feature-tags">
+              <span class="tag global-tag">Remote Work</span>
+              <span class="tag global-tag">Cross-Cultural</span>
+              <span class="tag global-tag">Distributed Teams</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4><i class="fas fa-user"></i> User-Centric Design</h4>
+            <div class="feature-tags">
+              <span class="tag">Empathy Development</span>
+              <span class="tag">Intuitive Solutions</span>
+              <span class="tag">Accessibility Focus</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4><i class="fas fa-bolt"></i> Rapid Innovation</h4>
+            <div class="feature-tags">
+              <span class="tag innovation-tag">Quick Iteration</span>
+              <span class="tag innovation-tag">Quality Standards</span>
+              <span class="tag innovation-tag">Fast-Paced Environment</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4><i class="fas fa-network-wired"></i> Cross-Domain Knowledge</h4>
+            <div class="feature-tags">
+              <span class="tag france-tag">Immigration Law</span>
+              <span class="tag france-tag">Policy Understanding</span>
+              <span class="tag france-tag">Human Experiences</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4><i class="fas fa-rocket"></i> Entrepreneurial Thinking</h4>
+            <div class="feature-tags">
+              <span class="tag">Startup Insights</span>
+              <span class="tag">Innovation + Mission</span>
+              <span class="tag">Tech Solutions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion-section">
+          <p>
+            This three-month journey at diasPÜra has been transformative,
+            fundamentally shaping my understanding of how technology can address
+            real-world humanitarian challenges. The experience reinforced my
+            commitment to using technology as a force for positive change,
+            whether developing AI systems for emergency response, creating
+            educational tools, or building solutions for global challenges like
+            immigration.
+          </p>
+          <p style="margin-top: 1rem">
+            <strong
+              >Thank you to everyone who has been part of this incredible
+              journey. I eagerly anticipate applying these invaluable lessons to
+              future endeavors and continuing to explore the intersection of AI,
+              NLP, and social impact. Here's to exciting future adventures!
+              🚀🌍</strong
+            >
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

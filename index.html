@@ -2,1370 +2,460 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohamed Khalil Brik - Computer Science Student</title>
-  <meta name="description"
-    content="Personal website of Mohamed Khalil Brik, a Computer Science student at The American University in Cairo passionate about software development, algorithms, and technology." />
-  <meta name="keywords"
-    content="computer science, student, developer, software engineer, programming, web development, portfolio, AUC, mathematics, RISC-V, IAM" />
-  <meta name="author" content="Mohamed Khalil Brik" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://khalilbrikTN.github.io/" />
-  <meta property="og:title" content="Mohamed Khalil Brik - Computer Science Student" />
-  <meta property="og:description"
-    content="Personal website of Mohamed Khalil Brik, a Computer Science student at The American University in Cairo passionate about software development, algorithms, and technology." />
-  <meta property="og:image" content="https://khalilbrikTN.github.io/og-image.jpg" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://khalilbrikTN.github.io/" />
-  <meta property="twitter:title" content="Mohamed Khalil Brik - Computer Science Student" />
-  <meta property="twitter:description"
-    content="Personal website of Mohamed Khalil Brik, a Computer Science student at The American University in Cairo passionate about software development, algorithms, and technology." />
-  <meta property="twitter:image" content="https://khalilbrikTN.github.io/og-image.jpg" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon"
-    href="data:image/svg+xml,<svg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
-  <link rel="apple-touch-icon"
-    href="data:image/svg+xml,<svg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
-
-  <!-- Preload critical resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Khalil Brik | Personal Portfolio</title>
+    <!-- CSS will be linked later as requested -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="#home">Mohamed Khalil</a>
-      </div>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="#home" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="#about" class="nav-link">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="#news" class="nav-link">News</a>
-        </li>
-        <li class="nav-item">
-          <a href="#education" class="nav-link">Education</a>
-        </li>
-        <li class="nav-item">
-          <a href="#experience" class="nav-link">Experience</a>
-        </li>
-        <li class="nav-item">
-          <a href="#activities" class="nav-link">Activities</a>
-        </li>
-        <li class="nav-item">
-          <a href="#certifications" class="nav-link">Certifications</a>
-        </li>
-        <li class="nav-item">
-          <a href="#skills" class="nav-link">Skills</a>
-        </li>
-        <li class="nav-item">
-          <a href="#contact" class="nav-link">Contact</a>
-        </li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-      </button>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1 class="hero-title">
-          Hi, I'm <span class="highlight">Mohamed Khalil Brik</span>
-        </h1>
-        <h2 class="hero-subtitle">Computer Science Student & Creator</h2>
-        <p class="hero-description">
-          Passionate about Artificial Intelligence, Software Engineering,
-          Quantum Computing and Mathematics. Currently pursuing my degree in
-          Computer Science with a Mathematics minor at The American University
-          in Cairo.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Resources/Pictures/My_Logo_2.png" alt="MKB Logo" class="logo-img">
         </div>
-
-        <!-- Skip to Section Menu -->
-        <div class="skip-to-section">
-          <p class="skip-label">Quick Navigation:</p>
-          </a>
-          <a href="#contact" class="skip-link">
-            <i class="fas fa-envelope"></i> Contact
-          </a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
         </div>
-      </div>
-    </div>
-    <div class="hero-image">
-      <div class="profile-card">
-        <div class="profile-avatar">
-          <img src="Resources/me.jpeg" alt="Mohamed Khalil Brik - Professional Photo" class="profile-photo" />
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#news">News & Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- News Ticker -->
+    <div class="news-ticker-bar">
+        <div class="ticker-label">LATEST UPDATES</div>
+        <div class="ticker-container">
+            <div class="ticker-wrapper">
+                <a href="Resources/Pages/Thesis.html" class="ticker-item"><span class="ticker-date">DEC 2025</span>
+                    Completed the first part of my Bachelor Thesis</a>
+                <a href="Resources/Pages/TomorrowsLeaders.html" class="ticker-item"><span class="ticker-date">NOV
+                        2025</span> Received Project Management Training from Tomorrow's Leaders</a>
+                <a href="Resources/Pages/TheAICompany.html" class="ticker-item"><span class="ticker-date">OCT
+                        2025</span> Started The AI Company</a>
+                <a href="Resources/Pages/NCUR.html" class="ticker-item"><span class="ticker-date">APR 2025</span>
+                    Participated in the NCUR Conference</a>
+                <a href="Resources/Pages/CFC.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span>
+                    Study Abroad at the College of Charleston</a>
+                <a href="Resources/Pages/NASA_course.html" class="ticker-item"><span class="ticker-date">SPRING
+                        2025</span> Joined the NASA Space Mission Design Course</a>
+                <a href="Resources/Pages/llm-researcher.html" class="ticker-item"><span class="ticker-date">DEC
+                        2024</span> Researcher in Large Language Models</a>
+                <a href="Resources/Pages/ADIB.html" class="ticker-item"><span class="ticker-date">SUMMER 2024</span>
+                    Software Engineering intern at ADIB Egypt</a>
+                <a href="Resources/Pages/Diaspura.html" class="ticker-item"><span class="ticker-date">SPRING 2024</span>
+                    Chat bot development intern at Diaspura</a>
+                <a href="Resources/Pages/ECPC.html" class="ticker-item"><span class="ticker-date">OCT 2023</span>
+                    Participated in ECPC Contests</a>
+                <a href="Resources/Pages/HarvardAspire.html" class="ticker-item"><span class="ticker-date">MAR
+                        2023</span> Finished the Harvard Aspire Leaders Program</a>
+                <a href="Resources/Pages/AUC.html" class="ticker-item"><span class="ticker-date">SEPT 2022</span> Joined
+                    the American University in Cairo</a>
+                <a href="Resources/Pages/Bac.html" class="ticker-item"><span class="ticker-date">JUNE 2022</span>
+                    Received my Baccalaureate Certificate</a>
+            </div>
+
         </div>
-        <div class="profile-info">
-          <h3>Mohamed Khalil Brik</h3>
-          <p>CS Student @ AUC</p>
-        </div>
-
-        <!-- Email Address -->
-        <div class="profile-contact">
-          <a href="mailto:mohamedkhalil.brik@aucegypt.edu" class="profile-email">
-            <i class="fas fa-envelope"></i>
-            mohamedkhalil.brik@aucegypt.edu
-          </a>
-        </div>
-
-        <!-- Social Links -->
-        <div class="profile-social">
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/" class="profile-social-link linkedin"
-            target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-
-          <!-- GitHub -->
-          <a href="https://github.com/khalilbrikTN" class="profile-social-link github" target="_blank"
-            rel="noopener noreferrer" title="GitHub Profile">
-            <i class="fab fa-github"></i>
-          </a>
-
-          <!-- ResearchGate -->
-          <a href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik" class="profile-social-link researchgate"
-            target="_blank" rel="noopener noreferrer" title="ResearchGate Profile">
-            <i class="fab fa-researchgate"></i>
-          </a>
-
-          <!-- Resume/CV Link -->
-          <a href="https://drive.google.com/file/d/1wlc62FtVJjz-AlGfvc62NT7KRPWtEaDR/view?usp=sharing"
-            class="profile-social-link resume" target="_blank" rel="noopener noreferrer" title="View Resume">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-      </div>
     </div>
     </div>
-    <div class="scroll-indicator">
-      <a href="#about">
-        <i class="fas fa-chevron-down"></i>
-      </a>
-    </div>
-  </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            My name is Mohamed Khalil Brik. I am a Computer Science student
-            with a passion for using technology to create change. I chose to
-            study Computer Science because it allows me to architect solutions
-            for problems across diverse fields that interest me. In
-            particular, I work with Machine Learning, Software Engineering,
-            Quantum Computing, and Cybersecurity practices to build secure,
-            reliable, and intelligent systems. In short, I love building
-            systems from scratch to solve problems that impact me or others.
-            I’ll keep it brief in here as my work will speak for itself.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- News Section -->
-  <section id="news" class="news">
-    <div class="container">
-      <h2 class="section-title">Latest News & Achievements</h2>
-      <div class="news-container">
-        <div class="news-scroll-wrapper">
-          <div class="news-grid">
-            <div class="news-card" onclick="openNewsPage('NASA_course')">
-              <div class="news-image">
-                <img src="Resources/Nasa1.jpg" alt="ADIB Internship" />
-              </div>
-              <div class="news-content">
-                <h3>NASA Course</h3>
-                <p>
-                  Accepted into NASA's Student Research Program collaborating
-                  on ATLAS mission to Saturn's moon Titan.
-                </p>
-                <div class="news-date">March, 2025</div>
-              </div>
-              <div class="news-overlay">
-                <i class="fas fa-external-link-alt"></i>
-              </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-img-container">
+                <img src="Resources/pictures/me.jpeg" alt="Mohamed Khalil Brik" class="profile-img">
             </div>
-
-            <div class="news-card" onclick="openNewsPage('NCUR')">
-              <div class="news-image">
-                <img src="Resources/NCUR1.jpg" alt="NCUR Confrence" />
-              </div>
-
-              <div class="news-content">
-                <h3>NCUR confrence</h3>
-                <p>
-                  Presented my Paper
-                  <strong>Using Large Language Models to Enhance Emergency Response
-                    Systems: A Context Awareness Approach</strong>
-                  at the National Conference on Undergraduate Research (NCUR)
-                  in Pittsburgh, USA !
-                </p>
-                <div class="news-date">April, 2025</div>
-              </div>
-              <div class="news-overlay">
-                <i class="fas fa-external-link-alt"></i>
-              </div>
-            </div>
-
-            <div class="news-card" onclick="openNewsPage('CFC')">
-              <div class="news-image">
-                <img src="Resources/CFC1.jpg" alt="CFC" />
-              </div>
-              <div class="news-content">
-                <h3>Semester Abroad in the USA</h3>
-                <p>
-                  Completed a transformative semester at College of
-                  Charleston, engaging in
-                  <strong>NASA Space Mission Design</strong>, machine learning
-                  coursework, and interdisciplinary research collaboration.
-                </p>
-                <div class="news-date">January, 2025</div>
-              </div>
-              <div class="news-overlay">
-                <i class="fas fa-external-link-alt"></i>
-              </div>
-            </div>
-
-            <div class="news-card" onclick="openNewsPage('ADIB')">
-              <div class="news-image">
-                <img src="Resources/Adib1.jpg" alt="ADIB Internship" />
-              </div>
-              <div class="news-content">
-                <h3>ADIB internship</h3>
-                <p>
-                  Cybersecurity internship at Abu Dhabi Islamic Bank - Egypt,
-                  developing
-                  <strong>AI-powered security solutions</strong> and achieving
-                  60% efficiency increase in Identity Access Management
-                  systems.
-                </p>
-                <div class="news-date">July, 2024</div>
-              </div>
-              <div class="news-overlay">
-                <i class="fas fa-external-link-alt"></i>
-              </div>
-            </div>
-
-            <div class="news-card" onclick="openNewsPage('Diaspura')">
-              <div class="news-image">
-                <img src="Resources/Diaspura.png" alt="ADIB Internship" />
-              </div>
-              <div class="news-content">
-                <h3>DiasPÜra internship</h3>
-                <p>
-                  International internship experience focused on
-                  <strong>cross-cultural collaboration</strong> and innovative
-                  project development in a multicultural environment.
-                </p>
-                <div class="news-date">July, 2024</div>
-              </div>
-              <div class="news-overlay">
-                <i class="fas fa-external-link-alt"></i>
-              </div>
-            </div>
-
-            <div class="news-card" onclick="openNewsPage('AUC')">
-              <div class="news-image">
-                <img src="Resources/AUC1.jpg" alt="AUC" />
-              </div>
-              <div class="news-content">
-                <h3>Joined AUC</h3>
-                <p>
-                  Selected as <strong>1 of 5 Tunisians</strong> for the
-                  Tomorrow's Leaders Program with full scholarship to pursue
-                  Computer Science at The American University in Cairo.
-                </p>
-                <div class="news-date">September, 2022</div>
-              </div>
-              <div class="news-overlay">
-                <i class="fas fa-external-link-alt"></i>
-              </div>
-            </div>
-
-            <div class="news-card" onclick="openNewsPage('Bac')">
-              <div class="news-image">
-                <img src="Resources/bac.png" alt="Baccalaureate Achievement" />
-              </div>
-              <div class="news-content">
-                <h3>Received the Baccalaureate Examination</h3>
-                <p>
-                  I successfully received my
-                  <strong>Baccalaureate Examination</strong> with an average
-                  of <strong>16.89/20</strong> and "Very Good" distinction!
-                </p>
-                <div class="news-date">June, 2022</div>
-              </div>
-              <div class="news-overlay">
-                <i class="fas fa-external-link-alt"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="news-nav">
-          <button class="news-nav-btn prev" id="newsPrev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="news-nav-btn next" id="newsNext">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-
-      <!-- Universities and Courses Container -->
-      <div class="universities-courses">
-        <!-- Row 1: Universities Info - Two columns side by side -->
-        <div class="universities-info">
-          <!-- University 1 -->
-          <div class="university-item">
-            <div class="education-item">
-              <div class="education-header">
-                <div class="education-title">
-                  <h3>Bachelor of Science in Computer Science</h3>
-                  <p class="institution">The American University in Cairo</p>
-                </div>
-                <div class="education-date">
-                  <span>September 2022 - Present</span>
-                  <div class="gpa">GPA: 3.8/4.0</div>
-                </div>
-              </div>
-              <div class="education-details">
-                <p class="minor">Minor: Mathematics</p>
-                <p class="location">New Cairo, Egypt</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- University 2 -->
-          <div class="university-item">
-            <div class="education-item">
-              <div class="education-header">
-                <div class="education-title">
-                  <h3>Semester Abroad</h3>
-                  <p class="institution">College of Charleston</p>
-                </div>
-                <div class="education-date">
-                  <span>Spring 2025</span>
-                  <div class="gpa">GPA: 4.0/4.0</div>
-                </div>
-              </div>
-              <div class="education-details">
-                <p class="location">Charleston, South Carolina, USA</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="experience">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <div class="timeline">
-
-        <!-- Experience Item 1 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Jan 2025 - May 2025</div>
-          <div class="timeline-content">
-            <div class="experience-header">
-              <h3>Student Scientist, NASA</h3>
-              <p class="company">College of Charleston, UAH</p>
-              <span class="location"><i class="fas fa-map-marker-alt"></i> Huntsville, AL, USA</span>
-            </div>
-            <ul class="experience-list">
-              <li>Collaborated with NASA scientists to design ATLAS mission to Titan.</li>
-              <li>Applied data science to model atmospheric dynamics and surface changes.</li>
-              <li>Delivered final mission proposal to NASA engineers.</li>
-            </ul>
-            <a href="news/NASA_course.html" class="btn-text" target="_blank">
-              Learn More <i class="fas fa-arrow-right"></i>
+            <h1 class="hero-title">
+                Hi, I'm <span class="highlight">Mohamed Khalil Brik</span>
+            </h1>
+            <h2 class="hero-subtitle">Computer Science Student & Creator</h2>
+            <p class="hero-description">
+                Passionate about Artificial Intelligence, Software Engineering,
+                Quantum Computing and Mathematics. Currently pursuing my degree in
+                Computer Science with a Mathematics minor at The American University
+                in Cairo.
+            </p>
+            <a href="mailto:mohamedkhalil.brik@aucegypt.edu" class="hero-email">
+                <i class="fas fa-envelope"></i> mohamedkhalil.brik@aucegypt.edu
             </a>
-          </div>
-        </div>
 
-        <!-- Experience Item 2 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">Jan 2025 - May 2025</div>
-          <div class="timeline-content">
-            <div class="experience-header">
-              <h3>Machine Learning Researcher</h3>
-              <p class="company">College of Charleston</p>
-              <span class="location"><i class="fas fa-map-marker-alt"></i> Charleston, SC, USA</span>
+            <!-- Social Links -->
+            <div class="profile-social">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/"
+                    class="profile-social-link linkedin" target="_blank" rel="noopener noreferrer"
+                    title="LinkedIn Profile">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/khalilbrikTN" class="profile-social-link github" target="_blank"
+                    rel="noopener noreferrer" title="GitHub Profile">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <!-- ResearchGate -->
+                <a href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik"
+                    class="profile-social-link researchgate" target="_blank" rel="noopener noreferrer"
+                    title="ResearchGate Profile">
+                    <i class="fab fa-researchgate"></i>
+                </a>
             </div>
-            <ul class="experience-list">
-              <li>Implemented LLM-assisted framework for student feedback clustering.</li>
-              <div class="activities-content">
-                <div class="activity-item">
-                  <div class="activity-header">
-                    <div class="activity-title">
-                      <h3>Student Ambassador</h3>
-                      <p class="organization">American University in Cairo</p>
+
+            <div class="hero-actions">
+                <a href="https://calendly.com/mohamedkhalil-brik" target="_blank" class="cta-button">
+                    <i class="fas fa-calendar-check"></i> Book a Meeting
+                </a>
+                <a href="Resources/pictures/resume.pdf" target="_blank" class="download-btn">
+                    <i class="fas fa-file-download"></i> Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>C</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>Verilog</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>Assembly</span>
+                        </div>
                     </div>
-                    <div class="activity-date">
-                      <span>September 2023 - Present</span>
-                    </div>
-                  </div>
-                  <div class="activity-content">
-                    <ul>
-                      <li>
-                        Led engaging and informative <strong>15</strong> tours for
-                        prospective students, showcasing campus life and facilities
-                      </li>
-                      <li>
-                        Acted as a crucial liaison between the student body and the
-                        Dean of Students
-                      </li>
-                      <li>
-                        Played a pivotal role in introducing new faculty and Board of
-                        Trustees members to the university community
-                      </li>
-                    </ul>
-                  </div>
                 </div>
 
-                <div class="activity-item">
-                  <div class="activity-header">
-                    <div class="activity-title">
-                      <h3>Chair of Academics</h3>
-                      <p class="organization">
-                        The Computer Science and Engineering Association
-                      </p>
+                <div class="skills-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Django</span>
+                        </div>
                     </div>
-                    <div class="activity-date">
-                      <span>September 2024 - Present</span>
-                    </div>
-                  </div>
-                  <div class="activity-content">
-                    <ul>
-                      <li>
-                        Designed and implemented <strong>5</strong> training programs
-                        on Machine Learning, Competitive Programming, Quantum
-                        Computing, and Software Engineering in collaboration with
-                        industry specialists from top tech companies
-                      </li>
-                    </ul>
-                  </div>
                 </div>
 
-                <div class="activity-item">
-                  <div class="activity-header">
-                    <div class="activity-title">
-                      <h3>Teacher</h3>
-                      <p class="organization">3alRaseef Club</p>
+                <div class="skills-category">
+                    <h3>Data Science & ML</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Scikit-Learn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Matplotlib</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Numpy</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-area"></i>
+                            <span>Seaborn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-spider"></i>
+                            <span>Beautiful Soup</span>
+                        </div>
                     </div>
-                    <div class="activity-date">
-                      <span>August 2023 - Present</span>
-                    </div>
-                  </div>
-                  <div class="activity-content">
-                    <ul>
-                      <li>
-                        Addressed educational needs of underprivileged children,
-                        homeless youth, and immigrants to Egypt
-                      </li>
-                      <li>
-                        Imparted coding and fundamental tech skills during weekly
-                        orphanage visits for <strong>8 weeks</strong>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
 
-                <div class="activity-item">
-                  <div class="activity-header">
-                    <div class="activity-title">
-                      <h3>Treasurer</h3>
-                      <p class="organization">The Open-Source Club</p>
+                <div class="skills-category">
+                    <h3>Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>DevOps</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git/GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-linux"></i>
+                            <span>Linux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-terminal"></i>
+                            <span>Scripting</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>OOP</span>
+                        </div>
                     </div>
-                    <div class="activity-date">
-                      <span>September 2022 - August 2024</span>
-                    </div>
-                  </div>
-                  <div class="activity-content">
-                    <ul>
-                      <li>
-                        Engaged in a club advocating open software, cybersecurity, and
-                        OS development
-                      </li>
-                      <li>
-                        Effectively managed a club budget of up to
-                        <strong>100,000 EGP</strong>, ensuring optimal allocation and
-                        utilization of funds
-                      </li>
-                    </ul>
-                  </div>
                 </div>
 
-                <div class="activity-item">
-                  <div class="activity-header">
-                    <div class="activity-title">
-                      <h3>Member</h3>
-                      <p class="organization">Google Development Student Club</p>
+                <div class="skills-category">
+                    <h3>Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-language"></i>
+                            <span>English (C1)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-language"></i>
+                            <span>French (B2)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-language"></i>
+                            <span>German (A2)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-language"></i>
+                            <span>Italian (A1)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-language"></i>
+                            <span>Arabic (Native)</span>
+                        </div>
                     </div>
-                    <div class="activity-date">
-                      <span>September 2022 - August 2024</span>
-                    </div>
-                  </div>
-                  <div class="activity-content">
-                    <ul>
-                      <li>
-                        Focused on Google developer technologies and fostered
-                        collaboration among students
-                      </li>
-                      <li>
-                        Participated in organizing a mega event, "TeqFest," which
-                        aimed to introduce quantum computing to university students
-                      </li>
-                    </ul>
-                  </div>
                 </div>
 
-                <div class="activity-item">
-                  <div class="activity-header">
-                    <div class="activity-title">
-                      <h3>Member</h3>
-                      <p class="organization">
-                        AUC Robotics Club - Training & Competitions
-                      </p>
+                <div class="skills-category">
+                    <h3>Professional Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Project Management</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Agile Methodologies</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>Sales & Negotiation</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Debate</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <span>Leadership</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Public Speaking</span>
+                        </div>
                     </div>
-                    <div class="activity-date">
-                      <span>August 2022 - June 2024</span>
-                    </div>
-                  </div>
-                  <div class="activity-content">
-                    <ul>
-                      <li>Completed First-level Robotics Training with Arduino</li>
-                      <li>
-                        Secured <strong>second place</strong> in the competition with
-                        the project: "A Path Follower Robot Car"
-                      </li>
-                    </ul>
-                  </div>
                 </div>
-              </div>
-          </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section id="certifications" class="certifications">
-    <div class="container">
-      <h2 class="section-title">Certifications & Online Courses</h2>
-
-      <!-- Certifications Summary -->
-      <div class="certifications-summary-card">
-        <p class="summary-text">
-          <i class="fas fa-award"></i>
-          Completed <strong>18 professional certifications</strong> from leading institutions including IBM, Meta,
-          University of Michigan, and more. Specializing in Data Science, Python Programming, and Software Development.
-        </p>
-        <div class="summary-highlights">
-          <span class="highlight-badge"><i class="fas fa-check-circle"></i> TOEFL iBT: 106/120</span>
-          <span class="highlight-badge"><i class="fas fa-check-circle"></i> IBM Data Science</span>
-          <span class="highlight-badge"><i class="fas fa-check-circle"></i> Meta Version Control</span>
-          <span class="highlight-badge"><i class="fas fa-check-circle"></i> Python Certified</span>
+            </div>
         </div>
-        <button class="expand-btn" id="expandCertifications">
-          <i class="fas fa-chevron-down"></i> View All 18 Certifications
-        </button>
-      </div>
+    </section>
 
-      <div class="certifications-content" id="certificationsContent" style="display: none;">
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>
-                Tomorrow's Leaders Study Abroad: Community Engagement
-                Certificate
-              </h3>
-              <p class="institution">
-                Tomorrow's Leaders Study Abroad Program
-              </p>
-            </div>
-            <div class="certification-date">
-              <span>June 2025</span>
-              <span class="platform">Canvas Badges</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Successfully completed all certificate requirements through
-              active participation in cultural, volunteer, and leadership
-              development activities during the Spring 2025 semester in the
-              United States.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://badgr.com/public/assertions/ooxRST2-Sgqm2pR8rjsrVg?identity__email=mohamedkhalil.brik@aucegypt.edu"
-                class="certification-link" target="_blank" rel="noopener noreferrer"
-                aria-label="View Community Engagement Certificate">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
+    <!-- News & Projects Section -->
+    <section id="news" class="projects">
+        <h2>News & Projects</h2>
+        <div class="projects-grid">
+
+            <!-- Project 1: Thesis (Dec 2025) -->
+            <article class="project-card">
+                <img src="Resources/pictures/Thesis_pic.jpeg" alt="Thesis" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">December, 2025</span>
+                    <h3>Completed the first part of my Bachelor Thesis</h3>
+                    <p>Research paper and presentation on advanced topics in Data Science/Security.</p>
+                    <a href="Resources/Pages/Thesis.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 2: Project Management Training (Nov 2025) -->
+            <article class="project-card">
+                <img src="Resources/pictures/PMP_3.JPG" alt="PMP" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">November, 2025</span>
+                    <h3>Received the Project Management Training</h3>
+                    <p>Received a PM course from the AUC Tomorrow's Leaders Program (MENA).</p>
+                    <a href="Resources/Pages/TomorrowsLeaders.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 3: The AI Company (Oct 2025) -->
+            <article class="project-card">
+                <img src="Resources/pictures/AI_Company_Logo.jpg" alt="The AI Company" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">October, 2025</span>
+                    <h3>Started The AI Company</h3>
+                    <p>Launching The AI Company: Interconnecting data, policy, and real-world impact.</p>
+                    <a href="Resources/Pages/TheAICompany.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 4: NCUR (April 2025) -->
+            <article class="project-card">
+                <img src="Resources/pictures/NCUR1.jpg" alt="NCUR Conference" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">April, 2025</span>
+                    <h3>Participated in the NCUR Conference</h3>
+                    <p>Presented at the National Conference on Undergraduate Research.</p>
+                    <a href="Resources/Pages/NCUR.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 5: CFC (Spring 2025) -->
+            <article class="project-card">
+                <img src="Resources/pictures/CFC1.jpg" alt="CFC" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Spring, 2025</span>
+                    <h3>Study Abroad at the College of Charleston</h3>
+                    <p>Engagement and events participation.</p>
+                    <a href="Resources/Pages/CFC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 6: NASA (Spring 2025) -->
+            <article class="project-card">
+                <img src="Resources/pictures/Nasa1.jpg" alt="NASA Course" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Spring, 2025</span>
+                    <h3>Joined the NASA Space Mission Design Course</h3>
+                    <p>Space Apps Challenge and specialized training participation.</p>
+                    <a href="Resources/Pages/NASA_course.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 7: LLM Researcher (Dec 2024) -->
+            <article class="project-card">
+                <div class="card-placeholder-img"><i class="fas fa-robot"></i></div>
+                <div class="card-content">
+                    <span class="project-date">December, 2024</span>
+                    <h3>Researcher in Large Language Models</h3>
+                    <p>Exploration and development with Large Language Models.</p>
+                    <a href="Resources/Pages/llm-researcher.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 8: ADIB (Summer 2024) -->
+            <article class="project-card">
+                <img src="Resources/pictures/Adib1.jpg" alt="ADIB Internship" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Summer, 2024</span>
+                    <h3>Software Engineering intern at ADIB Egypt</h3>
+                    <p>Identity Access Management and Process Automation.</p>
+                    <a href="Resources/Pages/ADIB.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 9: Diaspura (Spring 2024) -->
+            <article class="project-card">
+                <img src="Resources/pictures/Diaspura.png" alt="Diaspura" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Spring, 2024</span>
+                    <h3>Chat bot development intern at Diaspura</h3>
+                    <p>Chat bot development using LLMs.</p>
+                    <a href="Resources/Pages/Diaspura.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 10: ECPC (October 2023) -->
+            <article class="project-card">
+                <img src="Resources/pictures/ECPC.jpg" alt="ECPC" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">October, 2023</span>
+                    <h3>Participated in ECPC Contests</h3>
+                    <p>Participated in the Egyptian Collegiate Programming Contest.</p>
+                    <a href="Resources/Pages/ECPC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 11: Harvard Aspire (March 2023) -->
+            <article class="project-card">
+                <img src="Resources/pictures/aspire.jpg" alt="Harvard Aspire" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">March, 2023</span>
+                    <h3>Finished the Harvard Aspire Leaders Program</h3>
+                    <p>Stage 3 completion: Leadership in volatile environments.</p>
+                    <a href="Resources/Pages/HarvardAspire.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+
+            <!-- Project 12: AUC (September 2022) -->
+            <article class="project-card">
+                <img src="Resources/pictures/AUC1.jpg" alt="AUC" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">September, 2022</span>
+                    <h3>Joined the American University in Cairo</h3>
+                    <p>Academic achievements and activities at the American University in Cairo.</p>
+                    <a href="Resources/Pages/AUC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <!-- Project 13: Baccalaureate (June 2022) -->
+            <article class="project-card">
+                <img src="Resources/pictures/bac.png" alt="Baccalaureate" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">June, 2022</span>
+                    <h3>Received my Baccalaureate Certificate</h3>
+                    <p>High school achievements and foundational education.</p>
+                    <a href="Resources/Pages/Bac.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
         </div>
+    </section>
 
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>TOEFL iBT</h3>
-              <p class="institution">Educational Testing Service (ETS)</p>
-            </div>
-            <div class="certification-date">
-              <span>May 2025</span>
-              <span class="platform">ETS</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Achieved a score of <strong>106/120</strong> on the Test of
-              English as a Foreign Language Internet-Based Test, equivalent to
-              C1 level proficiency on the Common European Framework of
-              Reference for Languages (CEFR). Section scores: Reading 26/30,
-              Listening 26/30, Speaking 28/30, Writing 26/30.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://drive.google.com/file/d/1sBBl3L8ggYmsQt2f_VQFIEypIGkyZPh7/view?usp=sharing"
-                class="certification-link" target="_blank" rel="noopener noreferrer"
-                aria-label="View TOEFL iBT Certificate">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
+    <!-- Foot Note -->
+    <footer id="contact" class="footer">
+        <p>&copy; 2025 Mohamed Khalil Brik. All rights reserved.</p>
+    </footer>
 
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Version Control</h3>
-              <p class="institution">Meta</p>
-            </div>
-            <div class="certification-date">
-              <span>February 2023</span>
-              <span class="platform">Coursera</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Gained proficiency in implementing version control systems,
-              navigating command line interfaces, using GitHub repositories,
-              and managing code revisions for collaborative software
-              development.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://coursera.org/verify/PGPF4YVW377G" class="certification-link" target="_blank"
-                rel="noopener noreferrer" aria-label="View Version Control Certificate">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Python for Data Science, AI & Development</h3>
-              <p class="institution">IBM</p>
-            </div>
-            <div class="certification-date">
-              <span>August, 2020</span>
-              <span class="platform">Coursera</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Comprehensive course covering Python programming for data
-              science, artificial intelligence, and software development
-              applications.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://coursera.org/verify/K8AGGPSNJWVP" class="certification-link" target="_blank"><i
-                  class="fas fa-external-link-alt"></i> View Certificate</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Introduction to Data Science in Python</h3>
-              <p class="institution">University of Michigan</p>
-            </div>
-            <div class="certification-date">
-              <span>July, 2020</span>
-              <span class="platform">Coursera</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Foundational course in data science using Python, covering data
-              manipulation, analysis, and visualization techniques.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://coursera.org/verify/3UCNDUBFEVY6" class="certification-link" target="_blank"><i
-                  class="fas fa-external-link-alt"></i> View Certificate</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Data Science Methodology</h3>
-              <p class="institution">IBM</p>
-            </div>
-            <div class="certification-date">
-              <span>August, 2020</span>
-              <span class="platform">Coursera</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Comprehensive course covering data science methodology,
-              including problem formulation, data collection, data
-              understanding, and data preparation techniques.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://coursera.org/verify/9T6CLX8C9NW2" class="certification-link" target="_blank"><i
-                  class="fas fa-external-link-alt"></i> View Certificate</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Databases and SQL for Data Science with Python</h3>
-              <p class="institution">IBM</p>
-            </div>
-            <div class="certification-date">
-              <span>August, 2020</span>
-              <span class="platform">Coursera</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Advanced course covering database design, SQL programming, and
-              data manipulation for data science applications using Python.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://coursera.org/verify/S7UN2EVDHUT4" class="certification-link" target="_blank"><i
-                  class="fas fa-external-link-alt"></i> View Certificate</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>What is Data Science?</h3>
-              <p class="institution">IBM</p>
-            </div>
-            <div class="certification-date">
-              <span> July 2020</span>
-              <span class="platform">Coursera</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Completed a comprehensive introduction to data science covering
-              fundamental concepts including analytics, machine learning, big
-              data, and artificial intelligence.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://www.coursera.org/account/accomplishments/verify/7ZQHS54PUWUU" class="certification-link"
-                target="_blank"><i class="fas fa-external-link-alt"></i> View Certificate</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Tools for Data Science</h3>
-              <p class="institution">IBM</p>
-            </div>
-            <div class="certification-date">
-              <span>August, 2020</span>
-              <div class="platform">Coursera</div>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              The curriculum covered the data scientist's toolkit including
-              programming languages commonly used in data science (Python, R,
-              SQL), development environments like Jupyter notebooks and
-              RStudio, version control systems, and cloud platforms.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="https://www.coursera.org/account/accomplishments/verify/3V665T4R3MZA" class="certification-link"
-                target="_blank">
-                View Certificate <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Python Programming</h3>
-              <p class="institution">Université Libre de Bruxelles</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">edX</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Comprehensive Python programming course covering fundamental concepts, data structures, algorithms, and
-              software development best practices.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Verified Certificate</span>
-              <a href="Resources/Certificates_docs/Universite of Bruxelles-Python.pdf" class="certification-link"
-                target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Python (Basic)</h3>
-              <p class="institution">HackerRank</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">HackerRank</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Demonstrated proficiency in Python fundamentals including data types, operators, control flow, strings,
-              collections, and object-oriented programming through HackerRank's skills certification.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Skills Certificate</span>
-              <a href="Resources/Certificates_docs/Hacker Rank-python basic.pdf" class="certification-link"
-                target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Python for Beginners in Data Science</h3>
-              <p class="institution">Udemy</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">Udemy</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Introduction to Python programming with focus on data science applications, covering essential libraries
-              and data analysis techniques.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Certificate of Completion</span>
-              <a href="Resources/Certificates_docs/Udemy-Python for beginners in DS.pdf" class="certification-link"
-                target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Mobile Game Design</h3>
-              <p class="institution">Northwestern University in Qatar</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">Northwestern Qatar</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Completed intensive course in mobile game design covering game mechanics, user experience, development
-              frameworks, and interactive design principles.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Certificate of Completion</span>
-              <a href="Resources/Certificates_docs/Northwestern Uni Qatar-Mobile Game Design.pdf"
-                class="certification-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Adobe Photoshop Complete Mastery Course</h3>
-              <p class="institution">Udemy</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">Udemy</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Comprehensive mastery course covering advanced Photoshop techniques from beginner to advanced level,
-              including photo editing, graphic design, and digital art creation.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Certificate of Completion</span>
-              <a href="Resources/Certificates_docs/Udemy-Adobe Photoshop Complete Mastery Course Beginner to Advanced.pdf"
-                class="certification-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>English Grammar Course</h3>
-              <p class="institution">Udemy</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">Udemy</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Comprehensive English grammar course covering advanced grammar rules, sentence structure, and professional
-              writing techniques.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Certificate of Completion</span>
-              <a href="Resources/Certificates_docs/Udemy-English Grammar.pdf" class="certification-link"
-                target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Video Editing</h3>
-              <p class="institution">Online Course</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">Online</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Professional video editing training covering editing software, post-production techniques, and multimedia
-              content creation.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Certificate of Completion</span>
-              <a href="Resources/Certificates_docs/Video Editing.pdf" class="certification-link" target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-item">
-          <div class="certification-header">
-            <div class="certification-title">
-              <h3>Responsible Conduct of Research</h3>
-              <p class="institution">Intsiute of Health (USA)</p>
-            </div>
-            <div class="certification-date">
-              <span>2020</span>
-              <span class="platform">AoU</span>
-            </div>
-          </div>
-          <div class="certification-content">
-            <p>
-              Training in dynamic website development covering front-end and back-end technologies, database
-              integration, and interactive web applications.
-            </p>
-            <div class="certification-details">
-              <span class="certification-badge">Certificate of Completion</span>
-              <a href="Resources/Certificates_docs/AoU CertOfCompletion-DYNAMIC-Source.pdf" class="certification-link"
-                target="_blank">
-                <i class="fas fa-external-link-alt"></i> View Certificate
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2 class="section-title">Skills & Technologies</h2>
-      <div class="skills-content">
-        <div class="skills-category">
-          <h3>Programming Languages</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <i class="fab fa-python"></i>
-              <span>Python</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-code"></i>
-              <span>C</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-code"></i>
-              <span>C++</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-js-square"></i>
-              <span>JavaScript</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-code"></i>
-              <span>Verilog</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-code"></i>
-              <span>Assembly</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>Web Technologies</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <i class="fab fa-html5"></i>
-              <span>HTML</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-css3-alt"></i>
-              <span>CSS</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-react"></i>
-              <span>React</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-bootstrap"></i>
-              <span>Bootstrap</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-python"></i>
-              <span>Django</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>Data Science & ML</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <i class="fas fa-brain"></i>
-              <span>Scikit-Learn</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pandas</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-chart-line"></i>
-              <span>Matplotlib</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-chart-pie"></i>
-              <span>Numpy</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-chart-area"></i>
-              <span>Seaborn</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-spider"></i>
-              <span>Beautiful Soup</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>Tools</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <i class="fas fa-server"></i>
-              <span>DevOps</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-database"></i>
-              <span>SQL</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-git-alt"></i>
-              <span>Git/GitHub</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-linux"></i>
-              <span>Linux</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-terminal"></i>
-              <span>Scripting</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-cogs"></i>
-              <span>OOP</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>Languages</h3>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <i class="fas fa-language"></i>
-              <span>English (C1)</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-language"></i>
-              <span>French (B2)</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-language"></i>
-              <span>German (A2)</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-language"></i>
-              <span>Italian (A1)</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-language"></i>
-              <span>Arabic (Native)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <h3>Let's Connect</h3>
-          <p>
-            I'm always interested in discussing new opportunities, research
-            collaborations, or innovative projects. Feel free to reach out if
-            you'd like to connect!
-          </p>
-          <div class="contact-details">
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>mohamedkhalil.brik@aucegypt.edu</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Cairo, Egypt</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-graduation-cap"></i>
-              <span>Computer Science Student at AUC</span>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form" id="contact-form">
-          <div id="form-messages"></div>
-
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required />
-          </div>
-          <div class="form-group">
-            <input type="text" name="subject" placeholder="Subject" required />
-          </div>
-          <div class="form-group">
-            <textarea name="message" placeholder="Your Message" required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" id="submit-btn">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- News Ticker -->
-  <div class="news-ticker">
-    <div class="news-ticker-wrapper">
-      <div class="news-ticker-content">
-        <a href="news/NASA_course.html" class="ticker-item">
-          <span class="ticker-badge">March 2025</span>
-          <span class="ticker-text">🚀 Accepted into NASA's Student Research Program - ATLAS Mission to Titan</span>
-        </a>
-        <a href="news/NCUR.html" class="ticker-item">
-          <span class="ticker-badge">April 2025</span>
-          <span class="ticker-text">📄 Presented Research Paper at NCUR Conference in Pittsburgh</span>
-        </a>
-        <a href="news/CFC.html" class="ticker-item">
-          <span class="ticker-badge">January 2025</span>
-          <span class="ticker-text">🎓 Completed Semester Abroad at College of Charleston</span>
-        </a>
-        <a href="news/ADIB.html" class="ticker-item">
-          <span class="ticker-badge">July 2024</span>
-          <span class="ticker-text">💼 Cybersecurity Internship at Abu Dhabi Islamic Bank</span>
-        </a>
-        <a href="news/Diaspura.html" class="ticker-item">
-          <span class="ticker-badge">July 2024</span>
-          <span class="ticker-text">🌍 International Internship at DiaspÜra</span>
-        </a>
-        <a href="news/AUC.html" class="ticker-item">
-          <span class="ticker-badge">September 2022</span>
-          <span class="ticker-text">🏆 Awarded Full Scholarship to AUC - Tomorrow's Leaders Program</span>
-        </a>
-        <a href="news/Bac.html" class="ticker-item">
-          <span class="ticker-badge">June 2022</span>
-          <span class="ticker-text">📚 Received Baccalaureate with 16.89/20 - Very Good Distinction</span>
-        </a>
-      </div>
-      <!-- Duplicate for seamless loop -->
-      <div class="news-ticker-content" aria-hidden="true">
-        <a href="news/NASA_course.html" class="ticker-item">
-          <span class="ticker-badge">March 2025</span>
-          <span class="ticker-text">🚀 Accepted into NASA's Student Research Program - ATLAS Mission to Titan</span>
-        </a>
-        <a href="news/NCUR.html" class="ticker-item">
-          <span class="ticker-badge">April 2025</span>
-          <span class="ticker-text">📄 Presented Research Paper at NCUR Conference in Pittsburgh</span>
-        </a>
-        <a href="news/CFC.html" class="ticker-item">
-          <span class="ticker-badge">January 2025</span>
-          <span class="ticker-text">🎓 Completed Semester Abroad at College of Charleston</span>
-        </a>
-        <a href="news/ADIB.html" class="ticker-item">
-          <span class="ticker-badge">July 2024</span>
-          <span class="ticker-text">💼 Cybersecurity Internship at Abu Dhabi Islamic Bank</span>
-        </a>
-        <a href="news/Diaspura.html" class="ticker-item">
-          <span class="ticker-badge">July 2024</span>
-          <span class="ticker-text">🌍 International Internship at DiaspÜra</span>
-        </a>
-        <a href="news/AUC.html" class="ticker-item">
-          <span class="ticker-badge">September 2022</span>
-          <span class="ticker-text">🏆 Awarded Full Scholarship to AUC - Tomorrow's Leaders Program</span>
-        </a>
-        <a href="news/Bac.html" class="ticker-item">
-          <span class="ticker-badge">June 2022</span>
-          <span class="ticker-text">📚 Received Baccalaureate with 16.89/20 - Very Good Distinction</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/" class="social-link" target="_blank"
-            title="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/khalilbrikTN" class="social-link" target="_blank" title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik" class="social-link" target="_blank"
-            title="ResearchGate">
-            <i class="fab fa-researchgate"></i>
-          </a>
-          <a href="https://drive.google.com/file/d/1wlc62FtVJjz-AlGfvc62NT7KRPWtEaDR/view?usp=sharing"
-            class="social-link" target="_blank" title="Resume">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-
-        <p class="footer-text">
-          © 2025 Mohamed Khalil Brik. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

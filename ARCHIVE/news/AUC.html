@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joining AUC with Tomorrow's Leaders Scholarship</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* Customizable CSS Variables for Easy Theming */
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --background-light: #f8f9fa;
+        --background-white: #ffffff;
+        --text-dark: #2d3748;
+        --text-medium: #4a5568;
+        --text-light: #718096;
+        --border-color: #e2e8f0;
+        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+        --shadow-medium: 0 4px 15px rgba(102, 126, 234, 0.3);
+        --border-radius: 12px;
+        --border-radius-large: 15px;
+        --spacing-small: 1rem;
+        --spacing-medium: 1.5rem;
+        --spacing-large: 2rem;
+        --spacing-xl: 3rem;
+      }
+
+      /* Grid-based layout styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-large);
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: var(--spacing-large);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .back-button:hover {
+        color: var(--secondary-color);
+      }
+
+      .article-header {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: var(--spacing-small);
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-large);
+        flex-wrap: wrap;
+        color: var(--text-light);
+        margin-bottom: var(--spacing-large);
+      }
+
+      .article-image {
+        width: 100%;
+        max-width: 600px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+        margin: 0 auto var(--spacing-xl) auto;
+        display: block;
+        box-shadow: var(--shadow-light);
+      }
+
+      /* Achievement cards */
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-xl) 0;
+      }
+
+      .achievement-card {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+        padding: var(--spacing-large) var(--spacing-medium);
+        border-radius: var(--border-radius-large);
+        text-align: center;
+        box-shadow: var(--shadow-medium);
+        transition: transform 0.3s ease;
+      }
+
+      .achievement-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .achievement-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .achievement-text {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      /* Content grid */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-large);
+        margin: var(--spacing-large) 0;
+      }
+
+      .info-card {
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-medium);
+        margin-bottom: var(--spacing-medium);
+        border-left: 4px solid var(--primary-color);
+        box-shadow: var(--shadow-light);
+        transition: transform 0.2s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .info-card h3 {
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .info-card ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .info-card li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        color: var(--text-medium);
+      }
+
+      .info-card p {
+        color: var(--text-medium);
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+      }
+
+      /* Benefits grid */
+      .benefits-section {
+        margin: var(--spacing-xl) 0;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-medium);
+        margin: var(--spacing-large) 0;
+      }
+
+      .benefit-category {
+        background: var(--background-white);
+        padding: var(--spacing-medium);
+        border-radius: var(--border-radius);
+        text-align: center;
+        border: 2px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .benefit-category:hover {
+        border-color: var(--primary-color);
+        box-shadow: var(--shadow-light);
+      }
+
+      .benefit-category h4 {
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .benefit-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: var(--spacing-small);
+      }
+
+      .tag {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Scholarship coverage table */
+      .scholarship-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--background-light);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        margin: var(--spacing-large) 0;
+      }
+
+      .scholarship-table thead tr {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+      }
+
+      .scholarship-table th,
+      .scholarship-table td {
+        padding: var(--spacing-small);
+        text-align: left;
+        border: none;
+      }
+
+      .scholarship-table th:last-child,
+      .scholarship-table td:last-child {
+        text-align: center;
+      }
+
+      .scholarship-table tbody tr {
+        border-bottom: 1px solid var(--border-color);
+        transition: background-color 0.2s ease;
+      }
+
+      .scholarship-table tbody tr:hover {
+        background-color: #f1f5f9;
+      }
+
+      .scholarship-table .total-row {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+        font-weight: bold;
+      }
+
+      .scholarship-table .total-row td {
+        padding: var(--spacing-small);
+        font-size: 1.1rem;
+      }
+
+      /* Program highlights */
+      .program-highlights {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.1) 0%,
+          rgba(118, 75, 162, 0.1) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-large) 0;
+        text-align: center;
+        border: 2px solid var(--border-color);
+      }
+
+      .program-highlights h3 {
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-small);
+        font-size: 1.3rem;
+      }
+
+      .program-highlights p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Section headers */
+      .section-header {
+        text-align: center;
+        margin: var(--spacing-xl) 0 var(--spacing-large) 0;
+      }
+
+      .section-header h2 {
+        color: var(--text-dark);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        margin: var(--spacing-small) auto;
+        border-radius: 2px;
+      }
+
+      /* Conclusion section */
+      .conclusion-section {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.15) 0%,
+          rgba(118, 75, 162, 0.15) 100%
+        );
+        padding: var(--spacing-large);
+        border-radius: var(--border-radius-large);
+        margin: var(--spacing-xl) 0;
+        text-align: center;
+        border: 2px solid var(--primary-color);
+      }
+
+      .conclusion-section p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto var(--spacing-small) auto;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        :root {
+          --spacing-large: 1.5rem;
+          --spacing-xl: 2rem;
+        }
+
+        .container {
+          padding: var(--spacing-small);
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-small);
+        }
+
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .achievements-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .scholarship-table {
+          font-size: 0.9rem;
+        }
+
+        .scholarship-table th,
+        .scholarship-table td {
+          padding: 0.75rem;
+        }
+      }
+
+      /* Custom scrollbar for table on mobile */
+      .table-container {
+        overflow-x: auto;
+        margin: var(--spacing-large) 0;
+      }
+
+      .table-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .table-container::-webkit-scrollbar-track {
+        background: var(--background-light);
+        border-radius: 4px;
+      }
+
+      .table-container::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 4px;
+      }
+
+      /* Animation classes for future enhancements */
+      .fade-in {
+        animation: fadeIn 0.8s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html#news" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Website
+      </a>
+
+      <article class="news-article">
+        <header class="article-header">
+          <h1 class="article-title">
+            Joining AUC with Tomorrow's Leaders Scholarship
+          </h1>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> Fall 2022</span>
+            <span><i class="fas fa-user"></i> Mohamed Khalil Brik</span>
+          </div>
+          <div class="divider"></div>
+        </header>
+
+        <img
+          src="../Resources/AUC1.jpg"
+          alt="American University in Cairo Campus"
+          class="article-image"
+        />
+
+        <!-- Key Achievements -->
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <span class="achievement-number">1 of 5</span>
+            <p class="achievement-text">
+              Tunisians Selected for Tomorrow's Leaders Program
+            </p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">100%</span>
+            <p class="achievement-text">Fully Funded Scholarship Coverage</p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">US State</span>
+            <p class="achievement-text">Department Sponsored Program</p>
+          </div>
+          <div class="achievement-card">
+            <span class="achievement-number">50+</span>
+            <p class="achievement-text">Countries Represented at AUC</p>
+          </div>
+        </div>
+
+        <!-- Program Introduction -->
+        <div class="program-highlights">
+          <h3>
+            <i class="fas fa-star"></i> Tomorrow's Leaders Program Achievement
+          </h3>
+          <p>
+            Selected among <strong>5 Tunisians</strong> from hundreds of
+            applicants for the prestigious
+            <strong>Tomorrow's Leaders Program</strong>, sponsored by the US
+            Department of State through the Middle East Partnership Initiative
+            (MEPI) to pursue a Computer Science degree at The American
+            University in Cairo with full scholarship coverage.
+          </p>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+          <!-- Left Column -->
+          <div class="content-left">
+            <div class="info-card">
+              <h3>
+                <i class="fas fa-graduation-cap"></i> Tomorrow's Leaders Program
+              </h3>
+              <p>
+                <strong>Highly competitive scholarship initiative</strong>
+                sponsored by the US Department of State through the Middle East
+                Partnership Initiative (MEPI).
+              </p>
+              <ul>
+                <li>
+                  <strong>Regional Recognition:</strong> Identifies exceptional
+                  students across MENA
+                </li>
+                <li>
+                  <strong>Academic Excellence:</strong> Merit-based selection
+                  criteria
+                </li>
+                <li>
+                  <strong>Leadership Potential:</strong> Focus on community
+                  impact
+                </li>
+                <li>
+                  <strong>Comprehensive Support:</strong> Full educational
+                  funding
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>
+                <i class="fas fa-university"></i> The American University in
+                Cairo
+              </h3>
+              <p>
+                <strong>Most prestigious university</strong> in the Middle East
+                and North Africa region, founded in 1919.
+              </p>
+              <ul>
+                <li>
+                  <strong>Regional Leader:</strong> Top-ranked MENA institution
+                </li>
+                <li>
+                  <strong>Dual Accreditation:</strong> Egyptian and US
+                  educational authorities
+                </li>
+                <li>
+                  <strong>Global Community:</strong> Students from 50+ countries
+                </li>
+                <li>
+                  <strong>Research Excellence:</strong> State-of-the-art
+                  facilities
+                </li>
+                <li>
+                  <strong>Industry Connections:</strong> Strong corporate
+                  partnerships
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="fas fa-medal"></i> Selection Achievement</h3>
+              <p>
+                Being chosen as
+                <strong>1 of only 5 Tunisian recipients</strong> from hundreds
+                of national applicants represents exceptional academic and
+                leadership recognition.
+              </p>
+              <ul>
+                <li>
+                  <strong>National Competition:</strong> Hundreds of Tunisian
+                  applicants
+                </li>
+                <li>
+                  <strong>Rigorous Process:</strong> Multi-stage selection
+                  criteria
+                </li>
+                <li>
+                  <strong>Merit Recognition:</strong> Academic and leadership
+                  excellence
+                </li>
+                <li>
+                  <strong>Future Potential:</strong> Commitment to positive
+                  change
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="content-right">
+            <div class="info-card">
+              <h3>
+                <i class="fas fa-laptop-code"></i> Computer Science Program
+              </h3>
+              <p>
+                Pursuing a
+                <strong>Bachelor's degree in Computer Science</strong> with
+                comprehensive curriculum and cutting-edge research
+                opportunities.
+              </p>
+              <ul>
+                <li>
+                  <strong>Core Curriculum:</strong> Algorithms, data structures,
+                  software engineering
+                </li>
+                <li>
+                  <strong>AI Specialization:</strong> Machine learning and data
+                  science focus
+                </li>
+                <li>
+                  <strong>Research Access:</strong> Cutting-edge technology
+                  projects
+                </li>
+                <li>
+                  <strong>Industry Integration:</strong> Internships with
+                  leading tech companies
+                </li>
+                <li>
+                  <strong>Innovation Hub:</strong> Entrepreneurship and startup
+                  programs
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="fas fa-globe"></i> International Exposure</h3>
+              <p>
+                <strong>Multicultural environment</strong> providing global
+                perspective and cross-cultural understanding essential for
+                technology careers.
+              </p>
+              <ul>
+                <li>
+                  <strong>Cultural Bridge:</strong> American and Middle Eastern
+                  traditions
+                </li>
+                <li>
+                  <strong>Global Network:</strong> Alumni at top tech companies
+                  worldwide
+                </li>
+                <li>
+                  <strong>Diverse Perspectives:</strong> Learning from
+                  international peers
+                </li>
+                <li>
+                  <strong>Language Skills:</strong> Enhanced communication
+                  abilities
+                </li>
+                <li>
+                  <strong>World-Class Faculty:</strong> International academic
+                  expertise
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="fas fa-rocket"></i> Future Goals</h3>
+              <p>
+                <strong>Leadership development</strong> and global mindset
+                preparation for contributing to technological innovation and
+                positive change.
+              </p>
+              <ul>
+                <li>
+                  <strong>Academic Excellence:</strong> High performance in CS
+                  studies
+                </li>
+                <li>
+                  <strong>Research Contribution:</strong> AI and machine
+                  learning projects
+                </li>
+                <li>
+                  <strong>Leadership Skills:</strong> Community and student
+                  organization involvement
+                </li>
+                <li>
+                  <strong>Global Impact:</strong> Technology solutions for
+                  societal challenges
+                </li>
+                <li>
+                  <strong>Career Foundation:</strong> Preparation for tech
+                  industry leadership
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="section-header">
+          <h2>Program Benefits & Opportunities</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-category">
+            <h4><i class="fas fa-book"></i> Academic Excellence</h4>
+            <div class="benefit-tags">
+              <span class="tag">World-Class Faculty</span>
+              <span class="tag">Research Opportunities</span>
+              <span class="tag">Modern Curriculum</span>
+              <span class="tag">Industry Projects</span>
+            </div>
+          </div>
+
+          <div class="benefit-category">
+            <h4><i class="fas fa-users"></i> Global Community</h4>
+            <div class="benefit-tags">
+              <span class="tag">50+ Countries</span>
+              <span class="tag">Cultural Exchange</span>
+              <span class="tag">International Network</span>
+              <span class="tag">Diverse Perspectives</span>
+            </div>
+          </div>
+
+          <div class="benefit-category">
+            <h4><i class="fas fa-briefcase"></i> Career Development</h4>
+            <div class="benefit-tags">
+              <span class="tag">Industry Partnerships</span>
+              <span class="tag">Internship Programs</span>
+              <span class="tag">Alumni Network</span>
+              <span class="tag">Leadership Training</span>
+            </div>
+          </div>
+
+          <div class="benefit-category">
+            <h4><i class="fas fa-lightbulb"></i> Innovation Hub</h4>
+            <div class="benefit-tags">
+              <span class="tag">Startup Incubators</span>
+              <span class="tag">Entrepreneurship</span>
+              <span class="tag">Tech Innovation</span>
+              <span class="tag">Research Labs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scholarship Coverage -->
+        <div class="section-header">
+          <h2>Comprehensive Scholarship Coverage</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="table-container">
+          <table class="scholarship-table">
+            <thead>
+              <tr>
+                <th><i class="fas fa-list"></i> Coverage Area</th>
+                <th><i class="fas fa-check-circle"></i> Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tuition Fees</strong></td>
+                <td>100% Covered</td>
+              </tr>
+              <tr>
+                <td><strong>Accommodation</strong></td>
+                <td>On-campus Housing</td>
+              </tr>
+              <tr>
+                <td><strong>Living Allowance</strong></td>
+                <td>Monthly Stipend</td>
+              </tr>
+              <tr>
+                <td><strong>Travel Expenses</strong></td>
+                <td>Round-trip Flights</td>
+              </tr>
+              <tr>
+                <td><strong>Health Insurance</strong></td>
+                <td>Comprehensive Coverage</td>
+              </tr>
+              <tr>
+                <td><strong>Books & Materials</strong></td>
+                <td>Academic Resources</td>
+              </tr>
+              <tr class="total-row">
+                <td>Total Value</td>
+                <td>Fully Funded</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion-section">
+          <p>
+            This scholarship represents more than educational opportunity—it's a
+            gateway to international exposure, cross-cultural understanding, and
+            global perspective development that will shape my future career in
+            technology and innovation. I'm excited to join a diverse community
+            of scholars, engage with world-class faculty, and contribute to
+            groundbreaking research in computer science and artificial
+            intelligence.
+          </p>
+          <p style="margin-top: 1rem">
+            <strong
+              >Grateful for this incredible opportunity and ready for the
+              exciting journey ahead! 🌟</strong
+            >
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/"
+              class="social-link"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/khalilbrikTN"
+              class="social-link"
+              target="_blank"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik"
+              class="social-link"
+              target="_blank"
+              title="ResearchGate"
+            >
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1wlc62FtVJjz-AlGfvc62NT7KRPWtEaDR/view?usp=sharing"
+              class="social-link"
+              target="_blank"
+              title="Resume"
+            >
+              <i class="fas fa-file-pdf"></i>
+            </a>
+          </div>
+
+          <p class="footer-text">
+            © 2025 Mohamed Khalil Brik. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

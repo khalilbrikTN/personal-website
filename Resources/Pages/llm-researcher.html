@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM Researcher - Mohamed Khalil Brik</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        /* Reusing Academic Research Theme from NCUR page */
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --research-primary: #2563eb;
+            --research-secondary: #1e40af;
+            --academic-gold: #f59e0b;
+            --success-green: #10b981;
+            --background-light: #f8f9fa;
+            --background-white: #ffffff;
+            --text-dark: #2d3748;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 4px 15px rgba(102, 126, 234, 0.3);
+            --shadow-research: 0 4px 15px rgba(37, 99, 235, 0.3);
+            --border-radius: 12px;
+            --border-radius-large: 15px;
+            --spacing-small: 1rem;
+            --spacing-medium: 1.5rem;
+            --spacing-large: 2rem;
+            --spacing-xl: 3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-large);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--research-primary);
+            text-decoration: none;
+            margin-bottom: var(--spacing-large);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: var(--research-secondary);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-small);
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-large);
+            flex-wrap: wrap;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-large);
+        }
+
+        .article-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin: 0 auto var(--spacing-xl) auto;
+            display: block;
+            box-shadow: var(--shadow-light);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-large);
+            margin: var(--spacing-large) 0;
+        }
+
+        .info-card {
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-medium);
+            margin-bottom: var(--spacing-medium);
+            border-left: 4px solid var(--research-primary);
+            box-shadow: var(--shadow-light);
+            transition: transform 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .info-card h3 {
+            color: var(--research-primary);
+            margin-bottom: var(--spacing-small);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .info-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+            color: var(--text-medium);
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            margin: var(--spacing-large) 0;
+        }
+
+        .tech-table thead tr {
+            background: linear-gradient(135deg,
+                    var(--research-primary) 0%,
+                    var(--research-secondary) 100%);
+            color: white;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: var(--spacing-small);
+            text-align: left;
+            border: none;
+        }
+
+        .tech-table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Experience
+        </a>
+
+        <article class="news-article">
+            <header class="article-header">
+                <h1 class="article-title">LLM Researcher</h1>
+                <div class="article-meta">
+                    <span><i class="fas fa-university"></i> The American University in Cairo</span>
+                    <span><i class="fas fa-calendar-alt"></i> Aug 2024 - Dec 2024</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</span>
+                </div>
+            </header>
+
+            <img src="../Resources/NCUR1.jpg" alt="LLM Research Presentation" class="article-image" />
+
+            <div class="content-grid">
+                <div class="content-left">
+                    <div class="info-card">
+                        <h3><i class="fas fa-project-diagram"></i> Project Overview</h3>
+                        <p>
+                            Led research on "Using Large Language Models to Enhance Emergency Response Systems: A
+                            Context Awareness Approach". The project aimed to revolutionize 911 systems by integrating
+                            AI to support human dispatchers.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-check-circle"></i> Key Responsibilities</h3>
+                        <ul>
+                            <li>Developed LLM system to analyze 911 call texts and classify emergencies.</li>
+                            <li>Integrated age recognition from voice inputs to tailor LLM recommendations.</li>
+                            <li>Drafted comprehensive operational guidelines manual ensuring alignment with best
+                                practices.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-right">
+                    <div class="info-card">
+                        <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                        <ul>
+                            <li>Presented research at the National Conference on Undergraduate Research (NCUR) 2025 in
+                                Pittsburgh, USA.</li>
+                            <li>Engaged with over 60 attendees during a dedicated two-hour poster session.</li>
+                            <li>Achieved 76.5% accuracy in Address Extraction and 48.3% in Name Recognition.</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-tools"></i> Technologies Used</h3>
+                        <ul>
+                            <li><strong>LLMs:</strong> LLaMA 2, GPT-4</li>
+                            <li><strong>NLP:</strong> BERT-large-cased for NER</li>
+                            <li><strong>Speech-to-Text:</strong> OpenAI Whisper</li>
+                            <li><strong>Frameworks:</strong> Python, PyTorch, Hugging Face</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>System Architecture</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Technology</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Speech-to-Text</strong></td>
+                        <td>OpenAI Whisper</td>
+                        <td>Real-time call transcription</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NER</strong></td>
+                        <td>BERT-large-cased</td>
+                        <td>Extract caller info & location</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Classification</strong></td>
+                        <td>Fine-tuned LLM</td>
+                        <td>Determine emergency type</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Response Gen</strong></td>
+                        <td>Context-Aware LLM</td>
+                        <td>Generate dispatcher protocols</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </article>
+    </div>
+    <!-- News Ticker -->
+    <div class="news-ticker-bar">
+        <div class="ticker-label">LATEST UPDATES</div>
+        <div class="ticker-container">
+            <div class="ticker-wrapper">
+                <a href="Thesis.html" class="ticker-item"><span class="ticker-date">DEC 2025</span> Completed the first
+                    part of my Bachelor Thesis</a>
+                <a href="TomorrowsLeaders.html" class="ticker-item"><span class="ticker-date">NOV 2025</span> Received
+                    Project Management Training from Tomorrow's Leaders</a>
+                <a href="TheAICompany.html" class="ticker-item"><span class="ticker-date">OCT 2025</span> Started The AI
+                    Company</a>
+                <a href="NCUR.html" class="ticker-item"><span class="ticker-date">APR 2025</span> Participated in the
+                    NCUR Conference</a>
+                <a href="CFC.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span> Study Abroad at the
+                    College of Charleston</a>
+                <a href="NASA_course.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span> Joined the
+                    NASA Space Mission Design Course</a>
+                <a href="llm-researcher.html" class="ticker-item"><span class="ticker-date">DEC 2024</span> Researcher
+                    in Large Language Models</a>
+                <a href="ADIB.html" class="ticker-item"><span class="ticker-date">SUMMER 2024</span> Software
+                    Engineering intern at ADIB Egypt</a>
+                <a href="Diaspura.html" class="ticker-item"><span class="ticker-date">SPRING 2024</span> Chat bot
+                    development intern at Diaspura</a>
+                <a href="ECPC.html" class="ticker-item"><span class="ticker-date">OCT 2023</span> Participated in ECPC
+                    Contests</a>
+                <a href="HarvardAspire.html" class="ticker-item"><span class="ticker-date">MAR 2023</span> Finished the
+                    Harvard Aspire Leaders Program</a>
+                <a href="AUC.html" class="ticker-item"><span class="ticker-date">SEPT 2022</span> Joined the American
+                    University in Cairo</a>
+                <a href="Bac.html" class="ticker-item"><span class="ticker-date">JUNE 2022</span> Received my
+                    Baccalaureate Certificate</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
