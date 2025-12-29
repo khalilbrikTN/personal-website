@@ -108,10 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         init() {
             this.animateText(this.currentIndex);
-            setInterval(() => {
-                this.currentIndex = (this.currentIndex + 1) % this.texts.length;
-                this.animateText(this.currentIndex);
-            }, this.interval + 1000); // Add buffer for animation duration
         }
 
         splitText(text) {
@@ -165,6 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const entranceDuration = (newChars.length * 50) + 500;
             setTimeout(() => {
                 this.isAnimating = false;
+
+                // Schedule next rotation
+                setTimeout(() => {
+                    this.currentIndex = (this.currentIndex + 1) % this.texts.length;
+                    this.animateText(this.currentIndex);
+                }, this.interval);
             }, entranceDuration);
         }
     }
@@ -178,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
 
-    new RotationAnimation('rotating-text', rotatingTexts, 1000);
+    new RotationAnimation('rotating-text', rotatingTexts, 2000);
 
     // Personal Map Implementation
     const initMap = () => {
