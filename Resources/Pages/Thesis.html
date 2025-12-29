@@ -7,7 +7,9 @@
   <title>Thesis 1 Presentation: Quantum Optimization for Location Tracking Systems</title>
   <link rel="stylesheet" href="../../styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="article-styles.css" />
   <style>
+    /* Custom Theme Overrides for Thesis Page */
     :root {
       --primary-color: #667eea;
       --secondary-color: #764ba2;
@@ -15,126 +17,45 @@
       --quantum-purple: #8b5cf6;
       --quantum-pink: #ec4899;
       --academic-gold: #f59e0b;
-      --background-light: #f8f9fa;
-      --background-white: #ffffff;
-      --text-dark: #2d3748;
-      --text-medium: #4a5568;
-      --text-light: #718096;
-      --border-color: #e2e8f0;
-      --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
       --shadow-medium: 0 4px 15px rgba(139, 92, 246, 0.3);
-      --border-radius: 12px;
-      --border-radius-large: 15px;
-      --spacing-small: 1rem;
-      --spacing-medium: 1.5rem;
-      --spacing-large: 2rem;
-      --spacing-xl: 3rem;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--spacing-large);
-    }
-
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--quantum-blue);
-      text-decoration: none;
-      margin-bottom: var(--spacing-large);
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .back-button:hover {
-      color: var(--quantum-purple);
-    }
-
-    .article-header {
-      text-align: center;
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .article-title {
-      font-size: 2.5rem;
-      color: var(--text-dark);
-      margin-bottom: var(--spacing-small);
-      line-height: 1.2;
-    }
-
-    .article-meta {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-large);
-      flex-wrap: wrap;
-      color: var(--text-light);
-      margin-bottom: var(--spacing-large);
-    }
-
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--quantum-blue), var(--quantum-purple));
-      margin: var(--spacing-small) auto;
-      border-radius: 2px;
-    }
-
-    .article-image {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      object-fit: cover;
-      border-radius: var(--border-radius);
-      margin: 0 auto var(--spacing-xl) auto;
-      display: block;
-      box-shadow: var(--shadow-light);
-    }
-
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--spacing-medium);
-      margin: var(--spacing-xl) 0;
-    }
-
+    /* Achievement cards overrides */
     .achievement-card {
-      background: linear-gradient(135deg, var(--quantum-blue) 0%, var(--quantum-purple) 100%);
-      color: white;
-      padding: var(--spacing-large) var(--spacing-medium);
-      border-radius: var(--border-radius-large);
-      text-align: center;
-      box-shadow: var(--shadow-medium);
-      transition: transform 0.3s ease;
-    }
-
-    .achievement-card:hover {
-      transform: translateY(-5px);
+      background: linear-gradient(135deg, var(--quantum-purple) 0%, var(--quantum-pink) 100%);
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
     }
 
     .achievement-card.quantum-card {
-      background: linear-gradient(135deg, var(--quantum-purple) 0%, var(--quantum-pink) 100%);
+      background: linear-gradient(135deg, var(--quantum-blue) 0%, var(--quantum-purple) 100%);
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
     }
 
-    .achievement-card.gold-card {
-      background: linear-gradient(135deg, var(--academic-gold) 0%, #d97706 100%);
+    .info-card {
+      border-left-color: var(--quantum-purple);
     }
 
-    .achievement-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      display: block;
-      margin-bottom: 0.5rem;
+    .info-card h3 {
+      color: var(--quantum-purple);
     }
 
-    .achievement-text {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      line-height: 1.4;
+    .skill-category {
+      background: white;
+      /* from original override */
+      border: 2px solid var(--border-color);
+      /* standard */
     }
 
-    .highlight-section {
+    .skill-category h4 {
+      color: var(--quantum-purple);
+    }
+
+    .tag {
+      background: linear-gradient(135deg, var(--quantum-blue), var(--quantum-purple));
+    }
+
+    /* Thesis specific */
+    .abstract-highlight {
       background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
       padding: var(--spacing-large);
       border-radius: var(--border-radius-large);
@@ -143,13 +64,13 @@
       border: 2px solid var(--quantum-blue);
     }
 
-    .highlight-section h3 {
+    .abstract-highlight h3 {
       color: var(--quantum-blue);
       margin-bottom: var(--spacing-small);
       font-size: 1.3rem;
     }
 
-    .highlight-section p {
+    .abstract-highlight p {
       font-size: 1.1rem;
       line-height: 1.6;
       color: var(--text-medium);
@@ -157,140 +78,41 @@
       margin: 0 auto;
     }
 
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-large);
-      margin: var(--spacing-large) 0;
-    }
-
-    .info-card {
-      background: var(--background-light);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-medium);
-      margin-bottom: var(--spacing-medium);
-      border-left: 4px solid var(--quantum-blue);
-      box-shadow: var(--shadow-light);
-      transition: transform 0.2s ease;
-    }
-
-    .info-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .info-card.quantum-themed {
-      border-left-color: var(--quantum-purple);
-    }
-
-    .info-card h3 {
-      color: var(--quantum-blue);
-      margin-bottom: var(--spacing-small);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .info-card.quantum-themed h3 {
-      color: var(--quantum-purple);
-    }
-
-    .info-card ul {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .info-card li {
-      margin-bottom: 0.5rem;
-      line-height: 1.5;
-      color: var(--text-medium);
-    }
-
-    .info-card p {
-      color: var(--text-medium);
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-    }
-
-    .section-header {
-      text-align: center;
-      margin: var(--spacing-xl) 0 var(--spacing-large) 0;
-    }
-
-    .section-header h2 {
-      color: var(--text-dark);
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .download-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-medium);
-      margin: var(--spacing-xl) 0;
-    }
-
     .download-card {
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-      padding: var(--spacing-large);
-      border-radius: var(--border-radius-large);
-      text-align: center;
-      border: 2px solid var(--quantum-blue);
-      transition: all 0.3s ease;
-    }
-
-    .download-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-medium);
+      border-color: var(--quantum-purple);
     }
 
     .download-card h3 {
-      color: var(--quantum-blue);
-      margin-bottom: var(--spacing-small);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      color: var(--quantum-purple);
     }
 
     .download-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--quantum-blue), var(--quantum-purple));
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: var(--spacing-small);
-      transition: all 0.3s ease;
+      background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-pink));
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
     }
 
     .download-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 20px rgba(14, 165, 233, 0.4);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
+    }
+
+    .project-card h4 {
+      color: var(--quantum-blue);
+    }
+
+    .mentor-card {
+      border-color: var(--quantum-purple);
+    }
+
+    .mentor-name {
+      color: var(--quantum-purple);
     }
 
     .conclusion-section {
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
-      padding: var(--spacing-large);
-      border-radius: var(--border-radius-large);
-      margin: var(--spacing-xl) 0;
-      text-align: center;
-      border: 2px solid var(--quantum-purple);
-    }
-
-    .conclusion-section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--text-medium);
-      max-width: 800px;
-      margin: 0 auto var(--spacing-small) auto;
+      border-color: var(--quantum-purple);
     }
 
     @media (max-width: 768px) {
-      .container {
-        padding: var(--spacing-small);
-      }
 
       .content-grid,
       .download-section {
@@ -557,5 +379,3 @@
 </body>
 
 </html>
-
-

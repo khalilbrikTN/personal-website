@@ -7,110 +7,32 @@
   <title>NLP Chatbot Development Internship at diasPÃœra</title>
   <link rel="stylesheet" href="../../styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="article-styles.css" />
   <style>
     /* Customizable CSS Variables for Tech Startup/Global Team Theme */
     :root {
-      --primary-color: #667eea;
-      --secondary-color: #764ba2;
-      --accent-color: #f093fb;
       --startup-blue: #3b82f6;
       --france-blue: #1e40af;
       --innovation-purple: #7c3aed;
       --global-green: #059669;
       --nlp-orange: #ea580c;
-      --background-light: #f8f9fa;
-      --background-white: #ffffff;
-      --text-dark: #2d3748;
-      --text-medium: #4a5568;
-      --text-light: #718096;
-      --border-color: #e2e8f0;
-      --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
-      --shadow-medium: 0 4px 15px rgba(102, 126, 234, 0.3);
       --shadow-startup: 0 4px 15px rgba(59, 130, 246, 0.3);
-      --border-radius: 12px;
-      --border-radius-large: 15px;
-      --spacing-small: 1rem;
-      --spacing-medium: 1.5rem;
-      --spacing-large: 2rem;
-      --spacing-xl: 3rem;
-    }
-
-    /* Grid-based layout styles */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--spacing-large);
     }
 
     .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
       color: var(--startup-blue);
-      text-decoration: none;
-      margin-bottom: var(--spacing-large);
-      font-weight: 500;
-      transition: color 0.3s ease;
     }
 
     .back-button:hover {
       color: var(--innovation-purple);
     }
 
-    .article-header {
-      text-align: center;
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .article-title {
-      font-size: 2.5rem;
-      color: var(--text-dark);
-      margin-bottom: var(--spacing-small);
-      line-height: 1.2;
-    }
-
-    .article-meta {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-large);
-      flex-wrap: wrap;
-      color: var(--text-light);
-      margin-bottom: var(--spacing-large);
-    }
-
-    .article-image {
-      width: 100%;
-      max-width: 600px;
-      height: 350px;
-      object-fit: cover;
-      border-radius: var(--border-radius);
-      margin: 0 auto var(--spacing-xl) auto;
-      display: block;
-      box-shadow: var(--shadow-light);
-    }
-
     /* Achievement cards with startup/global theme */
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--spacing-medium);
-      margin: var(--spacing-xl) 0;
-    }
-
     .achievement-card {
       background: linear-gradient(135deg,
           var(--startup-blue) 0%,
           var(--france-blue) 100%);
-      color: white;
-      padding: var(--spacing-large) var(--spacing-medium);
-      border-radius: var(--border-radius-large);
-      text-align: center;
       box-shadow: var(--shadow-startup);
-      transition: transform 0.3s ease;
-    }
-
-    .achievement-card:hover {
-      transform: translateY(-5px);
     }
 
     .achievement-card.nlp-card {
@@ -129,39 +51,8 @@
           #5b21b6 100%);
     }
 
-    .achievement-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .achievement-text {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      line-height: 1.4;
-    }
-
-    /* Content grid */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-large);
-      margin: var(--spacing-large) 0;
-    }
-
     .info-card {
-      background: var(--background-light);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-medium);
-      margin-bottom: var(--spacing-medium);
       border-left: 4px solid var(--startup-blue);
-      box-shadow: var(--shadow-light);
-      transition: transform 0.2s ease;
-    }
-
-    .info-card:hover {
-      transform: translateY(-2px);
     }
 
     .info-card.nlp-themed {
@@ -182,11 +73,6 @@
 
     .info-card h3 {
       color: var(--startup-blue);
-      margin-bottom: var(--spacing-small);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .info-card.nlp-themed h3 {
@@ -205,47 +91,19 @@
       color: var(--france-blue);
     }
 
-    .info-card ul {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .info-card li {
-      margin-bottom: 0.5rem;
-      line-height: 1.5;
-      color: var(--text-medium);
-    }
-
-    .info-card p {
-      color: var(--text-medium);
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-    }
-
     /* Technical features section */
-    .features-section {
-      margin: var(--spacing-xl) 0;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-medium);
-      margin: var(--spacing-large) 0;
-    }
-
     .feature-card {
       background: var(--background-white);
-      padding: var(--spacing-medium);
-      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      border-radius: 12px;
       text-align: center;
-      border: 2px solid var(--border-color);
+      border: 2px solid #e2e8f0;
       transition: all 0.3s ease;
     }
 
     .feature-card:hover {
       border-color: var(--startup-blue);
-      box-shadow: var(--shadow-light);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       transform: translateY(-2px);
     }
 
@@ -258,7 +116,7 @@
 
     .feature-card h4 {
       color: var(--startup-blue);
-      margin-bottom: var(--spacing-small);
+      margin-bottom: 1rem;
       font-size: 1.1rem;
       display: flex;
       align-items: center;
@@ -275,16 +133,11 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       justify-content: center;
-      margin-top: var(--spacing-small);
+      margin-top: 1rem;
     }
 
     .tag {
       background: var(--startup-blue);
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
     }
 
     .tag.nlp-tag {
@@ -307,11 +160,12 @@
     .tech-table {
       width: 100%;
       border-collapse: collapse;
-      background: var(--background-light);
-      border-radius: var(--border-radius);
+      background: #f8f9fa;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-light);
-      margin: var(--spacing-large) 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      /* standard shadow */
+      margin: 2rem 0;
     }
 
     .tech-table thead tr {
@@ -323,13 +177,13 @@
 
     .tech-table th,
     .tech-table td {
-      padding: var(--spacing-small);
+      padding: 1rem;
       text-align: left;
       border: none;
     }
 
     .tech-table tbody tr {
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid #e2e8f0;
       transition: background-color 0.2s ease;
     }
 
@@ -350,23 +204,23 @@
       background: linear-gradient(135deg,
           rgba(59, 130, 246, 0.1) 0%,
           rgba(30, 64, 175, 0.1) 100%);
-      padding: var(--spacing-large);
-      border-radius: var(--border-radius-large);
-      margin: var(--spacing-large) 0;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
       text-align: center;
       border: 2px solid var(--startup-blue);
     }
 
     .diaspora-highlight h3 {
       color: var(--startup-blue);
-      margin-bottom: var(--spacing-small);
+      margin-bottom: 1rem;
       font-size: 1.3rem;
     }
 
     .diaspora-highlight p {
       font-size: 1.1rem;
       line-height: 1.6;
-      color: var(--text-medium);
+      color: #4a5568;
       max-width: 800px;
       margin: 0 auto;
     }
@@ -376,15 +230,15 @@
       background: linear-gradient(135deg,
           rgba(234, 88, 12, 0.1) 0%,
           rgba(194, 65, 12, 0.1) 100%);
-      padding: var(--spacing-large);
-      border-radius: var(--border-radius-large);
-      margin: var(--spacing-large) 0;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
       border: 2px solid var(--nlp-orange);
     }
 
     .complexity-highlight h4 {
       color: var(--nlp-orange);
-      margin-bottom: var(--spacing-small);
+      margin-bottom: 1rem;
       font-size: 1.2rem;
     }
 
@@ -392,14 +246,14 @@
     .accomplishments-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-medium);
-      margin: var(--spacing-large) 0;
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
 
     .accomplishment-item {
-      background: var(--background-light);
-      padding: var(--spacing-medium);
-      border-radius: var(--border-radius);
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 12px;
       border-left: 4px solid var(--global-green);
       transition: transform 0.2s ease;
     }
@@ -418,16 +272,16 @@
     .leadership-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--spacing-medium);
-      margin: var(--spacing-large) 0;
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
 
     .leadership-card {
       background: linear-gradient(145deg,
-          var(--background-light) 0%,
+          #f8f9fa 0%,
           #e2e8f0 100%);
-      padding: var(--spacing-medium);
-      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      border-radius: 12px;
       text-align: center;
       border: 2px solid var(--innovation-purple);
     }
@@ -440,30 +294,14 @@
     }
 
     .leader-role {
-      color: var(--text-light);
+      color: #718096;
       font-size: 0.9rem;
     }
 
-    /* Section headers */
-    .section-header {
-      text-align: center;
-      margin: var(--spacing-xl) 0 var(--spacing-large) 0;
-    }
-
-    .section-header h2 {
-      color: var(--text-dark);
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
     .divider {
-      width: 60px;
-      height: 3px;
       background: linear-gradient(90deg,
           var(--startup-blue),
           var(--innovation-purple));
-      margin: var(--spacing-small) auto;
-      border-radius: 2px;
     }
 
     /* Conclusion section */
@@ -471,90 +309,7 @@
       background: linear-gradient(135deg,
           rgba(59, 130, 246, 0.15) 0%,
           rgba(124, 58, 237, 0.15) 100%);
-      padding: var(--spacing-large);
-      border-radius: var(--border-radius-large);
-      margin: var(--spacing-xl) 0;
-      text-align: center;
-      border: 2px solid var(--startup-blue);
-    }
-
-    .conclusion-section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--text-medium);
-      max-width: 800px;
-      margin: 0 auto var(--spacing-small) auto;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      :root {
-        --spacing-large: 1.5rem;
-        --spacing-xl: 2rem;
-      }
-
-      .container {
-        padding: var(--spacing-small);
-      }
-
-      .content-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-small);
-      }
-
-      .article-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .achievements-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .accomplishments-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .leadership-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .article-title {
-        font-size: 2rem;
-      }
-
-      .tech-table {
-        font-size: 0.9rem;
-      }
-
-      .tech-table th,
-      .tech-table td {
-        padding: 0.75rem;
-      }
-    }
-
-    /* Table container for mobile scrolling */
-    .table-container {
-      overflow-x: auto;
-      margin: var(--spacing-large) 0;
-    }
-
-    .table-container::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .table-container::-webkit-scrollbar-track {
-      background: var(--background-light);
-      border-radius: 4px;
-    }
-
-    .table-container::-webkit-scrollbar-thumb {
-      background: var(--startup-blue);
-      border-radius: 4px;
+      border-color: var(--startup-blue);
     }
   </style>
 </head>
@@ -1135,5 +890,3 @@
 </body>
 
 </html>
-
-

@@ -8,24 +8,33 @@
     <!-- CSS will be linked later as requested -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            zoom: 95%;
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="Resources/Pictures/My_Logo_2.png" alt="MKB Logo" class="logo-img">
+    <!-- Menu Trigger -->
+    <div class="menu-trigger">
+        Menu <i class="fas fa-plus"></i>
+    </div>
+
+    <!-- Full Screen Navigation Overlay -->
+    <div class="nav-overlay">
+        <div class="close-menu">
+            Close <i class="fas fa-times"></i>
         </div>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#news">News & Projects</a></li>
+        <ul class="nav-links-overlay">
+            <li><a href="#home">HOME<span class="nav-number">01</span></a></li>
+            <li><a href="#skills">SKILLS<span class="nav-number">02</span></a></li>
+            <li><a href="#news">NEWS<span class="nav-number">03</span></a></li>
+            <li><a href="#contact">CONTACT<span class="nav-number">04</span></a></li>
         </ul>
-    </nav>
+    </div>
 
     <!-- News Ticker -->
     <div class="news-ticker-bar">
@@ -298,9 +307,9 @@
         </div>
     </section>
 
-    <!-- News & Projects Section -->
+    <!-- News Section -->
     <section id="news" class="projects">
-        <h2>News & Projects</h2>
+        <h2>News</h2>
         <div class="projects-grid">
 
             <!-- Project 1: Thesis (Dec 2025) -->

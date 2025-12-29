@@ -7,193 +7,47 @@
   <title>NASA Space Mission Design - ATLAS Mission to Titan</title>
   <link rel="stylesheet" href="../../styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="article-styles.css" />
   <style>
-    /* Customizable CSS Variables for Easy Theming */
+    /* Custom Theme Overrides for NASA Page */
     :root {
-      --primary-color: #667eea;
-      --secondary-color: #764ba2;
+      --primary-color: #0b3d91;
+      /* NASA Blue */
+      --secondary-color: #1a365d;
+      /* Space Primary from original */
       --accent-color: #f093fb;
       --space-primary: #1a365d;
       --space-secondary: #2d3748;
       --nasa-blue: #0b3d91;
-      --background-light: #f8f9fa;
-      --background-white: #ffffff;
-      --text-dark: #2d3748;
-      --text-medium: #4a5568;
-      --text-light: #718096;
-      --border-color: #e2e8f0;
-      --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
-      --shadow-medium: 0 4px 15px rgba(102, 126, 234, 0.3);
-      --shadow-space: 0 4px 15px rgba(11, 61, 145, 0.3);
-      --border-radius: 12px;
-      --border-radius-large: 15px;
-      --spacing-small: 1rem;
-      --spacing-medium: 1.5rem;
-      --spacing-large: 2rem;
-      --spacing-xl: 3rem;
+      --shadow-medium: 0 4px 15px rgba(11, 61, 145, 0.3);
+      /* NASA Shadow */
     }
 
-    /* Grid-based layout styles */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--spacing-large);
-    }
-
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--primary-color);
-      text-decoration: none;
-      margin-bottom: var(--spacing-large);
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .back-button:hover {
-      color: var(--nasa-blue);
-    }
-
-    .article-header {
-      text-align: center;
-      margin-bottom: var(--spacing-xl);
-    }
-
-    .article-title {
-      font-size: 2.5rem;
-      color: var(--text-dark);
-      margin-bottom: var(--spacing-small);
-      line-height: 1.2;
-    }
-
-    .article-meta {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-large);
-      flex-wrap: wrap;
-      color: var(--text-light);
-      margin-bottom: var(--spacing-large);
-    }
-
-    .article-image {
-      width: 100%;
-      max-width: 600px;
-      height: 350px;
-      object-fit: cover;
-      border-radius: var(--border-radius);
-      margin: 0 auto var(--spacing-xl) auto;
-      display: block;
-      box-shadow: var(--shadow-light);
-    }
-
-    /* Achievement cards with space theme */
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--spacing-medium);
-      margin: var(--spacing-xl) 0;
-    }
-
+    /* Additional NASA-specific styles */
     .achievement-card {
-      background: linear-gradient(135deg,
-          var(--nasa-blue) 0%,
-          var(--space-primary) 100%);
-      color: white;
-      padding: var(--spacing-large) var(--spacing-medium);
-      border-radius: var(--border-radius-large);
-      text-align: center;
-      box-shadow: var(--shadow-space);
-      transition: transform 0.3s ease;
-    }
-
-    .achievement-card:hover {
-      transform: translateY(-5px);
+      background: linear-gradient(135deg, var(--nasa-blue) 0%, var(--space-primary) 100%);
+      box-shadow: 0 4px 15px rgba(11, 61, 145, 0.3);
     }
 
     .achievement-card.nasa-card {
       background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
     }
 
-    .achievement-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .achievement-text {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      line-height: 1.4;
-    }
-
-    /* Content grid */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-large);
-      margin: var(--spacing-large) 0;
-    }
-
-    .info-card {
-      background: var(--background-light);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-medium);
-      margin-bottom: var(--spacing-medium);
-      border-left: 4px solid var(--nasa-blue);
-      box-shadow: var(--shadow-light);
-      transition: transform 0.2s ease;
-    }
-
-    .info-card:hover {
-      transform: translateY(-2px);
-    }
-
     .info-card.space-themed {
       border-left-color: var(--space-primary);
-    }
-
-    .info-card h3 {
-      color: var(--nasa-blue);
-      margin-bottom: var(--spacing-small);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .info-card.space-themed h3 {
       color: var(--space-primary);
     }
 
-    .info-card ul {
-      margin: 0;
-      padding-left: 1.2rem;
+    .nasa-emphasis {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(185, 28, 28, 0.1) 100%);
+      border-left-color: #dc2626;
     }
 
-    .info-card li {
-      margin-bottom: 0.5rem;
-      line-height: 1.5;
-      color: var(--text-medium);
-    }
-
-    .info-card p {
-      color: var(--text-medium);
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-    }
-
-    /* Mission objectives section */
-    .mission-section {
-      margin: var(--spacing-xl) 0;
-    }
-
-    .objectives-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-medium);
-      margin: var(--spacing-large) 0;
+    .nasa-emphasis h3 {
+      color: #dc2626;
     }
 
     .objective-card {
@@ -229,66 +83,12 @@
       margin-top: var(--spacing-small);
     }
 
-    .tag {
-      background: var(--nasa-blue);
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
     .tag.space-tag {
       background: var(--space-primary);
     }
 
-    /* Technical table */
-    .tech-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--background-light);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-light);
-      margin: var(--spacing-large) 0;
-    }
-
-    .tech-table thead tr {
-      background: linear-gradient(135deg,
-          var(--nasa-blue) 0%,
-          var(--space-primary) 100%);
-      color: white;
-    }
-
-    .tech-table th,
-    .tech-table td {
-      padding: var(--spacing-small);
-      text-align: left;
-      border: none;
-    }
-
-    .tech-table tbody tr {
-      border-bottom: 1px solid var(--border-color);
-      transition: background-color 0.2s ease;
-    }
-
-    .tech-table tbody tr:hover {
-      background-color: #f1f5f9;
-    }
-
-    .tech-table .highlight-row {
-      background: linear-gradient(135deg,
-          var(--nasa-blue) 0%,
-          var(--space-primary) 100%);
-      color: white;
-      font-weight: bold;
-    }
-
-    /* Mission highlight section */
     .mission-highlight {
-      background: linear-gradient(135deg,
-          rgba(11, 61, 145, 0.1) 0%,
-          rgba(26, 54, 93, 0.1) 100%);
+      background: linear-gradient(135deg, rgba(11, 61, 145, 0.1) 0%, rgba(26, 54, 93, 0.1) 100%);
       padding: var(--spacing-large);
       border-radius: var(--border-radius-large);
       margin: var(--spacing-large) 0;
@@ -310,7 +110,7 @@
       margin: 0 auto;
     }
 
-    /* Collaboration section */
+    /* Collaboration section overrides if needed or rely on generic grids */
     .collaboration-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -319,9 +119,7 @@
     }
 
     .collaboration-card {
-      background: linear-gradient(145deg,
-          var(--background-light) 0%,
-          #e2e8f0 100%);
+      background: linear-gradient(145deg, var(--background-light) 0%, #e2e8f0 100%);
       padding: var(--spacing-medium);
       border-radius: var(--border-radius);
       text-align: center;
@@ -338,127 +136,6 @@
     .institution-role {
       color: var(--text-light);
       font-size: 0.9rem;
-    }
-
-    /* Section headers */
-    .section-header {
-      text-align: center;
-      margin: var(--spacing-xl) 0 var(--spacing-large) 0;
-    }
-
-    .section-header h2 {
-      color: var(--text-dark);
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg,
-          var(--nasa-blue),
-          var(--space-primary));
-      margin: var(--spacing-small) auto;
-      border-radius: 2px;
-    }
-
-    /* Conclusion section */
-    .conclusion-section {
-      background: linear-gradient(135deg,
-          rgba(11, 61, 145, 0.15) 0%,
-          rgba(26, 54, 93, 0.15) 100%);
-      padding: var(--spacing-large);
-      border-radius: var(--border-radius-large);
-      margin: var(--spacing-xl) 0;
-      text-align: center;
-      border: 2px solid var(--nasa-blue);
-    }
-
-    .conclusion-section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--text-medium);
-      max-width: 800px;
-      margin: 0 auto var(--spacing-small) auto;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      :root {
-        --spacing-large: 1.5rem;
-        --spacing-xl: 2rem;
-      }
-
-      .container {
-        padding: var(--spacing-small);
-      }
-
-      .content-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-small);
-      }
-
-      .article-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .achievements-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .objectives-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .collaboration-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .article-title {
-        font-size: 2rem;
-      }
-
-      .tech-table {
-        font-size: 0.9rem;
-      }
-
-      .tech-table th,
-      .tech-table td {
-        padding: 0.75rem;
-      }
-    }
-
-    /* Table container for mobile scrolling */
-    .table-container {
-      overflow-x: auto;
-      margin: var(--spacing-large) 0;
-    }
-
-    .table-container::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .table-container::-webkit-scrollbar-track {
-      background: var(--background-light);
-      border-radius: 4px;
-    }
-
-    .table-container::-webkit-scrollbar-thumb {
-      background: var(--nasa-blue);
-      border-radius: 4px;
-    }
-
-    /* Special styling for NASA collaboration emphasis */
-    .nasa-emphasis {
-      background: linear-gradient(135deg,
-          rgba(220, 38, 38, 0.1) 0%,
-          rgba(185, 28, 28, 0.1) 100%);
-      border-left-color: #dc2626;
-    }
-
-    .nasa-emphasis h3 {
-      color: #dc2626;
     }
   </style>
 </head>
@@ -925,5 +602,3 @@
 </body>
 
 </html>
-
-
