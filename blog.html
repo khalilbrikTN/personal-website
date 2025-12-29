@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Updates | Mohamed Khalil Brik</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            zoom: 95%;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+        }
+
+        .blog-header {
+            padding: 4rem 5% 2rem;
+            text-align: center;
+            background: var(--gradient-hero);
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .blog-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Type Badges */
+        .article-type-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-research {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        /* Blue */
+        .badge-startup {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+
+        /* Green */
+        .badge-internship {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+        }
+
+        /* Amber */
+        .badge-course {
+            background: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+        }
+
+        /* Purple */
+        .badge-event {
+            background: rgba(236, 72, 153, 0.2);
+            color: #f472b6;
+        }
+
+        /* Pink */
+        .badge-education {
+            background: rgba(107, 114, 128, 0.3);
+            color: #d1d5db;
+        }
+
+        /* Gray */
+        .badge-blog {
+            background: rgba(235, 94, 40, 0.2);
+            color: #eb5e28;
+        }
+
+        .blog-grid {
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Reuse project-card styles from styles.css but slightly modified for blog context if needed */
+        /* Ensuring cards stretch to fill height */
+        .project-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .read-more {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cairo Status Widget -->
+    <div id="status-widget" class="status-widget">
+        <div class="status-indicator"></div>
+        <div class="status-text">
+            <span id="cairo-time">--:-- --</span>
+            <span id="availability-status">Loading...</span>
+        </div>
+    </div>
+
+    <header class="blog-header">
+        <h1 class="blog-title">Blog & Updates</h1>
+        <p class="blog-subtitle">Ideas, projects, research journey, and personal milestones.</p>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </header>
+
+    <main class="blog-grid">
+        <!-- Orbital Intelligence -->
+        <article class="project-card">
+            <img src="Resources/pictures/orbital_intelligence.png" alt="Orbital Intelligence" class="project-img">
+            <div class="card-content">
+                <span class="article-type-badge badge-research">Research</span>
+                <span class="project-date">September, 2025</span>
+                <h3>Orbital Intelligence: Sustainable LLM Training in Space</h3>
+                <a href="blogs/orbital_intelligence.html" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- Digital Transformation Reflection -->
+        <article class="project-card">
+            <img src="Resources/pictures/dx_media_reflection.png" alt="DX Reflection" class="project-img">
+            <div class="card-content">
+                <span class="article-type-badge badge-blog">Reflection</span>
+                <span class="project-date">December 18, 2025</span>
+                <h3>Personal Reflections on Digital Transformation in Media</h3>
+                <a href="blogs/dx_reflection.html" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- Number Theory ML -->
+        <article class="project-card">
+            <img src="Resources/pictures/number_theory_ml.png" alt="Number Theory ML" class="project-img">
+            <div class="card-content">
+                <span class="article-type-badge badge-research">Research</span>
+                <span class="project-date">June, 2025</span>
+                <h3>Hybrid Feature Engineering for Predicting Number Theoretic Functions</h3>
+                <a href="blogs/number_theory_ml.html" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- Thesis -->
+        <article class="project-card">
+            <img src="Resources/pictures/Thesis_cover.png" alt="Thesis" class="project-img">
+            <div class="card-content">
+                <span class="article-type-badge badge-research">Research</span>
+                <span class="project-date">December, 2025</span>
+                <h3>Quantum Optimization in Location Tracking Systems.</h3>
+                <a href="blogs/thesis_blog.html" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- LLM Researcher -->
+        <article class="project-card">
+            <img src="Resources/pictures/llm_emergency_response.png" alt="LLM Researcher" class="project-img">
+
+            <div class="card-content">
+                <span class="article-type-badge badge-research">Research</span>
+                <span class="project-date">December, 2024</span>
+                <h3>Using Large Language Models to Enhance Emergency
+                    Response Systems: A Context Awareness Approach.</h3>
+                <a href="blogs/911_paper.html" class="read-more">Read More</a>
+            </div>
+        </article>
+
+
+        <!-- LLM SWE -->
+        <article class="project-card">
+            <img src="Resources/pictures/llm_swe_process.png" alt="LLM SWE" class="project-img">
+
+            <div class="card-content">
+                <span class="article-type-badge badge-research">Research</span>
+                <span class="project-date">September, 2024</span>
+                <h3>Large Language Models in Software Engineering
+                    Processes.</h3>
+                <a href="blogs/llm_swe.html" class="read-more">Read More</a>
+            </div>
+        </article>
+
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Mohamed Khalil Brik. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
