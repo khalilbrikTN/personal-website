@@ -120,7 +120,7 @@
     .tech-table {
       width: 100%;
       border-collapse: collapse;
-      background: #f8f9fa;
+      background: var(--background-card);
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -148,7 +148,7 @@
     }
 
     .tech-table tbody tr:hover {
-      background-color: #f1f5f9;
+      background-color: rgba(255, 255, 255, 0.05);
     }
 
     .tech-table .highlight-row {
@@ -222,8 +222,8 @@
 
     .networking-card {
       background: linear-gradient(145deg,
-          #f8f9fa 0%,
-          #e2e8f0 100%);
+          var(--background-card) 0%,
+          rgba(255, 255, 255, 0.05) 100%);
       padding: 1.5rem;
       border-radius: 12px;
       text-align: center;
