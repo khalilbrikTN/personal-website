@@ -81,6 +81,85 @@ html {
     color: white;
 }
 
+
+/* Status Widget */
+.status-widget {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(37, 36, 34, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(204, 197, 185, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.status-widget:hover {
+    background: rgba(37, 36, 34, 0.95);
+    border-color: var(--primary-color);
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #718096;
+    /* Default Grey */
+    box-shadow: 0 0 5px rgba(113, 128, 150, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.status-indicator.online {
+    background-color: #10b981;
+    /* Success Green */
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    animation: pulse-green 2s infinite;
+}
+
+.status-indicator.offline {
+    background-color: #ef4444;
+    /* Error Red */
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+}
+
+.status-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+#cairo-time {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+#availability-status {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
 /* Nav Overlay */
 .nav-overlay {
     position: fixed;
@@ -227,10 +306,78 @@ html {
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto 0.5rem;
+    /* Reduced margin */
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.hero-description.sub {
+    font-size: 1.1rem;
     color: var(--text-muted);
-    max-width: 700px;
-    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+/* Rotating Text Styles */
+.rotating-text {
+    font-weight: 800;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    height: 1.5em;
+    align-items: center;
+}
+
+.rotating-char {
+    display: inline-block;
+    transform-origin: bottom center;
+    opacity: 0;
+    transform: translateY(100%) rotateX(-90deg);
+}
+
+.rotating-char.in {
+    animation: rotateIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.rotating-char.out {
+    animation: rotateOut 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.rotating-space {
+    display: inline-block;
+    width: 0.3em;
+}
+
+@keyframes rotateIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100%) rotateX(-90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+}
+
+@keyframes rotateOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100%) rotateX(90deg);
+    }
 }
 
 .hero-email {
@@ -519,6 +666,82 @@ html {
 
 .project-card:hover .read-more::after {
     transform: translateX(5px);
+}
+
+/* Map Section */
+.map-section {
+    padding: 6rem 5%;
+    background: var(--dark-bg);
+    position: relative;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    margin-top: -2rem;
+    font-weight: 400;
+}
+
+.map-container {
+    height: 500px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    /* Ensure map is below nav overlay */
+}
+
+/* Leaflet Customization for Dark Theme */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-popup-content {
+    font-family: 'Inter', sans-serif;
+    margin: 1rem;
+    line-height: 1.4;
+}
+
+.map-popup-title {
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+}
+
+.map-popup-context {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.map-popup-location {
+    font-size: 0.95rem;
+}
+
+/* Hide Leaflet attribution prefix if desired for minimalism, 
+   but keeping attribution is required by license. 
+   Styling it to be unobtrusive. */
+.leaflet-control-attribution {
+    background: rgba(37, 36, 34, 0.8) !important;
+    color: var(--text-muted) !important;
+    font-size: 0.7rem;
+}
+
+.leaflet-control-attribution a {
+    color: var(--secondary-color) !important;
 }
 
 /* Footer */
