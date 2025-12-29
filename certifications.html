@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications Archive | Mohamed Khalil Brik</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            zoom: 95%;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+        }
+
+        .archive-header {
+            padding: 4rem 5% 2rem;
+            text-align: center;
+            background: var(--gradient-hero);
+        }
+
+        .archive-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .archive-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .category-section {
+            padding: 2rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Reuse existing card styles but simplified if needed */
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .cert-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+
+        .cert-institution {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-year {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .cert-link {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            align-self: flex-start;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cairo Status Widget -->
+    <div id="status-widget" class="status-widget">
+        <div class="status-indicator"></div>
+        <div class="status-text">
+            <span id="cairo-time">--:-- --</span>
+            <span id="availability-status">Loading...</span>
+        </div>
+    </div>
+
+    <header class="archive-header">
+        <h1 class="archive-title">Certification Archive</h1>
+        <p class="archive-subtitle">Complete list of professional, academic, and online certifications.</p>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </header>
+
+    <main>
+        <!-- Category: Academic & Language -->
+        <section class="category-section">
+            <h2 class="category-title">Academic & Language</h2>
+            <div class="cert-grid">
+                <!-- Tomorrow's Leaders -->
+                <div class="cert-card">
+                    <h3>Tomorrow's Leaders Study Abroad: Community Engagement Certificate</h3>
+                    <div class="cert-institution">Tomorrow's Leaders Program</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> June 2025</div>
+                    <p class="cert-desc">Leadership development, cultural exchange, and volunteer engagement in the USA.
+                    </p>
+                    <a href="https://badgr.com/public/assertions/ooxRST2-Sgqm2pR8rjsrVg?identity__email=mohamedkhalil.brik@aucegypt.edu"
+                        class="cert-link" target="_blank">View Certificate</a>
+                </div>
+
+                <!-- TOEFL -->
+                <div class="cert-card">
+                    <h3>TOEFL iBT (Score: 106/120)</h3>
+                    <div class="cert-institution">ETS</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> May 2025</div>
+                    <p class="cert-desc">C1/C2 level English proficiency. R:26, L:26, S:28, W:26.</p>
+                    <a href="https://drive.google.com/file/d/1sBBl3L8ggYmsQt2f_VQFIEypIGkyZPh7/view?usp=sharing"
+                        class="cert-link" target="_blank">View Certificate</a>
+                </div>
+
+                <!-- Responsible Research -->
+                <div class="cert-card">
+                    <h3>Responsible Conduct of Research</h3>
+                    <div class="cert-institution">Institute of Health (USA)</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Training in research ethics, data integrity, and professional standards.</p>
+                    <a href="Resources/Certificates_docs/AoU CertOfCompletion-DYNAMIC-Source.pdf" class="cert-link"
+                        target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category: Data Science & Programming -->
+        <section class="category-section">
+            <h2 class="category-title">Data Science & Programming</h2>
+            <div class="cert-grid">
+                <!-- Meta Version Control -->
+                <div class="cert-card">
+                    <h3>Version Control</h3>
+                    <div class="cert-institution">Meta</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> February 2023</div>
+                    <p class="cert-desc">Git, GitHub, and collaborative software development workflows.</p>
+                    <a href="https://coursera.org/verify/PGPF4YVW377G" class="cert-link" target="_blank">View
+                        Certificate</a>
+                </div>
+
+                <!-- IBM Python -->
+                <div class="cert-card">
+                    <h3>Python for Data Science, AI & Development</h3>
+                    <div class="cert-institution">IBM</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> August 2020</div>
+                    <p class="cert-desc">Python fundamentals for data analysis and AI applications.</p>
+                    <a href="https://coursera.org/verify/K8AGGPSNJWVP" class="cert-link" target="_blank">View
+                        Certificate</a>
+                </div>
+
+                <!-- UMich Data Science -->
+                <div class="cert-card">
+                    <h3>Introduction to Data Science in Python</h3>
+                    <div class="cert-institution">University of Michigan</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> July 2020</div>
+                    <p class="cert-desc">Data manipulation with Pandas, Numpy, and cleaning techniques.</p>
+                    <a href="https://coursera.org/verify/3UCNDUBFEVY6" class="cert-link" target="_blank">View
+                        Certificate</a>
+                </div>
+
+                <!-- IBM DS Methodology -->
+                <div class="cert-card">
+                    <h3>Data Science Methodology</h3>
+                    <div class="cert-institution">IBM</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> August 2020</div>
+                    <p class="cert-desc">From problem formulation to data modeling and deployment.</p>
+                    <a href="https://coursera.org/verify/9T6CLX8C9NW2" class="cert-link" target="_blank">View
+                        Certificate</a>
+                </div>
+
+                <!-- IBM SQL -->
+                <div class="cert-card">
+                    <h3>Databases and SQL for Data Science</h3>
+                    <div class="cert-institution">IBM</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> August 2020</div>
+                    <p class="cert-desc">SQL mastery for querying databases in a data science context.</p>
+                    <a href="https://coursera.org/verify/S7UN2EVDHUT4" class="cert-link" target="_blank">View
+                        Certificate</a>
+                </div>
+
+                <!-- IBM Tools -->
+                <div class="cert-card">
+                    <h3>Tools for Data Science</h3>
+                    <div class="cert-institution">IBM</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> August 2020</div>
+                    <p class="cert-desc">Jupyter, RStudio, Zeppelin, and IBM Cloud tools.</p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/3V665T4R3MZA" class="cert-link"
+                        target="_blank">View Certificate</a>
+                </div>
+
+                <!-- IBM What is DS -->
+                <div class="cert-card">
+                    <h3>What is Data Science?</h3>
+                    <div class="cert-institution">IBM</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> July 2020</div>
+                    <p class="cert-desc">Overview of the data science landscape and ecosystem.</p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/7ZQHS54PUWUU" class="cert-link"
+                        target="_blank">View Certificate</a>
+                </div>
+
+                <!-- ULB Python -->
+                <div class="cert-card">
+                    <h3>Python Programming</h3>
+                    <div class="cert-institution">Université Libre de Bruxelles</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Algorithmic thinking and software development in Python.</p>
+                    <a href="Resources/Certificates_docs/Universite of Bruxelles-Python.pdf" class="cert-link"
+                        target="_blank">View Certificate</a>
+                </div>
+
+                <!-- HackerRank Python -->
+                <div class="cert-card">
+                    <h3>Python (Basic)</h3>
+                    <div class="cert-institution">HackerRank</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Technical competency in Python syntax and basic algorithms.</p>
+                    <a href="Resources/Certificates_docs/Hacker Rank-python basic.pdf" class="cert-link"
+                        target="_blank">View Certificate</a>
+                </div>
+
+                <!-- Udemy Python -->
+                <div class="cert-card">
+                    <h3>Python for Beginners in Data Science</h3>
+                    <div class="cert-institution">Udemy</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Introductory programming for data analysis.</p>
+                    <a href="Resources/Certificates_docs/Udemy-Python for beginners in DS.pdf" class="cert-link"
+                        target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category: Creative, Design & Soft Skills -->
+        <section class="category-section">
+            <h2 class="category-title">Creative & Other Skills</h2>
+            <div class="cert-grid">
+                <!-- Mobile Game Design -->
+                <div class="cert-card">
+                    <h3>Mobile Game Design</h3>
+                    <div class="cert-institution">Northwestern University in Qatar</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Game mechanics, UX, and prototyping for mobile platforms.</p>
+                    <a href="Resources/Certificates_docs/Northwestern Uni Qatar-Mobile Game Design.pdf"
+                        class="cert-link" target="_blank">View Certificate</a>
+                </div>
+
+                <!-- Photoshop -->
+                <div class="cert-card">
+                    <h3>Adobe Photoshop Complete Mastery</h3>
+                    <div class="cert-institution">Udemy</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Digital design, photo editing, and creative composition.</p>
+                    <a href="Resources/Certificates_docs/Udemy-Adobe Photoshop Complete Mastery Course Beginner to Advanced.pdf"
+                        class="cert-link" target="_blank">View Certificate</a>
+                </div>
+
+                <!-- Video Editing -->
+                <div class="cert-card">
+                    <h3>Video Editing</h3>
+                    <div class="cert-institution">Online</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Post-production techniques and multimedia storytelling.</p>
+                    <a href="Resources/Certificates_docs/Video Editing.pdf" class="cert-link" target="_blank">View
+                        Certificate</a>
+                </div>
+
+                <!-- English Grammar -->
+                <div class="cert-card">
+                    <h3>English Grammar</h3>
+                    <div class="cert-institution">Udemy</div>
+                    <div class="cert-year"><i class="far fa-calendar-alt"></i> 2020</div>
+                    <p class="cert-desc">Advanced grammar and professional writing skills.</p>
+                    <a href="Resources/Certificates_docs/Udemy-English Grammar.pdf" class="cert-link"
+                        target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Mohamed Khalil Brik. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

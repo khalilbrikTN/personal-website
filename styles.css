@@ -668,6 +668,105 @@ html {
     transform: translateX(5px);
 }
 
+/* Certifications Summary Section */
+.certifications-summary {
+    padding: 4rem 5% 2rem;
+    background: var(--dark-bg);
+    /* Or a slightly lighter shade if desired, using dark-bg for consistency */
+}
+
+.cert-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cert-feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cert-feature-card:hover {
+    background: rgba(235, 94, 40, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.cert-feature-icon {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.cert-feature-content {
+    flex-grow: 1;
+}
+
+.cert-feature-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-color);
+    line-height: 1.2;
+}
+
+.cert-feature-org {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.cert-feature-year {
+    display: none;
+    /* Optional: hide year on compact card to save space, or show if desired */
+}
+
+.cert-feature-link {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+}
+
+.cert-feature-link:hover {
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cert-view-all {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.view-archive-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: gap 0.3s ease;
+}
+
+.view-archive-btn:hover {
+    gap: 0.8rem;
+    text-decoration: underline;
+}
+
 /* Map Section */
 .map-section {
     padding: 6rem 5%;
