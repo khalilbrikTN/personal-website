@@ -182,6 +182,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new RotationAnimation('rotating-text', rotatingTexts, 2000);
 
+    // Back to Top Button Logic
+    function initBackToTop() {
+        // Create button element
+        const btn = document.createElement('button');
+        btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        btn.className = 'back-to-top-btn';
+        btn.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(btn);
+
+        // Scroll event to toggle visibility
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        // Click event to scroll to top
+        btn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Initialize Back to Top
+    initBackToTop();
+
     // Personal Map Implementation
     const initMap = () => {
         const mapElement = document.getElementById('map');
