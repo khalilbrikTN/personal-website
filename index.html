@@ -7,6 +7,7 @@
     <title>Mohamed Khalil Brik | Personal Portfolio</title>
     <!-- CSS will be linked later as requested -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/dome-gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -43,7 +44,8 @@
             <li><a href="#skills">SKILLS<span class="nav-number">02</span></a></li>
             <li><a href="#news">NEWS<span class="nav-number">03</span></a></li>
             <li><a href="blog.html">BLOG<span class="nav-number">04</span></a></li>
-            <li><a href="#map-section">MAP<span class="nav-number">05</span></a></li>
+            <li><a href="#gallery">GALLERY<span class="nav-number">05</span></a></li>
+            <li><a href="#map-section">MAP<span class="nav-number">06</span></a></li>
         </ul>
     </div>
 
@@ -573,7 +575,34 @@
         </div>
     </section>
 
-    <!-- Personal Map Section -->
+    <!-- Gallery Section (Dome) -->
+    <section id="gallery" class="gallery-section-dome">
+        <div class="sphere-root">
+            <main class="sphere-main">
+                <div class="stage">
+                    <div class="sphere">
+                        <!-- Items injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Overlays -->
+                <div class="dg-overlay dg-overlay--blur"></div>
+                <div class="edge-fade edge-fade--top"></div>
+                <div class="edge-fade edge-fade--bottom"></div>
+
+                <div class="viewer">
+                    <div class="scrim"></div>
+                    <div class="frame"></div>
+                </div>
+
+                <!-- Title Overlay (Optional) -->
+                <div class="gallery-overlay-content" style="pointer-events: none; z-index: 4;">
+                    <h2 class="section-title">Gallery</h2>
+                    <p class="section-subtitle">Drag to explore</p>
+                </div>
+            </main>
+        </div>
+    </section>
     <section id="map-section" class="map-section">
         <div class="container">
             <h2 class="section-title">Personal Map</h2>
@@ -592,6 +621,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/dome-gallery.js"></script>
 </body>
 
 </html>

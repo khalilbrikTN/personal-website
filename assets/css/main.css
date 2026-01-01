@@ -768,6 +768,120 @@ html {
     text-decoration: underline;
 }
 
+
+/* Gallery Section */
+.gallery-section {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    background: var(--dark-bg);
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-container {
+    display: flex;
+    gap: 1.5rem;
+    min-width: 120%;
+    height: 120%;
+    transform: rotate(-5deg) scale(1.1);
+    justify-content: center;
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.gallery-column img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+
+.gallery-section:hover .gallery-column img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.gallery-column img:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(235, 94, 40, 0.4);
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Animations */
+.scroll-up {
+    animation: scrollUp 45s linear infinite;
+}
+
+.scroll-down {
+    animation: scrollDown 45s linear infinite;
+}
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Overlay Content */
+.gallery-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 20;
+    padding: 3rem 5rem;
+    background: rgba(37, 36, 34, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-overlay-content .section-title {
+    margin-bottom: 0.5rem;
+    font-size: 3.5rem;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-overlay-content .section-subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
 /* Map Section */
 .map-section {
     padding: 6rem 5%;
