@@ -1,27 +1,21 @@
 :root {
-    /* New Earthy/Modern Palette */
-    /* Floral White: #fffcf2 */
-    /* Silver: #ccc5b9 */
-    /* Charcoal Brown: #403d39 */
-    /* Carbon Black: #252422 */
-    /* Spicy Paprika: #eb5e28 */
-
-    --primary-color: #eb5e28;
-    /* Spicy Paprika */
-    --primary-dark: #c04d1f;
-    /* Darker Paprika */
-    --secondary-color: #ccc5b9;
-    /* Silver */
-    --dark-bg: #252422;
-    /* Carbon Black */
-    --card-bg: #403d39;
-    /* Charcoal Brown */
-    --text-color: #fffcf2;
-    /* Floral White */
-    --text-muted: #ccc5b9;
-    /* Silver */
-    --gradient-hero: linear-gradient(135deg, #252422 0%, #403d39 100%);
-    --gradient-text: linear-gradient(45deg, #eb5e28, #fffcf2);
+    /* Deep Space Intelligence Palette */
+    --primary-color: #06b6d4;
+    /* Cyan-500: Vibrant electric blue */
+    --primary-dark: #0891b2;
+    /* Cyan-600: Deeper teal */
+    --secondary-color: #94a3b8;
+    /* Slate-400: Cool grey */
+    --dark-bg: #0f172a;
+    /* Slate-900: Deep navy/black */
+    --card-bg: #1e293b;
+    /* Slate-800: Lighter navy */
+    --text-color: #f8fafc;
+    /* Slate-50: Crisp white */
+    --text-muted: #cbd5e1;
+    /* Slate-300: Soft grey */
+    --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --gradient-text: linear-gradient(45deg, #06b6d4, #67e8f9);
 }
 
 /* Reset & Global Styles */
