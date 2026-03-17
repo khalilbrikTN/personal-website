@@ -222,6 +222,60 @@
       box-shadow: 0 4px 15px var(--primary-glow);
     }
 
+    /* ─── Footer & CTA Styling ──────────────────────────────── */
+    .page-footer {
+      padding: 10rem 0 5rem;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-eyebrow {
+      color: var(--case-primary);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin-bottom: 2rem;
+    }
+
+    .footer-headline {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .footer-sub {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      line-height: 1.6;
+    }
+
+    .footer-ctas {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Atmospheric Gaps ──────────────────────────────────── */
+    .ambient-orb {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: -1;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .orb-1 { background: var(--case-primary); top: -200px; right: -100px; }
+    .orb-2 { background: var(--case-secondary); bottom: -200px; left: -100px; }
+
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; }
       .hero-desc { margin: 0 auto 3rem; }
@@ -232,6 +286,8 @@
 </head>
 
 <body>
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
   <nav class="case-nav">
     <a href="../services.html" class="case-nav-back" style="display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; font-weight: 600; font-size: 0.9rem;">
       <i class="fas fa-arrow-left"></i> Architecture Index
