@@ -5,93 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Khalil Brik | Personal Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/me.jpeg">
     <!-- CSS will be linked later as requested -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/dome-gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <style>
-        body {
-            zoom: 95%;
-        }
-    </style>
 </head>
 
-<body>
-    <!-- Cairo Status Widget -->
-    <div id="status-widget" class="status-widget">
-        <div class="status-indicator"></div>
-        <div class="status-text">
-            <span id="cairo-time">--:-- --</span>
-            <span id="availability-status">Loading...</span>
-        </div>
-    </div>
+<body class="main-page">
+    <!-- Atmospheric Orbs (Technical Blueprint Background) -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
 
-    <!-- Navigation -->
-    <!-- Menu Trigger -->
-    <div class="menu-trigger">
-        Menu <i class="fas fa-plus"></i>
-    </div>
+    <!-- Modern Fixed Header -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="assets/img/me.jpeg" alt="Mohamed Khalil Brik" class="brand-img">
+            <span class="brand-name">Mohamed Khalil Brik</span>
+        </a>
 
-    <!-- Full Screen Navigation Overlay -->
-    <div class="nav-overlay">
-        <div class="close-menu">
-            Close <i class="fas fa-times"></i>
-        </div>
+        <nav class="nav-desktop">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="https://calendly.com/mohamedkhalil-brik" target="_blank" class="nav-cta">Book a Call</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" aria-label="Open navigation" aria-expanded="false"
+            aria-controls="nav-overlay">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+    </header>
+
+    <!-- Full Screen Navigation Overlay (Mobile) -->
+    <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <button class="close-menu" aria-label="Close navigation">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
         <ul class="nav-links-overlay">
-            <li><a href="#home">HOME<span class="nav-number">01</span></a></li>
-            <li><a href="#skills">SKILLS<span class="nav-number">02</span></a></li>
-            <li><a href="services.html">SERVICES<span class="nav-number">03</span></a></li>
-            <li><a href="#news">NEWS<span class="nav-number">04</span></a></li>
-            <li><a href="blog.html">BLOG<span class="nav-number">05</span></a></li>
-            <li><a href="#gallery">GALLERY<span class="nav-number">06</span></a></li>
-            <li><a href="#map-section">MAP<span class="nav-number">07</span></a></li>
-
+            <li><a href="#home">Home</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
         </ul>
-    </div>
-
-    <!-- News Ticker -->
-    <div class="news-ticker-bar">
-        <div class="ticker-label">LATEST UPDATES</div>
-        <div class="ticker-container">
-            <div class="ticker-wrapper">
-                <a href="projects/QCNC.html" class="ticker-item"><span class="ticker-date">FEB 2026</span>
-                    Paper Accepted at IEEE QCNC 2026</a>
-                <a href="projects/ICGHIT.html" class="ticker-item"><span class="ticker-date">JAN 2026</span>
-                    Paper Accepted at ICGHIT 2026</a>
-                <a href="projects/CairoToDC.html" class="ticker-item"><span class="ticker-date">JAN 2026</span>
-                    From Cairo to D.C. Discussion</a>
-                <a href="projects/Thesis.html" class="ticker-item"><span class="ticker-date">DEC 2025</span>
-                    Completed the first part of my Bachelor Thesis</a>
-                <a href="projects/TomorrowsLeaders.html" class="ticker-item"><span class="ticker-date">NOV
-                        2025</span> Received Project Management Training from Tomorrow's Leaders</a>
-                <a href="projects/TheAICompany.html" class="ticker-item"><span class="ticker-date">OCT
-                        2025</span> Started The AI Company</a>
-                <a href="projects/NCUR.html" class="ticker-item"><span class="ticker-date">APR 2025</span>
-                    Participated in the NCUR Conference</a>
-                <a href="projects/CFC.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span>
-                    Study Abroad at the College of Charleston</a>
-                <a href="projects/NASA_course.html" class="ticker-item"><span class="ticker-date">SPRING
-                        2025</span> Joined the NASA Space Mission Design Course</a>
-                <a href="projects/llm-researcher.html" class="ticker-item"><span class="ticker-date">DEC
-                        2024</span> Researcher in Large Language Models</a>
-                <a href="projects/ADIB.html" class="ticker-item"><span class="ticker-date">SUMMER 2024</span>
-                    Software Engineering intern at ADIB Egypt</a>
-                <a href="projects/Diaspura.html" class="ticker-item"><span class="ticker-date">SPRING 2024</span>
-                    Chat bot development intern at Diaspura</a>
-                <a href="projects/ECPC.html" class="ticker-item"><span class="ticker-date">OCT 2023</span>
-                    Participated in ECPC Contests</a>
-                <a href="projects/HarvardAspire.html" class="ticker-item"><span class="ticker-date">MAR
-                        2023</span> Finished the Harvard Aspire Leaders Program</a>
-                <a href="projects/AUC.html" class="ticker-item"><span class="ticker-date">SEPT 2022</span> Joined
-                    the American University in Cairo</a>
-                <a href="projects/Bac.html" class="ticker-item"><span class="ticker-date">JUNE 2022</span>
-                    Received my Baccalaureate Certificate</a>
-            </div>
-
-        </div>
-    </div>
     </div>
 
     <!-- Hero Section -->
@@ -106,15 +66,15 @@
                 </div>
                 <p class="hero-greeting">Hi, I'm</p>
                 <h1 class="hero-title">
-                    <span class="highlight">Mohamed Khalil Brik</span>
+                    <span class="highlight">Architecting Intelligence</span>
                 </h1>
-                <h2 class="hero-subtitle">CS Student · Researcher · Freelancer</h2>
+                <h2 class="hero-subtitle">Software Architect · AI Researcher · Systems Engineer</h2>
                 <p class="hero-description">
-                    I build with <span id="rotating-text" class="rotating-text">Artificial Intelligence</span>
+                    Leveraging <span id="rotating-text" class="rotating-text">Intelligent Systems</span> for Complex
+                    Frontiers
                 </p>
                 <p class="hero-description sub">
-                    Currently pursuing my degree in Computer Science at The American University in
-                    Cairo under the Tomorrow's Leaders Scholarship.
+                    Specializing in the intersection of AI, Quantum Computing, and Large-Scale Software Infrastructure.
                 </p>
 
                 <!-- Email + Socials row -->
@@ -128,8 +88,8 @@
                             title="LinkedIn Profile">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://github.com/khalilbrikTN" class="profile-social-link github"
-                            target="_blank" rel="noopener noreferrer" title="GitHub Profile">
+                        <a href="https://github.com/khalilbrikTN" class="profile-social-link github" target="_blank"
+                            rel="noopener noreferrer" title="GitHub Profile">
                             <i class="fab fa-github"></i>
                         </a>
                         <a href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik"
@@ -160,7 +120,7 @@
                     <a href="blog.html" class="download-btn">
                         <i class="fas fa-flask"></i> Check my research
                     </a>
-                    <a href="assets/img/resume.pdf" target="_blank" class="download-btn">
+                    <a href="assets/docs/MohamedKhalil_CV.pdf" target="_blank" class="download-btn">
                         <i class="fas fa-file-download"></i> Download Resume
                     </a>
                 </div>
@@ -177,7 +137,7 @@
                         <span class="stat-label">Publications</span>
                     </div>
                     <div class="hero-stat stat-bottom-left">
-                        <span class="stat-number">2+</span>
+                        <span class="stat-number">3+</span>
                         <span class="stat-label">Internships</span>
                     </div>
                     <div class="hero-stat stat-bottom-right">
@@ -190,186 +150,96 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Research Section (The New Authority Anchor) -->
+    <section id="research" class="research-section" style="padding: 100px 5%;">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-content">
-                <div class="skills-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>C</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>C++</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js-square"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>Verilog</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>Assembly</span>
-                        </div>
-                    </div>
-                </div>
+            <h2 class="section-title">Research & Publications</h2>
+            <div class="research-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
 
-                <div class="skills-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-bootstrap"></i>
-                            <span>Bootstrap</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span>Django</span>
-                        </div>
+                <!-- Publication 1 -->
+                <article class="research-card"
+                    style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top:0; left:0; width:4px; height:100%; background: var(--primary-color);">
                     </div>
-                </div>
+                    <span
+                        style="color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">IEEE
+                        QCNC 2026</span>
+                    <h3 style="margin: 1rem 0; font-size: 1.6rem;">Quantum Optimization for Access Point Selection</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
+                        Solving infrastructure constraints in dense wireless networks using Quantum-inspired algorithms.
+                        Focus on budget-constrained optimization.
+                    </p>
+                    <a href="projects/QCNC.html" class="read-more"
+                        style="color: white; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                        View Full Paper <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
 
-                <div class="skills-category">
-                    <h3>Data Science & ML</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fas fa-brain"></i>
-                            <span>Scikit-Learn</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Pandas</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Matplotlib</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-pie"></i>
-                            <span>Numpy</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-area"></i>
-                            <span>Seaborn</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-spider"></i>
-                            <span>Beautiful Soup</span>
-                        </div>
+                <!-- Publication 2 -->
+                <article class="research-card"
+                    style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top:0; left:0; width:4px; height:100%; background: var(--secondary-color);">
                     </div>
-                </div>
+                    <span
+                        style="color: var(--secondary-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">ICGHIT
+                        2026</span>
+                    <h3 style="margin: 1rem 0; font-size: 1.6rem;">Orbital Intelligence: LLM Training in Space</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
+                        Exploring sustainable training and inference for Large Language Models on satellite
+                        infrastructure. Sustainable compute at orbit.
+                    </p>
+                    <a href="projects/ICGHIT.html" class="read-more"
+                        style="color: white; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                        View Full Paper <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
 
-                <div class="skills-category">
-                    <h3>Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fas fa-server"></i>
-                            <span>DevOps</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>SQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git/GitHub</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-linux"></i>
-                            <span>Linux</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-terminal"></i>
-                            <span>Scripting</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-cogs"></i>
-                            <span>OOP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3>Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fas fa-language"></i>
-                            <span>English (C1)</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-language"></i>
-                            <span>French (B2)</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-language"></i>
-                            <span>German (A2)</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-language"></i>
-                            <span>Italian (A1)</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-language"></i>
-                            <span>Arabic (Native)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3>Professional Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fas fa-tasks"></i>
-                            <span>Project Management</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-sync-alt"></i>
-                            <span>Agile Methodologies</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-handshake"></i>
-                            <span>Sales & Negotiation</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-comments"></i>
-                            <span>Debate</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-users"></i>
-                            <span>Leadership</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <span>Public Speaking</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
+    <!-- Skills Section (Cleaned) -->
+    <section id="skills" class="skills" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-content"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+                <div class="skills-category">
+                    <h3>Systems Architecture</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">Distributed Systems</span>
+                        <span class="skill-item">Cloud Infrastructure</span>
+                        <span class="skill-item">DevOps / CI/CD</span>
+                        <span class="skill-item">Database Design (SQL/NoSQL)</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>AI & Optimization</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">Quantum Computing</span>
+                        <span class="skill-item">Large Language Models (LLMs)</span>
+                        <span class="skill-item">RAG Pipelines</span>
+                        <span class="skill-item">Mathematical Modeling</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Low-Level Engineering</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">C / C++ / Assembly</span>
+                        <span class="skill-item">Python (Numerical)</span>
+                        <span class="skill-item">Hardware Description (Verilog)</span>
+                        <span class="skill-item">Linux Systems</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- News Section -->
@@ -379,7 +249,8 @@
 
             <!-- Project: QCNC 2026 (Feb 2026) -->
             <article class="project-card">
-                <img src="assets/img/logo_qcnc_2025.png" alt="IEEE QCNC 2026" class="project-img" style="object-fit: contain; background: #fff; padding: 1rem;">
+                <img src="assets/img/logo_qcnc_2025.png" alt="IEEE QCNC 2026" class="project-img"
+                    style="object-fit: contain; background: #fff; padding: 1rem;">
                 <div class="card-content">
                     <span class="project-date">February, 2026</span>
                     <h3>Paper Accepted at IEEE QCNC 2026</h3>
@@ -390,7 +261,8 @@
 
             <!-- Project: ICGHIT 2026 (Jan 2026) -->
             <article class="project-card">
-                <img src="assets/img/ICGHIT'26.png" alt="ICGHIT 2026" class="project-img" style="object-fit: contain; background: #fff; padding: 1rem;">
+                <img src="assets/img/ICGHIT'26.png" alt="ICGHIT 2026" class="project-img"
+                    style="object-fit: contain; background: #fff; padding: 1rem;">
                 <div class="card-content">
                     <span class="project-date">January 8, 2026</span>
                     <h3>Paper Accepted at ICGHIT 2026</h3>
@@ -555,12 +427,10 @@
             </article>
 
         </div>
-    </section>
-
-    </div>
-    <div style="text-align: center; margin-top: 2rem;">
-        <a href="blog.html" class="view-archive-btn">View all posts & updates <i class="fas fa-arrow-right"></i></a>
-    </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="blog.html" class="view-archive-btn">View all posts &amp; updates <i
+                    class="fas fa-arrow-right"></i></a>
+        </div>
     </section>
 
     <!-- Certifications Summary Section -->
@@ -653,37 +523,13 @@
     </section>
 
     <!-- Gallery Section (Dome) -->
-    <section id="gallery" class="gallery-section-dome">
-        <div class="sphere-root">
-            <main class="sphere-main">
-                <div class="stage">
-                    <div class="sphere">
-                        <!-- Items injected by JS -->
-                    </div>
-                </div>
-
-                <!-- Overlays -->
-                <div class="dg-overlay dg-overlay--blur"></div>
-                <div class="edge-fade edge-fade--top"></div>
-                <div class="edge-fade edge-fade--bottom"></div>
-
-                <div class="viewer">
-                    <div class="scrim"></div>
-                    <div class="frame"></div>
-                </div>
-
-                <!-- Title Overlay (Optional) -->
-                <div class="gallery-overlay-content" style="pointer-events: none; z-index: 4;">
-                    <h2 class="section-title">Gallery</h2>
-                    <p class="section-subtitle">Drag to explore</p>
-                </div>
-            </main>
-        </div>
-    </section>
+    <!-- Map Section -->
     <section id="map-section" class="map-section">
         <div class="container">
-            <h2 class="section-title">Personal Map</h2>
-            <p class="section-subtitle">Places I’ve lived, studied, researched, or collaborated.</p>
+            <h2 class="section-title">Strategic Footprint</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; margin-top: -1.5rem;">
+                Tracking the impact of research, collaboration, and academic exchange across global frontiers.
+            </p>
             <div id="map" class="map-container"></div>
         </div>
     </section>
@@ -693,12 +539,9 @@
         <p>&copy; 2025 Mohamed Khalil Brik. All rights reserved.</p>
     </footer>
 
-    </footer>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/dome-gallery.js"></script>
 </body>
 
 </html>

@@ -97,7 +97,7 @@
 
 .dg-item__image:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(235, 94, 40, 0.5);
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
     /* Primary color glow */
     z-index: 10;
 }

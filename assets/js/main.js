@@ -1,26 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuTrigger = document.querySelector('.menu-trigger');
+    // Header Scroll Logic
+    const header = document.querySelector('.site-header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile Navigation Logic
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
     const navOverlay = document.querySelector('.nav-overlay');
-    const closeMenu = document.querySelector('.close-menu');
-    const navLinks = document.querySelectorAll('.nav-links-overlay a');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const navLinks = document.querySelectorAll('.nav-links-overlay a, .nav-desktop a');
+
+    function openMenu() {
+        navOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+    }
 
     function toggleMenu() {
-        navOverlay.classList.toggle('active');
+        if (navOverlay.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     }
 
-    if (menuTrigger) {
-        menuTrigger.addEventListener('click', toggleMenu);
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', toggleMenu);
     }
 
-    if (closeMenu) {
-        closeMenu.addEventListener('click', toggleMenu);
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMenu);
     }
 
     // Close menu when clicking a link
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navOverlay.classList.remove('active');
-        });
+        link.addEventListener('click', closeMenu);
     });
 
     // Cairo Status Logic
@@ -212,57 +238,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Back to Top
     initBackToTop();
 
-    // Personal Map Implementation
+    // Global Footprint Map Implementation
     const initMap = () => {
         const mapElement = document.getElementById('map');
         if (!mapElement) return;
 
-        // Initialize map centered to show North America, North Africa, and Europe
-        // Center approx: Atlantic Ocean
         const map = L.map('map', {
-            center: [34.0, -40.0],
+            center: [34.0, -25.0],
             zoom: 3,
             minZoom: 2,
-            scrollWheelZoom: false // Disable scroll zoom for better UX
+            scrollWheelZoom: false,
+            zoomControl: false // Handled in CSS/Config
         });
 
-        // CartoDB Dark Matter Tiles (Free, minimal, dark theme)
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            attribution: '&copy; CARTO',
             subdomains: 'abcd',
             maxZoom: 20
         }).addTo(map);
 
-        // Custom Circle Marker Style
-        const markerStyle = {
-            radius: 6,
-            fillColor: "#eb5e28", // Spicy Paprika
-            color: "#fff",
-            weight: 2,
-            opacity: 1,
-            fillOpacity: 0.9
-        };
+        // Custom Pulsing Radar Icon
+        const radarIcon = L.divIcon({
+            className: 'radar-marker-container',
+            html: '<div class="radar-marker"></div>',
+            iconSize: [12, 12],
+            iconAnchor: [6, 6]
+        });
 
         const locations = [
             { coords: [36.8065, 10.1815], city: "Tunis", country: "Tunisia", context: "Origin" },
-            { coords: [30.0444, 31.2357], city: "Cairo", country: "Egypt", context: "Study & Live" },
-            { coords: [31.2001, 29.9187], city: "Alexandria", country: "Egypt", context: "Travel" },
-            { coords: [32.7765, -79.9311], city: "Charleston", country: "USA (SC)", context: "Study Abroad" },
-            { coords: [40.4406, -79.9959], city: "Pittsburgh", country: "USA (PA)", context: "Research" },
-            { coords: [38.9072, -77.0369], city: "Washington", country: "USA (DC)", context: "Travel" },
-            { coords: [40.7128, -74.0060], city: "New York City", country: "USA (NY)", context: "Travel" },
-            { coords: [40.7357, -74.1724], city: "Newark", country: "USA (NJ)", context: "Travel" },
-            { coords: [34.7304, -86.5861], city: "Huntsville", country: "USA (AL)", context: "NASA Course" }
+            { coords: [30.0444, 31.2357], city: "Cairo", country: "Egypt", context: "HQ & Research" },
+            { coords: [32.7765, -79.9311], city: "Charleston", country: "USA (SC)", context: "Academic Exchange" },
+            { coords: [40.4406, -79.9959], city: "Pittsburgh", country: "USA (PA)", context: "Research Frontier" },
+            { coords: [38.9072, -77.0369], city: "Washington", country: "USA (DC)", context: "Strategic Travel" },
+            { coords: [40.7128, -74.0060], city: "New York City", country: "USA (NY)", context: "Global Network" },
+            { coords: [34.7304, -86.5861], city: "Huntsville", country: "USA (AL)", context: "Aerospace Course" }
         ];
 
         locations.forEach(loc => {
-            L.circleMarker(loc.coords, markerStyle)
+            L.marker(loc.coords, { icon: radarIcon })
                 .addTo(map)
                 .bindPopup(`
-                    <span class="map-popup-context">${loc.context}</span>
-                    <span class="map-popup-title">${loc.city}</span>
-                    <span class="map-popup-location">${loc.country}</span>
-                `);
+                    <div class="map-popup">
+                        <span class="map-popup-context">${loc.context}</span>
+                        <span class="map-popup-title">${loc.city}</span>
+                        <span class="map-popup-location">${loc.country}</span>
+                    </div>
+                `, {
+                    closeButton: false,
+                    offset: [0, -10]
+                });
         });
     };
 

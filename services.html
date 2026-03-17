@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Freelance Services | Mohamed Khalil Brik</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/me.jpeg">
+    <title>Freelance Services | Mohamed Khalil Brik</title>
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
@@ -15,31 +16,43 @@
     .sp-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 3rem 6rem;
+      padding: 0 3rem; /* Removed top/bottom padding to allow 100vh sections */
     }
 
-    .sp-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--primary-color);
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 3rem;
-      margin-top: 6rem;
-      transition: gap 0.2s ease, color 0.2s ease;
-      text-decoration: none;
-    }
-
-    .sp-back:hover {
-      gap: 0.8rem;
-      color: #fff;
-    }
-
-    /* Hero */
+    /* Full-Screen Hero - Perfectly Centered Over the Fold */
     .sp-hero {
       text-align: center;
-      padding: 2rem 0 4rem;
+      width: 100%;
+      height: calc(100vh / 0.95); /* Compensate for zoom: 95% to achieve true 100vh */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0; 
+      position: relative;
+    }
+
+    /* Account for the header by shifting content down slightly inside the hero */
+    .sp-hero > *:not(.sp-scroll-indicator) {
+      transform: translateY(20px);
+    }
+
+    .sp-scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+      40% {transform: translateY(-10px) translateX(-50%);}
+      60% {transform: translateY(-5px) translateX(-50%);}
     }
 
     .sp-hero .hero-badge {
@@ -238,37 +251,90 @@
       color: #fff;
     }
 
-    /* Portfolio */
+    /* Portfolio - Premium Redesign */
     .sp-portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
     }
 
     .sp-portfolio-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
       background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
     }
 
     .sp-portfolio-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(6, 182, 212, 0.12);
-      border-color: rgba(6, 182, 212, 0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.05);
+      border-color: rgba(6, 182, 212, 0.4);
+    }
+
+    .sp-portfolio-img-wrapper {
+      position: relative;
+      height: 420px; /* Slightly taller for more presence */
+      overflow: hidden;
+      background: #030712;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Premium Full-View: Blurred background to fill space */
+    .sp-portfolio-img-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: inherit; /* Inherit the image if set via style, or handle below */
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px) brightness(0.4);
+      opacity: 0.6;
+      z-index: 0;
     }
 
     .sp-portfolio-img {
+      position: relative;
+      z-index: 1;
+      width: 90%; /* Show 'full' with a nice margin */
+      height: 90%;
+      object-fit: contain; /* Show the FULL screenshot */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .sp-portfolio-card:hover .sp-portfolio-img {
+      transform: scale(1.02) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2);
+    }
+
+    .sp-portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 210px;
-      object-fit: cover;
-      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 60%, rgba(3, 7, 18, 0.4));
+      pointer-events: none;
     }
 
     .sp-portfolio-info {
-      padding: 1.5rem;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.01) 0%, transparent 100%);
     }
 
     .sp-portfolio-meta {
@@ -304,10 +370,12 @@
     }
 
     .sp-portfolio-info h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
       color: var(--text-color);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
     .sp-portfolio-info p {
@@ -326,31 +394,52 @@
     .sp-portfolio-link-primary {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      color: var(--primary-color);
-      font-size: 0.875rem;
-      font-weight: 600;
+      gap: 0.6rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
       text-decoration: none;
-      transition: gap 0.2s ease, color 0.2s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
     }
 
     .sp-portfolio-link-primary:hover {
-      gap: 0.75rem;
-      color: #fff;
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
     }
 
     .sp-portfolio-link-secondary {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.8rem;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--text-muted);
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: all 0.2s ease;
+      padding-left: 0.5rem;
     }
 
     .sp-portfolio-link-secondary:hover {
-      color: var(--text-color);
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 960px) {
+      .sp-portfolio-card {
+        grid-template-columns: 1fr;
+      }
+      .sp-portfolio-img-wrapper {
+        height: 240px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .sp-portfolio-info {
+        padding: 2rem;
+      }
     }
 
     /* Process */
@@ -480,6 +569,63 @@
     }
 
     /* Responsive */
+
+    /* Architect Edge Table - Global Premium Styling */
+    .edge-section {
+      margin: 6rem auto;
+      max-width: 1100px;
+      padding: 5rem 3rem;
+      background: rgba(6, 182, 212, 0.03);
+      border-radius: 30px;
+      border: 1px solid rgba(6, 182, 212, 0.1);
+      position: relative;
+    }
+
+    .edge-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 3rem;
+      background: rgba(17, 24, 39, 0.4);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .edge-table th, .edge-table td {
+      padding: 1.75rem 2.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 1.15rem; /* Increased for High Visibility */
+    }
+
+    .edge-table th {
+      background: rgba(17, 24, 39, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .edge-table .col-comp { width: 50%; color: #94a3b8; }
+    .edge-table .col-arch { width: 50%; color: var(--text-color); background: rgba(6, 182, 212, 0.04); }
+
+    .edge-table td i {
+      margin-right: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .edge-table .fa-times { color: #ef4444; opacity: 0.6; }
+    .edge-table .fa-check { color: var(--primary-color); }
+
+    .edge-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .edge-table tr:hover .col-arch {
+      background: rgba(6, 182, 212, 0.08);
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .sp-wrapper {
         padding: 2rem 1.5rem 6rem;
@@ -497,194 +643,229 @@
         padding: 2rem 1.5rem;
       }
 
-      .sp-cta-banner h2 {
-        font-size: 1.5rem;
+      .edge-table th, .edge-table td {
+        padding: 1.25rem 1rem;
+        font-size: 1rem;
       }
     }
+
+      /* Visual Timeline */
+      .sp-process-visual {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4rem;
+        position: relative;
+      }
+
+      /* Hide Status Widget on Main Pages */
+      .status-widget {
+        display: none !important;
+      }
   </style>
 </head>
 
-<body>
-  <!-- Cairo Status Widget -->
-  <div id="status-widget" class="status-widget">
-    <div class="status-indicator"></div>
-    <div class="status-text">
-      <span id="cairo-time">--:-- --</span>
-      <span id="availability-status">Loading...</span>
+<body class="main-page">
+    <!-- Atmospheric Orbs (Technical Blueprint Background) -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+
+    <!-- Modern Fixed Header -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="assets/img/me.jpeg" alt="Mohamed Khalil Brik" class="brand-img">
+            <span class="brand-name">Mohamed Khalil Brik</span>
+        </a>
+
+        <nav class="nav-desktop">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html#research" class="nav-link">Research</a>
+            <a href="index.html#skills" class="nav-link">Skills</a>
+            <a href="services.html" class="nav-link active">Services</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="https://calendly.com/mohamedkhalil-brik" target="_blank" class="nav-cta">Book a Call</a>
+        </nav>
+
+        <div class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Full Screen Navigation Overlay (Mobile) -->
+    <div class="nav-overlay">
+        <div class="close-menu" style="color: white;">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul class="nav-links-overlay">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#research">Research</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
     </div>
-  </div>
-
-  <!-- Navigation -->
-  <div class="menu-trigger">Menu <i class="fas fa-plus"></i></div>
-
-  <div class="nav-overlay">
-    <div class="close-menu">Close <i class="fas fa-times"></i></div>
-    <ul class="nav-links-overlay">
-      <li><a href="index.html">HOME<span class="nav-number">01</span></a></li>
-      <li><a href="index.html#skills">SKILLS<span class="nav-number">02</span></a></li>
-      <li><a href="services.html">SERVICES<span class="nav-number">03</span></a></li>
-      <li><a href="index.html#news">NEWS<span class="nav-number">04</span></a></li>
-      <li><a href="blog.html">BLOG<span class="nav-number">05</span></a></li>
-      <li><a href="index.html#gallery">GALLERY<span class="nav-number">06</span></a></li>
-      <li><a href="index.html#map-section">MAP<span class="nav-number">07</span></a></li>
-    </ul>
-  </div>
-
-  <!-- News Ticker -->
-  <div class="news-ticker-bar">
-    <div class="ticker-label">LATEST UPDATES</div>
-    <div class="ticker-container">
-      <div class="ticker-wrapper">
-        <a href="projects/QCNC.html" class="ticker-item"><span class="ticker-date">FEB 2026</span> Paper Accepted at IEEE QCNC 2026</a>
-        <a href="projects/ICGHIT.html" class="ticker-item"><span class="ticker-date">JAN 2026</span> Paper Accepted at ICGHIT 2026</a>
-        <a href="projects/Thesis.html" class="ticker-item"><span class="ticker-date">DEC 2025</span> Completed the first part of my Bachelor Thesis</a>
-        <a href="projects/TheAICompany.html" class="ticker-item"><span class="ticker-date">OCT 2025</span> Started The AI Company</a>
-        <a href="projects/ADIB.html" class="ticker-item"><span class="ticker-date">SUMMER 2024</span> Software Engineering intern at ADIB Egypt</a>
-      </div>
-    </div>
-  </div>
 
   <!-- Main Content -->
   <div class="sp-wrapper">
 
-    <!-- Back Link -->
-    <a href="index.html" class="sp-back"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-
     <!-- Hero -->
     <section class="sp-hero">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Available for New Projects
+      <div class="hero-badge" style="margin: 0 auto 2rem; width: fit-content; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); color: var(--primary-color);">
+        <span class="badge-dot" style="background: var(--primary-color);"></span>
+        Available for High-Impact Projects
       </div>
-      <h1>Freelance <span class="highlight">Services</span></h1>
-      <p class="sp-tagline">From idea to deployment — I build it all.</p>
+      <h1>Architecting High-Performance <span class="highlight">Systems</span></h1>
+      <p class="sp-tagline">Solving complex engineering challenges with research-grade precision and enterprise-scale architecture.</p>
 
       <div class="sp-stats">
         <div class="sp-stat">
-          <span class="sp-stat-num">1+</span>
-          <span class="sp-stat-lab">Projects Delivered</span>
+          <span class="sp-stat-num">Elite</span>
+          <span class="sp-stat-lab">Architecture Quality</span>
         </div>
         <div class="sp-stat">
-          <span class="sp-stat-num">4</span>
-          <span class="sp-stat-lab">Service Areas</span>
+          <span class="sp-stat-num">100%</span>
+          <span class="sp-stat-lab">Delivery Rate</span>
         </div>
         <div class="sp-stat">
           <span class="sp-stat-num">3+</span>
-          <span class="sp-stat-lab">Years Experience</span>
+          <span class="sp-stat-lab">Research-Backed Years</span>
         </div>
       </div>
 
       <div class="sp-hero-ctas">
         <a href="https://calendly.com/mohamedkhalil-brik" target="_blank" class="cta-button hire-btn">
-          <i class="fas fa-calendar-check"></i> Book a Meeting
+          <i class="fas fa-calendar-check"></i> Book Technical Consultation
         </a>
-        <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=Freelance%20Inquiry" class="download-btn">
-          <i class="fas fa-envelope"></i> Send Inquiry
+        <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=System%20Engineering%20Inquiry" class="download-btn">
+          <i class="fas fa-envelope"></i> Fast-Track Inquiry
         </a>
       </div>
+      <div class="sp-scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+      </div>
     </section>
+
+    <!-- The Architect's Edge (Why hire me?) -->
+    <section class="edge-section">
+        <h2 class="section-title" style="margin-bottom: 1rem;">The Architect's Edge</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Why hiring a Systems Researcher yields 10x better results than a standard developer.</p>
+        
+        <table class="edge-table">
+            <thead>
+                <tr>
+                    <th class="col-comp">Standard Developer</th>
+                    <th class="col-arch">Systems Architect (Me)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-comp"><i class="fas fa-times"></i> Surface-level features</td>
+                    <td class="col-arch"><i class="fas fa-check"></i> Research-grade algorithm optimization</td>
+                </tr>
+                <tr>
+                    <td class="col-comp"><i class="fas fa-times"></i> High technical debt</td>
+                    <td class="col-arch"><i class="fas fa-check"></i> Zero-debt, high-performance architecture</td>
+                </tr>
+                <tr>
+                    <td class="col-comp"><i class="fas fa-times"></i> Generic boilerplate</td>
+                    <td class="col-arch"><i class="fas fa-check"></i> Custom-engineered specialized systems</td>
+                </tr>
+                <tr>
+                    <td class="col-comp"><i class="fas fa-times"></i> Limited system visibility</td>
+                    <td class="col-arch"><i class="fas fa-check"></i> Enterprise-scale security & scale audits</td>
+                </tr>
+                <tr>
+                    <td class="col-comp"><i class="fas fa-times"></i> Fragmented delivery</td>
+                    <td class="col-arch"><i class="fas fa-check"></i> End-to-end mission-critical execution</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Tech Stack Trust Bar -->
+    <div class="tech-stack-bar" style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem; margin-top: -2rem; opacity: 0.6; filter: grayscale(1);">
+        <i class="fab fa-python" style="font-size: 2.5rem;" title="Python Systems"></i>
+        <i class="fab fa-react" style="font-size: 2.5rem;" title="React/Next.js Architecture"></i>
+        <i class="fab fa-docker" style="font-size: 2.5rem;" title="Containerized Solutions"></i>
+        <i class="fab fa-aws" style="font-size: 2.5rem;" title="Cloud Infrastructure"></i>
+        <i class="fas fa-brain" style="font-size: 2.5rem;" title="AI/ML Integration"></i>
+        <i class="fas fa-microchip" style="font-size: 2.5rem;" title="Performance Engineering"></i>
+    </div>
 
     <!-- What I Build -->
     <section class="sp-section">
       <h2 class="section-title">What I Build</h2>
       <div class="sp-services-grid">
 
-        <!-- Card 1: Website Development -->
+        <!-- Card 1: Enterprise Web Infrastructure -->
         <div class="sp-service-card">
-          <div class="sp-service-icon"><i class="fas fa-globe"></i></div>
-          <h3>Website Development</h3>
-          <p>Clean, fast, and responsive websites tailored to your brand and goals.</p>
+          <div class="sp-service-icon"><i class="fas fa-server"></i></div>
+          <h3>Enterprise Web Infrastructure</h3>
+          <p>Building high-availability web systems designed to handle millions of requests with zero latency.</p>
           <ul class="sp-deliverables">
-            <li><i class="fas fa-circle"></i> Landing pages &amp; portfolios</li>
-            <li><i class="fas fa-circle"></i> Business &amp; corporate sites</li>
-            <li><i class="fas fa-circle"></i> Custom CMS integration</li>
-            <li><i class="fas fa-circle"></i> SEO &amp; Core Web Vitals optimization</li>
-            <li><i class="fas fa-circle"></i> Responsive design across all devices</li>
+            <li><i class="fas fa-circle"></i> Scalable Next.js & React architectures</li>
+            <li><i class="fas fa-circle"></i> High-performance backend integration</li>
+            <li><i class="fas fa-circle"></i> Custom CMS & Data Orchestration</li>
+            <li><i class="fas fa-circle"></i> Security-first engineering (OWASP)</li>
+            <li><i class="fas fa-circle"></i> Core Web Vitals (Perfect 100/100)</li>
           </ul>
           <div class="sp-tech-tags">
-            <span class="sp-tech-tag">HTML/CSS</span>
-            <span class="sp-tech-tag">JavaScript</span>
-            <span class="sp-tech-tag">React</span>
             <span class="sp-tech-tag">Next.js</span>
-            <span class="sp-tech-tag">Django</span>
-          </div>
-          <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=Website%20Development%20Inquiry" class="sp-service-cta">
-            Start a project <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <!-- Card 2: App Development -->
-        <div class="sp-service-card">
-          <div class="sp-service-icon"><i class="fas fa-mobile-alt"></i></div>
-          <h3>App Development</h3>
-          <p>Full-stack web applications and mobile-first experiences that scale with your business.</p>
-          <ul class="sp-deliverables">
-            <li><i class="fas fa-circle"></i> React &amp; Next.js web apps</li>
-            <li><i class="fas fa-circle"></i> REST API design &amp; development</li>
-            <li><i class="fas fa-circle"></i> Database architecture (MongoDB, SQL)</li>
-            <li><i class="fas fa-circle"></i> Authentication &amp; authorization systems</li>
-            <li><i class="fas fa-circle"></i> Progressive Web Apps (PWA)</li>
-          </ul>
-          <div class="sp-tech-tags">
-            <span class="sp-tech-tag">React</span>
-            <span class="sp-tech-tag">Next.js</span>
-            <span class="sp-tech-tag">Node.js</span>
-            <span class="sp-tech-tag">MongoDB</span>
-            <span class="sp-tech-tag">PostgreSQL</span>
-          </div>
-          <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=App%20Development%20Inquiry" class="sp-service-cta">
-            Start a project <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <!-- Card 3: Software Engineering -->
-        <div class="sp-service-card">
-          <div class="sp-service-icon"><i class="fas fa-code"></i></div>
-          <h3>Software Engineering</h3>
-          <p>Robust, maintainable software solutions built to solve complex business problems.</p>
-          <ul class="sp-deliverables">
-            <li><i class="fas fa-circle"></i> Backend systems &amp; process automation</li>
-            <li><i class="fas fa-circle"></i> Data pipelines &amp; ETL scripting</li>
-            <li><i class="fas fa-circle"></i> Code review &amp; architecture consulting</li>
-            <li><i class="fas fa-circle"></i> DevOps setup &amp; CI/CD pipelines</li>
-            <li><i class="fas fa-circle"></i> Performance optimization</li>
-          </ul>
-          <div class="sp-tech-tags">
-            <span class="sp-tech-tag">Python</span>
-            <span class="sp-tech-tag">Django</span>
-            <span class="sp-tech-tag">Git</span>
-            <span class="sp-tech-tag">Linux</span>
             <span class="sp-tech-tag">Docker</span>
+            <span class="sp-tech-tag">Django</span>
+            <span class="sp-tech-tag">AWS</span>
           </div>
-          <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=Software%20Engineering%20Inquiry" class="sp-service-cta">
-            Start a project <i class="fas fa-arrow-right"></i>
+          <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=Infrastructure%20Inquiry" class="sp-service-cta">
+            Request Architecture Review <i class="fas fa-arrow-right"></i>
           </a>
         </div>
 
-        <!-- Card 4: AI Engineering (Featured) -->
-        <div class="sp-service-card featured">
-          <span class="sp-service-badge">Most Requested</span>
-          <div class="sp-service-icon"><i class="fas fa-brain"></i></div>
-          <h3>AI Engineering</h3>
-          <p>Integrate cutting-edge AI and large language models directly into your product or workflow.</p>
+        <!-- Card 2: Systems Engineering & Automation -->
+        <div class="sp-service-card">
+          <div class="sp-service-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Systems Engineering & Automation</h3>
+          <p>Eliminate manual overhead with custom-built internal tools and distributed processing systems.</p>
           <ul class="sp-deliverables">
-            <li><i class="fas fa-circle"></i> LLM integration &amp; prompt engineering</li>
-            <li><i class="fas fa-circle"></i> AI chatbots &amp; virtual assistants</li>
-            <li><i class="fas fa-circle"></i> RAG pipelines &amp; vector search systems</li>
-            <li><i class="fas fa-circle"></i> ML model training &amp; deployment</li>
-            <li><i class="fas fa-circle"></i> AI-powered data analysis</li>
+            <li><i class="fas fa-circle"></i> Custom automation & ETL pipelines</li>
+            <li><i class="fas fa-circle"></i> Distributed system design</li>
+            <li><i class="fas fa-circle"></i> Cloud-native microservices</li>
+            <li><i class="fas fa-circle"></i> Database cluster optimization</li>
+            <li><i class="fas fa-circle"></i> Legacy system modernization</li>
           </ul>
           <div class="sp-tech-tags">
             <span class="sp-tech-tag">Python</span>
-            <span class="sp-tech-tag">OpenAI API</span>
-            <span class="sp-tech-tag">LangChain</span>
-            <span class="sp-tech-tag">HuggingFace</span>
-            <span class="sp-tech-tag">Scikit-learn</span>
+            <span class="sp-tech-tag">Go/C++</span>
+            <span class="sp-tech-tag">PostgreSQL</span>
+            <span class="sp-tech-tag">Redis</span>
           </div>
-          <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=AI%20Engineering%20Inquiry" class="sp-service-cta">
-            Start a project <i class="fas fa-arrow-right"></i>
+          <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=Automation%20Inquiry" class="sp-service-cta">
+            Automate My Workflow <i class="fas fa-arrow-right"></i>
           </a>
         </div>
+
+        <!-- Card 3: AI Agents & Operational Intelligence -->
+        <div class="sp-service-card featured">
+          <span class="sp-service-badge">Most Impact</span>
+          <div class="sp-service-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI Agents & Operational Intelligence</h3>
+          <p>Deploying autonomous agents that think, learn, and execute complex business logic at scale.</p>
+          <ul class="sp-deliverables">
+            <li><i class="fas fa-circle"></i> Custom LLM Agents (RAG-powered)</li>
+            <li><i class="fas fa-circle"></i> High-precision prompt engineering</li>
+            <li><i class="fas fa-circle"></i> Vector search & Neural indexing</li>
+            <li><i class="fas fa-circle"></i> AI-driven predictive analytics</li>
+            <li><i class="fas fa-circle"></i> Multi-modal system integration</li>
+          </ul>
+          <div class="sp-tech-tags">
+            <span class="sp-tech-tag">LangChain</span>
+            <span class="sp-tech-tag">OpenAI</span>
+            <span class="sp-tech-tag">HuggingFace</span>
+            <span class="sp-tech-tag">Pinecone</span>
+          </div>
+          <a href="mailto:mohamedkhalil.brik@aucegypt.edu?subject=AI%20Intelligence%20Inquiry" class="sp-service-cta">
+            Deploy AI Agent <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
 
       </div>
     </section>
@@ -696,7 +877,10 @@
 
         <!-- LK-HUB -->
         <div class="sp-portfolio-card">
-          <img src="assets/img/freelance/LK_HUB.png" alt="LK-HUB — Liberating Knowledge Platform" class="sp-portfolio-img" />
+          <div class="sp-portfolio-img-wrapper" style="background-image: url('assets/img/freelance/LK_HUB.png');">
+            <img src="assets/img/freelance/LK_HUB.png" alt="LK-HUB — Liberating Knowledge Platform" class="sp-portfolio-img" />
+            <div class="sp-portfolio-overlay"></div>
+          </div>
           <div class="sp-portfolio-info">
             <div class="sp-portfolio-meta">
               <div class="sp-portfolio-tags">

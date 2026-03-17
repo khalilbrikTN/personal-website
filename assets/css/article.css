@@ -1,24 +1,24 @@
 :root {
-    /* New Earthy/Modern Palette - Dark Theme Adaptation */
-    --primary-color: #eb5e28;
-    /* Spicy Paprika */
-    --primary-dark: #c04d1f;
-    /* Darker Paprika */
-    --secondary-color: #ccc5b9;
-    /* Silver */
-    --text-dark: #fffcf2;
-    /* Floral White (Light text for dark bg) */
-    --text-medium: #ccc5b9;
-    /* Silver */
-    --text-light: #9ca3af;
-    /* Muted Silver */
-    --background-light: #252422;
-    /* Carbon Black (Main BG) */
-    --background-white: #403d39;
-    /* Charcoal Brown (Card BG) */
+    /* Deep Space Palette — matches main.css */
+    --primary-color: #06b6d4;
+    /* Cyan-500 */
+    --primary-dark: #0891b2;
+    /* Cyan-600 */
+    --secondary-color: #6366f1;
+    /* Indigo-500 */
+    --text-dark: #f9fafb;
+    /* Near-white */
+    --text-medium: #94a3b8;
+    /* Slate muted */
+    --text-light: #64748b;
+    /* Slate light */
+    --background-light: #030712;
+    /* Deepest Navy */
+    --background-white: rgba(17, 24, 39, 0.7);
+    /* Glass Card */
     --background-card: rgba(255, 255, 255, 0.03);
     /* Transparent Card BG */
-    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.08);
     /* Subtle Border */
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.3);
     --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -356,7 +356,7 @@ body {
 }
 
 .download-card {
-    background: linear-gradient(135deg, rgba(235, 94, 40, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
     padding: var(--spacing-large);
     border-radius: var(--border-radius-large);
     text-align: center;
@@ -397,7 +397,7 @@ body {
 
 /* Conclusion */
 .conclusion-section {
-    background: linear-gradient(135deg, rgba(235, 94, 40, 0.15) 0%, rgba(37, 36, 34, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(3, 7, 18, 0.5) 100%);
     padding: var(--spacing-large);
     border-radius: var(--border-radius-large);
     margin: var(--spacing-xl) 0;

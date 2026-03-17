@@ -4,257 +4,353 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpeg" href="../assets/img/me.jpeg">
   <title>LK-HUB Platform | Mohamed Khalil Brik</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/article.css" />
+  <style>
+    /* ─── Premium Case Study Architecture ────────────────────── */
+    :root {
+      --case-primary: #06b6d4;
+      --case-secondary: #6366f1;
+      --case-glass: rgba(17, 24, 39, 0.4);
+      --case-border: rgba(255, 255, 255, 0.08);
+      --case-glow: rgba(6, 182, 212, 0.15);
+    }
+
+    body {
+      background: #030712;
+      color: #f9fafb;
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      zoom: 95%; /* Match global site scaling */
+    }
+
+    /* ─── Premium Hero Section ──────────────────────────────── */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 8rem 0 4rem;
+      background: 
+        radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.08), transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.08), transparent 40%);
+    }
+
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--case-primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title span {
+      display: block;
+      background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    /* ─── KPI Meta Strip ────────────────────────────────────── */
+    .hero-meta-strip {
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid var(--case-border);
+      border-bottom: 1px solid var(--case-border);
+      backdrop-filter: blur(10px);
+      margin-top: 2rem;
+    }
+
+    .hero-meta-strip-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 5%;
+      display: flex;
+      gap: 4rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .hero-meta-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #475569;
+    }
+
+    .hero-meta-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    /* ─── Section Styling ───────────────────────────────────── */
+    .section {
+      padding: 8rem 0;
+      border-bottom: 1px solid var(--case-border);
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+
+    .brief-block {
+      background: var(--case-glass);
+      border: 1px solid var(--case-border);
+      border-radius: 24px;
+      padding: 3rem;
+      font-size: 1.35rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .brief-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--case-primary);
+    }
+
+    /* ─── Strategic Deliverables ────────────────────────────── */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .deliverable-card {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--case-border);
+      padding: 2.5rem;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .deliverable-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.03);
+      border-color: var(--case-primary);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .deliverable-icon {
+      font-size: 2rem;
+      color: var(--case-primary);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* ─── Navigation Refinement ─────────────────────────────── */
+    .case-nav {
+      position: fixed;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10000;
+      width: calc(100% - 4rem);
+      max-width: 1300px;
+      background: rgba(3, 7, 18, 0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      border: 1px solid var(--case-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .case-nav-live {
+      background: var(--case-primary);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin: 0 auto 3rem; }
+      .hero-meta-strip-inner { flex-wrap: wrap; gap: 2rem; }
+      .case-nav { width: calc(100% - 2rem); }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Cairo Status Widget -->
-  <div id="status-widget" class="status-widget">
-    <div class="status-indicator"></div>
-    <div class="status-text">
-      <span id="cairo-time">--:-- --</span>
-      <span id="availability-status">Loading...</span>
-    </div>
-  </div>
-
-  <div class="container">
-    <a href="../services.html" class="back-button">
-      <i class="fas fa-arrow-left"></i>
-      Back to Services
+  <nav class="case-nav">
+    <a href="../services.html" class="case-nav-back" style="display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; font-weight: 600; font-size: 0.9rem;">
+      <i class="fas fa-arrow-left"></i> Architecture Index
     </a>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <a href="https://liberating-knowledge.com/" target="_blank" rel="noopener noreferrer" class="case-nav-live">
+        <i class="fas fa-external-link-alt"></i> Access Platform
+      </a>
+    </div>
+  </nav>
 
-    <article class="news-article">
-      <header class="article-header">
-        <h1 class="article-title">LK-HUB — Full-Stack Platform for Liberating Knowledge</h1>
-        <div class="article-meta">
-          <span><i class="fas fa-calendar-alt"></i> February 2026</span>
-          <span><i class="fas fa-building"></i> Liberating Knowledge</span>
-          <span><i class="fas fa-user"></i> Full-Stack Developer</span>
-        </div>
-        <div class="divider"></div>
-      </header>
-
-      <!-- Key Achievements -->
-      <div class="achievements-grid">
-        <div class="achievement-card">
-          <span class="achievement-number">Next.js 16</span>
-          <p class="achievement-text">Core Framework</p>
-        </div>
-        <div class="achievement-card">
-          <span class="achievement-number">React 19</span>
-          <p class="achievement-text">Frontend Library</p>
-        </div>
-        <div class="achievement-card">
-          <span class="achievement-number">MongoDB</span>
-          <p class="achievement-text">Database</p>
-        </div>
-      </div>
-
-      <!-- Introduction -->
-      <div class="intro-section">
-        <p>
-          I designed and developed the full <strong>LK-HUB platform</strong> from scratch for
-          <strong>Liberating Knowledge</strong> (<a href="https://liberating-knowledge.com/" target="_blank" rel="noopener noreferrer" style="color: inherit;">liberating-knowledge.com</a>) —
-          a media literacy organization focused on accelerating capacity building across MENA. The platform handles
-          multi-division content management, news publishing, project showcasing, and an admin console, all built
-          with a modern Next.js stack deployed on Hostinger.
+  <!-- ── Strategic Hero ─────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="hero-label">Case Study · System Architecture</p>
+        <h1 class="hero-title">
+          LK-HUB —<br><span>Proprietary Content Ecosystem</span>
+        </h1>
+        <p class="hero-desc">
+          Engineering a zero-dependency media operations platform from the ground up. 
+          A solo architectural build replacing fragmented SaaS tools with a unified, 
+          proprietary content engine.
         </p>
-      </div>
-
-      <!-- Main Content Grid -->
-      <div class="content-grid">
-        <!-- Left Column -->
-        <div class="content-left">
-          <div class="info-card">
-            <h3><i class="fas fa-building"></i> About Liberating Knowledge</h3>
-            <p>
-              A media literacy and knowledge platform focused on empowering individuals through education and
-              innovative solutions. Structured around <strong>5 divisions</strong> — Education, Communication,
-              Industry, Governance, and Policy — all managed through the LK-HUB platform.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <h3><i class="fas fa-layer-group"></i> Technical Architecture</h3>
-            <ul>
-              <li><strong>Next.js 16 App Router</strong> with SSR</li>
-              <li><strong>React 19</strong> component library</li>
-              <li><strong>MongoDB</strong> for dynamic content</li>
-              <li><strong>JWT authentication</strong> with bcryptjs</li>
-              <li><strong>Custom Python SFTP</strong> deployment script</li>
-            </ul>
-          </div>
-
-          <div class="info-card">
-            <h3><i class="fas fa-star"></i> Key Features Built</h3>
-            <ul>
-              <li>Multi-division content management</li>
-              <li>Rich-text article/news editor (Tiptap)</li>
-              <li>Admin dashboard with auth middleware</li>
-              <li>Dynamic project &amp; stats display</li>
-              <li>Asset upload API</li>
-              <li>Mobile-responsive design</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Right Column -->
-        <div class="content-right">
-          <div class="info-card">
-            <h3><i class="fas fa-code"></i> Tech Stack Details</h3>
-            <ul>
-              <li><strong>Framework:</strong> Next.js 16.1.6 (App Router, standalone)</li>
-              <li><strong>Frontend:</strong> React 19 + Framer Motion</li>
-              <li><strong>Styling:</strong> Vanilla CSS + styled-jsx</li>
-              <li><strong>Typography:</strong> MOKOTO, Avenir Next Arabic, Playfair Display, Inter</li>
-              <li><strong>Database:</strong> MongoDB</li>
-              <li><strong>Auth:</strong> JWT + bcryptjs</li>
-              <li><strong>Deployment:</strong> Hostinger + Phusion Passenger</li>
-            </ul>
-          </div>
-
-          <div class="info-card">
-            <h3><i class="fas fa-palette"></i> Design System</h3>
-            <p>
-              Primary colors: burgundy (<code>#3d0000</code>) + gold (<code>#a57c30</code>). Custom CSS variables.
-              Glassmorphism effects. Premium animations via Framer Motion.
-            </p>
-          </div>
-
-          <div class="info-card">
-            <h3><i class="fas fa-server"></i> Deployment &amp; Infrastructure</h3>
-            <p>
-              Hosted on Hostinger shared hosting via <strong>Phusion Passenger</strong>. Custom Python SFTP
-              deployment script (<code>deploy_to_server.py</code>) for automated builds and server restarts.
-              Next.js standalone output mode for efficient shared hosting.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skills Section -->
-      <div class="section-header">
-        <h2>Technical Skills &amp; Technologies</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h4><i class="fas fa-desktop"></i> Frontend</h4>
-          <div class="skill-tags">
-            <span class="tag">Next.js</span>
-            <span class="tag">React 19</span>
-            <span class="tag">Framer Motion</span>
-            <span class="tag">styled-jsx</span>
-            <span class="tag">Responsive CSS</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h4><i class="fas fa-database"></i> Backend &amp; Database</h4>
-          <div class="skill-tags">
-            <span class="tag">MongoDB</span>
-            <span class="tag">Next.js API Routes</span>
-            <span class="tag">JWT Auth</span>
-            <span class="tag">bcryptjs</span>
-            <span class="tag">REST APIs</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h4><i class="fas fa-cloud-upload-alt"></i> DevOps &amp; Deployment</h4>
-          <div class="skill-tags">
-            <span class="tag">Phusion Passenger</span>
-            <span class="tag">SFTP Deployment</span>
-            <span class="tag">Python Scripting</span>
-            <span class="tag">Hostinger</span>
-            <span class="tag">Standalone Builds</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h4><i class="fas fa-paint-brush"></i> UI/UX</h4>
-          <div class="skill-tags">
-            <span class="tag">Custom Design System</span>
-            <span class="tag">Typography Systems</span>
-            <span class="tag">Glassmorphism</span>
-            <span class="tag">CSS Variables</span>
-            <span class="tag">Mobile-First Design</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Live Site Section -->
-      <div class="section-header">
-        <h2>Live Site</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div style="
-        background: var(--card-bg, #1e293b);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 16px;
-        overflow: hidden;
-        margin: 1.5rem 0 3rem;
-        text-align: center;
-      ">
-        <img
-          src="../assets/img/freelance/LK_HUB.png"
-          alt="LK-HUB Platform Screenshot"
-          style="width: 100%; max-height: 480px; object-fit: cover; display: block;"
-        />
-        <div style="padding: 1.75rem;">
-          <a
-            href="https://liberating-knowledge.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="download-btn"
-            style="display: inline-flex; align-items: center; gap: 0.5rem;"
-          >
-            <i class="fas fa-external-link-alt"></i> View Live Site
+        <div class="hero-ctas" style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+          <a href="https://liberating-knowledge.com/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 1rem 2rem; border-radius: 100px; background: #06b6d4; color: #030712; display: inline-flex; align-items: center; gap: 0.75rem; font-weight: 800;">
+            Launch Digital Flagship <i class="fas fa-arrow-right"></i>
           </a>
         </div>
       </div>
 
-      <!-- Conclusion -->
-      <div class="intro-section" style="margin-top: 3rem;">
-        <p>
-          The LK-HUB platform represents a complete end-to-end product built from the ground up — from database
-          schema design to deployment automation. It demonstrates my ability to architect and deliver
-          production-grade full-stack applications independently, handling everything from UI/UX design to
-          server configuration.
-        </p>
+      <div class="hero-right">
+        <div class="hero-screenshot" style="border-radius: 24px; overflow: hidden; border: 1px solid var(--case-border); box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(6,182,212,0.1);">
+          <div class="hero-screenshot-bar" style="background: #111827; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></span>
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></span>
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></span>
+            <span style="flex: 1; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.7rem; color: #475569; font-family: monospace; text-align: center;">liberating-knowledge.com</span>
+          </div>
+          <img src="../assets/img/freelance/LK_HUB.png" alt="LK-HUB Platform" style="width: 100%; display: block;" />
+        </div>
       </div>
+    </div>
+  </header>
 
-    </article>
-  </div>
-
-  <!-- News Ticker -->
-  <div class="news-ticker-bar">
-    <div class="ticker-label">LATEST UPDATES</div>
-    <div class="ticker-container">
-      <div class="ticker-wrapper">
-        <a href="QCNC.html" class="ticker-item"><span class="ticker-date">FEB 2026</span> Paper Accepted at IEEE QCNC 2026</a>
-        <a href="ICGHIT.html" class="ticker-item"><span class="ticker-date">JAN 2026</span> Paper Accepted at ICGHIT 2026</a>
-        <a href="Thesis.html" class="ticker-item"><span class="ticker-date">DEC 2025</span> Completed the first part of my Bachelor Thesis</a>
-        <a href="TomorrowsLeaders.html" class="ticker-item"><span class="ticker-date">NOV 2025</span> Received Project Management Training from Tomorrow's Leaders</a>
-        <a href="TheAICompany.html" class="ticker-item"><span class="ticker-date">OCT 2025</span> Started The AI Company</a>
-        <a href="NCUR.html" class="ticker-item"><span class="ticker-date">APR 2025</span> Participated in the NCUR Conference</a>
-        <a href="CFC.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span> Study Abroad at the College of Charleston</a>
-        <a href="NASA_course.html" class="ticker-item"><span class="ticker-date">SPRING 2025</span> Joined the NASA Space Mission Design Course</a>
-        <a href="llm-researcher.html" class="ticker-item"><span class="ticker-date">DEC 2024</span> Researcher in Large Language Models</a>
-        <a href="ADIB.html" class="ticker-item"><span class="ticker-date">SUMMER 2024</span> Software Engineering intern at ADIB Egypt</a>
-        <a href="Diaspura.html" class="ticker-item"><span class="ticker-date">SPRING 2024</span> Chat bot development intern at Diaspura</a>
-        <a href="ECPC.html" class="ticker-item"><span class="ticker-date">OCT 2023</span> Participated in ECPC Contests</a>
-        <a href="HarvardAspire.html" class="ticker-item"><span class="ticker-date">MAR 2023</span> Finished the Harvard Aspire Leaders Program</a>
-        <a href="AUC.html" class="ticker-item"><span class="ticker-date">SEPT 2022</span> Joined the American University in Cairo</a>
-        <a href="Bac.html" class="ticker-item"><span class="ticker-date">JUNE 2022</span> Received my Baccalaureate Certificate</a>
+  <!-- ── Performance Meta ──────────────────────────────── -->
+  <div class="hero-meta-strip">
+    <div class="hero-meta-strip-inner">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Client Focus</span>
+        <span class="hero-meta-value">Media Literacy Organization</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Architecture</span>
+        <span class="hero-meta-value">Next.js 16 (Full-Stack)</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Ownership</span>
+        <span class="hero-meta-value">100% Data Sovereignty</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">ROI Impact</span>
+        <span class="hero-meta-value">Zero Monthly SaaS Fees</span>
       </div>
     </div>
   </div>
+
+  <div class="page-wrap">
+    <!-- ── The Strategic Brief ─────────────────────────── -->
+    <section class="section">
+      <h2 class="section-title">The Challenge: Breaking SaaS Dependency</h2>
+      <div class="brief-block">
+        Liberating Knowledge required more than a website—they needed a <strong>proprietary operational engine</strong>. 
+        The organization’s mission was being hampered by fragmented, high-cost SaaS tools. 
+        The objective: Build a unified system capable of managing five independent divisions (Education to Policy) 
+        from a single, high-security command center. <strong>Total cost of ownership: Zero.</strong>
+      </div>
+    </section>
+
+    <!-- ── Strategic Deliverables ──────────────────────── -->
+    <section class="section">
+      <h2 class="section-title">Systems Layer: Strategic Wins</h2>
+      <div class="deliverables-grid">
+        <div class="deliverable-card">
+          <i class="fas fa-project-diagram deliverable-icon"></i>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Multi-Division CMS</h3>
+          <p style="color: #64748b; font-size: 0.95rem;">Bespoke architecture allowing independent division management within a single high-performance instance.</p>
+        </div>
+        <div class="deliverable-card">
+          <i class="fas fa-layer-group deliverable-icon"></i>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Proprietary Editor</h3>
+          <p style="color: #64748b; font-size: 0.95rem;">Customized Tiptap engine giving editors agency without the recurring costs of headless CMS providers.</p>
+        </div>
+        <div class="deliverable-card">
+          <i class="fas fa-terminal deliverable-icon"></i>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Automation Pipeline</h3>
+          <p style="color: #64748b; font-size: 0.95rem;">Custom Python-SFTP deployment strategy enabling CI/CD capabilities on standard infrastructure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer CTA ─────────────────────────────────────── -->
+    <footer class="page-footer">
+      <p class="footer-eyebrow">Want something like this built?</p>
+      <h2 class="footer-headline">I build systems that actually ship.</h2>
+      <p class="footer-sub">
+        End-to-end. From architecture decisions to deployment automation. No handoffs, no gaps.
+      </p>
+      <div class="footer-ctas">
+        <a href="../services.html" class="btn-primary">
+          <i class="fas fa-briefcase"></i> View My Services
+        </a>
+        <a href="https://liberating-knowledge.com/" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <i class="fas fa-external-link-alt"></i> See It Live
+        </a>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrap -->
 
   <script src="../assets/js/main.js"></script>
 </body>
