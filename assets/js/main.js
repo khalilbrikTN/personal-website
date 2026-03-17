@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
             statusTextElement.style.color = "#10b981"; // Success Green
             indicatorElement.className = "status-indicator online";
         } else {
-            statusTextElement.textContent = "Not available";
-            statusTextElement.style.color = "#ef4444"; // Error Red
-            indicatorElement.className = "status-indicator offline"; // Or just 'offline' style
+            statusTextElement.textContent = "Available for freelance";
+            statusTextElement.style.color = "#f59e0b"; // Amber
+            indicatorElement.className = "status-indicator offline";
         }
     }
 
