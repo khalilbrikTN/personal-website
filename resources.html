@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpeg" href="assets/img/me.jpeg" />
+  <title>Educational Resources | Mohamed Khalil Brik</title>
+  <meta name="description" content="Curated educational resources for university students in Computer Science, AI, Quantum Computing, and Mathematics — by Mohamed Khalil Brik." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/resources.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body class="main-page">
+
+  <!-- Atmospheric Orbs -->
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+
+  <!-- ── Site Header (consistent with rest of site) ──────────── -->
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <img src="assets/img/me.jpeg" alt="Mohamed Khalil Brik" class="brand-img" />
+      <span class="brand-name">Mohamed Khalil Brik</span>
+    </a>
+
+    <nav class="nav-desktop">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#research" class="nav-link">Research</a>
+      <a href="index.html#skills" class="nav-link">Skills</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="resources.html" class="nav-link active">Resources</a>
+      <a href="https://calendly.com/mohamedkhalil-brik" target="_blank" class="nav-cta">Book a Call</a>
+    </nav>
+
+    <button class="mobile-nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-overlay">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="close-menu" aria-label="Close navigation">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <ul class="nav-links-overlay">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="resources.html">Resources</a></li>
+    </ul>
+  </div>
+
+  <!-- ── Quick Jump Nav ──────────────────────────────────────── -->
+  <nav class="res-quicknav" aria-label="Jump to category">
+    <div class="res-quicknav-inner">
+      <a href="#ml" class="res-qn-link"><i class="fas fa-brain"></i> Machine Learning</a>
+      <a href="#quantum" class="res-qn-link"><i class="fas fa-atom"></i> Quantum Computing</a>
+      <a href="#software" class="res-qn-link"><i class="fas fa-code"></i> Programming & SWE</a>
+      <a href="#math" class="res-qn-link"><i class="fas fa-square-root-alt"></i> Mathematics</a>
+      <a href="#research" class="res-qn-link"><i class="fas fa-flask"></i> Research & Papers</a>
+      <a href="#tools" class="res-qn-link"><i class="fas fa-wrench"></i> Tools & Platforms</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <section class="res-hero">
+    <div class="res-hero-inner">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Continuously Updated
+      </div>
+      <h1 class="res-hero-title">Educational <span class="highlight">Resources</span></h1>
+      <p class="res-hero-sub">Curated materials for students in CS, AI, and beyond — vetted and organized by field.</p>
+      <div class="res-hero-meta">
+        <span class="res-meta-pill"><i class="fas fa-layer-group"></i> 6 Categories</span>
+        <span class="res-meta-pill"><i class="fas fa-link"></i> 30+ Resources</span>
+        <span class="res-meta-pill"><i class="fas fa-graduation-cap"></i> University-level</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Main Content ───────────────────────────────────────── -->
+  <main class="res-main">
+
+    <!-- ── 1. Machine Learning ─────────────────────────────── -->
+    <section id="ml" class="res-section">
+      <div class="res-section-header">
+        <div class="res-section-icon"><i class="fas fa-brain"></i></div>
+        <div>
+          <h2 class="res-section-title">Machine Learning</h2>
+          <p class="res-section-desc">Foundational and advanced ML courses, textbooks, and references.</p>
+        </div>
+      </div>
+
+      <div class="res-grid">
+
+        <a href="https://cs229.stanford.edu/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">Stanford CS229 — Machine Learning</h3>
+          <p class="res-card-desc">Andrew Ng's flagship ML course. Covers supervised, unsupervised, and reinforcement learning with rigorous math foundations.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> cs229.stanford.edu</span>
+        </a>
+
+        <a href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">fast.ai — Practical Deep Learning</h3>
+          <p class="res-card-desc">Top-down, code-first approach to deep learning. Perfect for building intuition before diving into theory.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> fast.ai</span>
+        </a>
+
+        <a href="https://d2l.ai/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">Dive into Deep Learning (d2l.ai)</h3>
+          <p class="res-card-desc">Interactive, free textbook with runnable code in PyTorch, JAX, and TensorFlow. Used at top universities globally.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> d2l.ai</span>
+        </a>
+
+        <a href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">Google ML Crash Course</h3>
+          <p class="res-card-desc">Fast-paced, practical introduction to ML by Google engineers. Includes hands-on exercises using TensorFlow.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> developers.google.com</span>
+        </a>
+
+        <a href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">Hugging Face — NLP & LLM Courses</h3>
+          <p class="res-card-desc">Official courses on Transformers, diffusion models, and fine-tuning LLMs. The go-to for modern NLP engineering.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> huggingface.co/learn</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 2. Quantum Computing ────────────────────────────── -->
+    <section id="quantum" class="res-section">
+      <div class="res-section-header">
+        <div class="res-section-icon"><i class="fas fa-atom"></i></div>
+        <div>
+          <h2 class="res-section-title">Quantum Computing</h2>
+          <p class="res-section-desc">Resources bridging quantum theory, algorithms, and practical tooling.</p>
+        </div>
+      </div>
+
+      <div class="res-grid">
+
+        <a href="https://qiskit.org/learn/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">IBM Qiskit — Learning Platform</h3>
+          <p class="res-card-desc">Hands-on quantum programming with Qiskit. Free courses covering circuits, algorithms, and real quantum hardware access.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> qiskit.org/learn</span>
+        </a>
+
+        <a href="https://quantum.country/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">Quantum Country</h3>
+          <p class="res-card-desc">Mnemonic-based essay on quantum computing fundamentals by Michael Nielsen & Andy Matuschak. Memorable and rigorous.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> quantum.country</span>
+        </a>
+
+        <a href="https://www.amazon.com/dp/1107002176" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">Nielsen & Chuang — Quantum Computation</h3>
+          <p class="res-card-desc">The definitive textbook on quantum computation and quantum information. The "bible" of the field.</p>
+          <span class="res-card-link"><i class="fas fa-book"></i> Nielsen & Chuang (Book)</span>
+        </a>
+
+        <a href="https://pennylane.ai/qml/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">PennyLane — Quantum ML</h3>
+          <p class="res-card-desc">Tutorials on quantum machine learning, variational circuits, and hybrid classical-quantum computing.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> pennylane.ai/qml</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 3. Programming & Software Engineering ──────────── -->
+    <section id="software" class="res-section">
+      <div class="res-section-header">
+        <div class="res-section-icon"><i class="fas fa-code"></i></div>
+        <div>
+          <h2 class="res-section-title">Programming & Software Engineering</h2>
+          <p class="res-section-desc">From language references to systems design — core engineering knowledge.</p>
+        </div>
+      </div>
+
+      <div class="res-grid">
+
+        <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">Python Official Documentation</h3>
+          <p class="res-card-desc">The authoritative reference for Python 3. Essential bookmark for any Python developer at any level.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> docs.python.org/3</span>
+        </a>
+
+        <a href="https://cs.opensource.google/go/go" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">The C Programming Language (K&R)</h3>
+          <p class="res-card-desc">Kernighan and Ritchie's seminal book. Reading this gives you a decisive mental model of low-level memory and systems.</p>
+          <span class="res-card-link"><i class="fas fa-book"></i> K&R (Book)</span>
+        </a>
+
+        <a href="https://roadmap.sh/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">roadmap.sh — Developer Roadmaps</h3>
+          <p class="res-card-desc">Visual, community-curated learning paths for backend, frontend, DevOps, AI, and more. Great for orientation.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> roadmap.sh</span>
+        </a>
+
+        <a href="https://missing.csail.mit.edu/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">MIT — The Missing Semester</h3>
+          <p class="res-card-desc">Shell, Git, Vim, data wrangling, debugging — the practical CS skills no course teaches. An absolute must for every engineer.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> missing.csail.mit.edu</span>
+        </a>
+
+        <a href="https://www.geeksforgeeks.org/system-design-tutorial/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">System Design Primer</h3>
+          <p class="res-card-desc">Learn how to design scalable distributed systems. Covers databases, caching, load balancing, and real-world architectures.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> System Design Tutorial</span>
+        </a>
+
+        <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">LeetCode</h3>
+          <p class="res-card-desc">The industry standard for coding interview preparation. Practice algorithms, data structures, and problem-solving under constraints.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> leetcode.com</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 4. Mathematics ─────────────────────────────────── -->
+    <section id="math" class="res-section">
+      <div class="res-section-header">
+        <div class="res-section-icon"><i class="fas fa-square-root-alt"></i></div>
+        <div>
+          <h2 class="res-section-title">Mathematics</h2>
+          <p class="res-section-desc">Linear algebra, probability, calculus, and discrete math for CS/AI students.</p>
+        </div>
+      </div>
+
+      <div class="res-grid">
+
+        <a href="https://www.3blue1brown.com/topics/linear-algebra" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">3Blue1Brown — Essence of Linear Algebra</h3>
+          <p class="res-card-desc">Stunning visual intuition for linear algebra — vectors, matrices, eigenvalues. The best way to build geometric understanding.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> 3blue1brown.com</span>
+        </a>
+
+        <a href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">Khan Academy — Statistics & Probability</h3>
+          <p class="res-card-desc">From basics to hypothesis testing. Essential probability theory for understanding ML models and research methodology.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> khanacademy.org</span>
+        </a>
+
+        <a href="https://mml-book.github.io/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">Mathematics for Machine Learning (MML Book)</h3>
+          <p class="res-card-desc">Free PDF textbook covering all the math behind ML: linear algebra, multivariate calculus, probability, and optimization.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> mml-book.github.io</span>
+        </a>
+
+        <a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">MIT OCW — Mathematics for CS</h3>
+          <p class="res-card-desc">Proofs, sets, graph theory, number theory, probability — the rigorous mathematical foundations every CS student needs.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> ocw.mit.edu</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 5. Research & Papers ───────────────────────────── -->
+    <section id="research" class="res-section">
+      <div class="res-section-header">
+        <div class="res-section-icon"><i class="fas fa-flask"></i></div>
+        <div>
+          <h2 class="res-section-title">Research & Papers</h2>
+          <p class="res-section-desc">Where to find, read, and write research effectively.</p>
+        </div>
+      </div>
+
+      <div class="res-grid">
+
+        <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">arXiv.org</h3>
+          <p class="res-card-desc">Open-access repository for preprints in CS, Physics, Math, and more. Where research lives before formal publication.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> arxiv.org</span>
+        </a>
+
+        <a href="https://paperswithcode.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">Papers With Code</h3>
+          <p class="res-card-desc">ML papers paired directly with code implementations and benchmark leaderboards. The fastest way to reproduce research.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> paperswithcode.com</span>
+        </a>
+
+        <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">Google Scholar</h3>
+          <p class="res-card-desc">Comprehensive academic search engine. Track citations, follow authors, and discover related work across all disciplines.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> scholar.google.com</span>
+        </a>
+
+        <a href="https://www.connectedpapers.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">Connected Papers</h3>
+          <p class="res-card-desc">Visualizes a graph of papers related to a given work. Indispensable for literature reviews and finding prior art.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> connectedpapers.com</span>
+        </a>
+
+        <a href="https://www.overleaf.com/learn" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">Overleaf — LaTeX Documentation</h3>
+          <p class="res-card-desc">Learn LaTeX for writing academic papers, theses, and conference submissions. The standard format in all serious research.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> overleaf.com/learn</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 6. Tools & Platforms ───────────────────────────── -->
+    <section id="tools" class="res-section">
+      <div class="res-section-header">
+        <div class="res-section-icon"><i class="fas fa-wrench"></i></div>
+        <div>
+          <h2 class="res-section-title">Tools & Platforms</h2>
+          <p class="res-section-desc">Developer tools, productivity platforms, and compute resources you should know.</p>
+        </div>
+      </div>
+
+      <div class="res-grid">
+
+        <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">Google Colab</h3>
+          <p class="res-card-desc">Free cloud Jupyter notebooks with GPU/TPU access. Ideal for ML experiments without needing local hardware setup.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> colab.research.google.com</span>
+        </a>
+
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-mustuse">Must-Use</span>
+          </div>
+          <h3 class="res-card-title">GitHub</h3>
+          <p class="res-card-desc">The home of open-source code. Essential for version control, collaboration, and building a portfolio of real projects.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> github.com</span>
+        </a>
+
+        <a href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">Kaggle</h3>
+          <p class="res-card-desc">Datasets, notebooks, and ML competitions. Excellent for applied practice and exploring real-world data problems.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> kaggle.com</span>
+        </a>
+
+        <a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-beginner">Beginner</span>
+          </div>
+          <h3 class="res-card-title">Notion</h3>
+          <p class="res-card-desc">All-in-one workspace for notes, research tracking, project management, and knowledge bases. My personal OS for work.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> notion.so</span>
+        </a>
+
+        <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">Docker — Getting Started</h3>
+          <p class="res-card-desc">Containerize your applications for consistent, reproducible environments. Essential for modern DevOps and deployment workflows.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> docker.com</span>
+        </a>
+
+        <a href="https://www.linux.org/forums/#linux-tutorials.122" target="_blank" rel="noopener noreferrer" class="res-card">
+          <div class="res-card-top">
+            <span class="res-tag tag-advanced">Advanced</span>
+          </div>
+          <h3 class="res-card-title">Linux Command Line Mastery</h3>
+          <p class="res-card-desc">A command-line fluent engineer operates at a completely different level. Learn shell scripting, process management, and filesystem navigation.</p>
+          <span class="res-card-link"><i class="fas fa-external-link-alt"></i> linux.org</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer id="contact" class="footer">
+    <p>© 2025 Mohamed Khalil Brik. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
