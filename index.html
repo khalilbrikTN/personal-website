@@ -4,623 +4,572 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Khalil Brik | Personal Portfolio</title>
-    <link rel="icon" type="image/jpeg" href="assets/img/me.jpeg">
-    <!-- CSS will be linked later as requested -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <title>Mohamed Khalil Brik | AI Engineer</title>
+    <meta name="description"
+        content="Mohamed Khalil Brik: AI Engineer building production LLM systems, RAG pipelines and AI agents. M.Sc. student (Erasmus Mundus, UniGe/UTC). Open to remote work.">
+    <link rel="canonical" href="https://khalilbriktn.github.io/personal-website/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://khalilbriktn.github.io/personal-website/">
+    <meta property="og:title" content="Mohamed Khalil Brik | AI Engineer">
+    <meta property="og:description"
+        content="AI Engineer building production LLM systems, RAG pipelines and AI agents. Open to remote work.">
+    <meta property="og:image" content="https://khalilbriktn.github.io/personal-website/assets/img/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/webp" href="assets/img/me.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;600;800&display=swap">
+    <link rel="stylesheet" href="assets/css/main.css?v=7">
+    <link rel="stylesheet" href="assets/css/home.css?v=7">
+    <link rel="prefetch" href="assets/docs/MohamedKhalil_CV.pdf">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "ProfilePage",
+                "@id": "https://khalilbriktn.github.io/personal-website/#page",
+                "url": "https://khalilbriktn.github.io/personal-website/",
+                "name": "Mohamed Khalil Brik | AI Engineer",
+                "dateModified": "2026-10-18",
+                "mainEntity": { "@id": "https://khalilbriktn.github.io/personal-website/#person" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://khalilbriktn.github.io/personal-website/#person",
+                "name": "Mohamed Khalil Brik",
+                "alternateName": ["Khalil Brik", "M.K. Brik", "Mohamed Brik"],
+                "givenName": "Mohamed Khalil",
+                "familyName": "Brik",
+                "jobTitle": "AI Engineer",
+                "description": "AI Engineer building production LLM systems, RAG pipelines and AI agents. M.Sc. student in Advanced Machine Learning (Erasmus Mundus, University of Genova / UTC).",
+                "url": "https://khalilbriktn.github.io/personal-website/",
+                "image": "https://khalilbriktn.github.io/personal-website/assets/img/me.jpeg",
+                "address": { "@type": "PostalAddress", "addressLocality": "Genova", "addressCountry": "IT" },
+                "affiliation": [
+                    { "@type": "CollegeOrUniversity", "name": "University of Genova" },
+                    { "@type": "CollegeOrUniversity", "name": "Université de Technologie de Compiègne" }
+                ],
+                "alumniOf": [
+                    { "@type": "CollegeOrUniversity", "name": "The American University in Cairo" },
+                    { "@type": "CollegeOrUniversity", "name": "College of Charleston" }
+                ],
+                "knowsAbout": ["Large Language Models", "Retrieval-Augmented Generation", "AI Agents", "Machine Learning", "Natural Language Processing", "Quantum Optimization"],
+                "knowsLanguage": ["en", "fr", "ar", "de", "it"],
+                "sameAs": [
+                    "https://www.linkedin.com/in/mohamed-khalil-brik-457164183/",
+                    "https://github.com/khalilbrikTN",
+                    "https://scholar.google.com/citations?user=lmmjDp8AAAAJ&hl=en",
+                    "https://www.researchgate.net/profile/Mohamed-Khalil-Brik"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://khalilbriktn.github.io/personal-website/#website",
+                "url": "https://khalilbriktn.github.io/personal-website/",
+                "name": "Mohamed Khalil Brik",
+                "author": { "@id": "https://khalilbriktn.github.io/personal-website/#person" }
+            }
+        ]
+    }
+    </script>
 </head>
 
-<body class="main-page">
-    <!-- Atmospheric Orbs (Technical Blueprint Background) -->
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
+<body class="main-page home">
+    <script src="assets/js/site-chrome.js?v=2"></script>
 
-    <!-- Modern Fixed Header -->
-    <header class="site-header">
-        <a href="index.html" class="brand">
-            <img src="assets/img/me.jpeg" alt="Mohamed Khalil Brik" class="brand-img">
-            <span class="brand-name">Mohamed Khalil Brik</span>
-        </a>
+    <!-- Icon sprite (replaces Font Awesome on this page) -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+        <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+        <symbol id="i-replay" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+        <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="m16 16 3-8 3 8c-.9.7-1.9 1-3 1s-2.1-.3-3-1Z"/><path d="m2 16 3-8 3 8c-.9.7-1.9 1-3 1s-2.1-.3-3-1Z"/></symbol>
+        <symbol id="i-cluster" viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="12" cy="17" r="2.5"/><circle cx="19" cy="16" r="1.5"/><circle cx="4" cy="15" r="1.5"/></symbol>
+        <symbol id="i-cmd" viewBox="0 0 24 24"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+    </svg>
 
-        <nav class="nav-desktop">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#research" class="nav-link">Research</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="blog.html" class="nav-link">Blog</a>
-            <a href="resources.html" class="nav-link">Resources</a>
-            <a href="https://calendly.com/mohamedkhalil-brik" target="_blank" class="nav-cta">Book a Call</a>
-        </nav>
 
-        <button class="mobile-nav-toggle" aria-label="Open navigation" aria-expanded="false"
-            aria-controls="nav-overlay">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-        </button>
-    </header>
 
-    <!-- Full Screen Navigation Overlay (Mobile) -->
-    <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
-        <button class="close-menu" aria-label="Close navigation">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-        <ul class="nav-links-overlay">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="resources.html">Resources</a></li>
-        </ul>
+    <main id="main">
+
+        <!-- ═══ Hero: "Retrieval, Live" ═══ -->
+        <section id="home" class="rl-hero">
+            <div class="rl-hero-inner">
+
+                <div class="rl-hero-text">
+                    <div class="rl-badge">
+                        <span class="badge-dot"></span>
+                        Open to remote work
+                    </div>
+
+                    <div class="rl-identity">
+                        <img src="assets/img/me.webp" alt="Mohamed Khalil Brik" class="rl-avatar" width="64" height="64">
+                        <h1 class="rl-name"><span class="rl-line">Mohamed</span> <span class="rl-line">Khalil Brik</span></h1>
+                    </div>
+                    <p class="rl-role">AI Engineer: LLM systems, RAG pipelines &amp; agents</p>
+
+                    <ul class="rl-stats" aria-label="Highlights">
+                        <li><strong>3</strong> AI agents in production</li>
+                        <li><strong>1,500+</strong> users served</li>
+                        <li><strong>2</strong> IEEE papers</li>
+                    </ul>
+
+                    <p class="rl-desc">
+                        I ship LLM systems to production: three AI agents used by 500+ people, and a RAG chatbot on AWS
+                        serving 1,000+. M.Sc. in Advanced ML (Erasmus Mundus) in Genova. Available immediately.
+                    </p>
+
+                    <div class="rl-ctas">
+                        <a href="assets/docs/MohamedKhalil_CV.pdf" download="Mohamed-Khalil-Brik-AI-Engineer-CV.pdf" class="btn btn-primary">
+                            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download Resume
+                        </a>
+                        <a href="mailto:mohamedkhalil.brik@aucegypt.edu" class="btn btn-ghost">
+                            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Email me
+                        </a>
+                        <button type="button" class="btn-icon" data-copy="mohamedkhalil.brik@aucegypt.edu" aria-label="Copy email address" title="Copy email">
+                            <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="rl-meta">
+                        <a href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+                        </a>
+                        <a href="https://github.com/khalilbrikTN" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=lmmjDp8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+                            <svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>
+                        </a>
+                        <span class="rl-loc"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Genova, Italy · CET</span>
+                    </div>
+
+                    <p class="rl-rail" aria-label="Organisations">
+                        <span>The AI Company</span><span>EY</span><span>ADIB</span><span>diasPÜra</span><span>IEEE</span>
+                    </p>
+                </div>
+
+                <!-- Trace panel: static final state below is replaced/animated by hero-pipeline.js -->
+                <aside class="trace-panel" id="trace" role="region" aria-label="Demo: retrieval over my experience">
+                    <div class="tp-head">
+                        <span class="tp-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="tp-title">rag-trace · khalil.cv</span>
+                        <button type="button" class="tp-btn" id="tp-toggle" aria-label="Pause animation" hidden>
+                            <svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg>
+                        </button>
+                    </div>
+<!-- TRACE:STATIC START -->
+                    <div class="tp-query"><span class="tp-prompt" aria-hidden="true">&gt;</span><span id="tp-q">Why hire Khalil as an AI engineer? Production LLM agents and RAG systems with real users</span><span class="tp-caret" aria-hidden="true"></span></div>
+                    <div class="tp-field" style="background-image:url('assets/img/field.svg')">
+                        <canvas id="tp-canvas" aria-hidden="true"></canvas>
+                        <p class="tp-legend" aria-hidden="true"><span><i style="background:#22d3ee"></i>LLM systems</span><span><i style="background:#818cf8"></i>Research</span><span><i style="background:#64748b"></i>Other</span></p>
+                    </div>
+                    <ol class="tp-steps" aria-hidden="true">
+                        <li class="is-done" data-step="embed">embed <span>384-d</span></li>
+                        <li class="is-done" data-step="retrieve">retrieve <span>k=3</span></li>
+                        <li class="is-done" data-step="generate">generate</li>
+                    </ol>
+                    <ol class="tp-hits" id="tp-hits" aria-label="Retrieved evidence">
+                        <li><a class="tp-hit" href="#xp-aico"><span class="tp-n">[1]</span><span class="tp-score">0.57</span><span class="tp-hit-title">The AI Company: 3 production AI agents</span><span class="tp-metric">500+ users · LangChain, ChromaDB, FastAPI</span></a></li>
+                        <li><a class="tp-hit" href="#skills"><span class="tp-n">[2]</span><span class="tp-score">0.42</span><span class="tp-hit-title">LLM engineering stack</span><span class="tp-metric">LangChain · LlamaIndex · LLaMA · LoRA · RAG</span></a></li>
+                        <li><a class="tp-hit" href="#xp-ey"><span class="tp-n">[3]</span><span class="tp-score">0.40</span><span class="tp-hit-title">EY: ML &amp; data engineering</span><span class="tp-metric">$500K investment informed</span></a></li>
+                    </ol>
+                    <p class="tp-answer" id="tp-answer">Khalil co-founded The AI Company and shipped three production AI agents (accounting RAG, CV screening, HR) used by 500+ people <a class="cite" href="#xp-aico">[1]</a>; works with LangChain, LlamaIndex, LLaMA fine-tuning with LoRA, RAG and vector databases <a class="cite" href="#skills">[2]</a>; and built an ML vendor-recommendation system at EY that informed a $500K AI platform investment <a class="cite" href="#xp-ey">[3]</a>.</p>
+                    <div class="tp-chips" id="tp-chips" aria-label="Ask another question">
+                        <button type="button" class="tp-chip" data-script="why-hire" aria-pressed="true">Why hire Khalil?</button>
+                        <button type="button" class="tp-chip" data-script="production" aria-pressed="false">Production experience?</button>
+                        <button type="button" class="tp-chip" data-script="research" aria-pressed="false">Research?</button>
+                        <button type="button" class="tp-chip" data-script="remote" aria-pressed="false">Remote work?</button>
+                        <button type="button" class="tp-chip" data-script="stack" aria-pressed="false">Tech stack?</button>
+                    </div>
+<!-- TRACE:STATIC END -->
+                    <p class="tp-foot">
+                        scripted replay · real embeddings of my work ·
+                        <a href="https://github.com/khalilbrikTN/personal-website/blob/main/tools/build_embeddings.py" target="_blank" rel="noopener noreferrer">how it works</a>
+                    </p>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ═══ Experience ═══ -->
+        <section id="experience" class="h-section">
+            <div class="h-container">
+                <header class="h-head">
+                    <h2>Experience</h2>
+                    <p class="h-kicker">4 roles · production AI, banking, consulting · 2024–2026</p>
+                </header>
+
+                <ol class="xp-trace">
+                    <li class="xp-row reveal" id="xp-aico" data-name="The AI Company" data-skills="langchain llama chromadb fastapi docker rag hf agents python">
+                        <div class="xp-when">Feb 2026 – Aug 2026<span>Remote</span></div>
+                        <div class="xp-body">
+                            <h3>Co-Founder &amp; AI Engineer <span class="xp-at">· The AI Company</span></h3>
+                            <p class="xp-chips"><span class="chip-metric"><b data-count="3">3</b> agents in production</span><span class="chip-metric"><b data-count="500">500</b>+ users</span></p>
+                            <ul>
+                                <li>Built and deployed 3 production AI agents for Egyptian SMEs with LangChain, LLaMA, ChromaDB and FastAPI, containerised with Docker and served over REST.</li>
+                                <li><strong>Accounting Document Agent:</strong> RAG over invoices, ledgers and bank statements with custom NER; <strong>−70%</strong> manual reconciliation time across 1,000+ documents/month.</li>
+                                <li><strong>Job Application Review Agent:</strong> sentence-transformer matching against job descriptions with bias-aware LLM shortlisting; <strong>−65%</strong> screening time.</li>
+                                <li><strong>HR Management Agent:</strong> multi-turn RAG agent with tool use and confidence-based human escalation; <strong>−50%</strong> HR response time.</li>
+                            </ul>
+                            <p class="tags"><span>LangChain</span><span>LLaMA</span><span>ChromaDB</span><span>FastAPI</span><span>Docker</span></p>
+                        </div>
+                    </li>
+
+                    <li class="xp-row reveal" id="xp-ey" data-name="EY" data-skills="python sql sklearn pandas">
+                        <div class="xp-when">Jul 2025 – Aug 2025<span>Tunis</span></div>
+                        <div class="xp-body">
+                            <h3>ML &amp; Data Engineering Intern <span class="xp-at">· Ernst &amp; Young (EY)</span></h3>
+                            <p class="xp-chips"><span class="chip-metric">$<b data-count="500">500</b>K investment informed</span></p>
+                            <ul>
+                                <li>Built an ML vendor-recommendation system (Python, SQL, predictive modelling) whose insights informed a $500K AI platform investment.</li>
+                                <li>Python market analysis for a financial-services client: 3 growth opportunities worth $1M+.</li>
+                                <li>Technical due diligence on an M&amp;A transaction: architecture, data infrastructure, technical debt.</li>
+                            </ul>
+                            <p class="tags"><span>Python</span><span>SQL</span><span>Predictive modelling</span></p>
+                        </div>
+                    </li>
+
+                    <li class="xp-row reveal" id="xp-adib" data-name="ADIB" data-skills="nlp sklearn django python">
+                        <div class="xp-when">Jul 2024 – Aug 2024<span>Cairo</span></div>
+                        <div class="xp-body">
+                            <h3>AI / Information Security Engineering Intern <span class="xp-at">· Abu Dhabi Islamic Bank</span></h3>
+                            <p class="xp-chips"><span class="chip-metric"><b data-count="5000">5,000</b>+ users monitored</span><span class="chip-metric">+<b data-count="60">60</b>% IAM efficiency</span></p>
+                            <ul>
+                                <li>NLP data-leakage detection (TF-IDF + SVM) on employee email, ~72% accuracy, across a 5,000+ user infrastructure.</li>
+                                <li>Django automation for Identity Access Management: +60% efficiency, −40% process errors.</li>
+                                <li>Scraping pipeline aggregating 700,000 malicious IPs from threat-intelligence sources.</li>
+                            </ul>
+                            <p class="tags"><span>NLP</span><span>Scikit-Learn</span><span>Django</span></p>
+                            <a href="projects/ADIB.html" class="more">Read more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
+                    </li>
+
+                    <li class="xp-row reveal" id="xp-diaspura" data-name="diasPÜra" data-skills="llama rag aws python">
+                        <div class="xp-when">Jan 2024 – Jun 2024<span>Remote · France</span></div>
+                        <div class="xp-body">
+                            <h3>NLP Engineering Intern <span class="xp-at">· diasPÜra</span></h3>
+                            <p class="xp-chips"><span class="live-pill">LIVE</span><span class="chip-metric"><b data-count="1000">1,000</b>+ active users</span><span class="chip-metric">+<b data-count="20">20</b>% answer accuracy</span></p>
+                            <ul>
+                                <li>Designed, built and deployed a production RAG chatbot on AWS using LLaMA, with retrieval over scraped government immigration sources. Still live.</li>
+                                <li>Automated scraping into a vector-indexed knowledge base, improving answer accuracy by 20%.</li>
+                            </ul>
+                            <p class="tags"><span>LLaMA</span><span>RAG</span><span>AWS</span></p>
+                            <a href="projects/Diaspura.html" class="more">Read more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ═══ Projects (bento) ═══ -->
+        <section id="projects" class="h-section">
+            <div class="h-container">
+                <header class="h-head">
+                    <h2>Projects</h2>
+                    <p class="h-kicker">Production systems first, then research.</p>
+                </header>
+
+                <div class="bento">
+
+                    <!-- 3 production agents -->
+                    <article class="tile tile-xl reveal" id="proj-agents" data-name="3 Production AI Agents" data-skills="langchain llama chromadb fastapi docker rag hf agents">
+                        <p class="tags"><span>LangChain</span><span>RAG</span><span>Agents</span></p>
+                        <h3>3 Production AI Agents</h3>
+                        <div class="agent-tabs" role="tablist" aria-label="Agent architectures">
+                            <button role="tab" aria-selected="true" data-agent="acc">Accounting</button>
+                            <button role="tab" aria-selected="false" data-agent="cv">CV Screening</button>
+                            <button role="tab" aria-selected="false" data-agent="hr">HR</button>
+                        </div>
+                        <div class="agent-flow" data-agent-panel="acc">
+                            <ol class="flow"><li>Invoices · ledgers</li><li>Chunk + NER</li><li>ChromaDB</li><li>LLaMA</li><li>FastAPI</li></ol>
+                            <p class="flow-metric"><b>−70%</b> reconciliation time · 1,000+ docs/month</p>
+                        </div>
+                        <div class="agent-flow" data-agent-panel="cv" hidden>
+                            <ol class="flow"><li>CV + JD</li><li>Sentence embeddings</li><li>Cosine match</li><li>Bias-aware LLM ranker</li><li>Shortlist</li></ol>
+                            <p class="flow-metric"><b>−65%</b> screening time · 300+ applications/cycle</p>
+                        </div>
+                        <div class="agent-flow" data-agent-panel="hr" hidden>
+                            <ol class="flow"><li>Employee query</li><li>RAG over policies</li><li>Tools: leave, onboarding</li><li>Confidence gate</li><li>Human escalation</li></ol>
+                            <p class="flow-metric"><b>−50%</b> HR response time</p>
+                        </div>
+                        <p class="pa"><b>Problem</b> SMEs drowning in documents, CVs and HR tickets. <b>Approach</b> RAG agents with NER, embeddings and tool use, shipped with Docker + FastAPI. <b>Result</b> 500+ users across client organisations.</p>
+                        <div class="tile-links"><a href="#xp-aico" class="more">See the role <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+                    </article>
+
+                    <!-- diasPÜra -->
+                    <article class="tile tile-wide reveal" id="proj-diaspura" data-name="diasPÜra RAG chatbot" data-skills="llama rag aws python">
+                        <p class="tags"><span class="live-pill">LIVE</span><span>LLaMA</span><span>AWS</span></p>
+                        <h3>Immigration RAG Chatbot</h3>
+                        <div class="mini-chat demo" aria-hidden="true">
+                            <p class="mc-user">Which documents do I need for a French student visa?</p>
+                            <p class="mc-src"><span>campusfrance.org</span><span>france-visas.gouv.fr</span></p>
+                            <p class="mc-bot">You'll need a passport, an acceptance letter, proof of funds…</p>
+                        </div>
+                        <p class="pa"><b>Result</b> 1,000+ active users, +20% answer accuracy.</p>
+                        <div class="tile-links"><a href="projects/Diaspura.html" class="more">Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+                    </article>
+
+                    <!-- QUBO -->
+                    <article class="tile reveal" id="proj-qubo" data-name="Quantum AP selection (thesis)" data-skills="dwave qubo qiskit python">
+                        <p class="tags"><span>QUBO</span><span>D-Wave</span></p>
+                        <h3>Quantum AP Selection</h3>
+                        <div class="dots demo" data-dots="100" data-keep="10" aria-hidden="true"></div>
+                        <p class="pa"><b>520 → 50</b> access points, <b>−90.4%</b> features, same positioning accuracy. IEEE QCNC 2026.</p>
+                        <div class="tile-links">
+                            <a href="projects/Thesis.html" class="more">Project <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            <a href="assets/docs/Quantum_Optimization_for_Access_Point_Selection_Under_Budget_Constraint.pdf" target="_blank" class="more-2"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg> Paper</a>
+                        </div>
+                    </article>
+
+                    <!-- 911 -->
+                    <article class="tile reveal" id="proj-911" data-name="Emergency Response LLM" data-skills="openai whisper lora hf pytorch nlp">
+                        <p class="tags"><span>Whisper + LoRA</span><span>NER</span></p>
+                        <h3>Emergency Response LLM</h3>
+                        <div class="wave demo" aria-hidden="true">
+                            <div class="wave-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                            <p class="wave-text">Fire at <mark data-ent="ADDRESS">42 Elm Street</mark>, <mark data-ent="INCIDENT">smoke</mark> on 2nd floor</p>
+                        </div>
+                        <p class="pa"><b>76.5%</b> address extraction on 518 real calls. NCUR 2025.</p>
+                        <div class="tile-links">
+                            <a href="projects/llm-researcher.html" class="more">Project <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            <a href="assets/docs/911_paper.pdf" target="_blank" class="more-2"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg> Paper</a>
+                        </div>
+                    </article>
+
+                    <!-- Orbital -->
+                    <article class="tile reveal" id="proj-orbital" data-name="Orbital Intelligence" data-skills="">
+                        <p class="tags"><span>Green AI</span><span>IEEE</span></p>
+                        <h3>Orbital Intelligence</h3>
+                        <div class="orbit demo" aria-hidden="true"><span class="planet"></span><span class="ring"><span class="sat"></span></span></div>
+                        <p class="pa">Sustainable LLM training and inference in space. IEEE ICGHIT 2026.</p>
+                        <div class="tile-links"><a href="projects/ICGHIT.html" class="more">Paper page <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+                    </article>
+
+                    <!-- LK-HUB -->
+                    <article class="tile reveal" id="proj-lkhub" data-name="LK-HUB" data-skills="javascript nextjs mongodb">
+                        <p class="tags"><span class="live-pill">LIVE</span><span>Next.js</span><span>MongoDB</span></p>
+                        <h3>LK-HUB Platform</h3>
+                        <img src="assets/img/lk_hub.webp" alt="LK-HUB platform homepage" class="tile-img" width="800" height="381" loading="lazy" decoding="async">
+                        <p class="pa">Full-stack media-literacy platform with admin console and CMS.</p>
+                        <div class="tile-links">
+                            <a href="projects/LK_HUB.html" class="more">Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            <a href="https://liberating-knowledge.com/" target="_blank" rel="noopener noreferrer" class="more-2"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg> Live</a>
+                        </div>
+                    </article>
+
+                    <!-- Fairness -->
+                    <article class="tile tile-minor reveal" id="proj-fair" data-name="Fairness-Aware Healthcare ML" data-skills="pytorch tensorflow sklearn">
+                        <svg class="tile-glyph" aria-hidden="true"><use href="#i-scale"/></svg>
+                        <h3>Fairness-Aware Healthcare ML</h3>
+                        <p class="pa">Bias detection on NIH All of Us data; custom fairness metrics, <b>+17%</b> bias quantification. College of Charleston.</p>
+                    </article>
+
+                    <!-- Clustering -->
+                    <article class="tile tile-minor reveal" id="proj-cluster" data-name="LLM Feedback Clustering" data-skills="openai hf">
+                        <svg class="tile-glyph" aria-hidden="true"><use href="#i-cluster"/></svg>
+                        <h3>LLM Feedback Clustering</h3>
+                        <p class="pa">GPT-4 few-shot clustering of 2,000+ feedback entries, <b>+28%</b> coherence, validated with ARI and silhouette.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ Skills ═══ -->
+        <section id="skills" class="h-section">
+            <div class="h-container">
+                <header class="h-head">
+                    <h2>Skills</h2>
+                    <p class="h-kicker">Tools I've shipped with. Hover or tap one to see where I used it.</p>
+                </header>
+                <div class="skill-groups">
+                    <div class="skill-group">
+                        <h3>LLM Engineering</h3>
+                        <p>
+                            <button class="sk top" data-skill="langchain">LangChain</button>
+                            <button class="sk top" data-skill="rag">RAG</button>
+                            <button class="sk top" data-skill="llama">LLaMA</button>
+                            <button class="sk" data-skill="agents">Multi-agent systems</button>
+                            <button class="sk" data-skill="openai">OpenAI API</button>
+                            <button class="sk" data-skill="hf">Hugging Face</button>
+                            <button class="sk" data-skill="lora">LoRA / PEFT</button>
+                            <button class="sk" data-skill="chromadb">ChromaDB</button>
+                            <button class="sk" data-skill="llamaindex">LlamaIndex</button>
+                            <button class="sk" data-skill="faiss">FAISS</button>
+                        </p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Machine Learning</h3>
+                        <p>
+                            <button class="sk top" data-skill="pytorch">PyTorch</button>
+                            <button class="sk" data-skill="sklearn">Scikit-Learn</button>
+                            <button class="sk" data-skill="tensorflow">TensorFlow</button>
+                            <button class="sk" data-skill="nlp">NLP</button>
+                            <button class="sk" data-skill="whisper">Whisper (ASR)</button>
+                            <button class="sk" data-skill="pandas">Pandas / NumPy</button>
+                        </p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Backend &amp; Deployment</h3>
+                        <p>
+                            <button class="sk top" data-skill="fastapi">FastAPI</button>
+                            <button class="sk top" data-skill="aws">AWS</button>
+                            <button class="sk" data-skill="python">Python</button>
+                            <button class="sk" data-skill="docker">Docker</button>
+                            <button class="sk" data-skill="sql">SQL</button>
+                            <button class="sk" data-skill="django">Django</button>
+                            <button class="sk" data-skill="nextjs">Next.js</button>
+                            <button class="sk" data-skill="mongodb">MongoDB</button>
+                        </p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Optimization &amp; Quantum</h3>
+                        <p>
+                            <button class="sk" data-skill="qubo">QUBO</button>
+                            <button class="sk" data-skill="dwave">D-Wave</button>
+                            <button class="sk" data-skill="qiskit">Qiskit</button>
+                        </p>
+                    </div>
+                </div>
+                <p class="skill-usage" id="skill-usage" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <!-- ═══ Research & Education ═══ -->
+        <section id="research" class="h-section">
+            <div class="h-container">
+                <header class="h-head">
+                    <h2>Research &amp; Education</h2>
+                    <p class="h-kicker">2 IEEE papers · Erasmus Mundus M.Sc. · AUC GPA 3.7</p>
+                </header>
+
+                <div class="pubs">
+                    <article class="pub reveal" id="pub-qcnc">
+                        <p class="pub-venue">IEEE QCNC 2026 <span class="pill">First author</span></p>
+                        <h3>Quantum Optimization for Access Point Selection Under Budget Constraint</h3>
+                        <p class="pub-authors">M.K. Brik, A. Shokry, M. Youssef</p>
+                        <div class="pub-actions">
+                            <a href="assets/docs/Quantum_Optimization_for_Access_Point_Selection_Under_Budget_Constraint.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg> PDF</a>
+                            <a href="projects/QCNC.html"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg> Project page</a>
+                            <button type="button" data-copy-bib="bib-qcnc"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> BibTeX</button>
+                        </div>
+                        <template id="bib-qcnc">@inproceedings{brik2026quantum,
+  title     = {Quantum Optimization for Access Point Selection Under Budget Constraint},
+  author    = {Brik, Mohamed Khalil and Shokry, A. and Youssef, Moustafa},
+  booktitle = {IEEE International Conference on Quantum Communications, Networking, and Computing (QCNC)},
+  year      = {2026}
+}</template>
+                    </article>
+
+                    <article class="pub reveal" id="pub-icghit">
+                        <p class="pub-venue">IEEE ICGHIT 2026</p>
+                        <h3>Orbital Intelligence: Sustainable LLM Training in Space</h3>
+                        <p class="pub-authors">M.K. Brik</p>
+                        <div class="pub-actions">
+                            <a href="projects/ICGHIT.html"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg> Paper page</a>
+                            <button type="button" data-copy-bib="bib-icghit"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> BibTeX</button>
+                        </div>
+                        <template id="bib-icghit">@inproceedings{brik2026orbital,
+  title     = {Orbital Intelligence: Sustainable LLM Training in Space},
+  author    = {Brik, Mohamed Khalil},
+  booktitle = {International Conference on Green and Human Information Technology (ICGHIT)},
+  year      = {2026}
+}</template>
+                    </article>
+
+                    <article class="pub reveal" id="pub-ncur">
+                        <p class="pub-venue">NCUR 2025 · Pittsburgh</p>
+                        <h3>Using LLMs to Enhance Emergency Response Systems</h3>
+                        <p class="pub-authors">M.K. Brik</p>
+                        <div class="pub-actions">
+                            <a href="assets/docs/911_paper.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg> PDF</a>
+                            <a href="projects/NCUR.html"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg> Project page</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="edu" id="education">
+                    <div class="edu-row reveal">
+                        <div class="xp-when">Sep 2026 – Aug 2028</div>
+                        <div>
+                            <h3>M.Sc. Computer Engineering · Erasmus Mundus EMSSE</h3>
+                            <p>University of Genova &amp; Université de Technologie de Compiègne. Advanced Machine Learning and Optimisation of Systems; second year at the Heudiasyc Laboratory.</p>
+                        </div>
+                    </div>
+                    <div class="edu-row reveal">
+                        <div class="xp-when">Sep 2022 – Jun 2026</div>
+                        <div>
+                            <h3>B.Sc. Computer Science · The American University in Cairo</h3>
+                            <p>GPA 3.7/4.0, Dean's List every semester. Semester at the College of Charleston (GPA 3.9). U.S. State Department Tomorrow's Leaders Scholar.</p>
+                            <a href="academics.html" class="more">Academic journey <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ Contact ═══ -->
+        <section id="contact" class="h-section contact">
+            <div class="h-container">
+                <h2 class="contact-title">Let's build reliable AI systems.</h2>
+                <div class="avail-card">
+                    <p class="avail-line"><span class="badge-dot"></span> Open to fully remote work</p>
+                    <p class="avail-meta">
+                        <span>Genova, Italy · CET</span>
+                        <span>Local time <b id="genova-time">--:--</b></span>
+                        <span>Available immediately</span>
+                    </p>
+                    <p class="avail-langs">English C1 · French B2 · Arabic (native) · German A2 · Italian A1</p>
+                </div>
+                <div class="contact-ctas">
+                    <a href="mailto:mohamedkhalil.brik@aucegypt.edu" class="btn btn-primary magnetic">
+                        <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Email me
+                    </a>
+                    <button type="button" class="btn-icon" data-copy="mohamedkhalil.brik@aucegypt.edu" aria-label="Copy email address" title="Copy email">
+                        <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>
+                    </button>
+                    <a href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+                        <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn
+                    </a>
+                    <a href="assets/docs/MohamedKhalil_CV.pdf" download="Mohamed-Khalil-Brik-AI-Engineer-CV.pdf" class="btn btn-ghost">
+                        <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer" data-site-footer><p>&copy; Mohamed Khalil Brik</p></footer>
+
+    <!-- Command palette (Ctrl/⌘ + K) -->
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
+        <div class="palette-box">
+            <input type="text" id="palette-input" placeholder="Type a command… (resume, email, projects)" autocomplete="off" aria-controls="palette-list">
+            <ul id="palette-list" role="listbox"></ul>
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-inner">
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-            <!-- Left: Text Content -->
-            <div class="hero-text">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    Available for Freelance
-                </div>
-                <p class="hero-greeting">Hi, I'm</p>
-                <h1 class="hero-title">
-                    <span class="highlight">Architecting Intelligence</span>
-                </h1>
-                <h2 class="hero-subtitle">Software Architect · AI Researcher · Systems Engineer</h2>
-                <p class="hero-description">
-                    Leveraging <span id="rotating-text" class="rotating-text">Intelligent Systems</span> for Complex
-                    Frontiers
-                </p>
-                <p class="hero-description sub">
-                    Specializing in the intersection of AI, Quantum Computing, and Large-Scale Software Infrastructure.
-                </p>
-
-                <!-- Email + Socials row -->
-                <div class="hero-contact-row">
-                    <a href="mailto:mohamedkhalil.brik@aucegypt.edu" class="hero-email">
-                        <i class="fas fa-envelope"></i> mohamedkhalil.brik@aucegypt.edu
-                    </a>
-                    <div class="profile-social">
-                        <a href="https://www.linkedin.com/in/mohamed-khalil-brik-457164183/"
-                            class="profile-social-link linkedin" target="_blank" rel="noopener noreferrer"
-                            title="LinkedIn Profile">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/khalilbrikTN" class="profile-social-link github" target="_blank"
-                            rel="noopener noreferrer" title="GitHub Profile">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.researchgate.net/profile/Mohamed-Khalil-Brik"
-                            class="profile-social-link researchgate" target="_blank" rel="noopener noreferrer"
-                            title="ResearchGate Profile">
-                            <i class="fab fa-researchgate"></i>
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=lmmjDp8AAAAJ&hl=en"
-                            class="profile-social-link google-scholar" target="_blank" rel="noopener noreferrer"
-                            title="Google Scholar Profile">
-                            <i class="fas fa-graduation-cap"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Primary CTAs -->
-                <div class="hero-actions">
-                    <a href="services.html" class="cta-button hire-btn">
-                        <i class="fas fa-briefcase"></i> Check my Services
-                    </a>
-                    <a href="https://calendly.com/mohamedkhalil-brik" target="_blank" class="cta-button">
-                        <i class="fas fa-calendar-check"></i> Book a Meeting
-                    </a>
-                </div>
-
-                <!-- Secondary CTAs -->
-                <div class="hero-actions-secondary">
-                    <a href="blog.html" class="download-btn">
-                        <i class="fas fa-flask"></i> Check my research
-                    </a>
-                    <a href="assets/docs/MohamedKhalil_CV.pdf" target="_blank" class="download-btn">
-                        <i class="fas fa-file-download"></i> Download Resume
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right: Profile Image -->
-            <div class="hero-image-col">
-                <div class="profile-img-wrapper">
-                    <div class="profile-img-container">
-                        <img src="assets/img/me.jpeg" alt="Mohamed Khalil Brik" class="profile-img">
-                    </div>
-                    <div class="hero-stat stat-top-right">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Publications</span>
-                    </div>
-                    <div class="hero-stat stat-bottom-left">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Internships</span>
-                    </div>
-                    <div class="hero-stat stat-bottom-right">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Coding</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Research Section (The New Authority Anchor) -->
-    <section id="research" class="research-section" style="padding: 100px 5%;">
-        <div class="container">
-            <h2 class="section-title">Research & Publications</h2>
-            <div class="research-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
-
-                <!-- Publication 1 -->
-                <article class="research-card"
-                    style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px; position: relative; overflow: hidden;">
-                    <div
-                        style="position: absolute; top:0; left:0; width:4px; height:100%; background: var(--primary-color);">
-                    </div>
-                    <span
-                        style="color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">IEEE
-                        QCNC 2026</span>
-                    <h3 style="margin: 1rem 0; font-size: 1.6rem;">Quantum Optimization for Access Point Selection</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
-                        Solving infrastructure constraints in dense wireless networks using Quantum-inspired algorithms.
-                        Focus on budget-constrained optimization.
-                    </p>
-                    <a href="projects/QCNC.html" class="read-more"
-                        style="color: white; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-                        View Full Paper <i class="fas fa-arrow-right"></i>
-                    </a>
-                </article>
-
-                <!-- Publication 2 -->
-                <article class="research-card"
-                    style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px; position: relative; overflow: hidden;">
-                    <div
-                        style="position: absolute; top:0; left:0; width:4px; height:100%; background: var(--secondary-color);">
-                    </div>
-                    <span
-                        style="color: var(--secondary-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">ICGHIT
-                        2026</span>
-                    <h3 style="margin: 1rem 0; font-size: 1.6rem;">Orbital Intelligence: LLM Training in Space</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
-                        Exploring sustainable training and inference for Large Language Models on satellite
-                        infrastructure. Sustainable compute at orbit.
-                    </p>
-                    <a href="projects/ICGHIT.html" class="read-more"
-                        style="color: white; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-                        View Full Paper <i class="fas fa-arrow-right"></i>
-                    </a>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section (Cleaned) -->
-    <section id="skills" class="skills" style="background: transparent;">
-        <div class="container">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="skills-content"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-
-                <div class="skills-category">
-                    <h3>Systems Architecture</h3>
-                    <div class="skills-grid">
-                        <span class="skill-item">Distributed Systems</span>
-                        <span class="skill-item">Cloud Infrastructure</span>
-                        <span class="skill-item">DevOps / CI/CD</span>
-                        <span class="skill-item">Database Design (SQL/NoSQL)</span>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3>AI & Optimization</h3>
-                    <div class="skills-grid">
-                        <span class="skill-item">Quantum Computing</span>
-                        <span class="skill-item">Large Language Models (LLMs)</span>
-                        <span class="skill-item">RAG Pipelines</span>
-                        <span class="skill-item">Mathematical Modeling</span>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3>Low-Level Engineering</h3>
-                    <div class="skills-grid">
-                        <span class="skill-item">C / C++ / Assembly</span>
-                        <span class="skill-item">Python (Numerical)</span>
-                        <span class="skill-item">Hardware Description (Verilog)</span>
-                        <span class="skill-item">Linux Systems</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Daily Toolkit -->
-            <div class="toolkit-divider"></div>
-            <h3 style="text-align:center; padding: 2rem 0 0; font-size:1.5rem; color: var(--primary-color);">Tools I Use Daily</h3>
-            <div class="toolkit-grid">
-
-                <a href="https://code.visualstudio.com" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VS Code" width="38" height="38" />
-                    </div>
-                    <span class="tool-name">VS Code</span>
-                </a>
-
-                <a href="https://notion.so" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <img src="https://cdn.simpleicons.org/notion/ffffff" alt="Notion" width="38" height="38" />
-                    </div>
-                    <span class="tool-name">Notion</span>
-                </a>
-
-                <a href="https://linkedin.com" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <i class="fab fa-linkedin tool-fa-icon" style="color:#0A66C2;"></i>
-                    </div>
-                    <span class="tool-name">LinkedIn</span>
-                </a>
-
-                <a href="https://calendly.com" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <img src="https://cdn.simpleicons.org/calendly/006BFF" alt="Calendly" width="38" height="38" />
-                    </div>
-                    <span class="tool-name">Calendly</span>
-                </a>
-
-                <a href="https://claude.ai" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/claude-color.png" alt="Claude" width="38" height="38" />
-                    </div>
-                    <span class="tool-name">Claude</span>
-                </a>
-
-                <a href="https://openclaw.ai" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <span style="font-size:2rem;line-height:1;">🦞</span>
-                    </div>
-                    <span class="tool-name">OpenClaw</span>
-                </a>
-
-                <a href="https://github.com" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <i class="fab fa-github tool-fa-icon" style="color:#ffffff;"></i>
-                    </div>
-                    <span class="tool-name">GitHub</span>
-                </a>
-
-                <a href="https://calendar.google.com" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <img src="https://cdn.simpleicons.org/googlecalendar" alt="Google Calendar" width="38" height="38" />
-                    </div>
-                    <span class="tool-name">Google Calendar</span>
-                </a>
-
-                <a href="https://zen-browser.app" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <img src="https://cdn.simpleicons.org/zenbrowser/9333ea" alt="Zen Browser" width="38" height="38" />
-                    </div>
-                    <span class="tool-name">Zen Browser</span>
-                </a>
-
-                <a href="https://antigravity.app" class="tool-card" target="_blank" rel="noopener noreferrer">
-                    <div class="tool-icon-wrap">
-                        <img src="https://antigravity.google/assets/image/antigravity-logo.png" alt="AntiGravity" width="38" height="38" />
-                    </div>
-                    <span class="tool-name">AntiGravity</span>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="projects">
-        <h2>News</h2>
-        <div class="projects-grid">
-
-            <!-- Project: QCNC 2026 (Feb 2026) -->
-            <article class="project-card">
-                <img src="assets/img/logo_qcnc_2025.png" alt="IEEE QCNC 2026" class="project-img"
-                    style="object-fit: contain; background: #fff; padding: 1rem;">
-                <div class="card-content">
-                    <span class="project-date">February, 2026</span>
-                    <h3>Paper Accepted at IEEE QCNC 2026</h3>
-                    <p>Quantum Optimization for Access Point Selection Under Budget Constraint.</p>
-                    <a href="projects/QCNC.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project: ICGHIT 2026 (Jan 2026) -->
-            <article class="project-card">
-                <img src="assets/img/ICGHIT'26.png" alt="ICGHIT 2026" class="project-img"
-                    style="object-fit: contain; background: #fff; padding: 1rem;">
-                <div class="card-content">
-                    <span class="project-date">January 8, 2026</span>
-                    <h3>Paper Accepted at ICGHIT 2026</h3>
-                    <p>Orbital Intelligence: Sustainable LLM Training and Inference in Space.</p>
-                    <a href="projects/ICGHIT.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 0: Cairo to DC (Jan 2026) -->
-            <article class="project-card">
-                <img src="assets/img/Deputy_State.jpg" alt="Cairo to DC" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">January, 2026</span>
-                    <h3>From Cairo to D.C.: 104 Years of Diplomatic Ties</h3>
-                    <p>Discussion on Egypt-U.S. relations with U.S. Deputy Secretary of State.</p>
-                    <a href="projects/CairoToDC.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 1: Thesis (Dec 2025) -->
-            <article class="project-card">
-                <img src="assets/img/Thesis_pic.jpeg" alt="Thesis" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">December, 2025</span>
-                    <h3>Completed the first part of my Bachelor Thesis</h3>
-                    <p>Research paper and presentation on advanced topics in Data Science/Security.</p>
-                    <a href="projects/Thesis.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 2: Project Management Training (Nov 2025) -->
-            <article class="project-card">
-                <img src="assets/img/PMP_3.JPG" alt="PMP" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">November, 2025</span>
-                    <h3>Received the Project Management Training</h3>
-                    <p>Received a PM course from the AUC Tomorrow's Leaders Program (MENA).</p>
-                    <a href="projects/TomorrowsLeaders.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 3: The AI Company (Oct 2025) -->
-            <article class="project-card">
-                <img src="assets/img/AI_Company_Logo.jpg" alt="The AI Company" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">October, 2025</span>
-                    <h3>Started The AI Company</h3>
-                    <p>Launching The AI Company: Interconnecting data, policy, and real-world impact.</p>
-                    <a href="projects/TheAICompany.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 4: NCUR (April 2025) -->
-            <article class="project-card">
-                <img src="assets/img/NCUR1.jpg" alt="NCUR Conference" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">April, 2025</span>
-                    <h3>Participated in the NCUR Conference</h3>
-                    <p>Presented at the National Conference on Undergraduate Research.</p>
-                    <a href="projects/NCUR.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 5: CFC (Spring 2025) -->
-            <article class="project-card">
-                <img src="assets/img/CFC1.jpg" alt="CFC" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">Spring, 2025</span>
-                    <h3>Study Abroad at the College of Charleston</h3>
-                    <p>Engagement and events participation.</p>
-                    <a href="projects/CFC.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 6: NASA (Spring 2025) -->
-            <article class="project-card">
-                <img src="assets/img/Nasa1.jpg" alt="NASA Course" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">Spring, 2025</span>
-                    <h3>Joined the NASA Space Mission Design Course</h3>
-                    <p>Space Apps Challenge and specialized training participation.</p>
-                    <a href="projects/NASA_course.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 7: LLM Researcher (Dec 2024) -->
-            <article class="project-card">
-                <div class="card-placeholder-img"><i class="fas fa-robot"></i></div>
-                <div class="card-content">
-                    <span class="project-date">December, 2024</span>
-                    <h3>Researcher in Large Language Models</h3>
-                    <p>Exploration and development with Large Language Models.</p>
-                    <a href="projects/llm-researcher.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 8: ADIB (Summer 2024) -->
-            <article class="project-card">
-                <img src="assets/img/Adib1.jpg" alt="ADIB Internship" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">Summer, 2024</span>
-                    <h3>Software Engineering intern at ADIB Egypt</h3>
-                    <p>Identity Access Management and Process Automation.</p>
-                    <a href="projects/ADIB.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 9: Diaspura (Spring 2024) -->
-            <article class="project-card">
-                <img src="assets/img/Diaspura.png" alt="Diaspura" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">Spring, 2024</span>
-                    <h3>Chat bot development intern at Diaspura</h3>
-                    <p>Chat bot development using LLMs.</p>
-                    <a href="projects/Diaspura.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 10: ECPC (October 2023) -->
-            <article class="project-card">
-                <img src="assets/img/ECPC.jpg" alt="ECPC" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">October, 2023</span>
-                    <h3>Participated in ECPC Contests</h3>
-                    <p>Participated in the Egyptian Collegiate Programming Contest.</p>
-                    <a href="projects/ECPC.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 11: Harvard Aspire (March 2023) -->
-            <article class="project-card">
-                <img src="assets/img/aspire.jpg" alt="Harvard Aspire" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">March, 2023</span>
-                    <h3>Finished the Harvard Aspire Leaders Program</h3>
-                    <p>Stage 3 completion: Leadership in volatile environments.</p>
-                    <a href="projects/HarvardAspire.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-
-            <!-- Project 12: AUC (September 2022) -->
-            <article class="project-card">
-                <img src="assets/img/AUC1.jpg" alt="AUC" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">September, 2022</span>
-                    <h3>Joined the American University in Cairo</h3>
-                    <p>Academic achievements and activities at the American University in Cairo.</p>
-                    <a href="projects/AUC.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-            <!-- Project 13: Baccalaureate (June 2022) -->
-            <article class="project-card">
-                <img src="assets/img/bac.png" alt="Baccalaureate" class="project-img">
-                <div class="card-content">
-                    <span class="project-date">June, 2022</span>
-                    <h3>Received my Baccalaureate Certificate</h3>
-                    <p>High school achievements and foundational education.</p>
-                    <a href="projects/Bac.html" class="read-more">Read More</a>
-                </div>
-            </article>
-
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="blog.html" class="view-archive-btn">View all posts &amp; updates <i
-                    class="fas fa-arrow-right"></i></a>
-        </div>
-    </section>
-
-    <!-- Certifications Summary Section -->
-    <section id="certifications" class="certifications-summary">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-
-            <div class="cert-summary-grid">
-                <!-- 1. TOEFL -->
-                <div class="cert-feature-card">
-                    <div class="cert-feature-icon"><i class="fas fa-globe-americas"></i></div>
-                    <div class="cert-feature-content">
-                        <h3>TOEFL iBT (Score: 106/120)</h3>
-                        <p class="cert-feature-org">ETS</p>
-                        <span class="cert-feature-year">2025</span>
-                    </div>
-                    <a href="https://drive.google.com/file/d/1sBBl3L8ggYmsQt2f_VQFIEypIGkyZPh7/view?usp=sharing"
-                        target="_blank" class="cert-feature-link" aria-label="View Certificate"><i
-                            class="fas fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- 2. Responsible Research -->
-                <div class="cert-feature-card">
-                    <div class="cert-feature-icon"><i class="fas fa-clipboard-check"></i></div>
-                    <div class="cert-feature-content">
-                        <h3>Responsible Conduct of Research</h3>
-                        <p class="cert-feature-org">Institute of Health (USA)</p>
-                        <span class="cert-feature-year">2020</span>
-                    </div>
-                    <a href="assets/docs/AoU CertOfCompletion-DYNAMIC-Source.pdf" target="_blank"
-                        class="cert-feature-link" aria-label="View Certificate"><i
-                            class="fas fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- 3. Tomorrow's Leaders -->
-                <div class="cert-feature-card">
-                    <div class="cert-feature-icon"><i class="fas fa-award"></i></div>
-                    <div class="cert-feature-content">
-                        <h3>Community Engagement Certificate</h3>
-                        <p class="cert-feature-org">Tomorrow's Leaders Program</p>
-                        <span class="cert-feature-year">2025</span>
-                    </div>
-                    <a href="https://badgr.com/public/assertions/ooxRST2-Sgqm2pR8rjsrVg?identity__email=mohamedkhalil.brik@aucegypt.edu"
-                        target="_blank" class="cert-feature-link" aria-label="View Certificate"><i
-                            class="fas fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- 4. UMich Data Science -->
-                <div class="cert-feature-card">
-                    <div class="cert-feature-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="cert-feature-content">
-                        <h3>Introduction to Data Science</h3>
-                        <p class="cert-feature-org">University of Michigan</p>
-                        <span class="cert-feature-year">2020</span>
-                    </div>
-                    <a href="https://coursera.org/verify/3UCNDUBFEVY6" target="_blank" class="cert-feature-link"
-                        aria-label="View Certificate"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- 5. IBM Python -->
-                <div class="cert-feature-card">
-                    <div class="cert-feature-icon"><i class="fab fa-python"></i></div>
-                    <div class="cert-feature-content">
-                        <h3>Python for Data Science & AI</h3>
-                        <p class="cert-feature-org">IBM</p>
-                        <span class="cert-feature-year">2020</span>
-                    </div>
-                    <a href="https://coursera.org/verify/K8AGGPSNJWVP" target="_blank" class="cert-feature-link"
-                        aria-label="View Certificate"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- 6. Meta Version Control -->
-                <div class="cert-feature-card">
-                    <div class="cert-feature-icon"><i class="fab fa-git-alt"></i></div>
-                    <div class="cert-feature-content">
-                        <h3>Version Control</h3>
-                        <p class="cert-feature-org">Meta</p>
-                        <span class="cert-feature-year">2023</span>
-                    </div>
-                    <a href="https://coursera.org/verify/PGPF4YVW377G" target="_blank" class="cert-feature-link"
-                        aria-label="View Certificate"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-
-            <div class="cert-view-all">
-                <a href="certifications.html" class="view-archive-btn">View full certification archive <i
-                        class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section (Dome) -->
-    <!-- Map Section -->
-    <section id="map-section" class="map-section">
-        <div class="container">
-            <h2 class="section-title">Strategic Footprint</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; margin-top: -1.5rem;">
-                Tracking the impact of research, collaboration, and academic exchange across global frontiers.
-            </p>
-            <div id="map" class="map-container"></div>
-        </div>
-    </section>
-
-    <!-- Foot Note -->
-    <footer id="contact" class="footer">
-        <p>&copy; 2025 Mohamed Khalil Brik. All rights reserved.</p>
-    </footer>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=5" defer></script>
+    <script src="assets/js/home.js?v=1" defer></script>
+    <script src="assets/js/hero-pipeline.js?v=2" type="module"></script>
 </body>
 
 </html>

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Cairo Status Logic
+    // Local Status Logic (Genova, Europe/Rome)
     function updateCairoStatus() {
         const timeElement = document.getElementById('cairo-time');
         const statusTextElement = document.getElementById('availability-status');
@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!timeElement || !statusTextElement || !indicatorElement) return;
 
-        // Get current time in Cairo
+        // Get current local time in Genova
         const now = new Date();
         const options = {
-            timeZone: 'Africa/Cairo',
+            timeZone: 'Europe/Rome',
             hour: 'numeric',
             minute: '2-digit',
             second: '2-digit',
@@ -87,19 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // format() returns something like "Sunday, 2:30:45 PM" depending on options
         // Let's just use the time portion for display
         const timeDisplayOptions = {
-            timeZone: 'Africa/Cairo',
+            timeZone: 'Europe/Rome',
             hour: 'numeric',
             minute: '2-digit',
             second: '2-digit',
             hour12: true
         };
-        timeElement.textContent = new Intl.DateTimeFormat('en-US', timeDisplayOptions).format(now) + " (Cairo)";
+        timeElement.textContent = new Intl.DateTimeFormat('en-US', timeDisplayOptions).format(now) + " (Genova)";
 
-        // Logic: Online if Sunday(0)..Thursday(4) AND 9am..6pm (18:00)
+        // Logic: Online if Monday..Friday AND 9am..6pm (18:00)
         // Map day string to index? Or use getDay() from a Cairo-adjusted date object?
         // Constructing a Cairo specific Date object is safer.
         // Hacky but effective: Map weekday names.
-        const validDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+        const validDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         const isWorkDay = validDays.includes(dayPart);
         const isWorkHour = hour >= 9 && hour < 18; // 9:00 to 17:59
 
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statusTextElement.style.color = "#10b981"; // Success Green
             indicatorElement.className = "status-indicator online";
         } else {
-            statusTextElement.textContent = "Available for freelance";
+            statusTextElement.textContent = "Open to remote AI roles";
             statusTextElement.style.color = "#f59e0b"; // Amber
             indicatorElement.className = "status-indicator offline";
         }
@@ -208,35 +208,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new RotationAnimation('rotating-text', rotatingTexts, 2000);
 
-    // Back to Top Button Logic
-    function initBackToTop() {
-        // Create button element
-        const btn = document.createElement('button');
-        btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        btn.className = 'back-to-top-btn';
-        btn.setAttribute('aria-label', 'Back to top');
-        document.body.appendChild(btn);
 
-        // Scroll event to toggle visibility
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
+    // Dropdown Nav Logic
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        let closeTimer;
+
+        const open = () => {
+            clearTimeout(closeTimer);
+            dropdown.classList.add('open');
+        };
+
+        const close = () => {
+            closeTimer = setTimeout(() => dropdown.classList.remove('open'), 120);
+        };
+
+        dropdown.addEventListener('mouseenter', open);
+        dropdown.addEventListener('mouseleave', close);
+
+        // Keep open when mouse moves into the menu itself
+        const menu = dropdown.querySelector('.nav-dropdown-menu');
+        if (menu) {
+            menu.addEventListener('mouseenter', open);
+            menu.addEventListener('mouseleave', close);
+        }
+
+        // Close on click outside
+        document.addEventListener('click', e => {
+            if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
         });
-
-        // Click event to scroll to top
-        btn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    // Initialize Back to Top
-    initBackToTop();
+    });
 
     // Global Footprint Map Implementation
     const initMap = () => {
@@ -251,10 +251,10 @@ document.addEventListener('DOMContentLoaded', () => {
             zoomControl: false // Handled in CSS/Config
         });
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; CARTO',
-            subdomains: 'abcd',
-            maxZoom: 20
+        // CARTO basemaps now require an API key; Esri's dark-gray canvas is keyless
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri',
+            maxZoom: 16
         }).addTo(map);
 
         // Custom Pulsing Radar Icon

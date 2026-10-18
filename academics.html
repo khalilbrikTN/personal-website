@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics &amp; Research | Mohamed Khalil Brik</title>
+    <meta name="description" content="Research, IEEE publications, blog posts, certifications and the academic journey of Mohamed Khalil Brik, AI Engineer and Erasmus Mundus M.Sc. student.">
+    <link rel="canonical" href="https://khalilbriktn.github.io/personal-website/academics.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://khalilbriktn.github.io/personal-website/academics.html">
+    <meta property="og:title" content="Academics &amp; Research | Mohamed Khalil Brik">
+    <meta property="og:description" content="Research, IEEE publications, blog posts, certifications and the academic journey of Mohamed Khalil Brik, AI Engineer and Erasmus Mundus M.Sc. student.">
+    <meta property="og:image" content="https://khalilbriktn.github.io/personal-website/assets/img/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Academics & Research", "description": "Research, IEEE publications, blog posts, certifications and the academic journey of Mohamed Khalil Brik, AI Engineer and Erasmus Mundus M.Sc. student.", "url": "https://khalilbriktn.github.io/personal-website/academics.html", "about": {"@type": "Person", "name": "Mohamed Khalil Brik", "url": "https://khalilbriktn.github.io/personal-website/"}}</script>
+    <link rel="icon" type="image/jpeg" href="assets/img/me.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;600;800&display=swap">
+    <link rel="stylesheet" href="assets/css/main.css?v=7">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+        body { zoom: 95%; }
+
+        /* Page Hero */
+        .ac-hero {
+            padding: 160px 5% 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ac-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .ac-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Quick Nav */
+        .ac-quicknav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 0 5% 5rem;
+        }
+
+        .ac-quicknav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.25s ease;
+        }
+
+        .ac-quicknav a:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: rgba(6, 182, 212, 0.05);
+        }
+
+        /* Sections */
+        .ac-section {
+            padding: 5rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Research Cards */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ac-research-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ac-research-card:hover {
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.07);
+        }
+
+        .ac-research-card .accent-bar {
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+        }
+
+        .ac-research-card .venue {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .ac-research-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .ac-research-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .ac-research-card .read-more {
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s ease;
+        }
+
+        .ac-research-card .read-more:hover { gap: 0.9rem; }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .article-type-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-research { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .badge-blog     { background: rgba(6, 182, 212, 0.15); color: #06b6d4; }
+
+        /* News / Project Cards */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .cert-card-icon {
+            width: 44px; height: 44px;
+            background: rgba(6, 182, 212, 0.08);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cert-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        .cert-card .cert-org {
+            font-size: 0.82rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .cert-card .cert-year {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .cert-card .cert-link {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cert-card .cert-link:hover { text-decoration: underline; }
+
+        .cert-category-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Map */
+        .ac-map-section {
+            padding: 5rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .ac-map-section .inner { max-width: 1200px; margin: 0 auto; }
+
+        .map-container {
+            height: 420px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .ac-hero h1 { font-size: 2.2rem; }
+            .research-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body class="main-page">
+    <script src="assets/js/site-chrome.js?v=2"></script>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+
+
+
+    <!-- Hero -->
+    <div class="ac-hero">
+        <div class="hero-badge" style="margin: 0 auto 1.5rem; width: fit-content;">
+            <span class="badge-dot"></span>
+            Academic Portfolio
+        </div>
+        <h1>Research, Writing <span class="highlight">&amp; Academic Work</span></h1>
+        <p>Publications, blog posts, news, certifications, and the academic journey — all in one place.</p>
+    </div>
+
+    <!-- Quick Nav -->
+    <div class="ac-quicknav">
+        <a href="#research"><i class="fas fa-flask"></i> Research</a>
+        <a href="#blog"><i class="fas fa-pen-nib"></i> Blog</a>
+        <a href="#news"><i class="fas fa-newspaper"></i> News</a>
+        <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="#footprint"><i class="fas fa-map-marker-alt"></i> Footprint</a>
+    </div>
+
+    <!-- Research & Publications -->
+    <section id="research" class="ac-section">
+        <h2 class="section-title">Research &amp; Publications</h2>
+        <div class="research-grid">
+
+            <article class="ac-research-card">
+                <div class="accent-bar" style="background: var(--primary-color);"></div>
+                <span class="venue" style="color: var(--primary-color);">IEEE QCNC 2026</span>
+                <h3>Quantum Optimization for Access Point Selection</h3>
+                <p>Solving infrastructure constraints in dense wireless networks using Quantum-inspired algorithms. Focus on budget-constrained optimization under real-world deployment conditions.</p>
+                <a href="projects/QCNC.html" class="read-more">View Full Paper <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="ac-research-card">
+                <div class="accent-bar" style="background: var(--secondary-color);"></div>
+                <span class="venue" style="color: var(--secondary-color);">ICGHIT 2026</span>
+                <h3>Orbital Intelligence: LLM Training in Space</h3>
+                <p>Exploring sustainable training and inference for Large Language Models on satellite infrastructure. Sustainable compute at orbit — a new frontier for AI scalability.</p>
+                <a href="projects/ICGHIT.html" class="read-more">View Full Paper <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="ac-section">
+        <h2 class="section-title">Blog &amp; Articles</h2>
+        <div class="blog-grid">
+
+            <article class="project-card">
+                <img src="assets/img/logo_qcnc_2025.png" alt="IEEE QCNC 2026" class="project-img" style="object-fit: contain; background: #fff; padding: 1rem;">
+                <div class="card-content">
+                    <span class="article-type-badge badge-research">Research</span>
+                    <span class="project-date">February, 2026</span>
+                    <h3>Quantum Optimization for Access Point Selection Under Budget Constraint</h3>
+                    <a href="projects/QCNC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/orbital_intelligence.png" alt="Orbital Intelligence" class="project-img">
+                <div class="card-content">
+                    <span class="article-type-badge badge-research">Research</span>
+                    <span class="project-date">September, 2025</span>
+                    <h3>Orbital Intelligence: Sustainable LLM Training in Space</h3>
+                    <a href="posts/orbital_intelligence.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/dx_media_reflection.png" alt="DX Reflection" class="project-img">
+                <div class="card-content">
+                    <span class="article-type-badge badge-blog">Reflection</span>
+                    <span class="project-date">December 18, 2025</span>
+                    <h3>Personal Reflections on Digital Transformation in Media</h3>
+                    <a href="posts/dx_reflection.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/number_theory_ml.png" alt="Number Theory ML" class="project-img">
+                <div class="card-content">
+                    <span class="article-type-badge badge-research">Research</span>
+                    <span class="project-date">June, 2025</span>
+                    <h3>Hybrid Feature Engineering for Predicting Number Theoretic Functions</h3>
+                    <a href="posts/number_theory_ml.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/Thesis_cover.png" alt="Thesis" class="project-img">
+                <div class="card-content">
+                    <span class="article-type-badge badge-research">Research</span>
+                    <span class="project-date">December, 2025</span>
+                    <h3>Quantum Optimization in Location Tracking Systems</h3>
+                    <a href="posts/thesis_blog.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/llm_emergency_response.png" alt="LLM Researcher" class="project-img">
+                <div class="card-content">
+                    <span class="article-type-badge badge-research">Research</span>
+                    <span class="project-date">December, 2024</span>
+                    <h3>Using LLMs to Enhance Emergency Response Systems</h3>
+                    <a href="posts/911_paper.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/llm_swe_process.png" alt="LLM SWE" class="project-img">
+                <div class="card-content">
+                    <span class="article-type-badge badge-research">Research</span>
+                    <span class="project-date">September, 2024</span>
+                    <h3>Large Language Models in Software Engineering Processes</h3>
+                    <a href="posts/llm_swe.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- News -->
+    <section id="news" class="ac-section">
+        <h2 class="section-title">News &amp; Updates</h2>
+        <div class="news-grid">
+
+            <article class="project-card">
+                <img src="assets/img/logo_qcnc_2025.png" alt="IEEE QCNC 2026" class="project-img" style="object-fit: contain; background: #fff; padding: 1rem;">
+                <div class="card-content">
+                    <span class="project-date">February, 2026</span>
+                    <h3>Paper Accepted at IEEE QCNC 2026</h3>
+                    <p>Quantum Optimization for Access Point Selection Under Budget Constraint.</p>
+                    <a href="projects/QCNC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/ICGHIT'26.png" alt="ICGHIT 2026" class="project-img" style="object-fit: contain; background: #fff; padding: 1rem;">
+                <div class="card-content">
+                    <span class="project-date">January 8, 2026</span>
+                    <h3>Paper Accepted at ICGHIT 2026</h3>
+                    <p>Orbital Intelligence: Sustainable LLM Training and Inference in Space.</p>
+                    <a href="projects/ICGHIT.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/Deputy_State.jpg" alt="Cairo to DC" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">January, 2026</span>
+                    <h3>From Cairo to D.C.: 104 Years of Diplomatic Ties</h3>
+                    <p>Discussion on Egypt-U.S. relations with U.S. Deputy Secretary of State.</p>
+                    <a href="projects/CairoToDC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/Thesis_pic.jpeg" alt="Thesis" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">December, 2025</span>
+                    <h3>Completed the first part of my Bachelor Thesis</h3>
+                    <p>Research paper and presentation on advanced topics in Data Science/Security.</p>
+                    <a href="projects/Thesis.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/PMP_3.JPG" alt="PMP" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">November, 2025</span>
+                    <h3>Received the Project Management Training</h3>
+                    <p>Received a PM course from the AUC Tomorrow's Leaders Program (MENA).</p>
+                    <a href="projects/TomorrowsLeaders.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/AI_Company_Logo.jpg" alt="The AI Company" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">October, 2025</span>
+                    <h3>Started The AI Company</h3>
+                    <p>Launching The AI Company: Interconnecting data, policy, and real-world impact.</p>
+                    <a href="projects/TheAICompany.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/NCUR1.jpg" alt="NCUR Conference" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">April, 2025</span>
+                    <h3>Participated in the NCUR Conference</h3>
+                    <p>Presented at the National Conference on Undergraduate Research.</p>
+                    <a href="projects/NCUR.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/CFC1.jpg" alt="CFC" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Spring, 2025</span>
+                    <h3>Study Abroad at the College of Charleston</h3>
+                    <p>Engagement and events participation.</p>
+                    <a href="projects/CFC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/Nasa1.jpg" alt="NASA Course" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Spring, 2025</span>
+                    <h3>Joined the NASA Space Mission Design Course</h3>
+                    <p>Space Apps Challenge and specialized training participation.</p>
+                    <a href="projects/NASA_course.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="card-placeholder-img"><i class="fas fa-robot"></i></div>
+                <div class="card-content">
+                    <span class="project-date">December, 2024</span>
+                    <h3>Researcher in Large Language Models</h3>
+                    <p>Exploration and development with Large Language Models.</p>
+                    <a href="projects/llm-researcher.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/Adib1.jpg" alt="ADIB Internship" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Summer, 2024</span>
+                    <h3>Software Engineering intern at ADIB Egypt</h3>
+                    <p>Identity Access Management and Process Automation.</p>
+                    <a href="projects/ADIB.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/Diaspura.png" alt="Diaspura" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">Spring, 2024</span>
+                    <h3>Chat bot development intern at Diaspura</h3>
+                    <p>Chat bot development using LLMs.</p>
+                    <a href="projects/Diaspura.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/ECPC.jpg" alt="ECPC" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">October, 2023</span>
+                    <h3>Participated in ECPC Contests</h3>
+                    <p>Participated in the Egyptian Collegiate Programming Contest.</p>
+                    <a href="projects/ECPC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/aspire.jpg" alt="Harvard Aspire" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">March, 2023</span>
+                    <h3>Finished the Harvard Aspire Leaders Program</h3>
+                    <p>Stage 3 completion: Leadership in volatile environments.</p>
+                    <a href="projects/HarvardAspire.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/AUC1.jpg" alt="AUC" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">September, 2022</span>
+                    <h3>Joined the American University in Cairo</h3>
+                    <p>Academic achievements and activities at the American University in Cairo.</p>
+                    <a href="projects/AUC.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="assets/img/bac.png" alt="Baccalaureate" class="project-img">
+                <div class="card-content">
+                    <span class="project-date">June, 2022</span>
+                    <h3>Received my Baccalaureate Certificate</h3>
+                    <p>High school achievements and foundational education.</p>
+                    <a href="projects/Bac.html" class="read-more">Read More</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="ac-section">
+        <h2 class="section-title">Certifications</h2>
+
+        <p class="cert-category-label">Featured</p>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>TOEFL iBT (Score: 106/120)</h3>
+                <div class="cert-org">ETS</div>
+                <div class="cert-year">2025</div>
+                <a href="https://drive.google.com/file/d/1sBBl3L8ggYmsQt2f_VQFIEypIGkyZPh7/view?usp=sharing" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fas fa-award"></i></div>
+                <h3>Community Engagement Certificate</h3>
+                <div class="cert-org">Tomorrow's Leaders Program</div>
+                <div class="cert-year">2025</div>
+                <a href="https://badgr.com/public/assertions/ooxRST2-Sgqm2pR8rjsrVg?identity__email=mohamedkhalil.brik@aucegypt.edu" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h3>Responsible Conduct of Research</h3>
+                <div class="cert-org">Institute of Health (USA)</div>
+                <div class="cert-year">2020</div>
+                <a href="assets/docs/AoU CertOfCompletion-DYNAMIC-Source.pdf" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+
+        <p class="cert-category-label">Data Science &amp; Programming</p>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fab fa-git-alt"></i></div>
+                <h3>Version Control</h3>
+                <div class="cert-org">Meta</div>
+                <div class="cert-year">2023</div>
+                <a href="https://coursera.org/verify/PGPF4YVW377G" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Introduction to Data Science in Python</h3>
+                <div class="cert-org">University of Michigan</div>
+                <div class="cert-year">2020</div>
+                <a href="https://coursera.org/verify/3UCNDUBFEVY6" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fab fa-python"></i></div>
+                <h3>Python for Data Science &amp; AI</h3>
+                <div class="cert-org">IBM</div>
+                <div class="cert-year">2020</div>
+                <a href="https://coursera.org/verify/K8AGGPSNJWVP" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fas fa-database"></i></div>
+                <h3>Databases and SQL for Data Science</h3>
+                <div class="cert-org">IBM</div>
+                <div class="cert-year">2020</div>
+                <a href="https://coursera.org/verify/S7UN2EVDHUT4" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>Data Science Methodology</h3>
+                <div class="cert-org">IBM</div>
+                <div class="cert-year">2020</div>
+                <a href="https://coursera.org/verify/9T6CLX8C9NW2" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="cert-card">
+                <div class="cert-card-icon"><i class="fas fa-tools"></i></div>
+                <h3>Tools for Data Science</h3>
+                <div class="cert-org">IBM</div>
+                <div class="cert-year">2020</div>
+                <a href="https://www.coursera.org/account/accomplishments/verify/3V665T4R3MZA" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="certifications.html" class="view-archive-btn">View full certification archive <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section id="footprint" class="ac-map-section">
+        <div class="inner">
+            <h2 class="section-title">Academic &amp; Research Footprint</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-top: -1.5rem;">Countries and institutions where research, collaboration, and academic exchange have taken place.</p>
+            <div id="map" class="map-container"></div>
+        </div>
+    </section>
+
+    <footer class="footer" data-site-footer><p>&copy; Mohamed Khalil Brik</p></footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="assets/js/main.js?v=5"></script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+{
+ "k": 3,
+ "scripts": [
+  {
+   "id": "why-hire",
+   "chip": "Why hire Khalil?",
+   "q": "Why hire Khalil as an AI engineer? Production LLM agents and RAG systems with real users",
+   "queryPoint": [
+    0.418,
+    0.97
+   ],
+   "hits": [
+    {
+     "ref": "aico",
+     "score": 0.57,
+     "point": 1,
+     "title": "The AI Company: 3 production AI agents",
+     "metric": "500+ users · LangChain, ChromaDB, FastAPI",
+     "href": "#xp-aico"
+    },
+    {
+     "ref": "stack",
+     "score": 0.42,
+     "point": 30,
+     "title": "LLM engineering stack",
+     "metric": "LangChain · LlamaIndex · LLaMA · LoRA · RAG",
+     "href": "#skills"
+    },
+    {
+     "ref": "ey",
+     "score": 0.4,
+     "point": 56,
+     "title": "EY: ML & data engineering",
+     "metric": "$500K investment informed",
+     "href": "#xp-ey"
+    }
+   ],
+   "answer": "Khalil co-founded The AI Company and shipped three production AI agents (accounting RAG, CV screening, HR) used by 500+ people [1]; works with LangChain, LlamaIndex, LLaMA fine-tuning with LoRA, RAG and vector databases [2]; and built an ML vendor-recommendation system at EY that informed a $500K AI platform investment [3]."
+  },
+  {
+   "id": "production",
+   "chip": "Production experience?",
+   "q": "Has Khalil deployed LLM and RAG systems to production for real users?",
+   "queryPoint": [
+    0.39,
+    0.97
+   ],
+   "hits": [
+    {
+     "ref": "diaspura",
+     "score": 0.56,
+     "point": 16,
+     "title": "diasPÜra: RAG chatbot on AWS",
+     "metric": "1,000+ users · still live",
+     "href": "#xp-diaspura"
+    },
+    {
+     "ref": "aico",
+     "score": 0.47,
+     "point": 12,
+     "title": "The AI Company: 3 production AI agents",
+     "metric": "500+ users · LangChain, ChromaDB, FastAPI",
+     "href": "#xp-aico"
+    },
+    {
+     "ref": "stack",
+     "score": 0.46,
+     "point": 30,
+     "title": "LLM engineering stack",
+     "metric": "LangChain · LlamaIndex · LLaMA · LoRA · RAG",
+     "href": "#skills"
+    }
+   ],
+   "answer": "Khalil built and deployed a LLaMA RAG chatbot on AWS that still serves 1,000+ users [1]; co-founded The AI Company and shipped three production AI agents (accounting RAG, CV screening, HR) used by 500+ people [2]; and works with LangChain, LlamaIndex, LLaMA fine-tuning with LoRA, RAG and vector databases [3]."
+  },
+  {
+   "id": "research",
+   "chip": "Research?",
+   "q": "Research publications: accepted IEEE conference papers",
+   "queryPoint": [
+    0.929,
+    0.597
+   ],
+   "hits": [
+    {
+     "ref": "orbital",
+     "score": 0.38,
+     "point": 44,
+     "title": "IEEE ICGHIT 2026: Orbital Intelligence",
+     "metric": "sustainable LLM training",
+     "href": "#pub-icghit"
+    },
+    {
+     "ref": "thesis",
+     "score": 0.28,
+     "point": 38,
+     "title": "IEEE QCNC 2026: quantum AP selection",
+     "metric": "first author · −90.4% features",
+     "href": "#pub-qcnc"
+    },
+    {
+     "ref": "msc",
+     "score": 0.26,
+     "point": 55,
+     "title": "Education: Erasmus Mundus M.Sc. · AUC B.Sc.",
+     "metric": "Advanced ML & optimisation · GPA 3.7",
+     "href": "#education"
+    }
+   ],
+   "answer": "Khalil published an IEEE ICGHIT paper on sustainable LLM training and inference in orbit [1]; is first author of an IEEE QCNC paper that cut WiFi localisation features by 90.4% with QUBO optimisation on D-Wave [2]; and is doing an Erasmus Mundus M.Sc. in advanced ML and optimisation in Genova and Compiègne [3]."
+  },
+  {
+   "id": "remote",
+   "chip": "Remote work?",
+   "q": "Can Khalil work remotely? Location, time zone and availability",
+   "queryPoint": [
+    0.667,
+    0.97
+   ],
+   "hits": [
+    {
+     "ref": "about",
+     "score": 0.64,
+     "point": 67,
+     "title": "Based in Genova, Italy (CET)",
+     "metric": "remote · available now",
+     "href": "#contact"
+    },
+    {
+     "ref": "diaspura",
+     "score": 0.46,
+     "point": 19,
+     "title": "diasPÜra: RAG chatbot on AWS",
+     "metric": "1,000+ users · still live",
+     "href": "#xp-diaspura"
+    },
+    {
+     "ref": "thesis",
+     "score": 0.32,
+     "point": 39,
+     "title": "IEEE QCNC 2026: quantum AP selection",
+     "metric": "first author · −90.4% features",
+     "href": "#pub-qcnc"
+    }
+   ],
+   "answer": "Khalil is based in Genova, Italy (CET), open to fully remote work and available immediately [1]; built and deployed a LLaMA RAG chatbot on AWS that still serves 1,000+ users [2]; and is first author of an IEEE QCNC paper that cut WiFi localisation features by 90.4% with QUBO optimisation on D-Wave [3]."
+  },
+  {
+   "id": "stack",
+   "chip": "Tech stack?",
+   "q": "Which LLM frameworks and tools does Khalil use?",
+   "queryPoint": [
+    0.373,
+    0.97
+   ],
+   "hits": [
+    {
+     "ref": "stack",
+     "score": 0.6,
+     "point": 30,
+     "title": "LLM engineering stack",
+     "metric": "LangChain · LlamaIndex · LLaMA · LoRA · RAG",
+     "href": "#skills"
+    },
+    {
+     "ref": "aico",
+     "score": 0.36,
+     "point": 2,
+     "title": "The AI Company: 3 production AI agents",
+     "metric": "500+ users · LangChain, ChromaDB, FastAPI",
+     "href": "#xp-aico"
+    },
+    {
+     "ref": "diaspura",
+     "score": 0.32,
+     "point": 14,
+     "title": "diasPÜra: RAG chatbot on AWS",
+     "metric": "1,000+ users · still live",
+     "href": "#xp-diaspura"
+    }
+   ],
+   "answer": "Khalil works with LangChain, LlamaIndex, LLaMA fine-tuning with LoRA, RAG and vector databases [1]; co-founded The AI Company and shipped three production AI agents (accounting RAG, CV screening, HR) used by 500+ people [2]; and built and deployed a LLaMA RAG chatbot on AWS that still serves 1,000+ users [3]."
+  }
+ ]
+}
